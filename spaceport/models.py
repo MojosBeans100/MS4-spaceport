@@ -22,10 +22,11 @@ output = (
 )
 
 
+# list of all pipelines created by all users
 class List(models.Model):
 
     # user parameters
-    pipeline_name = models.CharField(max_length=30, unique=True)
+    pipeline_name = models.CharField(max_length=30)
     pipeline_des = models.CharField(max_length=200, blank=True)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -44,8 +45,46 @@ class List(models.Model):
     num_images = models.PositiveIntegerField()
     results_updated = models.DateTimeField()
 
+    # list pipelines by latest created
     class Meta:
         ordering = ['-date_created']
 
+    # list pipelines by their name
     def __str__(self):
         return self.pipeline_name
+
+
+# list of all results created for all pipelines
+class Result(models.Model):
+
+    pipeline_id = models.ForeignKey(List, on_delete=models.CASCADE)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
+    api_pipeline_id = models.CharField(max_length=100)
+    output_id = models.CharField(max_length=100)
+    status = models.CharField(max_length=100)
+    message = models.CharField(max_length=100)
+    interval_start_date = models.DateField()
+    interval_end_date = models.DateField()
+    
+    # if an image is available for this result
+    # blank = True to allow for if no images are returned
+    image_created_at = models.DateTimeField(blank=True)
+    image_updated_at = models.DateTimeField(blank=True)
+    image_previous_url = models.CharField(max_length=400, blank=True)
+    image_visual_url = models.CharField(max_length=400, blank=True)
+    image_analytics_url = models.CharField(max_length=400, blank=True)
+    image_metadata_url = models.CharField(max_length=400, blank=True)
+    image_size = models.CharField(max_length=10, blank=True)
+    image_valid_pixels_per = models.CharField(max_length=10, blank=True)
+    image_source = models.CharField(max_length=60, blank=True)
+
+    # image metadata
+    scene_height = models.CharField(max_length=40, blank=True)
+    scene_width = models.CharField(max_length=40, blank=True)
+    filled_area = models.CharField(max_length=40, blank=True)
+    aoi_area_per = models.CharField(max_length=40, blank=True)
+    cloud_cover_per = models.CharField(max_length=40, blank=True)
+    aoi_cloud_cover_per = models.CharField(max_length=40, blank=True)
+    visible_area = models.CharField(max_length=40, blank=True)
+    aoi_visible_area_per = models.CharField(max_length=40, blank=True)
