@@ -1,4 +1,22 @@
 from django.contrib import admin
 from .models import List, Result
 
-# Register your models here.
+ @admin.register(List)
+ class ListAdmin(admin.ModelAdmin):
+     list_display = (
+         'id',
+         'pipeline_name',
+         'created_by',
+         'aoi',
+         'date_created',
+     )
+
+@admin.register(Result)
+class ResultAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'pipeline_id',
+        'status',
+        'interval_start_date',
+        'interval_end_date',
+    )
