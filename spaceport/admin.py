@@ -1,15 +1,17 @@
 from django.contrib import admin
 from .models import List, Result
 
- @admin.register(List)
- class ListAdmin(admin.ModelAdmin):
-     list_display = (
+@admin.register(List)
+class ListAdmin(admin.ModelAdmin):
+    list_display = (
          'id',
          'pipeline_name',
          'created_by',
          'aoi',
          'date_created',
-     )
+    )
+
+    prepopulated_fields = {'slug': ('pipeline_name',)}
 
 @admin.register(Result)
 class ResultAdmin(admin.ModelAdmin):

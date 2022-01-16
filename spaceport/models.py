@@ -37,6 +37,7 @@ class List(models.Model):
     cloud_cover = models.CharField(max_length=10)
 
     # auto generated parameters
+    slug = models.SlugField(max_length=200)
     num_intervals = models.PositiveIntegerField(default=0)
     date_created = models.DateField(default=timezone.now)
     aoi_area = models.CharField(max_length=10)
