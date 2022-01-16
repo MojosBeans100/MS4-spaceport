@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.safestring import mark_safe
+from cloudinary.models import CloudinaryField
 
 # api interval options
 interval = (
@@ -36,6 +37,7 @@ class List(models.Model):
     cloud_cover = models.CharField(max_length=10)
 
     # auto generated parameters
+    num_intervals = models.PositiveIntegerField(default=0)
     date_created = models.DateField(default=timezone.now)
     aoi_area = models.CharField(max_length=10)
     created_by = models.CharField(max_length=100)
