@@ -134,6 +134,9 @@ def create(request):
                 current_list.status = 'pending'
                 current_list.api_id = api_id
                 current_list.save()
+
+                # direct user to detail view of this model
+                #return redirect(reverse('detail_view', args=[id]))
                 
         # if form is not valid
         # return to form
@@ -147,3 +150,31 @@ def create(request):
     }
 
     return render(request, 'create_pipeline.html', context)
+
+
+def my_pipelines(request):
+
+    user = str(request.user)
+
+    active_pipelines = List.objects.filter(status='active', created_by=user).order_by('date_created')
+    complete_pipelines = List.objects.filter(status='complete', created_by=user).order_by('date_created')
+    pending_pipelines = List.objects.filter(status='pending', created_by=user).order_by('date_created')
+    saved_pipelines = List.objects.filter(status='saved', created_by=user).order_by('date_created')
+
+    num_active_pipelines = len(active_pipelines)
+    num_complete_pipelines = len(complete_pipelines)
+    num_pending_pipelines = len(pending_pipelines)
+    num_saved_pipelines = len(saved_pipelines)
+
+    context = {
+        'active': active_pipelines,
+        'complete': complete_pipelines,
+        'pending': pending_pipelines,
+        'saved': saved_pipelines,
+        'active_num': num_active_pipelines,
+        'complete_num': num_complete_pipelines,
+        'pending_num': num_pending_pipelines,
+        'saved_num': num_saved_pipelines,
+    }
+
+    return render(request, 'my_pipelines.html', context)
