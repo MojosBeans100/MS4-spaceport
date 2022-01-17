@@ -9,7 +9,9 @@
 
 <div class="container-fluid">
     <form action="" method="POST" id="create_form">
-
+        {% csrf_token%}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
     </form>
 </div>
 

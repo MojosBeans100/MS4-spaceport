@@ -3,6 +3,7 @@ import requests
 from django.conf import settings
 from django.contrib.auth.models import User
 import os
+from .forms import CreateList
 
 
 mapbox_key = os.environ.get('MAPBOX_KEY', '')
@@ -14,4 +15,11 @@ def homepage(request):
 
 # create a pipeline
 def create(request):
-    return render(request, 'create_pipeline.html')
+
+    form = CreateList()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'create_pipeline.html', context)

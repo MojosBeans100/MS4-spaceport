@@ -47,6 +47,7 @@ class List(models.Model):
     num_results = models.PositiveIntegerField()
     num_images = models.PositiveIntegerField()
     results_updated = models.DateTimeField()
+    featured_image = models.CharField(max_length=400)
 
     # list pipelines by latest created
     class Meta:
