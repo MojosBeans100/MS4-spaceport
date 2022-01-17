@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 import requests
 from django.conf import settings
+from django.contrib.auth.models import User
 import os
 
 
@@ -9,10 +10,4 @@ skywatch_key = os.environ.get('SKYWATCH_KEY', '')
 
 # display the homepage
 def homepage(request):
-
-    context = {
-        'mapbox': mapbox_key,
-        'skywatch': skywatch_key
-    }
-
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
