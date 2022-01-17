@@ -17,6 +17,9 @@
     {% else %}
     <a href="{% url 'account_login' %}">Login</a>
     {% endif %}
+
+    {% block content %}
+    {% endblock content %}
   
 </body>
 </html>

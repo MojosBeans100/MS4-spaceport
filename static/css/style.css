@@ -1,2 +1,14 @@
 
+/* GENERAL STYLING */
+body {
+    background-color:rgb(250, 251, 255);
+}
 
+/* CREATE PIPELINE STYLING */
+#create_form {
+    background-color: white;
+    box-shadow: 0 0 3px rgb(177, 177, 177);
+    width: 70%;
+    margin: 50px auto;
+    height: 600px;
+}
