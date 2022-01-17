@@ -104,13 +104,31 @@ def create(request):
 
                 print(post_response)
 
-            except: 
+            # don't use bare except
+            except:
                 print("Couldn't reach API")
+                # redirect to page saying api could not be found
+
+            # if the api returns errors in returning a response,
+            # redirect to form page with error message
+            # (should not happen due to form validation, Django + JS)
+            if 'errors' in post_response or 'error' in post_response:
+
+                form = createList(request.POST)
+                # error message
+
+                context = {
+                    'form': form,
+                    # error message
+                }
+
+
+                
 
         # if form is not valid
         # return to form
         else:
-            print("NOT VALID")
+            print('NOT VALID')
 
     #form = CreateList()
 
