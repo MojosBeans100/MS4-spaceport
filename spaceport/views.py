@@ -16,20 +16,23 @@ def homepage(request):
 # save the form
 def save(request):
 
-    form = CreateList()
-    
+    form = CreateList(request.POST)
+
     # if the form is valid, save it
     if form.is_valid():
-        #form.save()
+        #form.save(commit=False)
         print("is valid")
     
     # if it's not valid, return to form
     else:
+
+        print(form)
        
         context = {
             'form': form,
             'validation': 'Form not valid',
         }
+
         return render(request, 'create_pipeline.html', context)
 
     return render(request, 'save.html')
@@ -37,20 +40,62 @@ def save(request):
 # create a pipeline
 def create(request):
 
-    form = CreateList()
+    # current logged in user
     user = str(request.user)
 
+    # if user posts the form
     if request.method == 'POST':
 
+        # fill in form details with users values
         form = CreateList(request.POST)
 
+        # if form is valid, save as object and call the pipeline
+        # fill in other fields of object
+        # redirect to detail view of object
         if form.is_valid():
-            print(form)
-            #form.save()
+            
+            #form.save(commit=False)
+            print(form.cleaned_data['pipeline_name'])
+            # add other fields
+            #model.slug = slugify(pipeline_name)
 
+            # api url
+            url = 'https://api.skywatch.co/earthcache/pipelines'
+
+            # api parameters required
+            params = {
+                'name': form.cleaned_data['pipeline_name'],
+                'interval': form.cleaned_data['interval'],
+                'start_date': str(form.cleaned_data['start_date']),
+                'output': {
+                    'id': form.cleaned_data['output_image'],
+                    'format': 'geotiff',
+                    'mosaic': 'off'
+                },
+                'end_date': str(form.cleaned_data['end_date']),
+                'aoi': form.cleaned_data['aoi'],
+                'max_cost': 0,
+                'min_aoi_coverage_percentage': 50,
+                'result_delivery': {
+                    'max_latency': '0d',
+                    'priorities': [
+                        'latest',
+                        'highest_resolution',
+                        'lowest_cost'
+                    ]
+                },
+                'resolution_low': 30,
+                'resolution_high': 10,
+                'tags': []
+            }
+
+
+        # if form is not valid
+        # return to form
         else:
-
             print("NOT VALID")
+
+    #form = CreateList()
 
     context = {
         'form': form,
