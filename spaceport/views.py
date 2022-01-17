@@ -59,6 +59,9 @@ def create(request):
             # add other fields
             #model.slug = slugify(pipeline_name)
 
+            # put aoi into correct format
+            format_aoi = form.cleaned_data['aoi']['features'][0]['geometry']
+
             # api url
             url = 'https://api.skywatch.co/earthcache/pipelines'
 
@@ -73,7 +76,7 @@ def create(request):
                     'mosaic': 'off'
                 },
                 'end_date': str(form.cleaned_data['end_date']),
-                'aoi': form.cleaned_data['aoi'],
+                'aoi': format_aoi,
                 'max_cost': 0,
                 'min_aoi_coverage_percentage': 50,
                 'result_delivery': {
@@ -89,6 +92,20 @@ def create(request):
                 'tags': []
             }
 
+            print(params)
+
+            # post the pipeline to the api
+            try:
+                post_pipeline = requests.post(
+                    url,
+                    headers={'x-api-key': skywatch_key},
+                    json=params)
+                post_response = post_pipeline.json()
+
+                print(post_response)
+
+            except: 
+                print("Couldn't reach API")
 
         # if form is not valid
         # return to form
