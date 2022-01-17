@@ -13,6 +13,27 @@ skywatch_key = os.environ.get('SKYWATCH_KEY', '')
 def homepage(request):
     return render(request, 'index.html')
 
+# save the form
+def save(request):
+
+    form = CreateList()
+    
+    # if the form is valid, save it
+    if form.is_valid():
+        #form.save()
+        print("is valid")
+    
+    # if it's not valid, return to form
+    else:
+       
+        context = {
+            'form': form,
+            'validation': 'Form not valid',
+        }
+        return render(request, 'create_pipeline.html', context)
+
+    return render(request, 'save.html')
+
 # create a pipeline
 def create(request):
 

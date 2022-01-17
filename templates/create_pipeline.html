@@ -11,7 +11,9 @@
     <form action="" method="POST" id="create_form">
         {% csrf_token%}
         {{form.as_p}}
+        {{validation}}
         <button type="submit">Submit</button>
+        <button type="button" onclick="location.href='{% url 'save' %}'">Save</button>
     </form>
 </div>
 
