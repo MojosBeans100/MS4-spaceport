@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import List, Result
 
+
 @admin.register(List)
 class ListAdmin(admin.ModelAdmin):
     list_display = (
@@ -12,6 +13,7 @@ class ListAdmin(admin.ModelAdmin):
     )
 
     prepopulated_fields = {'slug': ('pipeline_name',)}
+
 
 @admin.register(Result)
 class ResultAdmin(admin.ModelAdmin):

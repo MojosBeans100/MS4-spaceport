@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, reverse
 import requests
 from django.conf import settings
 from django.contrib.auth.models import User
+from .models import List, Result
 import os
 from .forms import CreateList
+from slugify import slugify
 
 
 mapbox_key = os.environ.get('MAPBOX_KEY', '')
@@ -53,12 +55,7 @@ def create(request):
         # fill in other fields of object
         # redirect to detail view of object
         if form.is_valid():
-            
-            #form.save(commit=False)
-            print(form.cleaned_data['pipeline_name'])
-            # add other fields
-            #model.slug = slugify(pipeline_name)
-
+           
             # put aoi into correct format
             format_aoi = form.cleaned_data['aoi']['features'][0]['geometry']
 
@@ -114,7 +111,7 @@ def create(request):
             # (should not happen due to form validation, Django + JS)
             if 'errors' in post_response or 'error' in post_response:
 
-                form = createList(request.POST)
+                form = CreateList(request.POST)
                 # error message
 
                 context = {
@@ -122,15 +119,28 @@ def create(request):
                     # error message
                 }
 
+            # if no errors in api response,
+            # save form as object and fill in other fields
+            else:
 
+                form.save()
+
+                # get the object id
+                current_list = List.objects.latest('id')
+
+                api_id = post_response['data']['id']
+                #current_list.slug = slugify(pipeline_name)
+                current_list.created_by = user
+                current_list.status = 'pending'
+                current_list.api_id = api_id
+                current_list.save()
                 
-
         # if form is not valid
         # return to form
         else:
             print('NOT VALID')
 
-    #form = CreateList()
+    form = CreateList()
 
     context = {
         'form': form,
