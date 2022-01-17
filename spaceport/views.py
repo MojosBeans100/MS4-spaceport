@@ -38,6 +38,19 @@ def save(request):
 def create(request):
 
     form = CreateList()
+    user = str(request.user)
+
+    if request.method == 'POST':
+
+        form = CreateList(request.POST)
+
+        if form.is_valid():
+            print(form)
+            #form.save()
+
+        else:
+
+            print("NOT VALID")
 
     context = {
         'form': form,

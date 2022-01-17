@@ -37,17 +37,19 @@ class List(models.Model):
     cloud_cover = models.CharField(max_length=10)
 
     # auto generated parameters
-    slug = models.SlugField(max_length=200)
-    num_intervals = models.PositiveIntegerField(default=0)
-    date_created = models.DateField(default=timezone.now)
-    aoi_area = models.CharField(max_length=10)
-    created_by = models.CharField(max_length=100)
-    status = models.CharField(max_length=30)
-    api_id = models.CharField(max_length=100)
-    num_results = models.PositiveIntegerField()
-    num_images = models.PositiveIntegerField()
-    results_updated = models.DateTimeField()
-    featured_image = models.CharField(max_length=400)
+    # accept null as many of these parameters are input after
+    # form is submitted
+    slug = models.SlugField(max_length=200, null=True)
+    num_intervals = models.PositiveIntegerField(default=0, null=True)
+    date_created = models.DateField(default=timezone.now, null=True)
+    aoi_area = models.CharField(max_length=10, null=True)
+    created_by = models.CharField(max_length=100, null=True)
+    status = models.CharField(max_length=30, null=True)
+    api_id = models.CharField(max_length=100, null=True)
+    num_results = models.PositiveIntegerField(null=True)
+    num_images = models.PositiveIntegerField(null=True)
+    results_updated = models.DateTimeField(null=True)
+    featured_image = models.CharField(max_length=400, null=True)
 
     # list pipelines by latest created
     class Meta:
