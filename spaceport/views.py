@@ -20,12 +20,20 @@ def homepage(request):
     return render(request, 'index.html')
 
 
-# display the edit pipeline page
-def edit_page(request, id):
+# edit the pipeline (UPDATE)
+def edit(request, id):
 
     this_pipeline = List.objects.get(id=id)
 
     form = CreateList(instance=this_pipeline)
+
+    if request.method == 'POST':
+
+        form = CreateList(request.POST, instance=this_pipeline)
+        print(form)
+        form.save()
+
+        return redirect(reverse('detail_view', args=[id]))
 
     context = {
         'form': form,
@@ -112,19 +120,19 @@ def create(request):
             print(params)
 
             # post the pipeline to the api
-            try:
-                post_pipeline = requests.post(
-                    url,
-                    headers={'x-api-key': skywatch_key},
-                    json=params)
-                post_response = post_pipeline.json()
+            # try:
+            #     post_pipeline = requests.post(
+            #         url,
+            #         headers={'x-api-key': skywatch_key},
+            #         json=params)
+            #     post_response = post_pipeline.json()
 
-                print(post_response)
+            #     print(post_response)
 
-            # don't use bare except
-            except:
-                print("Couldn't reach API")
-                # redirect to page saying api could not be found
+            # # don't use bare except
+            # except:
+            #     print("Couldn't reach API")
+            #     # redirect to page saying api could not be found
 
             # if the api returns errors in returning a response,
             # redirect to form page with error message
@@ -211,14 +219,6 @@ def detail_view(request, id):
     }
 
     return render(request, 'detail_view.html', context)
-
-
-# edit the pipeline (UPDATE)
-def edit(request, id):
-
-    print("EDITING")
-
-    return redirect(reverse('detail_view', args=[id]))
 
 
 # delete the pipeline (both from models & in api) (DELETE)

@@ -10,10 +10,11 @@
 <div class="container-fluid">
     <form action="" method="POST" id="create_form">
         {% csrf_token%}
-        {{form.pipeline_name}}
-        {{form.pipeline_des}}
+        <!-- {{form.pipeline_name}}
+        {{form.pipeline_des}} -->
+        {{form.as_p}}
         {{validation}}
-        <button type="button" onclick="location.href='{% url 'save' %}'">Save</button>
+        <button type="submit">Save</button>
     </form>
 </div>
 
