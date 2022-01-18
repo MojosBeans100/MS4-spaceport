@@ -22,6 +22,21 @@ body {
     height: 600px;
 }
 
+/* MY PIPELINES STYLING */
+#my_pipelines_container{
+    background-color: rgb(250, 251, 255);
+}
+
+#my_pipelines_blurb {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 70px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    height: auto;
+    text-align: center;
+}
+
 
 /* DETAIL VIEW STYLING */
 #detail-view-container {

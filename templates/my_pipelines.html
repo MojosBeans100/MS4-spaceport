@@ -9,8 +9,46 @@
 
 {% if user.is_authenticated %}
 
+<div id="my_pipelines_container" class="container-fluid">
+    <div id="my_pipelines_blurb">
+        <h3>MY PIPELINES</h3>
+        <p>See a list below of all your current pipelines, ordered by status</p>
 
+        {% if active_num == 0 and complete_num == 0 and pending_num == 0 %}
+        <div>
+            <h4>You currently have no pipelines</h4>
+            <br>
+            <h6>Learn more about creating a pipeline here</h6>
+            <h6>Create a new pipeline here</h6>
+        </div>
+        {% else %}
+        <div class="row px-5">
+            <div class="col">
+                <div><a href="#" class="status_buttons">Active ({{active_num}})</a></div>
+                <p>pipelines currently searching for images</p>
+            </div>
 
+            <div class="col">
+                <div><a href="#" class="status_buttons">Complete ({{complete_num}})</a></div>
+                <p>pipelines which have completed all intervals</p>
+            </div>
+
+            <div class="col">
+                <div><a href="#" class="status_buttons">Pending ({{pending_num}})</a></div>
+                <p>recently created pipelines still gathering information</p>
+            </div>
+
+            <div class="col">
+                <div><a href="#" class="status_buttons">Saved ({{saved_num}})</a></div>
+                <p>saved 'Create Pipeline' forms not yet submitted</p>
+            </div>
+
+        </div>
+        
+
+    </div>
+</div>
+{% endif %}
 
 {% else %}
 {% endif %}
