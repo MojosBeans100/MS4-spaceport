@@ -10,6 +10,7 @@
 <div id="detail-view-container" class="container-fluid">
 
     <a href="{% url 'edit_pipeline' pipeline.id %}">EDIT</a>
+    <a href="{% url 'delete_view' pipeline.id %}">DELETE</a>
 
     <p>{{pipeline.results_updated}}</p>
 

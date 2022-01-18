@@ -243,7 +243,7 @@ def delete(request, id):
     ## try except
     # delete from api
     url = (f'https://api.skywatch.co/earthcache/pipelines/{pipeline_id}')
-    
+
     delete_pipeline = requests.delete(
         url,
         headers={
@@ -263,12 +263,12 @@ def delete(request, id):
     # delete object
     object_to_delete.delete() 
 
-    #return redirect(reverse('pipeline_deleted', args=[id]))
+    # return redirect(reverse('pipeline_deleted', args=[id]))
     return render(request, 'my_pipelines.html')
 
 
 # display the delete page
-def delete_view(request,id):
+def delete_view(request, id):
 
     # get pipeline to delete
     pipeline = List.objects.get(id=id)
