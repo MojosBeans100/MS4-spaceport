@@ -23,25 +23,25 @@
             <h6>Create a new pipeline here</h6>
         </div>
         {% else %}
-        <div class="row px-5">
+        <div class="row px-2 py-4">
             <div class="col">
-                <div><a href="#" class="status_buttons">Active ({{active_num}})</a></div>
-                <p>pipelines currently searching for images</p>
+                <div><a class="pipelines_links" href="#" class="status_buttons">Active ({{active_num}})</a></div>
+                <p><small>pipelines currently searching for images</small></p>
             </div>
 
             <div class="col">
-                <div><a href="#" class="status_buttons">Complete ({{complete_num}})</a></div>
-                <p>pipelines which have completed all intervals</p>
+                <div><a class="pipelines_links" href="#" class="status_buttons">Complete ({{complete_num}})</a></div>
+                <p><small>pipelines which have completed all intervals</small></p>
             </div>
 
             <div class="col">
-                <div><a href="#" class="status_buttons">Pending ({{pending_num}})</a></div>
-                <p>recently created pipelines still gathering information</p>
+                <div><a class="pipelines_links" href="#" class="status_buttons">Pending ({{pending_num}})</a></div>
+                <p><small>recently created pipelines still gathering information</small></p>
             </div>
 
             <div class="col">
-                <div><a href="#" class="status_buttons">Saved ({{saved_num}})</a></div>
-                <p>saved 'Create Pipeline' forms not yet submitted</p>
+                <div><a class="pipelines_links" href="#" class="status_buttons">Saved ({{saved_num}})</a></div>
+                <p><small>saved 'Create Pipeline' forms not yet submitted</small></p>
             </div>
         </div>
     </div>
@@ -54,14 +54,16 @@
 
             <div class="row">
                 {% for pipeline in active %}
-                <div class="card p-2 mx-auto" class="pipeline_card">
-                    <a href="{% url 'detail_view' pipeline.id %}">
-                        <img class="card-img-top" src="{{pipeline.featured_image}}" alt="pipeline image"></a>
-                    <div class="card-body">
-                        <p>{{pipeline.date_created}}</p>
-                        <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
-                        <p class="card-text">{{pipeline.pipeline_des}}</p>
-                        <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                <div class="col mx-2">
+                    <div class="card" id="pipeline_card">
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                        <div class="card-body">
+                            <p>{{pipeline.date_created}}</p>
+                            <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
+                            <p class="card-text">{{pipeline.pipeline_des}}</p>
+                            <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -72,16 +74,18 @@
             <h1>COMPLETE ({{complete_num}})</h1>
             <hr>
 
-            <div class="row">
+            <div class="row d-flex justify-content-around">
                 {% for pipeline in complete %}
-                <div class="card p-2 mx-auto" class="pipeline_card">
-                    <a href="{% url 'detail_view' pipeline.id %}">
-                        <img class="card-img-top" src="{{pipeline.featured_image}}" alt="pipeline image"></a>
-                    <div class="card-body">
-                        <p>{{pipeline.date_created}}</p>
-                        <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
-                        <p class="card-text">{{pipeline.pipeline_des}}</p>
-                        <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                <div class="col mx-2">
+                    <div class="card" id="pipeline_card">
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                        <div class="card-body">
+                            <p>{{pipeline.date_created}}</p>
+                            <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
+                            <p class="card-text">{{pipeline.pipeline_des}}</p>
+                            <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -94,14 +98,16 @@
 
             <div class="row">
                 {% for pipeline in pending %}
-                <div class="card p-2 mx-auto" class="pipeline_card">
-                    <a href="{% url 'detail_view' pipeline.id %}">
-                        <img class="card-img-top" src="{{pipeline.featured_image}}" alt="pipeline image"></a>
-                    <div class="card-body">
-                        <p>{{pipeline.date_created}}</p>
-                        <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
-                        <p class="card-text">{{pipeline.pipeline_des}}</p>
-                        <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                <div class="col mx-2">
+                    <div class="card" class="pipeline_card">
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                        <div class="card-body">
+                            <p>{{pipeline.date_created}}</p>
+                            <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
+                            <p class="card-text">{{pipeline.pipeline_des}}</p>
+                            <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -114,23 +120,22 @@
 
             <div class="row">
                 {% for pipeline in saved %}
-                <div class="card p-2 mx-auto" class="pipeline_card">
-                    <a href="{% url 'detail_view' pipeline.id %}">
-                        <img class="card-img-top" src="{{pipeline.featured_image}}" alt="pipeline image"></a>
-                    <div class="card-body">
-                        <p>{{pipeline.date_created}}</p>
-                        <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
-                        <p class="card-text">{{pipeline.pipeline_des}}</p>
-                        <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                <div class="col mx-2">
+                    <div class="card mx-5" class="pipeline_card">
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                        <div class="card-body">
+                            <p>{{pipeline.date_created}}</p>
+                            <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
+                            <p class="card-text">{{pipeline.pipeline_des}}</p>
+                            <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-
-
     </div>
-
 
 </div>
 {% endif %}

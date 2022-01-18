@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,200;0,400;0,700;1,200&display=swap');
+
 /* GENERAL STYLING */
 body {
     background-color: rgb(250, 251, 255);
@@ -23,8 +25,20 @@ body {
 }
 
 /* MY PIPELINES STYLING */
+.pipelines_links {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+}
+
+#my_pipelines_container h3 {
+    font-weight: 700;
+}
+
 #my_pipelines_container{
     background-color: rgb(250, 251, 255);
+    font-family: Noto Sans Display, sans-serif;
 }
 
 #my_pipelines_blurb {
@@ -45,8 +59,20 @@ body {
     box-shadow: 0 0 3px rgb(177, 177, 177);;
 }
 
-.pipeline_card {
-    width: 20rem;
+#pipeline_card{
+    border: none;
+}
+
+#pipeline-card-img {
+    border: solid rgb(68, 68, 68) 1px;
+    height: 180px;
+}
+
+#active_pipelines,
+#complete_pipelines,
+#pending_pipelines,
+#saved_pipelines {
+    padding: 25px;
 }
 
 

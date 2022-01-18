@@ -52,6 +52,7 @@ def edit(request, id):
 
     return render(request, 'edit_pipeline.html', context)
 
+
 # save the form
 def save(request):
 
@@ -278,6 +279,7 @@ def delete_view(request, id):
     }
 
     return render(request, 'delete_view.html', context)
+
 
 # refresh the pipeline from the api
 # this is not the UPDATE aspect of CRUD (see views.edit)
