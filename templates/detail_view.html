@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title></title>
+{% endblock title %}
+
+{% block content %}
+
+<div id="detail-view-container" class="container-fluid">
+    <div id="detail-view-div">
+        <div>
+            <h1>{{pipeline.pipeline_name}}</h1>
+            <p>{{pipeline.pipeline_des}}</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock content %}

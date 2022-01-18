@@ -39,6 +39,7 @@ def save(request):
 
     return render(request, 'save.html')
 
+
 # create a pipeline
 def create(request):
 
@@ -127,6 +128,7 @@ def create(request):
 
                 # get the object id
                 current_list = List.objects.latest('id')
+                id = current_list.id
 
                 api_id = post_response['data']['id']
                 #current_list.slug = slugify(pipeline_name)
@@ -136,7 +138,7 @@ def create(request):
                 current_list.save()
 
                 # direct user to detail view of this model
-                #return redirect(reverse('detail_view', args=[id]))
+                return redirect(reverse('detail_view', args=[id]))
                 
         # if form is not valid
         # return to form
@@ -152,6 +154,7 @@ def create(request):
     return render(request, 'create_pipeline.html', context)
 
 
+# display all the user's models
 def my_pipelines(request):
 
     user = str(request.user)
@@ -178,3 +181,13 @@ def my_pipelines(request):
     }
 
     return render(request, 'my_pipelines.html', context)
+
+
+def detail_view(request, id):
+
+    context = {
+        'pipeline': List.objects.get(id=id),
+        'results': Result.objects.filter(pipeline_id=id)
+    }
+
+    return render(request, 'detail_view.html', context)
