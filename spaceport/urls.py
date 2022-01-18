@@ -10,5 +10,5 @@ urlpatterns = [
     path('edit_pipeline/<int:id>', views.edit, name='edit_pipeline'),
     path('detail_view/<int:id>', views.detail_view, name='detail_view'),
     path('update/<int:id>', views.update, name='update'),
-    #path('edit/<int:id>', views.edit, name='edit'),
+    
 ]

@@ -18,4 +18,10 @@ class CreateList(ModelForm):
             'featured_image'
         ]
 
+
+class UpdateList(ModelForm):
+    class Meta:
+        model = List
+
+        fields = ['pipeline_name', 'pipeline_des']
         

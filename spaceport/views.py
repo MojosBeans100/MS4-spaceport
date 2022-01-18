@@ -4,7 +4,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from .models import List, Result
 import os
-from .forms import CreateList
+from .forms import CreateList, UpdateList
 from slugify import slugify
 import datetime
 from django.utils import timezone
@@ -23,15 +23,24 @@ def homepage(request):
 # edit the pipeline (UPDATE)
 def edit(request, id):
 
+    # get the object to update
     this_pipeline = List.objects.get(id=id)
 
-    form = CreateList(instance=this_pipeline)
+    # fill in the form with that object
+    form = UpdateList(instance=this_pipeline)
 
+    # if the form has been submitted
     if request.method == 'POST':
 
-        form = CreateList(request.POST, instance=this_pipeline)
-        print(form)
-        form.save()
+        # get user's new values
+        form = UpdateList(request.POST, instance=this_pipeline)
+
+        # if the inputs are valid, save the updated object
+        if form.is_valid():
+
+            form.save()
+
+        # else
 
         return redirect(reverse('detail_view', args=[id]))
 
