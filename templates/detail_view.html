@@ -76,7 +76,9 @@
         <!-- pipeline results section -->
         <div class="detail-view-section">
             <h3>Results</h3>
-
+            {% for result in results %}
+            {{result.image_source}}
+            {% endfor %}
         </div>
 
         <hr>
