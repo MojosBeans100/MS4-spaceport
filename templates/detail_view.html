@@ -57,13 +57,50 @@
 
                 <!-- put result table here -->
                 <div>
-                    <p>Current interval: {{}}</p>
-                    <p>Next interval: {{}}</p>
+                    <p>Current interval: </p>
+                    <p>Next interval: </p>
                 </div>
                 {% endif %}
 
 
             </div>
+
+        </div>
+
+        <hr>
+
+        <!-- pipeline results section -->
+        <div class="detail-view-section">
+            <h3>Results</h3>
+
+        </div>
+
+        <hr>
+
+        <!-- pipeline parameters section -->
+        <div class="detail-view-section">
+            <h3>Parameters</h3>
+            {% if pipeline.status == 'pending' %}
+            <p>Update the pipeline to see parameters information</p>
+            {% else %}
+
+            <h5>AOI</h5>
+            <h5>Cover percentage</h5>
+            <h5>Output</h5>
+
+            {% endif %}
+
+        </div>
+
+        <hr>
+
+        <!-- pipeline edit/update/delete section -->
+        <div class="detail-view-section">
+            <h3>Edit</h3>
+            {% if pipeline.status == 'pending' %}
+            <p>Pipelines cannot be edited or deleted when the status is "Pending".</p>
+            {% else %}
+            {% endif %}
 
         </div>
 
