@@ -37,6 +37,18 @@ body {
     text-align: center;
 }
 
+#pipeline_list_div {
+    height: auto;
+    width: 80%;
+    margin-left: 10%;
+    background-color: white;
+    box-shadow: 0 0 3px rgb(177, 177, 177);;
+}
+
+.pipeline_card {
+    width: 20rem;
+}
+
 
 /* DETAIL VIEW STYLING */
 #detail-view-container {

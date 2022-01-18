@@ -10,6 +10,7 @@
 {% if user.is_authenticated %}
 
 <div id="my_pipelines_container" class="container-fluid">
+
     <div id="my_pipelines_blurb">
         <h3>MY PIPELINES</h3>
         <p>See a list below of all your current pipelines, ordered by status</p>
@@ -42,11 +43,34 @@
                 <div><a href="#" class="status_buttons">Saved ({{saved_num}})</a></div>
                 <p>saved 'Create Pipeline' forms not yet submitted</p>
             </div>
-
         </div>
+    </div>
+
+    <div id="pipeline_list_div">
         
+        <div id="active_pipelines">
+            <h1>ACTIVE ({{active_num}})</h1>
+            <hr>
+
+            <div class="row">
+                {% for pipeline in active %}
+                <div class="card p-2 mx-auto" class="pipeline_card">
+                    <a href="{% url 'detail_view' pipeline.id %}">
+                        <img class="card-img-top" src="{{pipeline.featured_image}}" alt="pipeline image"></a>
+                    <div class="card-body">
+                        <p>{{pipeline.date_created}}</p>
+                        <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
+                        <p class="card-text">{{pipeline.pipeline_des}}</p>
+                        <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
 
     </div>
+
+
 </div>
 {% endif %}
 
