@@ -22,7 +22,7 @@
     <nav class="navbar fixed-top navbar-expand-lg py-2">
         <div class="container-fluid">
             <a id="nav-icon" href="{% url 'homepage' %}"><img src="../static/images/neptune-01.svg"></a>
-            <a class="nav-link" href="{% url 'homepage' %}">SPACEPORT</a>
+            <a class="nav-link" href="{% url 'homepage' %}" id="nav-title">SPACEPORT</a>
 
             <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -34,25 +34,27 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link px-5" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-5">
                         <a class="nav-link" href="{% url 'create' %}">Create</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-5">
                         <a class="nav-link" href="{% url 'my_pipelines' %}">Pipelines</a>
                     </li>
                     {% else %}
                     {% endif %}
                 </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end">
+                <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end text-end">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}">Logout <i class="fa fa-sign-in"
+                            aria-hidden="true"></i></a>
                         <p>Logged in as <strong>{{user}}</strong></p>
                     {% else %}
                     </li>
-                    <a class="nav-link" href="{% url 'account_login' %}">Login/Sign Up</a>
+                    <a class="nav-link" href="{% url 'account_login' %}">Login/Sign Up <i
+                        class="fa fa-sign-in" aria-hidden="true"></i></a>
                     {% endif %}
                 </ul>
 
