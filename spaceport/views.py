@@ -220,8 +220,6 @@ def update(request, id):
         }
     ).json()
 
-    print(list_response)
-
     # get object to update
     update_list = List.objects.get(id=id)
 
@@ -229,6 +227,51 @@ def update(request, id):
     update_list.results_updated = time_now
     update_list.status = list_response['data']['status']
     update_list.save()
+
+    url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}/interval_results')
+
+    results_response = requests.get(
+        url,
+        headers={
+            'x-api-key': skywatch_key
+        }
+    ).json()
+
+    print(results_response)
+
+    # if there are no results created yet for this List object
+    # create them
+    if len(Result.objects.filter(pipeline_id=id)) == 0:
+
+        for i in results_response['data']:
+
+            # create new result object
+            new_result = Result(
+                pipeline_id = update_list,
+                created_at = i['created_at'],
+                updated_at = i['updated_at'],
+                api_pipeline_id = i['pipeline_id'],
+                status = i['status'],
+                output_id = i['output_id'],
+                message = i['message'],
+                interval_start_date = i['interval']['start_date'],
+                interval_end_date = i['interval']['end_date'],
+                scene_height = i['overall_metadata']['scene_height'],
+                scene_width = i['overall_metadata']['scene_width'],
+                filled_area = i['overall_metadata']['filled_area_km'],
+                aoi_area_per = i['overall_metadata']['filled_area_percentage_of_aoi'],
+                cloud_cover_per = i['overall_metadata']['cloud_cover_percentage'],
+                aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi'],
+                visible_area = i['overall_metadata']['visible_area_km2'],
+                aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi'],
+            )
+
+        # save the newly created result
+        new_result.save()
+
+    # if there are already results created for this List object
+    # update them
+    else:
 
     return redirect(reverse('detail_view', args=[id]))
 
