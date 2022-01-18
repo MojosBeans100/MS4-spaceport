@@ -1,13 +1,18 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>My Pipelines</title>
+{% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
 
 
-{% for pipeline in pending %}
-{{pipeline}}
-{% endfor %}
 
-{% for pipeline in active %}
-{{pipeline}}
-{% endfor %}
 
-{% for pipeline in complete %}
-{{pipeline}}
-{% endfor %}
+{% else %}
+{% endif %}
+{% endblock content %}
+
