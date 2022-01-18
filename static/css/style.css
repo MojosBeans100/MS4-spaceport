@@ -1,7 +1,6 @@
-
 /* GENERAL STYLING */
 body {
-    background-color:rgb(250, 251, 255);
+    background-color: rgb(250, 251, 255);
 }
 
 /* CREATE PIPELINE STYLING */
@@ -11,4 +10,22 @@ body {
     width: 70%;
     margin: 50px auto;
     height: 600px;
+}
+
+
+/* DETAIL VIEW STYLING */
+#detail-view-container {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+#detail-view-div {
+    height: auto;
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 15%;
+    background-color: white;
+    box-shadow: 0 0 3px rgb(177, 177, 177);
 }

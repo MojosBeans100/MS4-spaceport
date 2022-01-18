@@ -40,7 +40,7 @@ def save(request):
     return render(request, 'save.html')
 
 
-# create a pipeline
+# create a pipeline (CREATE)
 def create(request):
 
     # current logged in user
@@ -183,6 +183,7 @@ def my_pipelines(request):
     return render(request, 'my_pipelines.html', context)
 
 
+# display view of this object (READ)
 def detail_view(request, id):
 
     context = {
@@ -191,3 +192,10 @@ def detail_view(request, id):
     }
 
     return render(request, 'detail_view.html', context)
+
+
+# edit the pipeline (UPDATE)
+
+# delete the pipeline (both from models & in api) (DELETE)
+
+# update the pipeline from the api

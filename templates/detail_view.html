@@ -8,11 +8,31 @@
 {% block content %}
 
 <div id="detail-view-container" class="container-fluid">
+
     <div id="detail-view-div">
+        
         <div>
             <h1>{{pipeline.pipeline_name}}</h1>
             <p>{{pipeline.pipeline_des}}</p>
         </div>
+
+
+        <!-- put map here -->
+        <div id="map"></div>
+
+        <div>
+            <table>
+                <tr>
+                    <td>Status:</td>
+                    <td>{{pipeline.status}}</td>
+                </tr>
+                <tr>
+                    <td>Date created:</td>
+                    <td>{{pipeline.date_created}}</td>
+                </tr>
+            </table>
+        </div>
+
     </div>
 
 </div>
