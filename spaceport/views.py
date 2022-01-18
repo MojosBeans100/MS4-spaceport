@@ -7,6 +7,8 @@ import os
 from .forms import CreateList
 from slugify import slugify
 import datetime
+from django.utils import timezone
+import pytz
 
 
 mapbox_key = os.environ.get('MAPBOX_KEY', '')
@@ -58,7 +60,7 @@ def create(request):
         # fill in other fields of object
         # redirect to detail view of object
         if form.is_valid():
-           
+
             # put aoi into correct format
             format_aoi = form.cleaned_data['aoi']['features'][0]['geometry']
 
@@ -133,7 +135,7 @@ def create(request):
                 id = current_list.id
 
                 api_id = post_response['data']['id']
-                #current_list.slug = slugify(pipeline_name)
+                # current_list.slug = slugify(pipeline_name)
                 current_list.created_by = user
                 current_list.status = 'pending'
                 current_list.api_id = api_id
@@ -141,7 +143,7 @@ def create(request):
 
                 # direct user to detail view of this model
                 return redirect(reverse('detail_view', args=[id]))
-                
+
         # if form is not valid
         # return to form
         else:
@@ -204,34 +206,30 @@ def detail_view(request, id):
 # this is not the UPDATE aspect of CRUD (see view.edit)
 def update(request, id):
 
-    time_now_str = str(datetime.datetime.now())
+    time_now = timezone.now()
 
-    time_now = datetime.datetime.now()
-    
-    time = datetime.datetime(2022, 10, 8, 16, 55, 30, 0)
+    # get the api id of this object to post to api
+    api_id = List.objects.get(id=id).api_id
 
-    print(time)
+    # api url to update the pipeline status
+    url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}')
+    list_response = requests.get(
+        url,
+        headers={
+            'x-api-key': skywatch_key,
+        }
+    ).json()
 
-    print(time_now)
-    print(time_now[0:16])
+    print(list_response)
 
-    # # get the api id of this object to post to api
-    # api_id = List.objects.get(id=id).api_id
+    # get object to update
+    update_list = List.objects.get(id=id)
 
-    # # api url to update the pipeline status
-    # url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}')
-    # list_response = requests.get(
-    #     url,
-    #     headers = {
-    #         'x-api-key': skywatch_key,
-    #     }
-    # ).json()
-
-    # # get object to update
-    # update_list = List.objects.get(id=id)
-    
-    # # update fields in List object
-    # update_list.results_updated = time_now[0:16]
+    # update fields in List object  & save
+    update_list.results_updated = time_now
+    update_list.status = list_response['data']['status']
+    update_list.save()
 
     return redirect(reverse('detail_view', args=[id]))
+
 
