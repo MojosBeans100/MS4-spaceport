@@ -232,6 +232,40 @@ def detail_view(request, id):
 
 
 # delete the pipeline (both from models & in api) (DELETE)
+def delete(request, id):
+
+    # get object to delete
+    object_to_delete = List.objects.get(id=id)
+
+    # get object to delete api id to post to api
+    pipeline_id = List.objects.get(id=id).api_id
+
+    ## try except
+    # delete from api
+    url = (f'https://api.skywatch.co/earthcache/pipelines/{pipeline_id}')
+    
+    delete_pipeline = requests.delete(
+        url,
+        headers={
+            'x-api-key': skywatch_key
+        }
+    )
+
+    print(delete_pipeline)
+
+    # get all related results
+    results_to_delete = Result.objects.filter(pipeline_id=id)
+
+    # delete all results
+    for result in results_to_delete:
+        result.delete()
+
+    # delete object
+    object_to_delete.delete() 
+
+    #return redirect(reverse('pipeline_deleted', args=[id]))
+    return render(request, 'my_pipelines.html')
+
 
 # display the delete page
 def delete_view(request,id):

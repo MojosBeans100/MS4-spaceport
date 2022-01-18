@@ -1,3 +1,6 @@
 <h1> DELETE THE PIPELINE</h1>
 
 {{pipeline.pipeline_name}}
+
+<button href="{% url 'detail_view' pipeline.id %}">BACK</button>
+<button href="{% url 'delete' pipeline.id %}">DELETE</button>
