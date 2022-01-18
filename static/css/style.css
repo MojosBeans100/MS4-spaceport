@@ -32,8 +32,20 @@ body {
     text-transform: uppercase;
 }
 
+.pipelines_links:hover{
+    text-decoration: underline double black;
+    text-underline-position: under;
+    text-underline-offset: 3px;
+    color: black;
+}
+
 #my_pipelines_container h3 {
     font-weight: 700;
+}
+
+#my_pipelines_container hr {
+    width: 100%;
+    margin-left: 0%;
 }
 
 #my_pipelines_container{
@@ -51,6 +63,20 @@ body {
     text-align: center;
 }
 
+#pipeline_list_div h1 {
+    font-weight: 900;
+}
+
+#pipeline_list_div h3 {
+    text-transform: uppercase;
+}
+
+#pipeline_list_div a {
+    font-style: italic;
+    text-decoration: none;
+    color: black;
+}
+
 #pipeline_list_div {
     height: auto;
     width: 80%;
@@ -65,7 +91,7 @@ body {
 
 #pipeline-card-img {
     border: solid rgb(68, 68, 68) 1px;
-    height: 180px;
+    height: 220px;
 }
 
 #active_pipelines,

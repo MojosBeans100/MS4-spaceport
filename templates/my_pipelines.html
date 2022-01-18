@@ -25,22 +25,22 @@
         {% else %}
         <div class="row px-2 py-4">
             <div class="col">
-                <div><a class="pipelines_links" href="#" class="status_buttons">Active ({{active_num}})</a></div>
+                <div><a class="pipelines_links" href="#active_pipelines" class="status_buttons">Active ({{active_num}})</a></div>
                 <p><small>pipelines currently searching for images</small></p>
             </div>
 
             <div class="col">
-                <div><a class="pipelines_links" href="#" class="status_buttons">Complete ({{complete_num}})</a></div>
+                <div><a class="pipelines_links" href="#complete_pipelines" class="status_buttons">Complete ({{complete_num}})</a></div>
                 <p><small>pipelines which have completed all intervals</small></p>
             </div>
 
             <div class="col">
-                <div><a class="pipelines_links" href="#" class="status_buttons">Pending ({{pending_num}})</a></div>
+                <div><a class="pipelines_links" href="#pending_pipelines" class="status_buttons">Pending ({{pending_num}})</a></div>
                 <p><small>recently created pipelines still gathering information</small></p>
             </div>
 
             <div class="col">
-                <div><a class="pipelines_links" href="#" class="status_buttons">Saved ({{saved_num}})</a></div>
+                <div><a class="pipelines_links" href="#saved_pipelines" class="status_buttons">Saved ({{saved_num}})</a></div>
                 <p><small>saved 'Create Pipeline' forms not yet submitted</small></p>
             </div>
         </div>
@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <div id="active_pipelines">
+        <div id="saved_pipelines">
             <h1>SAVED ({{saved_num}})</h1>
             <hr>
 
@@ -123,7 +123,7 @@
                 <div class="col mx-2">
                     <div class="card mx-5" class="pipeline_card">
                         <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                            <i class="fas fa-tasks"></i></a>
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
