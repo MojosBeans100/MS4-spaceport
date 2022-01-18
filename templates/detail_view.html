@@ -76,9 +76,13 @@
         <!-- pipeline results section -->
         <div class="detail-view-section">
             <h3>Results</h3>
+            {% if pipeline.status == 'pending' %}
+            <p>Update the pipeline to see results information</p>
+            {% else %}
             {% for result in results %}
-            {{result.image_source}}
+            {{result}}
             {% endfor %}
+            {% endif %}
         </div>
 
         <hr>
