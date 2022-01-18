@@ -10,27 +10,61 @@
 <div id="detail-view-container" class="container-fluid">
 
     <div id="detail-view-div">
-        
-        <div>
-            <h1>{{pipeline.pipeline_name}}</h1>
-            <p>{{pipeline.pipeline_des}}</p>
+
+        <!-- pipeline general info section -->
+        <div class="detail-view-section">
+
+            <!-- pipeline general info table -->
+            <div>
+                <h1>{{pipeline.pipeline_name}}</h1>
+                <p>{{pipeline.pipeline_des}}</p>
+            </div>
+
+
+            <!-- put map here -->
+            <div id="map"></div>
+
+            <!-- pipeline general info table -->
+            <div>
+                <table>
+                    <tr>
+                        <td>Status:</td>
+                        <td>{{pipeline.status}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date created:</td>
+                        <td>{{pipeline.date_created}}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
+        <hr>
 
-        <!-- put map here -->
-        <div id="map"></div>
+        <!-- pipeline interval section -->
+        <div class="detail-view-section">
 
-        <div>
-            <table>
-                <tr>
-                    <td>Status:</td>
-                    <td>{{pipeline.status}}</td>
-                </tr>
-                <tr>
-                    <td>Date created:</td>
-                    <td>{{pipeline.date_created}}</td>
-                </tr>
-            </table>
+            <div>
+                <h3>Intervals</h3>
+
+                {% if pipeline.status == 'pending' %}
+                <p>Update the pipeline to see interval information</p>
+                {% else %}
+
+                <div class="detail-view-section">
+                    <!-- put chart here -->
+                </div>
+
+                <!-- put result table here -->
+                <div>
+                    <p>Current interval: {{}}</p>
+                    <p>Next interval: {{}}</p>
+                </div>
+                {% endif %}
+
+
+            </div>
+
         </div>
 
     </div>
