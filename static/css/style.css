@@ -3,6 +3,16 @@ body {
     background-color: rgb(250, 251, 255);
 }
 
+.navbar {
+    box-shadow: 0 5px 3px -3px rgb(177, 177, 177);
+    background-color: white;
+}
+
+#nav-icon {
+    height: 60px;
+    width: 60px;
+}
+
 /* CREATE PIPELINE STYLING */
 #create_form {
     background-color: white;
