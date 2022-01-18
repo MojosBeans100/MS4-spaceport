@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Edit pipeline</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <form action="" method="POST" id="create_form">
+        {% csrf_token%}
+        {{form.pipeline_name}}
+        {{form.pipeline_des}}
+        {{validation}}
+        <button type="button" onclick="location.href='{% url 'save' %}'">Save</button>
+    </form>
+</div>
+
+{% endblock content %}

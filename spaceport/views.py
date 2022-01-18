@@ -19,6 +19,21 @@ skywatch_key = os.environ.get('SKYWATCH_KEY', '')
 def homepage(request):
     return render(request, 'index.html')
 
+
+# display the edit pipeline page
+def edit_page(request, id):
+
+    this_pipeline = List.objects.get(id=id)
+
+    form = CreateList(instance=this_pipeline)
+
+    context = {
+        'form': form,
+        'pipeline': this_pipeline,
+    }
+
+    return render(request, 'edit_pipeline.html', context)
+
 # save the form
 def save(request):
 
@@ -199,6 +214,12 @@ def detail_view(request, id):
 
 
 # edit the pipeline (UPDATE)
+def edit(request, id):
+
+    print("EDITING")
+
+    return redirect(reverse('detail_view', args=[id]))
+
 
 # delete the pipeline (both from models & in api) (DELETE)
 
