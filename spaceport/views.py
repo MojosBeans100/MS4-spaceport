@@ -6,10 +6,12 @@ from .models import List, Result
 import os
 from .forms import CreateList
 from slugify import slugify
+import datetime
 
 
 mapbox_key = os.environ.get('MAPBOX_KEY', '')
 skywatch_key = os.environ.get('SKYWATCH_KEY', '')
+
 
 # display the homepage
 def homepage(request):
@@ -198,4 +200,38 @@ def detail_view(request, id):
 
 # delete the pipeline (both from models & in api) (DELETE)
 
-# update the pipeline from the api
+# refresh the pipeline from the api
+# this is not the UPDATE aspect of CRUD (see view.edit)
+def update(request, id):
+
+    time_now_str = str(datetime.datetime.now())
+
+    time_now = datetime.datetime.now()
+    
+    time = datetime.datetime(2022, 10, 8, 16, 55, 30, 0)
+
+    print(time)
+
+    print(time_now)
+    print(time_now[0:16])
+
+    # # get the api id of this object to post to api
+    # api_id = List.objects.get(id=id).api_id
+
+    # # api url to update the pipeline status
+    # url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}')
+    # list_response = requests.get(
+    #     url,
+    #     headers = {
+    #         'x-api-key': skywatch_key,
+    #     }
+    # ).json()
+
+    # # get object to update
+    # update_list = List.objects.get(id=id)
+    
+    # # update fields in List object
+    # update_list.results_updated = time_now[0:16]
+
+    return redirect(reverse('detail_view', args=[id]))
+
