@@ -10,5 +10,6 @@ urlpatterns = [
     path('edit_pipeline/<int:id>', views.edit, name='edit_pipeline'),
     path('detail_view/<int:id>', views.detail_view, name='detail_view'),
     path('update/<int:id>', views.update, name='update'),
+    path('delete_view/<int:id>',views.delete_view,name='delete_view'),
     
 ]

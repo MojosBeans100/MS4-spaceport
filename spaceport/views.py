@@ -39,6 +39,7 @@ def edit(request, id):
         if form.is_valid():
 
             form.save()
+            # reach pipeline and update it
 
         # else
 
@@ -232,8 +233,20 @@ def detail_view(request, id):
 
 # delete the pipeline (both from models & in api) (DELETE)
 
+# display the delete page
+def delete_view(request,id):
+
+    # get pipeline to delete
+    pipeline = List.objects.get(id=id)
+
+    context = {
+        'pipeline': pipeline,
+    }
+
+    return render(request, 'delete_view.html', context)
+
 # refresh the pipeline from the api
-# this is not the UPDATE aspect of CRUD (see view.edit)
+# this is not the UPDATE aspect of CRUD (see views.edit)
 def update(request, id):
 
     time_now = timezone.now()
@@ -323,7 +336,11 @@ def update(request, id):
                 new_result.visible_area = i['overall_metadata']
                 ['visible_area_km2'],
                 new_result.aoi_visible_area_per = i['overall_metadata']
-                ['visible_area_percentage_of_aoi'],
+                ['visible_area_percentage_of_aoi']
+
+                # save latest image as featured image on my_pipelines.html
+                update_list.featured_image = i['results'][0]['preview_url']
+                update_list.save()
 
             # save the newly created result
             new_result.save()

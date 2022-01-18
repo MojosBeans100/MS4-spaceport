@@ -24,4 +24,4 @@ class UpdateList(ModelForm):
         model = List
 
         fields = ['pipeline_name', 'pipeline_des']
-        
+
