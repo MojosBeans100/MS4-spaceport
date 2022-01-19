@@ -7,9 +7,9 @@
 
 {% block content %}
 
-<div id="detail-view-container" class="container-fluid">
+<div id="detail-view-container" class="container-fluid" style="margin-top: 100px;">
 
-
+    <a href="{% url 'update' pipeline.id %}"><button>UPDATE</button></a>
 
     <p>{{pipeline.results_updated}}</p>
 

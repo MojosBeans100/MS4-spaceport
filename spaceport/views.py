@@ -131,19 +131,19 @@ def create(request):
             print(params)
 
             # post the pipeline to the api
-            # try:
-            #     post_pipeline = requests.post(
-            #         url,
-            #         headers={'x-api-key': skywatch_key},
-            #         json=params)
-            #     post_response = post_pipeline.json()
+            try:
+                post_pipeline = requests.post(
+                    url,
+                    headers={'x-api-key': skywatch_key},
+                    json=params)
+                post_response = post_pipeline.json()
 
-            #     print(post_response)
+                print(post_response)
 
-            # # don't use bare except
-            # except:
-            #     print("Couldn't reach API")
-            #     # redirect to page saying api could not be found
+            # don't use bare except
+            except:
+                print("Couldn't reach API")
+                # redirect to page saying api could not be found
 
             # if the api returns errors in returning a response,
             # redirect to form page with error message
@@ -182,6 +182,7 @@ def create(request):
         # return to form
         else:
             print('NOT VALID')
+            print(form.errors)
 
     form = CreateList()
 
