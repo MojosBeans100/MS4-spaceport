@@ -306,14 +306,24 @@
         interval = document.getElementById('interval').value;
         interval_num = interval.slice(0, interval.length-1);
 
+        // parse into JS date format
         day1 = parseInt(start_date.slice(8, 10));
         day2 = parseInt(end_date.slice(8, 10));
         month1 = parseInt(start_date.slice(5, 7));
         month2 = parseInt(end_date.slice(5, 7));
-        year1 = parseInt(start_date.slice(0, 4))
-        year2 = parseInt(end_date.slice(0, 4))
-        s_date = (month1 + '/' + day1 + '/' + year1)
-        e_date = (month1 + '/' + day1 + '/' + year1)
+        year1 = parseInt(start_date.slice(0, 4));
+        year2 = parseInt(end_date.slice(0, 4));
+        s_date = (month1 + '/' + day1 + '/' + year1);
+        e_date = (month1 + '/' + day1 + '/' + year1);
+
+        date1 = new Date(s_date);
+        date2 = new Date(e_date);
+
+        // calculate day difference
+        var time_difference = date2.getTime() - date1.getTime();
+        days_difference = time_difference / (1000 * 60 * 60 * 24);
+        num_intervals = days_difference / interval_num;
+        num_intervals_rounded = Math.round(num_intervals)
 
     }
 
