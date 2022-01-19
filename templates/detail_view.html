@@ -21,6 +21,13 @@
             <div class="px-4">
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update pipeline</button></a>
+
+            {% if pipeline.results_updated is None %}
+            <p><strong>Pipeline pending: update to see results</strong></p>
+            {% else %}
+            <p><small>updated: {{pipeline.results_updated}}</small></p>
+            {% endif %}
+
             </div>
             <div class="px-4">
                 <a href="{% url 'edit_pipeline' pipeline.id %}"><button type="button" class="btn btn-dark"><i
@@ -176,13 +183,15 @@
 
                     <tr>
                         <td>Cloud cover percentage:</td>
-                        <td>{{pipeline.cloud_cover}}</td>
+                        <td>{{pipeline.cloud_cover}}%</td>
                     </tr>
                 </table>
             </div>
 
             <div class="parameters-section">
                 <h5>Output</h5>
+
+                <p>{{pipeline.get_output_image_display}}</p>
             </div>
             {% endif %}
 

@@ -287,6 +287,7 @@ input.invalid {
 /* DETAIL VIEW STYLING */
 #detail-view-container {
     background-color:rgb(250, 251, 255);
+    padding-bottom: 50px;
 }
 
 #detail-links {
@@ -296,19 +297,15 @@ input.invalid {
 #detail-view-div {
     height: auto;
     width: 70%;
-    margin-top: 150px;
+    margin-top: 50px;
     margin-left: 15%;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
-    margin-top: 50px;
-    padding: 30px;
-    margin-bottom: 50px;
+    padding: 40px;
 }
 
 .detail-view-section {
-    /* width: 90%;
-    margin-left: 5%; */
-    margin-top: 20px;
+    margin: 20px 0 20px 0;
 }
 
 #detail-table {
@@ -360,4 +357,5 @@ hr {
     width: 60%;
     margin-left: 20%;
 }
+
 
