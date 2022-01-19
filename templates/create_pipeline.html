@@ -292,6 +292,11 @@
 
     function validateDate() {
 
+        // if feedback already exists, remove it
+        if (document.getElementById('interval_feedback')) {
+            document.getElementById('interval_feedback').remove()
+        }
+
         // create new div to display interval feedback/validation
         interval_append = document.getElementById('interval_form_section');
         interval_feedback = document.createElement('div');
@@ -314,7 +319,7 @@
         year1 = parseInt(start_date.slice(0, 4));
         year2 = parseInt(end_date.slice(0, 4));
         s_date = (month1 + '/' + day1 + '/' + year1);
-        e_date = (month1 + '/' + day1 + '/' + year1);
+        e_date = (month2 + '/' + day2 + '/' + year2);
 
         date1 = new Date(s_date);
         date2 = new Date(e_date);
@@ -357,7 +362,7 @@
         }
 
         // if interval is larger than pipeline
-        if (interval_num > days_difference) {
+        if (interval_num > days_difference && end_date && start_date && interval) {
             interval_error = document.createElement('p');
             interval_error.innerHTML = '<small>The interval cannot be larger than the pipeline length: <br> choose a smaller interval // increase the pipeline length<small>';
             interval_error.style.fontWeight = 'bold';

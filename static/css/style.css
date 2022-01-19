@@ -165,6 +165,10 @@ input.invalid {
     visibility: visible;
 }
 
+#interval_feedback {
+    padding-top: 30px;
+}
+
 /* MY PIPELINES STYLING */
 .pipelines_links {
     text-decoration: none;
