@@ -352,6 +352,7 @@
 
     var currentTab = 0;
     showTab(currentTab)
+    var interval;
 
     function validateDate() {
 
@@ -548,6 +549,27 @@
     }
 
     function createReview() {
+
+        // get table cells to fill in 
+        table_feedback = document.getElementsByClassName('table-right');
+
+        // get user's form inputs
+        review_name = document.getElementById('pipeline_name').value;
+        review_des = document.getElementById('pipeline_des').value;
+        review_aoi = document.getElementById('id_aoi').value;
+        review_sdate = document.getElementById('start_date').value;
+        review_edate = document.getElementById('end_date').value;
+        review_interval = interval;
+        radios = document.getElementsByName('output_image');
+        radios_labels = document.getElementsByClassName('image-label');
+
+        // determine which output image has been selected
+        for (i=0; i<radios.length; i++){
+            if (radios[i].checked) {
+                review_output = radios_labels[i].innerText.trim();
+                api_output = radios[i].value
+            }
+        }
 
     }
 </script>
