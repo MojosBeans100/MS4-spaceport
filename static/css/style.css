@@ -259,16 +259,21 @@ input.invalid {
     width: 80%;
     margin-left: 10%;
     background-color: white;
-    box-shadow: 0 0 3px rgb(177, 177, 177);;
+    box-shadow: 0 0 3px rgb(177, 177, 177);
 }
 
-#pipeline_card{
+#pipeline_card {
     border: none;
 }
 
-#pipeline-card-img {
-    border: solid rgb(68, 68, 68) 1px;
-    height: 220px;
+
+.card-img-top {
+    height: 100%;
+    border: solid 1px rgb(177, 177, 177);
+}
+
+.card-img-top:hover {
+    opacity: 0.5;
 }
 
 #active_pipelines,
@@ -284,6 +289,10 @@ input.invalid {
     background-color:rgb(250, 251, 255);
 }
 
+#detail-links {
+    padding-top: 160px;
+}
+
 #detail-view-div {
     height: auto;
     width: 70%;
@@ -291,6 +300,7 @@ input.invalid {
     margin-left: 15%;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
+    margin-top: 50px;
 }
 
 .detail-view-section {
