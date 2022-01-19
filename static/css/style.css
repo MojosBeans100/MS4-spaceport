@@ -320,11 +320,13 @@ i {
     margin-right: 10px;
 }
 
-#detail-links button {
+#detail-links button,
+.detail-view-section button {
     width: 200px;
 }
 
-#detail-links button:hover {
+#detail-links button:hover,
+.detail-view-section button:hover {
     background-color: rgb(255, 255, 255);
     border: solid 1px rgb(0, 0, 0);
     color: black;

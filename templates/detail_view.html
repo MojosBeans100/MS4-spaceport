@@ -181,9 +181,9 @@
                 </table>
             </div>
 
-           
-            <h5>Output</h5>
-
+            <div class="parameters-section">
+                <h5>Output</h5>
+            </div>
             {% endif %}
 
         </div>
@@ -196,8 +196,12 @@
             {% if pipeline.status == 'pending' %}
             <p>Pipelines cannot be edited or deleted when the status is "Pending".</p>
             {% else %}
-            <a href="{% url 'edit_pipeline' pipeline.id %}"><button>EDIT</button></a>
-            <a href="{% url 'delete_view' pipeline.id %}"><button>DELETE</button></a>
+            <p>Pipelines can be edited and deleted using the links below.</p>
+            <div class="d-flex justify-content-center">
+                <div class="px-5"><a href="{% url 'edit_pipeline' pipeline.id %}"><button class="btn btn-dark"><i
+                    class="fas fa-edit"></i>Edit pipeline</button></a></div>
+                <div class="px-5"><a href="{% url 'delete_view' pipeline.id %}"><button class="btn btn-dark"><i class="far fa-trash-alt"></i>Delete pipeline</button></a></div>
+            </div>
             {% endif %}
 
         </div>
