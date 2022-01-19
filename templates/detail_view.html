@@ -116,9 +116,29 @@
             {% if pipeline.status == 'pending' %}
             <p>Update the pipeline to see results information</p>
             {% else %}
-            {% for result in results %}
-            {{result}}
-            {% endfor %}
+            <table id="result-table">
+                <tr>
+                    <th>Status</th>
+                    <th>Interval dates</th>
+                    <th>Image</th>
+                    <th>Image Captured</th>
+                    <th>Image Source</th>
+                    <th>Metadata</th>
+                </tr>
+
+                {% for result in results %}
+                <tr>
+                    <td>{{result.status}}</td>
+                    <td>{{result.interval_start_date}} <br>to {{result.interval_end_date}}</td>
+                    <td><a href="{{result.image_visual_url}}" target="_blank" download><img style="height: 50px; width: 50px"
+                        src="{{result.image_visual_url}}"></a></td>
+                    <td>{{result.image_created_at}}</td>
+                    <td>{{result.image_source}}</td>
+                    <td><a href="{{result.image_metadata_url}}" target="_blank"><i class="fas fa-external-link-alt"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            
             {% endif %}
         </div>
 
