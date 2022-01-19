@@ -33,6 +33,12 @@ class CreateList(ModelForm):
                 'id': 'pipeline_des',
                 'oninput': "this.className = ''",
             }),
+            'aoi': TextInput(attrs={
+                'required': True,
+                'class': 'form-control',
+                'id': 'id_aoi',
+                'oninput': "this.className = ''",
+            }),
             'start_date': DateInput(attrs={
                 'type': 'date',
                 'class': 'form-control',
