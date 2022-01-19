@@ -9,8 +9,7 @@
 
 <div id="detail-view-container" class="container-fluid">
 
-    <a href="{% url 'edit_pipeline' pipeline.id %}">EDIT</a>
-    <a href="{% url 'delete_view' pipeline.id %}">DELETE</a>
+
 
     <p>{{pipeline.results_updated}}</p>
 
@@ -111,6 +110,8 @@
             {% if pipeline.status == 'pending' %}
             <p>Pipelines cannot be edited or deleted when the status is "Pending".</p>
             {% else %}
+            <a href="{% url 'edit_pipeline' pipeline.id %}"><button>EDIT</button></a>
+            <a href="{% url 'delete_view' pipeline.id %}"><button>DELETE</button></a>
             {% endif %}
 
         </div>

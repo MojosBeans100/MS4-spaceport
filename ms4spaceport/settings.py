@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-LOGIN_URL = 'my_pipelines'
+LOGIN_REDIRECT_URL = 'my_pipelines'
 LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [

@@ -141,16 +141,13 @@ body {
 
 /* DETAIL VIEW STYLING */
 #detail-view-container {
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: 30px;
-    margin-bottom: 60px;
+    background-color:rgb(250, 251, 255);
 }
 
 #detail-view-div {
     height: auto;
     width: 70%;
-    margin-top: 20px;
+    margin-top: 150px;
     margin-left: 15%;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
