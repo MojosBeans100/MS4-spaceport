@@ -7,8 +7,11 @@
 
 {% block content %}
 
+
+
 <body id="create_container">
     <div class="container-fluid">
+        {% if user.is_authenticated %}
         <form action="" method="POST" id="create_form">
             {% csrf_token%}
 
@@ -374,6 +377,11 @@
             </div>
 
         </form>
+        {% else %}
+        <p style="margin-top: 150px;">You are not permitted to create a pipeline without being logged in.
+            Sign up <a href="{% url 'account_login' %}">here</a>
+        </p>
+        {% endif %}
     </div>
 </body>
 

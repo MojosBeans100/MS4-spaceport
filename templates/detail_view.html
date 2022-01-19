@@ -13,6 +13,7 @@
 
     <p>{{pipeline.results_updated}}</p>
 
+    {% if user.is_authenticated %}
     <div id="detail-view-div">
 
         <!-- pipeline general info section -->
@@ -117,6 +118,9 @@
         </div>
 
     </div>
+    {% else %}
+    <p>Ooops.. you have been directed to the wrong page.  <a href="{% url 'homepage' %}">Return to home</a></p>
+    {% endif %}
 
 </div>
 
