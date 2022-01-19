@@ -309,7 +309,7 @@
 
         // get user's interval choice
         interval = document.getElementById('interval').value;
-        interval_num = interval.slice(0, interval.length-1);
+        interval_num = interval.slice(0, interval.length - 1);
 
         // parse into JS date format
         day1 = parseInt(start_date.slice(8, 10));
@@ -346,10 +346,11 @@
         // date error if start date is after end date
         if (end_date <= start_date && end_date) {
             date_error = document.createElement('p');
-            date_error.innerHTML = "<small>The end date cannot be before the start date: <br> select a date after start date </small>";
+            date_error.innerHTML =
+                "<small>The end date cannot be before the start date: <br> select a date after start date </small>";
             date_error.style.fontWeight = 'bold';
             interval_feedback.append(date_error);
-        } 
+        }
 
         // start_date.className += " invalid"
         // end_date.className += " invalid"
@@ -357,14 +358,16 @@
         // if num of intervals is more than 10 (API restriction for free data)
         if (num_intervals > 10 && end_date && start_date && interval) {
             interval_error = document.createElement('p');
-            interval_error.innerHTML = "<small>Pipelines cannot have more than 10 intervals: <br> choose a large interval // decrease the pipeline length</small>";
+            interval_error.innerHTML =
+                "<small>Pipelines cannot have more than 10 intervals: <br> choose a large interval // decrease the pipeline length</small>";
             interval_feedback.append(interval_error);
         }
 
         // if interval is larger than pipeline
         if (interval_num > days_difference && end_date && start_date && interval) {
             interval_error = document.createElement('p');
-            interval_error.innerHTML = '<small>The interval cannot be larger than the pipeline length: <br> choose a smaller interval // increase the pipeline length<small>';
+            interval_error.innerHTML =
+                '<small>The interval cannot be larger than the pipeline length: <br> choose a smaller interval // increase the pipeline length<small>';
             interval_error.style.fontWeight = 'bold';
             interval_feedback.append(interval_error);
         }
@@ -384,19 +387,29 @@
                 parent_checked[i].style.fontWeight = 'normal';
                 parent_checked[i].childNodes[5].style.opacity = '1';
             }
-
         }
-
     }
 
     function showTab(num) {
         var tab = document.getElementsByClassName('tab');
         tab[num].style.display = 'block';
 
+        console.log(`tab = ${tab}`)
+        console.log(`num = ${num}`)
+
         if (num == 0) {
             document.getElementById('prevButton').style.display = 'none';
         } else if (num == 1) {
             document.getElementById('prevButton').style.display = 'inline';
+        }
+
+        if (num == (tab.length - 1)) {
+            document.getElementById('nextButton').innerHTML = "Submit Pipeline";
+            createReview();
+        } else if (num == (tab.length - 2)) {
+            document.getElementById('nextButton').innerHTML = "Review";
+        } else {
+            document.getElementById('nextButton').innerHTML = "Next";
         }
 
         fixStepIndicator(num)
@@ -408,6 +421,9 @@
         if (num == 1 && !validateForm()) return false;
         x[currentTab].style.display = 'none';
         currentTab = currentTab + num;
+
+        console.log(currentTab)
+        console.log(num)
 
         if (currentTab >= x.length) {
             document.getElementById('create_form').submit();
@@ -455,6 +471,18 @@
             document.getElementsByClassName("step")[currentTab].className += " finish";
         }
         return valid; // return the valid status
+    }
+
+    function createMap() {
+        console.log("creating map")
+    }
+
+    function reviewMap() {
+        console.log("reviewing map")
+    }
+
+    function createReview() {
+
     }
 </script>
 
