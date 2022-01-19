@@ -356,7 +356,13 @@
             interval_feedback.append(interval_error);
         }
 
-
+        // if interval is larger than pipeline
+        if (interval_num > days_difference) {
+            interval_error = document.createElement('p');
+            interval_error.innerHTML = '<small>The interval cannot be larger than the pipeline length: <br> choose a smaller interval // increase the pipeline length<small>';
+            interval_error.style.fontWeight = 'bold';
+            interval_feedback.append(interval_error);
+        }
 
     }
 
