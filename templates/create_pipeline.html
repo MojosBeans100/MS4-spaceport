@@ -41,9 +41,42 @@
             </div>
         </div>
 
-        <!-- <button type="submit">Submit</button>
-        <button type="button" onclick="location.href='{% url 'save' %}'">Save</button> -->
+        <!-- buttons and progress display section -->
+        <div id="buttons-div">
+           <div class="row align-items-center">
+               <div class="col d-flex justify-content-start">
+                   <button type="button" id="prevButton" onclick="nextPrev(-1)">Previous</button>
+               </div>
+
+               <div class="col d-flex justify-content-center">
+                   <span class="step"></span>
+                   <span class="step"></span>
+                   <span class="step"></span>
+                   <span class="step"></span>
+                   <span class="step"></span>
+               </div>
+
+               <div class="col d-flex justify-content-end">
+                <button type="button" id="nextButton" onclick="nextPrev(1)">Next</button>
+            </div>
+           </div>
+       </div>
     </form>
 </div>
+
+
+<script>
+    var currentTab = 0;
+    showTab(currentTab)
+
+    function showTab(num) {
+        var tab = document.getElementsByClassName('tab');
+        tab[n].style.display = 'block';
+    }
+
+    
+
+
+</script>
 
 {% endblock content %}
