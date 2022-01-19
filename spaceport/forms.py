@@ -56,6 +56,18 @@ class CreateList(ModelForm):
                 'onfocus': "(this.type='date')",
                 'onChange': 'validateDate()',
                 'oninput': "this.className = ''",
+            }),
+            'interval': Select(attrs={
+                'class': 'form-control',
+                'id': 'interval',
+                'onChange': 'validateDate()',
+                'oninput': "this.className = ''",
+            }),
+            'output_image': RadioSelect(choices='output_image', attrs={
+                'class': 'form-control',
+                'id': 'id_output',
+                'onchange': 'styleOutputImage()',
+                'oninput': "this.className = ''",
             })
         }
 
