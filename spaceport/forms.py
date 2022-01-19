@@ -32,6 +32,24 @@ class CreateList(ModelForm):
                 'placeholder': 'Give your pipeline a unique description to identify it',
                 'id': 'pipeline_des',
                 'oninput': "this.className = ''",
+            }),
+            'start_date': DateInput(attrs={
+                'type': 'date',
+                'class': 'form-control',
+                'id': 'start_date',
+                'placeholder': 'Start date', 'type': 'text',
+                'onfocus': "(this.type='date')",
+                'onChange': 'validateDate()',
+                'oninput': "this.className = ''",
+            }),
+            'end_date': DateInput(attrs={
+                'type': 'date',
+                'class': 'form-control',
+                'id': 'end_date',
+                'placeholder': 'End date', 'type': 'text',
+                'onfocus': "(this.type='date')",
+                'onChange': 'validateDate()',
+                'oninput': "this.className = ''",
             })
         }
 
