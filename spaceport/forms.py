@@ -24,14 +24,14 @@ class CreateList(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'eg. My First Pipeline',
                 'id': 'pipeline_name',
-                #'oninput': 'this.ClassName' = ''",
+                'oninput': "this.className = ''",
             }),
             'pipeline_des': Textarea(attrs={
                 'class': 'form-control',
                 'rows': 3,
                 'placeholder': 'Give your pipeline a unique description to identify it',
                 'id': 'pipeline_des',
-                #'oninput': 'this.ClassName' = ''",
+                'oninput': "this.className = ''",
             })
         }
 

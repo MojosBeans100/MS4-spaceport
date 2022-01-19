@@ -63,11 +63,25 @@ body {
     margin-top: 120px;
 }
 
+
+input, 
+textarea,
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 4px;
+    font-family: Noto Sans Display;
+    font-size: 12px;
+}
+
 /* library - https://www.w3schools.com/howto/howto_js_form_steps.asp */
 .tab {
     min-height: 80vh;
     height: auto;
-    /* display: none; */
+    display: none;
 }
 
 .step {
@@ -79,6 +93,10 @@ body {
     border-radius: 50%;
     display: inline-block;
     opacity: 0.5;
+}
+
+input.invalid {
+    background-color: #fad1b9;
 }
 
 .step.active {

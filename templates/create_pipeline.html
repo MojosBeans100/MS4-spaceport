@@ -41,27 +41,49 @@
             </div>
         </div>
 
-        <!-- buttons and progress display section -->
-        <div id="buttons-div">
-            <div class="row align-items-center">
-                <div class="col d-flex justify-content-start">
-                    <button type="button" id="prevButton" onclick="nextPrev(-1)">Previous</button>
-                </div>
+        <!-- aoi form section -->
+        <div id="aoi_form_section" class="tab">
 
-                <div class="col d-flex justify-content-center">
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                </div>
-
-                <div class="col d-flex justify-content-end">
-                    <button type="button" id="nextButton" onclick="nextPrev(1)">Next</button>
+            <div class="col">
+                <div class="form_title">
+                    <h4>Area of Interest</h4>
+                    <br>
+                    <p>Tell us where to look for images</p>
+                    <p class="form_limits">Area must be between 25 km<sup>2</sup> and 100 km<sup>2</sup></p>
                 </div>
             </div>
+
+            <div class="col d-flex justify-content-end">
+                <a><button>Save Progress</button></a>
+            </div>
+
+            <div class="input-sections">
+                {{form.aoi}}
+            </div>
         </div>
-    </form>
+
+
+<!-- buttons and progress display section -->
+<div id="buttons-div">
+    <div class="row align-items-center">
+        <div class="col d-flex justify-content-start">
+            <button type="button" id="prevButton" onclick="nextPrev(-1)">Previous</button>
+        </div>
+
+        <div class="col d-flex justify-content-center">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+
+        <div class="col d-flex justify-content-end">
+            <button type="button" id="nextButton" onclick="nextPrev(1)">Next</button>
+        </div>
+    </div>
+</div>
+</form>
 </div>
 
 
@@ -74,7 +96,13 @@
 
     function showTab(num) {
         var tab = document.getElementsByClassName('tab');
-        tab[n].style.display = 'block';
+        tab[num].style.display = 'block';
+
+        if (num == 0) {
+            document.getElementById('prevButton').style.display = 'none';
+        } else if (num == 1) {
+            document.getElementById('prevButton').style.display = 'inline';
+        }
 
         fixStepIndicator(num)
     }
@@ -84,7 +112,7 @@
         var x = document.getElementsByClassName('tab');
         if (num == 1 && !validateForm()) return false;
         x[currentTab].style.display = 'none';
-        currentTab = currentTab + n;
+        currentTab = currentTab + num;
 
         if (currentTab >= x.length) {
             document.getElementById('create_form').submit();
@@ -100,10 +128,11 @@
             x[i].className = x[i].className.replace(" active", "");
         }
 
-        x[n].className += " active";
+        x[num].className += " active";
     }
 
     function validateForm() {
+
 
         // This function deals with validation of the form fields
         var x, y, i, valid = true;
