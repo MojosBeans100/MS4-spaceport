@@ -268,7 +268,7 @@
                         <td class="table-left">*Status:</td>
 
                         <!-- change this -->
-                        <td class="table-right">Not yet committed</td>
+                        <td class="table-right"></td>
                     </tr>
 
                     <tr>
@@ -556,10 +556,16 @@
         // get user's form inputs
         review_name = document.getElementById('pipeline_name').value;
         review_des = document.getElementById('pipeline_des').value;
+        review_status = "Not yet committed";
+
         review_aoi = document.getElementById('id_aoi').value;
+
         review_sdate = document.getElementById('start_date').value;
         review_edate = document.getElementById('end_date').value;
+        review_length = "Length";
         review_interval = interval;
+        review_num_intervals = "Num of intervals";
+
         radios = document.getElementsByName('output_image');
         radios_labels = document.getElementsByClassName('image-label');
 
@@ -569,6 +575,13 @@
                 review_output = radios_labels[i].innerText.trim();
                 api_output = radios[i].value
             }
+        }
+
+        // render user's form inputs into the review table
+        feedback = [review_name, review_des, review_status, review_sdate, review_edate, review_length, review_interval, review_num_intervals, review_output];
+
+        for (i=0; i<feedback.length; i++) {
+            table_feedback[i].innerHTML = feedback[i];
         }
 
     }
