@@ -68,7 +68,6 @@ class CreateList(ModelForm):
                 'id': 'id_output',
                 'onchange': 'styleOutputImage()',
                 'oninput': "this.className = ''",
-                'default': output[1][1],
             })
         }
 

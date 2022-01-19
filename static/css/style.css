@@ -125,13 +125,13 @@ input.invalid {
     margin-left: 0;
     box-shadow: 0 0 3px rgb(177, 177, 177);
 }
-/* 
+
 [type=radio] {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
-} */
+}
 
 [type=radio]:hover+img {
     opacity:0.6
@@ -178,7 +178,8 @@ input.invalid {
     color:rgb(16, 12, 63);
 }
 
-#feedback-table {
+#feedback-table,
+#feedback-aoi {
     width: 60%;
     margin-left: 20%;
 }
