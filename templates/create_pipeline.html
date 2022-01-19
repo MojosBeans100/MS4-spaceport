@@ -297,6 +297,10 @@
             document.getElementById('interval_feedback').remove()
         }
 
+        if (document.getElementById('nextButton').disabled = true) {
+            document.getElementById('nextButton').disabled = false;
+        };
+
         // create new div to display interval feedback/validation
         interval_append = document.getElementById('interval_form_section');
         interval_feedback = document.createElement('div');
@@ -350,10 +354,10 @@
                 "<small>The end date cannot be before the start date: <br> select a date after start date </small>";
             date_error.style.fontWeight = 'bold';
             interval_feedback.append(date_error);
+            document.getElementById('nextButton').disabled = true;
         }
 
-        // start_date.className += " invalid"
-        // end_date.className += " invalid"
+        
 
         // if num of intervals is more than 10 (API restriction for free data)
         if (num_intervals > 10 && end_date && start_date && interval) {
@@ -361,6 +365,7 @@
             interval_error.innerHTML =
                 "<small>Pipelines cannot have more than 10 intervals: <br> choose a large interval // decrease the pipeline length</small>";
             interval_feedback.append(interval_error);
+            document.getElementById('nextButton').disabled = true;
         }
 
         // if interval is larger than pipeline
@@ -370,6 +375,7 @@
                 '<small>The interval cannot be larger than the pipeline length: <br> choose a smaller interval // increase the pipeline length<small>';
             interval_error.style.fontWeight = 'bold';
             interval_feedback.append(interval_error);
+            document.getElementById('nextButton').disabled = true;
         }
 
     }
@@ -393,9 +399,6 @@
     function showTab(num) {
         var tab = document.getElementsByClassName('tab');
         tab[num].style.display = 'block';
-
-        console.log(`tab = ${tab}`)
-        console.log(`num = ${num}`)
 
         if (num == 0) {
             document.getElementById('prevButton').style.display = 'none';

@@ -169,6 +169,15 @@ input.invalid {
     padding-top: 30px;
 }
 
+#buttons-div {
+    padding-top: 40px;
+}
+
+.form_limits {
+    font-weight: bold;
+    color:rgb(16, 12, 63);
+}
+
 /* MY PIPELINES STYLING */
 .pipelines_links {
     text-decoration: none;
