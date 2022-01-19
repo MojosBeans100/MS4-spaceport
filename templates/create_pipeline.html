@@ -325,6 +325,14 @@
         num_intervals = days_difference / interval_num;
         num_intervals_rounded = Math.round(num_intervals)
 
+        // display how many days the pipeline length is
+        if (end_date && start_date && interval) {
+            pipeline_length = document.createElement('p');
+            pipeline_length.id = 'pipeline_length';
+            pipeline_length.innerHTML = `Pipeline length: ${days_difference} days`;
+            interval_feedback.append(pipeline_length);
+        }
+
     }
 
     function styleOutputImage() {
