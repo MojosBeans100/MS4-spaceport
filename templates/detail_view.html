@@ -72,10 +72,34 @@
                     <!-- put chart here -->
                 </div>
 
-                <!-- put result table here -->
+                <table id="interval-table">
+                    <tr>
+                        <th>Start date</th>
+                        <th>End date</th>
+                        <th>Status date</th>
+                    </tr>
+
+                    {% for result in results %}
+                    <tr>
+                        <td>{{result.interval_start_date}}</td>
+                        <td>{{result.interval_end_date}}</td>
+                        <td>{{result.status}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <!-- interval status table -->
                 <div>
-                    <p>Current interval: </p>
-                    <p>Next interval: </p>
+                    <table id="detail-table">
+                        <tr>
+                            <td>Current interval:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Next interval:</td>
+                            <td></td>
+                        </tr>
+                    </table>
                 </div>
                 {% endif %}
 

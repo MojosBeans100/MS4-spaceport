@@ -329,6 +329,11 @@ i {
     color: black;
 }
 
+#interval-table {
+    width: 50%;
+    margin-left: 25%;
+}
+
 hr {
     width: 90%;
     margin-left: 5%;
