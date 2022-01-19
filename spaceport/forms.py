@@ -18,6 +18,23 @@ class CreateList(ModelForm):
             'featured_image'
         ]
 
+        widgets = {
+            'pipeline_name': TextInput(attrs={
+                'required': True,
+                'class': 'form-control',
+                'placeholder': 'eg. My First Pipeline',
+                'id': 'pipeline_name',
+                #'oninput': 'this.ClassName' = ''",
+            }),
+            'pipeline_des': Textarea(attrs={
+                'class': 'form-control',
+                'rows': 3,
+                'placeholder': 'Give your pipeline a unique description to identify it',
+                'id': 'pipeline_des',
+                #'oninput': 'this.ClassName' = ''",
+            })
+        }
+
 
 class UpdateList(ModelForm):
     class Meta:

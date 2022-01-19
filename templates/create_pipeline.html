@@ -10,10 +10,39 @@
 <div class="container-fluid">
     <form action="" method="POST" id="create_form">
         {% csrf_token%}
-        {{form.as_p}}
-        {{validation}}
-        <button type="submit">Submit</button>
-        <button type="button" onclick="location.href='{% url 'save' %}'">Save</button>
+
+        <!-- general form section -->
+        <div id="general_form_section" class="tab">
+            <div class="row">
+
+                <div class="col">
+                    <div class="form_title">
+                        <h4>General</h4>
+                        <br>
+                        <p>Provide some general details to identify your pipeline</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex justify-content-end">
+                    <a><button>Save Progress</button></a>
+                </div>
+            </div>
+
+            <div class="section_div">
+                <div class="input-sections" id="form_name_div">
+                    <label for="pipeline_name" class="form-label">Name</label>
+                    {{form.pipeline_name}}
+                </div>
+
+                <div class="input-sections" id="form-des-div">
+                    <label for="pipeline_des" class="form-label">Description</label>
+                    {{form.pipeline_des}}
+                </div>
+            </div>
+        </div>
+
+        <!-- <button type="submit">Submit</button>
+        <button type="button" onclick="location.href='{% url 'save' %}'">Save</button> -->
     </form>
 </div>
 
