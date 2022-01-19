@@ -14,14 +14,17 @@
     <div class="container" id="detail-links">
         <div class="d-flex justify-content-center">
             <div class="px-4">
-                <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i class="fas fa-arrow-left"></i>Back to
+                <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i
+                            class="fas fa-arrow-left"></i>Back to
                         pipelines</button></a>
             </div>
             <div class="px-4">
-                <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i class="fas fa-sync"></i>Update pipeline</button></a>
+                <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
+                            class="fas fa-sync"></i>Update pipeline</button></a>
             </div>
             <div class="px-4">
-                <a href="{% url 'edit_pipeline' pipeline.id %}"><button type="button" class="btn btn-dark"><i class="fas fa-edit"></i>Edit</button></a>
+                <a href="{% url 'edit_pipeline' pipeline.id %}"><button type="button" class="btn btn-dark"><i
+                            class="fas fa-edit"></i>Edit</button></a>
             </div>
         </div>
     </div>
@@ -130,15 +133,16 @@
                 <tr>
                     <td>{{result.status}}</td>
                     <td>{{result.interval_start_date}} <br>to {{result.interval_end_date}}</td>
-                    <td><a href="{{result.image_visual_url}}" target="_blank" download><img style="height: 50px; width: 50px"
-                        src="{{result.image_visual_url}}"></a></td>
+                    <td><a href="{{result.image_visual_url}}" target="_blank" download><img
+                                style="height: 50px; width: 50px" src="{{result.image_visual_url}}"></a></td>
                     <td>{{result.image_created_at}}</td>
                     <td>{{result.image_source}}</td>
-                    <td><a href="{{result.image_metadata_url}}" target="_blank"><i class="fas fa-external-link-alt"></i></a></td>
+                    <td><a href="{{result.image_metadata_url}}" target="_blank"><i
+                                class="fas fa-external-link-alt"></i></a></td>
                 </tr>
                 {% endfor %}
             </table>
-            
+
             {% endif %}
         </div>
 
@@ -151,8 +155,33 @@
             <p>Update the pipeline to see parameters information</p>
             {% else %}
 
-            <h5>AOI</h5>
-            <h5>Cover percentage</h5>
+            <div class="parameters-section">
+                <h5>AOI</h5>
+
+                <table id="aoi-table">
+                    <tr>
+                        <td>geoJSON:</td>
+                        <td><textarea disabled>{{pipeline.aoi}}</textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td>Area:</td>
+                        <td>{{pipeline.aoi_area}} km<sup>2</sup></td>
+                    </tr>
+
+                    <tr>
+                        <td>AOI area coverage percentage:</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Cloud cover percentage:</td>
+                        <td>{{pipeline.cloud_cover}}</td>
+                    </tr>
+                </table>
+            </div>
+
+           
             <h5>Output</h5>
 
             {% endif %}

@@ -302,6 +302,7 @@ input.invalid {
     box-shadow: 0 0 3px rgb(177, 177, 177);
     margin-top: 50px;
     padding: 30px;
+    margin-bottom: 50px;
 }
 
 .detail-view-section {
@@ -334,6 +335,11 @@ i {
     margin-left: 25%;
 }
 
+#aoi-table textarea {
+    font-size: 12px;
+    height: 200px;
+}
+
 #result-table {
     width: 70%;
     margin-left: 15%;
@@ -343,3 +349,13 @@ hr {
     width: 90%;
     margin-left: 5%;
 }
+
+.parameters-section {
+    padding-top: 25px;
+}
+
+#aoi-table{
+    width: 60%;
+    margin-left: 20%;
+}
+
