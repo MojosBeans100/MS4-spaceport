@@ -62,6 +62,41 @@
             </div>
         </div>
 
+        <!-- interval form section -->
+        <div id="interval_form_section" class="tab">
+
+            <div class="col">
+                <div class="form_title">
+                    <h4>Interval</h4>
+                    <br>
+                    <p>Select the start and end date of this pipeline and how frequently to search for images <br>
+                    The pipeline will aim to deliver one image between each interval start and end date</p>
+                    <p class="form_limits">Pipelines can have no more than 10 intervals</p>
+                </div>
+            </div>
+
+            <div class="col d-flex justify-content-end">
+                <a><button>Save Progress</button></a>
+            </div>
+
+            <div class="row">
+                <div class="col input-sections" id="s_date">
+                    <label for="start_date" class="form-label">from</label>
+                    {{form.start_date}}
+                </div>
+
+                <div class="col input-sections" id="e_date">
+                    <label for="end_date" class="form-label">to</label>
+                    {{form.end_date}}
+                </div>
+            </div>
+
+            <div class="input-sections">
+                <label for="interval" class="form-label">Interval</label>
+                   {{form.interval}} 
+            </div>
+        </div>
+
 
 <!-- buttons and progress display section -->
 <div id="buttons-div">
