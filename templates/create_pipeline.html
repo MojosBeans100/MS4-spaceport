@@ -331,7 +331,24 @@
             pipeline_length.id = 'pipeline_length';
             pipeline_length.innerHTML = `Pipeline length: ${days_difference} days`;
             interval_feedback.append(pipeline_length);
+
+            pipeline_intervals = document.createElement('p');
+            pipeline_intervals.id = 'pipeline_intervals';
+            pipeline_intervals.innerHTML = `Number of intervals: ~${num_intervals_rounded}`;
+            interval_feedback.append(pipeline_intervals);
         }
+
+        // date error if start date is after end date
+        if (end_date <= start_date && end_date) {
+            date_error = document.createElement('p');
+            date_error.innerHTML = "<small>The end date cannot be before the start date: <br> select a date after start date </small>";
+            date_error.style.fontWeight = 'bold';
+            interval_feedback.append(date_error);
+        } 
+
+        
+
+
 
     }
 
