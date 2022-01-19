@@ -53,6 +53,10 @@ body {
 }
 
 /* CREATE PIPELINE STYLING */
+#create_container {
+    background: rgb(250, 251, 255);
+}
+
 #create_form {
     position: relative;
     background-color: white;
@@ -62,6 +66,10 @@ body {
     height: auto;
     margin-top: 120px;
     padding: 30px;
+}
+
+.input-sections {
+    padding-top: 25px;
 }
 
 input, 
@@ -79,7 +87,7 @@ select {
 
 /* library - https://www.w3schools.com/howto/howto_js_form_steps.asp */
 .tab {
-    min-height: 80vh;
+    min-height: 70vh;
     height: auto;
     display: none;
 }

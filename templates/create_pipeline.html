@@ -7,275 +7,279 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <form action="" method="POST" id="create_form">
-        {% csrf_token%}
+<body id="create_container">
+    <div class="container-fluid">
+        <form action="" method="POST" id="create_form">
+            {% csrf_token%}
 
-        <!-- general form section -->
-        <div id="general_form_section" class="tab">
-            <div class="row">
+            <!-- general form section -->
+            <div id="general_form_section" class="tab">
+                <div class="row">
 
-                <div class="col">
-                    <div class="form_title">
-                        <h4>General</h4>
-                        <br>
-                        <p>Provide some general details to identify your pipeline</p>
+                    <div class="col">
+                        <div class="form_title">
+                            <h4>General</h4>
+                            <br>
+                            <p>Provide some general details to identify your pipeline</p>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-end">
+                        <a><button class="btn btn-secondary">Save Progress</button></a>
                     </div>
                 </div>
 
-                <div class="col d-flex justify-content-end">
-                    <a><button class="btn btn-secondary">Save Progress</button></a>
+                <div class="section_div">
+                    <div class="input-sections" id="form_name_div">
+                        <label for="pipeline_name" class="form-label">Name</label>
+                        {{form.pipeline_name}}
+                    </div>
+
+                    <div class="input-sections" id="form-des-div">
+                        <label for="pipeline_des" class="form-label">Description</label>
+                        {{form.pipeline_des}}
+                    </div>
                 </div>
             </div>
 
-            <div class="section_div">
-                <div class="input-sections" id="form_name_div">
-                    <label for="pipeline_name" class="form-label">Name</label>
-                    {{form.pipeline_name}}
-                </div>
+            <!-- aoi form section -->
+            <div id="aoi_form_section" class="tab">
+                <div class="row">
+                    <div class="col">
+                        <div class="form_title">
+                            <h4>Area of Interest</h4>
+                            <br>
+                            <p>Tell us where to look for images</p>
+                            <p class="form_limits">Area must be between 25 km<sup>2</sup> and 100 km<sup>2</sup></p>
+                        </div>
+                    </div>
 
-                <div class="input-sections" id="form-des-div">
-                    <label for="pipeline_des" class="form-label">Description</label>
-                    {{form.pipeline_des}}
-                </div>
-            </div>
-        </div>
-
-        <!-- aoi form section -->
-        <div id="aoi_form_section" class="tab">
-            <div class="row">
-                <div class="col">
-                    <div class="form_title">
-                        <h4>Area of Interest</h4>
-                        <br>
-                        <p>Tell us where to look for images</p>
-                        <p class="form_limits">Area must be between 25 km<sup>2</sup> and 100 km<sup>2</sup></p>
+                    <div class="col d-flex justify-content-end">
+                        <a><button class="btn btn-secondary">Save Progress</button></a>
                     </div>
                 </div>
 
-                <div class="col d-flex justify-content-end">
-                    <a><button class="btn btn-secondary">Save Progress</button></a>
+                <div class="input-sections">
+                    {{form.aoi}}
                 </div>
             </div>
 
-            <div class="input-sections">
-                {{form.aoi}}
-            </div>
-        </div>
+            <!-- interval form section -->
+            <div id="interval_form_section" class="tab">
+                <div class="row">
+                    <div class="col">
+                        <div class="form_title">
+                            <h4>Interval</h4>
+                            <br>
+                            <p>Select the start and end date of this pipeline and how frequently to search for images
+                                <br>
+                                The pipeline will aim to deliver one image between each interval start and end date</p>
+                            <p class="form_limits">Pipelines can have no more than 10 intervals</p>
+                        </div>
+                    </div>
 
-        <!-- interval form section -->
-        <div id="interval_form_section" class="tab">
-            <div class="row">
-                <div class="col">
-                    <div class="form_title">
-                        <h4>Interval</h4>
-                        <br>
-                        <p>Select the start and end date of this pipeline and how frequently to search for images <br>
-                            The pipeline will aim to deliver one image between each interval start and end date</p>
-                        <p class="form_limits">Pipelines can have no more than 10 intervals</p>
+                    <div class="col d-flex justify-content-end">
+                        <a><button class="btn btn-secondary">Save Progress</button></a>
                     </div>
                 </div>
 
-                <div class="col d-flex justify-content-end">
-                    <a><button class="btn btn-secondary">Save Progress</button></a>
-                </div>
-            </div>
+                <div class="row">
+                    <div class="col" id="s_date">
+                        <label for="start_date" class="form-label">from</label>
+                        {{form.start_date}}
+                    </div>
 
-            <div class="row">
-                <div class="col" id="s_date">
-                    <label for="start_date" class="form-label">from</label>
-                    {{form.start_date}}
-                </div>
-
-                <div class="col" id="e_date">
-                    <label for="end_date" class="form-label">to</label>
-                    {{form.end_date}}
-                </div>
-            </div>
-
-            <div class="input-sections">
-                <label for="interval" class="form-label">Interval</label>
-                {{form.interval}}
-            </div>
-        </div>
-
-        <!-- parameters form section -->
-        <div id="parameters_form_section" class="tab">
-            <div class="row">
-                <div class="col">
-                    <div class="form_title">
-                        <h4>Parameters</h4>
-                        <br>
-                        <p>Select the following parameters</p>
+                    <div class="col" id="e_date">
+                        <label for="end_date" class="form-label">to</label>
+                        {{form.end_date}}
                     </div>
                 </div>
 
-                <div class="col d-flex justify-content-end">
-                    <a><button class="btn btn-secondary">Save Progress</button></a>
+                <div class="input-sections">
+                    <label for="interval" class="form-label">Interval</label>
+                    {{form.interval}}
                 </div>
             </div>
-        </div>
 
-        <!-- output image form section -->
-        <div id="output_form_section" class="tab">
-            <div class="row">
-                <div class="col">
-                    <div class="form_title">
-                        <h4>Output Type</h4>
-                        <br>
-                        <p>Select the desired output image type</p>
-                        <p class="form-limits">Only choosing a <em>True Color</em> image will allow for calculation of
-                            aquisition probability</p>
+            <!-- parameters form section -->
+            <div id="parameters_form_section" class="tab">
+                <div class="row">
+                    <div class="col">
+                        <div class="form_title">
+                            <h4>Parameters</h4>
+                            <br>
+                            <p>Select the following parameters</p>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-end">
+                        <a><button class="btn btn-secondary">Save Progress</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- output image form section -->
+            <div id="output_form_section" class="tab">
+                <div class="row">
+                    <div class="col">
+                        <div class="form_title">
+                            <h4>Output Type</h4>
+                            <br>
+                            <p>Select the desired output image type</p>
+                            <p class="form-limits">Only choosing a <em>True Color</em> image will allow for calculation
+                                of
+                                aquisition probability</p>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-end">
+                        <a><button class="btn btn-secondary">Save Progress</button></a>
                     </div>
                 </div>
 
-                <div class="col d-flex justify-content-end">
-                    <a><button class="btn btn-secondary">Save Progress</button></a>
-                </div>
-            </div>
-
-            <div class="row input-sections">
-                <div class="col-md-4">
-                    <label class="output-label">
-                        <p class="image-label">True Colour</p>
-                        {{form.output_image.1.tag}}
-                        <div class="image-parent">
-                            <img class="image-image" src="../static/images/truecolourimg.jpg">
-                            <div class="image-des">
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore"</p>
+                <div class="row input-sections">
+                    <div class="col-md-4">
+                        <label class="output-label">
+                            <p class="image-label">True Colour</p>
+                            {{form.output_image.1.tag}}
+                            <div class="image-parent">
+                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <div class="image-des">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore"</p>
+                                </div>
                             </div>
-                        </div>
-                    </label>
-                </div>
+                        </label>
+                    </div>
 
-                <div class="col-md-4">
-                    <label class="output-label">
-                        <p class="image-label">False Colour Urban</p>
-                        {{form.output_image.2.tag}}
-                        <div class="image-parent">
-                            <img class="image-image" src="../static/images/truecolourimg.jpg">
-                            <div class="image-des">
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore"</p>
+                    <div class="col-md-4">
+                        <label class="output-label">
+                            <p class="image-label">False Colour Urban</p>
+                            {{form.output_image.2.tag}}
+                            <div class="image-parent">
+                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <div class="image-des">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore"</p>
+                                </div>
                             </div>
-                        </div>
-                    </label>
-                </div>
+                        </label>
+                    </div>
 
-                <div class="col-md-4">
-                    <label class="output-label">
-                        <p class="image-label">False Colour Infrared</p>
-                        {{form.output_image.3.tag}}
-                        <div class="image-parent">
-                            <img class="image-image" src="../static/images/truecolourimg.jpg">
-                            <div class="image-des">
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore"</p>
+                    <div class="col-md-4">
+                        <label class="output-label">
+                            <p class="image-label">False Colour Infrared</p>
+                            {{form.output_image.3.tag}}
+                            <div class="image-parent">
+                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <div class="image-des">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore"</p>
+                                </div>
                             </div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-
-            <div class="row input-sections">
-                <div class="col-md-4">
-                    <label class="output-label">
-                        <p class="image-label">All Optical Bands</p>
-                        {{form.output_image.4.tag}}
-                        <div class="image-parent">
-                            <img class="image-image" src="../static/images/truecolourimg.jpg">
-                            <div class="image-des">
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut labore"</p>
-                            </div>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="col-md-4">
-                    <label class="output-label">
-                        <p class="image-label">MSAVI2</p>
-                        {{form.output_image.5.tag}}
-                        <div class="image-parent">
-                            <img class="image-image" src="../static/images/truecolourimg.jpg">
-                            <div class="image-des">
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut labore"</p>
-                            </div>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="col-md-4">
-                    <label class="output-label">
-                        <p class="image-label">Near Infrared</p>
-                        {{form.output_image.6.tag}}
-                        <div class="image-parent">
-                            <img class="image-image" src="../static/images/truecolourimg.jpg">
-                            <div class="image-des">
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut labore"</p>
-                            </div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- review form section -->
-        <div id="review_form_section" class="tab">
-            <div class="row">
-
-                <div class="col">
-                    <div class="form_title">
-                        <h4>Review</h4>
-                        <br>
-                        <p>Review the pipeline parameters and ensure they are correct before submitting</p>
-                        <p class="form-limits">*parameters which can be changed after pipeline is committed</p>
+                        </label>
                     </div>
                 </div>
 
-                <div class="col d-flex justify-content-end">
-                    <a><button class="btn btn-secondary">Save Progress</button></a>
+                <div class="row input-sections">
+                    <div class="col-md-4">
+                        <label class="output-label">
+                            <p class="image-label">All Optical Bands</p>
+                            {{form.output_image.4.tag}}
+                            <div class="image-parent">
+                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <div class="image-des">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                        tempor
+                                        incididunt ut labore"</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="output-label">
+                            <p class="image-label">MSAVI2</p>
+                            {{form.output_image.5.tag}}
+                            <div class="image-parent">
+                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <div class="image-des">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                        tempor
+                                        incididunt ut labore"</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="output-label">
+                            <p class="image-label">Near Infrared</p>
+                            {{form.output_image.6.tag}}
+                            <div class="image-parent">
+                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <div class="image-des">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                        tempor
+                                        incididunt ut labore"</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- review form section -->
+            <div id="review_form_section" class="tab">
+                <div class="row">
+
+                    <div class="col">
+                        <div class="form_title">
+                            <h4>Review</h4>
+                            <br>
+                            <p>Review the pipeline parameters and ensure they are correct before submitting</p>
+                            <p class="form-limits">*parameters which can be changed after pipeline is committed</p>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-end">
+                        <a><button class="btn btn-secondary">Save Progress</button></a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            <!-- buttons and progress display section -->
+            <div id="buttons-div">
+                <div class="row align-items-center">
+                    <div class="col d-flex justify-content-start">
+                        <button type="button" class="btn btn-dark" id="prevButton"
+                            onclick="nextPrev(-1)">Previous</button>
+                    </div>
+
+                    <div class="col d-flex justify-content-center">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+
+                    <div class="col d-flex justify-content-end">
+                        <button type="button" class="btn btn-dark" id="nextButton" onclick="nextPrev(1)">Next</button>
+                    </div>
                 </div>
             </div>
 
-
-
-
-
-        </div>
-
-        <!-- buttons and progress display section -->
-        <div id="buttons-div">
-            <div class="row align-items-center">
-                <div class="col d-flex justify-content-start">
-                    <button type="button" class="btn btn-dark" id="prevButton" onclick="nextPrev(-1)">Previous</button>
-                </div>
-
-                <div class="col d-flex justify-content-center">
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                </div>
-
-                <div class="col d-flex justify-content-end">
-                    <button type="button" class="btn btn-dark" id="nextButton" onclick="nextPrev(1)">Next</button>
-                </div>
-            </div>
-        </div>
-
-    </form>
-</div>
-
+        </form>
+    </div>
+</body>
 
 
 
@@ -287,6 +291,29 @@
     showTab(currentTab)
 
     function validateDate() {
+
+        // create new div to display interval feedback/validation
+        interval_append = document.getElementById('interval_form_section');
+        interval_feedback = document.createElement('div');
+        interval_append.append(interval_feedback);
+        interval_feedback.id = 'interval_feedback';
+
+        // get user's dates input
+        start_date = document.getElementById('start_date').value;
+        end_date = document.getElementById('end_date').value;
+
+        // get user's interval choice
+        interval = document.getElementById('interval').value;
+        interval_num = interval.slice(0, interval.length-1);
+
+        day1 = parseInt(start_date.slice(8, 10));
+        day2 = parseInt(end_date.slice(8, 10));
+        month1 = parseInt(start_date.slice(5, 7));
+        month2 = parseInt(end_date.slice(5, 7));
+        year1 = parseInt(start_date.slice(0, 4))
+        year2 = parseInt(end_date.slice(0, 4))
+        s_date = (month1 + '/' + day1 + '/' + year1)
+        e_date = (month1 + '/' + day1 + '/' + year1)
 
     }
 
