@@ -178,6 +178,26 @@ input.invalid {
     color:rgb(16, 12, 63);
 }
 
+#feedback-table {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.table-section {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.table-left {
+    text-align: left;
+}
+
+.table-right {
+    text-align: right;
+}
+
+
 /* MY PIPELINES STYLING */
 .pipelines_links {
     text-decoration: none;
