@@ -5,9 +5,7 @@ body {
     background-color: rgb(250, 251, 255);
 }
 
-#nav-title{
-
-}
+#nav-title {}
 
 .navbar {
     box-shadow: 0 5px 3px -3px rgb(177, 177, 177);
@@ -15,7 +13,7 @@ body {
     padding-left: 40px;
 }
 
-.nav-item{
+.nav-item {
     font-size: 17px;
 }
 
@@ -139,10 +137,25 @@ body {
     background-repeat: no-repeat;
 }
 
-.purpose-section button:hover{
+.purpose-section button:hover {
     background-color: rgb(255, 255, 255);
     border: solid 1px rgb(0, 0, 0);
     color: black;
+}
+
+/* DISCOVER STYLING */
+
+#discover-banner {
+    height: 70vh;
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682217/pexels-pixabay-41949_eondcs.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#discover-banner h1 {
+    color: white;
+    text-align: center;
+    font-size: 70px;
 }
 
 /* CREATE PIPELINE STYLING */
@@ -165,7 +178,7 @@ body {
     padding-top: 25px;
 }
 
-input, 
+input,
 textarea,
 select {
     width: 100%;
@@ -227,7 +240,7 @@ input.invalid {
 }
 
 [type=radio]:hover+img {
-    opacity:0.6
+    opacity: 0.6
 }
 
 .image-parent {
@@ -268,7 +281,7 @@ input.invalid {
 
 .form_limits {
     font-weight: bold;
-    color:rgb(16, 12, 63);
+    color: rgb(16, 12, 63);
 }
 
 #feedback-table,
@@ -302,7 +315,7 @@ input.invalid {
     text-transform: uppercase;
 }
 
-.pipelines_links:hover{
+.pipelines_links:hover {
     text-decoration: underline double black;
     text-underline-position: under;
     text-underline-offset: 3px;
@@ -318,7 +331,7 @@ input.invalid {
     margin-left: 0%;
 }
 
-#my_pipelines_container{
+#my_pipelines_container {
     background-color: rgb(250, 251, 255);
     font-family: Noto Sans Display, sans-serif;
     padding-bottom: 50px;
@@ -380,7 +393,7 @@ input.invalid {
 
 /* DETAIL VIEW STYLING */
 #detail-view-container {
-    background-color:rgb(250, 251, 255);
+    background-color: rgb(250, 251, 255);
     padding-bottom: 50px;
 }
 
@@ -447,9 +460,7 @@ hr {
     padding-top: 25px;
 }
 
-#aoi-table{
+#aoi-table {
     width: 60%;
     margin-left: 20%;
 }
-
-
