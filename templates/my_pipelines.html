@@ -57,8 +57,13 @@
                 {% for pipeline in active %}
                 <div class="col mx-5">
                     <div class="card" id="pipeline_card">
+                        {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                            {% else %}
+                            <a href="{% url 'detail_view' pipeline.id %}">
+                                <img class="card-img-top" id="pipeline-card-img" src="../static/images/icon_black.png" alt="pipeline image"></a>
+                            {% endif %}
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
@@ -79,8 +84,13 @@
                 {% for pipeline in complete %}
                 <div class="col mx-5">
                     <div class="card" id="pipeline_card">
+                        {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                            {% else %}
+                            <a href="{% url 'detail_view' pipeline.id %}">
+                                <img class="card-img-top" id="pipeline-card-img" src="../static/images/satellite_icon.png" alt="pipeline image"></a>
+                            {% endif %}
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
@@ -101,8 +111,13 @@
                 {% for pipeline in pending %}
                 <div class="col mx-5">
                     <div class="card" class="pipeline_card">
+                        {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                            <img class="card-img-top" id="pipeline-card-img" src="../static/images/ex_image.jpg" alt="pipeline image"></a>
+                            {% else %}
+                            <a href="{% url 'detail_view' pipeline.id %}">
+                                <img class="card-img-top" id="pipeline-card-img" src="../static/images/satellite_icon.png" alt="pipeline image"></a>
+                            {% endif %}
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
