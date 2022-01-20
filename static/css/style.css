@@ -52,6 +52,24 @@ body {
     color: black;
 }
 
+/* INDEX/HOMEPAGE STYLING */
+
+#banner-section {
+    margin-top: 90px;
+}
+
+#index-banner {
+    height: 70vh;
+    background-image: url('https://images.pexels.com/photos/60132/pexels-photo-60132.jpeg?cs=srgb&dl=pexels-spacex-60132.jpg&fm=jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#index-banner-text {
+    width: 60%;
+    margin-left: 10%;
+}
+
 /* CREATE PIPELINE STYLING */
 #create_container {
     background: rgb(250, 251, 255);

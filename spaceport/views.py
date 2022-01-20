@@ -199,9 +199,12 @@ def my_pipelines(request):
     user = str(request.user)
 
     active_pipelines = List.objects.filter(status='active', created_by=user).order_by('date_created')
-    complete_pipelines = List.objects.filter(status='complete', created_by=user).order_by('date_created')
-    pending_pipelines = List.objects.filter(status='pending', created_by=user).order_by('date_created')
-    saved_pipelines = List.objects.filter(status='saved', created_by=user).order_by('date_created')
+    complete_pipelines = List.objects.filter(status='complete',
+        created_by=user).order_by('date_created')
+    pending_pipelines = List.objects.filter(status='pending',
+        created_by=user).order_by('date_created')
+    saved_pipelines = List.objects.filter(status='saved',
+        created_by=user).order_by('date_created')
 
     num_active_pipelines = len(active_pipelines)
     num_complete_pipelines = len(complete_pipelines)

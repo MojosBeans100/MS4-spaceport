@@ -73,20 +73,28 @@
         </div>
     </nav>
 
-
-
-
-    <!-- <h1>Spaceport</h1>
-
-
-    {% if user.is_authenticated %}
-    <a href="{% url 'account_logout' %}">Logout</a>
-    {% else %}
-    <a href="{% url 'account_login' %}">Login</a>
-    {% endif %}  -->
-
     {% block content %}
-    <p>hello</p>
+    <div class="container-fluid">
+
+        <div id="banner-section">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-1">
+                <div id="index-banner-text">
+                    <h2>Access satellite imagery in minutes</h2>
+                    <br>
+                    <p>It only takes 5 minutes to fill in our simple form, and can be done as many times as you need.
+                        Simply set up an account, and we'll guide you through the process. All our images are
+                        <strong>free</strong>.</p>
+                </div>
+            </div>
+
+            <!-- banner image -->
+            <div class="col-md-6 order-md-2" id="index-banner">
+            </div>
+        </div>
+    </div>
+
+    </div>
     {% endblock content %}
 
 </body>
