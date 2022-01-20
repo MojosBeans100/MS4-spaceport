@@ -72,11 +72,12 @@ body {
 
 #site-purpose-section {
     text-align: center;
+    padding-bottom: 100px;
 }
 
 .purpose-section {
     padding-top: 80px;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
     width: 60%;
     margin-left: 20%;
 }
@@ -105,6 +106,13 @@ body {
 #purpose-img4 {
     height: 50vh;
     background-image: url('../images/7141cdc97a17b5a5da4da31e994b17d2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#purpose-img5 {
+    height: 50vh;
+    background-image: url('../images/princecharles_oli_2016174_lrg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
