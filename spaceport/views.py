@@ -19,6 +19,10 @@ skywatch_key = os.environ.get('SKYWATCH_KEY', '')
 def homepage(request):
     return render(request, 'index.html')
 
+# display the discover page
+def discover(request):
+    return render(request, 'discover.html')
+
 
 # edit the pipeline (UPDATE)
 def edit(request, id):

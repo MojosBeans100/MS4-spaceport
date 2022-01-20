@@ -45,7 +45,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link px-5" href="#">Home</a>
+                        <a class="nav-link px-5" href="{% url 'discover' %}">Discover</a>
                     </li>
                     <li class="nav-item px-5">
                         <a class="nav-link" href="{% url 'create' %}">Create</a>
@@ -54,6 +54,9 @@
                         <a class="nav-link" href="{% url 'my_pipelines' %}">Pipelines</a>
                     </li>
                     {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link px-5" href="{% url 'discover' %}">Discover</a>
+                    </li>
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end text-end">
@@ -162,15 +165,19 @@
 
                 <div class="purpose-section">
                     <h2>Ready to explore earth from space?</h2>
+                    <h5>Learn more about the applications of satellite imagery, browse examples and current events, or
+                        <strong>create your own pipeline</strong></h5>
 
                     <div class="row justify-content-evenly py-5">
                         <div class="col">
-                        <a href="#"><button class="btn btn-dark btn-lg">Discover More</button></a>
+                            <a href="#"><button class="btn btn-dark btn-lg">Discover More</button></a>
                         </div>
                         {% if user.is_authenticated %}
-                        <div class="col"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create a Pipeline</button></a></div>
+                        <div class="col"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create a
+                                    Pipeline</button></a></div>
                         {% else %}
-                        <div vlass="col"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg">Sign Up</button></a></div>
+                        <div vlass="col"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg">Sign
+                                    Up</button></a></div>
                         {% endif %}
                     </div>
                 </div>

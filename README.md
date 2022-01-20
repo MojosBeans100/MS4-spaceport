@@ -2,6 +2,7 @@
 
 LINKS/CREDITS
 https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/
+<a href="https://www.vecteezy.com/free-vector/vector">Vector Vectors by Vecteezy</a>
 
 Welcome MojosBeans100,
 
