@@ -166,6 +166,14 @@ body {
     padding-top: 30px;
 }
 
+#applications .card {
+    border: none;
+}
+
+#applications img {
+    height: 30vh;
+}
+
 /* CREATE PIPELINE STYLING */
 #create_container {
     background-color: rgb(250, 251, 255);
