@@ -411,6 +411,8 @@ def update(request, id):
             update_result.status = i['status']
             update_result.message = i['message']
 
+            print(update_result)
+
             # if there are now images
             # add images to result object
             if len(i['results']) > 0:
@@ -418,35 +420,69 @@ def update(request, id):
                 # update_result.image_created_at = i['results'][0]
                 # ['capture_time']
                 # update_result.image_updated_at = i['results'][0]['updated_at']
-                update_result.image_preview_url = i['results'][0]['preview_url']
-                update_result.image_visual_url = i['results'][0]['visual_url'],
-                update_result.image_analytics_url = i['results'][0]
-                ['analytics_url'],
-                update_result.image_metadata_url = i['results'][0]
-                ['metadata_url'],
-                update_result.image_size = i['results'][0]['metadata']
-                ['size_in_mb'],
-                update_result.image_valid_pixels_per = i['results'][0]
-                ['metadata']
-                ['valid_pixels_percentage'],
-                update_result.image_source = i['results'][0]['metadata']
-                ['source'],
-                update_result.scene_height = i['overall_metadata']
-                ['scene_height'],
-                update_result.scene_width = i['overall_metadata']
-                ['scene_width'],
-                update_result.filled_area = i['overall_metadata']
-                ['filled_area_km'],
-                update_result.aoi_area_per = i['overall_metadata']
-                ['filled_area_percentage_of_aoi'],
-                update_result.cloud_cover_per = i['overall_metadata']
-                ['cloud_cover_percentage'],
-                update_result.aoi_cloud_cover_per = i['overall_metadata']
-                ['cloud_cover_percentage_of_aoi'],
-                update_result.visible_area = i['overall_metadata']
-                ['visible_area_km2'],
-                update_result.aoi_visible_area_per = i['overall_metadata']
-                ['visible_area_percentage_of_aoi']
+                # update_result.image_preview_url = i['results'][0]['preview_url']
+                # update_result.image_visual_url = i['results'][0]['visual_url']
+                # update_result.image_analytics_url = i['results'][0]
+                # ['analytics_url']
+                # update_result.image_metadata_url = i['results'][0]
+                # ['metadata_url']
+                # update_result.image_size = i['results'][0]['metadata']
+                # ['size_in_mb']
+                # update_result.image_valid_pixels_per = i['results'][0]
+                # ['metadata']
+                # ['valid_pixels_percentage']
+                # update_result.image_source = i['results'][0]['metadata']
+                # ['source']
+                # update_result.scene_height = i['overall_metadata']
+                # ['scene_height']
+                # update_result.scene_width = i['overall_metadata']
+                # ['scene_width']
+                # update_result.filled_area = i['overall_metadata']
+                # ['filled_area_km']
+                # update_result.aoi_area_per = i['overall_metadata']
+                # ['filled_area_percentage_of_aoi']
+                # update_result.cloud_cover_per = i['overall_metadata']
+                # ['cloud_cover_percentage']
+                # update_result.aoi_cloud_cover_per = i['overall_metadata']
+                # ['cloud_cover_percentage_of_aoi']
+                # update_result.visible_area = i['overall_metadata']
+                # ['visible_area_km2']
+                # update_result.aoi_visible_area_per = i['overall_metadata']
+                # ['visible_area_percentage_of_aoi']
+                print("h")
+                # print(len(i['results'][0]['preview_url']))
+                # print(len(i['results'][0]['visual_url']))
+                # print(len(i['results'][0]
+                # ['analytics_url']))
+                # print(len(i['results'][0]
+                # ['metadata_url']))
+                # print(len(i['results'][0]['metadata']
+                # ['size_in_mb']))
+                # print(len(i['results'][0]
+                # ['metadata']
+                # ['valid_pixels_percentage']))
+                # print(len(i['results'][0]['metadata']
+                # ['source']))
+                # print(i['overall_metadata']
+                # ['scene_height'])
+                # print(i['overall_metadata']
+                # ['scene_width'])
+                # print(i['overall_metadata']
+                # ['filled_area_km2'])
+                # print(i['overall_metadata']
+                # ['filled_area_percentage_of_aoi'])
+
+                # print(i['overall_metadata']
+                # ['filled_area_percentage_of_aoi'])
+                # print(i['overall_metadata']
+                # ['cloud_cover_percentage_of_aoi'])
+                # print(i['overall_metadata']
+                # ['cloud_cover_percentage_of_aoi'])
+                # print(i['overall_metadata']
+                # ['visible_area_percentage_of_aoi'])
+
+                
+               
 
             # save the updated result
             update_result.save()
