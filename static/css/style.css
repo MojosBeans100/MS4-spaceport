@@ -146,7 +146,7 @@ body {
 /* DISCOVER STYLING */
 
 #discover-banner {
-    height: 70vh;
+    height: 60vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682217/pexels-pixabay-41949_eondcs.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -156,6 +156,14 @@ body {
     color: white;
     text-align: center;
     font-size: 70px;
+}
+
+#discover-container {
+    text-align: center;
+}
+
+#discover-container div{
+    padding-top: 30px;
 }
 
 /* CREATE PIPELINE STYLING */
