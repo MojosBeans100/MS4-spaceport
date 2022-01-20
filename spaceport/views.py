@@ -227,7 +227,8 @@ def detail_view(request, id):
 
     context = {
         'pipeline': List.objects.get(id=id),
-        'results': Result.objects.filter(pipeline_id=id)
+        'results': Result.objects.filter(pipeline_id=id),
+        'mapbox_key': mapbox_key,
     }
 
     return render(request, 'detail_view.html', context)
