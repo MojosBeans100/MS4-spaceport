@@ -97,9 +97,15 @@ body {
 
 #purpose-img3 {
     height: 50vh;
-    background-image: url('../images/intervals-chart.JPG');
-    border: solid black 1px;
-    width: 100%;
+    background-image: url('../images/ex_image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#purpose-img4 {
+    height: 50vh;
+    background-image: url('../images/7141cdc97a17b5a5da4da31e994b17d2.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
