@@ -160,16 +160,23 @@
                     </div>
                 </div>
 
+                <div class="purpose-section">
+                    <h2>Ready to explore earth from space?</h2>
+
+                    <div class="row justify-content-evenly py-5">
+                        <div class="col">
+                        <a href="#"><button class="btn btn-dark">Discover More</button></a>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <div class="col"><a href="{% url 'create' %}"><button class="btn btn-dark">Create a Pipeline</button></a></div>
+                        {% else %}
+                        <div vlass="col"><a href="{% url 'account_login' %}"><button class="btn btn-dark">Sign Up</button></a></div>
+                        {% endif %}
+                    </div>
+                </div>
+
             </div>
-
-            <!-- what it does -->
-
-            <!-- what it returns -->
-
-
-
         </div>
-
     </div>
     {% endblock content %}
 

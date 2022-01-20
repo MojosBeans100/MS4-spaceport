@@ -60,7 +60,7 @@ body {
 
 #index-banner {
     height: 70vh;
-    background-image: url('https://images.pexels.com/photos/60132/pexels-photo-60132.jpeg?cs=srgb&dl=pexels-spacex-60132.jpg&fm=jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682189/pexels-spacex-60132_ougyj5.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -84,51 +84,57 @@ body {
 
 #purpose-img1 {
     height: 50vh;
-    background-image: url('../images/san-fran-google.JPG');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682319/san-fran-google_qpe6cf.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #purpose-img2 {
     height: 50vh;
-    background-image: url('../images/san-fran.jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682184/san-fran_gtesjh.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #purpose-img3 {
     height: 50vh;
-    background-image: url('../images/spectator-satellites.JPG');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/spectator-satellites_f9gzzb.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #purpose-img4 {
     height: 50vh;
-    background-image: url('../images/7141cdc97a17b5a5da4da31e994b17d2.jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/7141cdc97a17b5a5da4da31e994b17d2_igxqw9.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #purpose-img5 {
     height: 50vh;
-    background-image: url('../images/princecharles_oli_2016174_lrg.jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/nasa_tds1ps.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #purpose-img6 {
     height: 50vh;
-    background-image: url('../images/landsat-image.jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682213/landsat-image_uwmjnv.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #purpose-img7 {
     height: 50vh;
-    background-image: url('../images/image_4_-_the_parched_parana_river.jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682213/image_4_-_the_parched_parana_river_ku0fqt.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.purpose-section button:hover{
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(0, 0, 0);
+    color: black;
 }
 
 /* CREATE PIPELINE STYLING */
