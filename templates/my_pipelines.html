@@ -25,27 +25,33 @@
         {% else %}
         <div class="row py-4">
             <div class="col px-3">
-                <div><a class="pipelines_links" href="#active_pipelines" class="status_buttons">Active ({{active_num}})</a></div>
+                <div><a class="pipelines_links" href="#active_pipelines" class="status_buttons">Active
+                        ({{active.count}})</a></div>
                 <p><small>pipelines currently searching for images</small></p>
             </div>
 
             <div class="col px-3">
-                <div><a class="pipelines_links" href="#complete_pipelines" class="status_buttons">Complete ({{complete_num}})</a></div>
+                <div><a class="pipelines_links" href="#complete_pipelines" class="status_buttons">Complete
+                        ({{complete.count}})</a></div>
                 <p><small>pipelines which have completed all intervals</small></p>
             </div>
 
             <div class="col px-3">
-                <div><a class="pipelines_links" href="#pending_pipelines" class="status_buttons">Pending ({{pending_num}})</a></div>
+                <div><a class="pipelines_links" href="#pending_pipelines" class="status_buttons">Pending
+                        ({{pending.count}})</a></div>
                 <p><small>recently created pipelines still gathering information</small></p>
             </div>
 
             <div class="col px-3">
-                <div><a class="pipelines_links" href="#saved_pipelines" class="status_buttons">Saved ({{saved_num}})</a></div>
+                <div><a class="pipelines_links" href="#saved_pipelines" class="status_buttons">Saved ({{saved.count}})</a>
+                </div>
                 <p><small>saved 'Create Pipeline' forms not yet submitted</small></p>
             </div>
         </div>
         {% endif %}
     </div>
+
+    <img src="{{pipeline.featured_image}}">
 
     <div id="pipeline_list_div">
 
@@ -57,13 +63,17 @@
                 {% for pipeline in active %}
                 <div class="col mx-5">
                     <div class="card" id="pipeline_card">
-                        {% if pipeline.featured_image %}
+                        <!-- {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg" alt="pipeline image"></a>
-                            {% else %}
-                            <a href="{% url 'detail_view' pipeline.id %}">
-                                <img class="card-img-top" id="pipeline-card-img" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg" alt="pipeline image"></a>
-                            {% endif %}
+                            <img class="card-img-top" id="pipeline-card-img"
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
+                                alt="pipeline image"></a>
+                        {% else %} -->
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img"
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
+                                alt="pipeline image"></a>
+                        <!-- {% endif %} -->
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
@@ -86,11 +96,15 @@
                     <div class="card" id="pipeline_card">
                         {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img" src=".https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg" alt="pipeline image"></a>
-                            {% else %}
-                            <a href="{% url 'detail_view' pipeline.id %}">
-                                <img class="card-img-top" id="pipeline-card-img" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg" alt="pipeline image"></a>
-                            {% endif %}
+                            <img class="card-img-top" id="pipeline-card-img"
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
+                                alt="pipeline image"></a>
+                        {% else %}
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img"
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
+                                alt="pipeline image"></a>
+                        {% endif %}
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
@@ -111,18 +125,22 @@
                 {% for pipeline in pending %}
                 <div class="col mx-5">
                     <div class="card" class="pipeline_card">
-                        {% if pipeline.featured_image %}
+                        <!-- {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg" alt="pipeline image"></a>
-                            {% else %}
-                            <a href="{% url 'detail_view' pipeline.id %}">
-                                <img class="card-img-top" id="pipeline-card-img" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg" alt="pipeline image"></a>
-                            {% endif %}
+                            <img class="card-img-top" id="pipeline-card-img"
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
+                                alt="pipeline image"></a>
+                        {% else %} -->
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img"
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
+                                alt="pipeline image"></a>
+                        <!-- {% endif %} -->
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
                             <p class="card-text">{{pipeline.pipeline_des}}</p>
-                            <a href="{% url 'detail_view' pipeline.id %}">View <span >>></span></a>
+                            <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
                         </div>
                     </div>
                 </div>
@@ -154,7 +172,7 @@
     </div>
 
     {% else %}
-    <p style="margin-top: 150px;">Ooops you have been redirected to the wrong.  Please return home.</p>
+    <p style="margin-top: 150px;">Ooops you have been redirected to the wrong. Please return home.</p>
     {% endif %}
 
 </div>

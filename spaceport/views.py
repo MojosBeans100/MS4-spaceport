@@ -84,6 +84,24 @@ def save(request):
 
 # create a pipeline (CREATE)
 def create(request):
+    """
+    Creates the pipeline (List) object.
+  
+    This function checks the validity of the form
+    and if valid, saves it as a List object.
+
+    It then calls the Skywatch API with user's parameters
+    and, if successful, saves additional fields into 
+    the List form, namely the api_id for cross reference.
+  
+    Parameters:
+    Request - user's submitted form.
+  
+    Returns:
+    Saved List object
+    Redirects to Detail View of List object.
+  
+    """
 
     # current logged in user
     user = str(request.user)
@@ -203,27 +221,21 @@ def my_pipelines(request):
     user = str(request.user)
 
     active_pipelines = List.objects.filter(status='active', created_by=user).order_by('date_created')
+
     complete_pipelines = List.objects.filter(status='complete',
         created_by=user).order_by('date_created')
+
     pending_pipelines = List.objects.filter(status='pending',
         created_by=user).order_by('date_created')
+
     saved_pipelines = List.objects.filter(status='saved',
         created_by=user).order_by('date_created')
-
-    num_active_pipelines = len(active_pipelines)
-    num_complete_pipelines = len(complete_pipelines)
-    num_pending_pipelines = len(pending_pipelines)
-    num_saved_pipelines = len(saved_pipelines)
 
     context = {
         'active': active_pipelines,
         'complete': complete_pipelines,
         'pending': pending_pipelines,
         'saved': saved_pipelines,
-        'active_num': num_active_pipelines,
-        'complete_num': num_complete_pipelines,
-        'pending_num': num_pending_pipelines,
-        'saved_num': num_saved_pipelines,
     }
 
     return render(request, 'my_pipelines.html', context)
@@ -371,10 +383,6 @@ def update(request, id):
                 new_result.visible_area = i['overall_metadata']['visible_area_km2']
                 new_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
 
-                # save latest image as featured image on my_pipelines.html
-                update_list.featured_image = i['results'][0]['preview_url']
-                update_list.save()
-
             # save the newly created result
             new_result.save()
 
@@ -417,6 +425,11 @@ def update(request, id):
                 update_result.aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi']
                 update_result.visible_area = i['overall_metadata']['visible_area_km2']
                 update_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
+
+                # save latest image as featured image on my_pipelines.html
+                print(i['results'][0]['preview_url'])
+                # update_list.featured_image = i['results'][0]['preview_url']
+                # update_list.save()    
 
             # save the updated result
             update_result.save()
