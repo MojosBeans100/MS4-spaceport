@@ -415,7 +415,7 @@ def update(request, id):
                 update_result.image_created_at = i['results'][0]
                 ['capture_time']
                 update_result.image_updated_at = i['results'][0]['updated_at']
-                update_result.image_preview_url = i['results'][0]['preview']
+                update_result.image_preview_url = i['results'][0]['preview_url']
                 update_result.image_visual_url = i['results'][0]['visual_url'],
                 update_result.image_analytics_url = i['results'][0]
                 ['analytics_url'],

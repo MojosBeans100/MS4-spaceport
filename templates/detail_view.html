@@ -23,7 +23,7 @@
                             class="fas fa-sync"></i>Update pipeline</button></a>
 
                 {% if pipeline.results_updated is None %}
-                <p><strong>Pipeline pending: update to see results</strong></p>
+                <p><strong>Pipeline pending:<br> update to see results</strong></p>
                 {% else %}
                 <p><small>updated: {{pipeline.results_updated}}</small></p>
                 {% endif %}
@@ -167,9 +167,9 @@
                     {% else %}
                     <td><em>No image found</em></td>
                     {% endif %}
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
                 </tr>
                 {% endif %}
                 {% endfor %}

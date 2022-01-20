@@ -162,7 +162,7 @@ body {
     text-align: center;
 }
 
-#discover-container div{
+#discover-container div {
     padding-top: 30px;
 }
 
@@ -172,7 +172,8 @@ body {
 
 #applications img {
     height: 30vh;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: none;
 }
 
 /* CREATE PIPELINE STYLING */
@@ -388,11 +389,12 @@ input.invalid {
 
 #pipeline_card {
     border: none;
+    width: 25rem;
 }
 
 
 .card-img-top {
-    height: 100%;
+
     border: solid 1px rgb(177, 177, 177);
 }
 
@@ -416,6 +418,10 @@ input.invalid {
 
 #detail-links {
     padding-top: 160px;
+}
+
+#detail-links p {
+    text-align: center;
 }
 
 #detail-view-div {
@@ -464,8 +470,9 @@ i {
 }
 
 #result-table {
-    width: 70%;
-    margin-left: 15%;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 30px;
 }
 
 hr {
@@ -480,4 +487,29 @@ hr {
 #aoi-table {
     width: 60%;
     margin-left: 20%;
+}
+
+#result-table td,
+#interval-table td,
+#result-table th,
+#interval-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#result-table tr:nth-child(even),
+#interval-table tr:nth-child(even){
+    background-color: #ebf0fc;
+}
+
+#result-table tr:hover,
+#interval-table tr:hover {
+    background-color: #ddd;
+}
+
+#result-table th,
+#interval-table th {
+    background-color: #8794b3;
+    color: white;
+    font-weight: bold;
 }
