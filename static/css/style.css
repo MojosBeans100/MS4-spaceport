@@ -172,6 +172,7 @@ body {
 
 #applications img {
     height: 30vh;
+    border-radius: 10px;
 }
 
 /* CREATE PIPELINE STYLING */
