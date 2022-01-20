@@ -228,6 +228,7 @@ input.invalid {
 #my_pipelines_container{
     background-color: rgb(250, 251, 255);
     font-family: Noto Sans Display, sans-serif;
+    padding-bottom: 50px;
 }
 
 #my_pipelines_blurb {
