@@ -137,6 +137,10 @@
                 </tr>
 
                 {% for result in results %}
+
+                <!-- if an image has been found for the result object -->
+                <!-- display the image preview and image data -->
+                {% if result.image_visual_url %}
                 <tr>
                     <td>{{result.status}}</td>
                     <td>{{result.interval_start_date}} <br>to {{result.interval_end_date}}</td>
@@ -147,6 +151,26 @@
                     <td><a href="{{result.image_metadata_url}}" target="_blank"><i
                                 class="fas fa-external-link-alt"></i></a></td>
                 </tr>
+                <!-- if there is no image found (yet) -->
+                {% else %}
+                <tr>
+                    <td>{{result.status}}</td>
+                    <td>{{result.interval_start_date}} <br>to {{result.interval_end_date}}</td>
+
+                    <!-- if the result status is future, there may be a result in the future
+                    so set to pending -->
+                    {% if result.status == 'future' %}
+                    <td><em>pending</em></td>
+
+                    <!-- but if the interval is complete -->
+                    {% else %}
+                    <td><em>No image found</em></td>
+                    {% endif %}
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                {% endif %}
                 {% endfor %}
             </table>
 
