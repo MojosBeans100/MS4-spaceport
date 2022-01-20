@@ -98,7 +98,7 @@ body {
 
 #purpose-img3 {
     height: 50vh;
-    background-image: url('../images/ex_image.jpg');
+    background-image: url('../images/spectator-satellites.JPG');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -113,6 +113,20 @@ body {
 #purpose-img5 {
     height: 50vh;
     background-image: url('../images/princecharles_oli_2016174_lrg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#purpose-img6 {
+    height: 50vh;
+    background-image: url('../images/landsat-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#purpose-img7 {
+    height: 50vh;
+    background-image: url('../images/image_4_-_the_parched_parana_river.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
