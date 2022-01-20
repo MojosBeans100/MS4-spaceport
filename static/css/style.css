@@ -70,6 +70,31 @@ body {
     margin-left: 10%;
 }
 
+#site-purpose-section {
+    text-align: center;
+}
+
+.purpose-section {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    width: 60%;
+    margin-left: 20%;
+}
+
+#purpose-img1 {
+    height: 50vh;
+    background-image: url('../images/san-fran-google.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#purpose-img2 {
+    height: 50vh;
+    background-image: url('../images/san-fran.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* CREATE PIPELINE STYLING */
 #create_container {
     background: rgb(250, 251, 255);

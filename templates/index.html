@@ -76,23 +76,60 @@
     {% block content %}
     <div class="container-fluid">
 
+        <!-- banner image and text -->
         <div id="banner-section">
-        <div class="row align-items-center">
-            <div class="col-md-6 order-md-1">
-                <div id="index-banner-text">
-                    <h2>Access satellite imagery in minutes</h2>
-                    <br>
-                    <p>It only takes 5 minutes to fill in our simple form, and can be done as many times as you need.
-                        Simply set up an account, and we'll guide you through the process. All our images are
-                        <strong>free</strong>.</p>
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-1">
+                    <div id="index-banner-text">
+                        <h2>Access satellite imagery in minutes</h2>
+                        <br>
+                        <p>It only takes 5 minutes to fill in our simple form, and can be done as many times as you
+                            need.
+                            Simply set up an account, and we'll guide you through the process. All our images are
+                            <strong>free</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- banner image -->
+                <div class="col-md-6 order-md-2" id="index-banner">
+                </div>
+            </div>
+        </div>
+
+        <!-- section to tell users what the site does -->
+        <div class="container" id="site-purpose-section">
+
+            <!-- what to do -->
+            <div>
+
+                <div class="purpose-section">
+                    <h3>Images of where you want, when you want</h3>
+                    <p>Tell us where to look for images, and on which dates you'd like them taken - this is called a
+                        <strong>tasking pipeline</strong>.<br> We will then search
+                        our network of satellite providers, and match your selection up to a satellite which provides
+                        coverage of the specified location.</p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col" id="purpose-img1">
+
+                    </div>
+
+                    <div class="col" id="purpose-img2">
+
+                    </div>
+
                 </div>
             </div>
 
-            <!-- banner image -->
-            <div class="col-md-6 order-md-2" id="index-banner">
-            </div>
+            <!-- what it does -->
+
+            <!-- what it returns -->
+
+
+
         </div>
-    </div>
 
     </div>
     {% endblock content %}
