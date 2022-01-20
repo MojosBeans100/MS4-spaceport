@@ -91,7 +91,7 @@
                 </div>
 
                 <!-- banner image -->
-                <div class="col-md-6 order-md-2" id="index-banner">
+                <div class="col-md-6 order-md-2" id="index-banner" title="Space X Satellite">
                 </div>
             </div>
         </div>
@@ -110,10 +110,10 @@
 
                 <div class="row">
 
-                    <div class="col" id="purpose-img1">
+                    <div class="col" id="purpose-img1" title="San Francisco on Google Maps">
                     </div>
 
-                    <div class="col" id="purpose-img2">
+                    <div class="col" id="purpose-img2" title="San Francisco satellite image">
                     </div>
 
                 </div>
@@ -125,7 +125,7 @@
                         selected.</p>
                 </div>
 
-                <div id="purpose-img3">
+                <div id="purpose-img3" title="Trajectory of satellites from Spectator.earth">
                 </div>
 
                 <div class="purpose-section">
@@ -134,7 +134,7 @@
                         You can also monitor the status of the pipeline, or edit specific parameters.</p>
                 </div>
 
-                <div id="purpose-img4">
+                <div id="purpose-img4" title="Progress timeline of pipeline">
                 </div>
 
                 <div class="purpose-section">
@@ -145,17 +145,17 @@
 
                 <div class="row">
                     <div class="col">
-                        <div id="purpose-img5">
+                        <div id="purpose-img5" title="Progress timeline of pipeline">
                         </div>
                     </div>
 
                     <div class="col">
-                        <div id="purpose-img6">
+                        <div id="purpose-img6" title="Progress timeline of pipeline">
                         </div>
                     </div>
 
                     <div class="col">
-                        <div id="purpose-img7">
+                        <div id="purpose-img7" title="Progress timeline of pipeline">
                         </div>
                     </div>
                 </div>
@@ -165,12 +165,12 @@
 
                     <div class="row justify-content-evenly py-5">
                         <div class="col">
-                        <a href="#"><button class="btn btn-dark">Discover More</button></a>
+                        <a href="#"><button class="btn btn-dark btn-lg">Discover More</button></a>
                         </div>
                         {% if user.is_authenticated %}
-                        <div class="col"><a href="{% url 'create' %}"><button class="btn btn-dark">Create a Pipeline</button></a></div>
+                        <div class="col"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create a Pipeline</button></a></div>
                         {% else %}
-                        <div vlass="col"><a href="{% url 'account_login' %}"><button class="btn btn-dark">Sign Up</button></a></div>
+                        <div vlass="col"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg">Sign Up</button></a></div>
                         {% endif %}
                     </div>
                 </div>

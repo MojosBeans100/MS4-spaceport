@@ -52,10 +52,18 @@ body {
     color: black;
 }
 
+.nav-item a:hover {
+    text-decoration: underline double black;
+    text-underline-position: under;
+    text-underline-offset: 3px;
+    color: black;
+}
+
 /* INDEX/HOMEPAGE STYLING */
 
 #banner-section {
     margin-top: 90px;
+    background-color: rgb(250, 251, 255);
 }
 
 #index-banner {
@@ -139,7 +147,7 @@ body {
 
 /* CREATE PIPELINE STYLING */
 #create_container {
-    background: rgb(250, 251, 255);
+    background-color: rgb(250, 251, 255);
 }
 
 #create_form {
