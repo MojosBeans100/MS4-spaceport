@@ -95,6 +95,14 @@ body {
     background-repeat: no-repeat;
 }
 
+#purpose-img3 {
+    height: 50vh;
+    background-image: url('../images/intervals-chart.JPG');
+    border: solid black 1px;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
 /* CREATE PIPELINE STYLING */
 #create_container {
     background: rgb(250, 251, 255);
