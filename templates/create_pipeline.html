@@ -62,7 +62,11 @@
                     </div>
                 </div>
 
-                <div id="map"></div>
+                <div id="map-feedback">
+                    <p id="map-area">Area: 0 km<sup>2</sup></p>
+                </div>
+
+                <div id="create-map"></div>
 
                 <div class="input-sections">
                     {{form.aoi}}
@@ -517,6 +521,7 @@
 
         } else if (num == 1) {
             document.getElementById('prevButton').style.display = 'inline';
+            createMap();
         }
 
         if (num == (tab.length - 1)) {
@@ -597,24 +602,22 @@
 
     function createMap() {
 
+        input_validation = document.getElementById('id_aoi');
+
         // external library - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
         mapboxgl.accessToken = mapbox_key;
         const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/satellite-v9', // style URL
-            center: [-91.874, 42.76], // starting position [lng, lat]
-            zoom: 12 // starting zoom
+            container: 'create-map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            zoom: 4,
         });
 
         const draw = new MapboxDraw({
             displayControlsDefault: false,
-            // Select which mapbox-gl-draw control buttons to add to the map.
             controls: {
                 polygon: true,
                 trash: true
             },
-            // Set mapbox-gl-draw to draw by default.
-            // The user does not have to click the polygon control button first.
             defaultMode: 'draw_polygon'
         });
         map.addControl(draw);
@@ -623,14 +626,31 @@
         map.on('draw.delete', updateArea);
         map.on('draw.update', updateArea);
 
+        aoi_section = document.getElementById('map-feedback')
+
         function updateArea(e) {
+
+            input_validation = document.getElementById('id_aoi')
+
+            map_area = document.getElementById('ma_area')
+            map_area.innerHTML = "Area: 0 km<sup>2</sup>"
+
             const data = draw.getAll();
-            const answer = document.getElementById('calculated-area');
+
+            if (document.getElementById('area_validation_feedback')) {
+                document.getElementById('area_validation_feedback').remove();
+            }
+
+            //const answer = document.getElementById('calculated-area');
+
             if (data.features.length > 0) {
+
                 const area = turf.area(data);
-                // Restrict the area to 2 decimal points.
                 const rounded_area = Math.round(area * 100) / 100;
+                rounded_km = (rounded_area / 1000000).toFixed(2)
+                
                 answer.innerHTML = `<p><strong>${rounded_area}</strong></p><p>square meters</p>`;
+
             } else {
                 answer.innerHTML = '';
                 if (e.type !== 'draw.delete')

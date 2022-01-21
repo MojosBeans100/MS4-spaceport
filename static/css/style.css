@@ -213,6 +213,14 @@ body {
     display:none;
 }
 
+#create-map {
+    width: 100%;
+    height: 60vh;
+    box-shadow: 0 0 3px rgb(177, 177, 177);
+    margin-bottom: 20px;
+    border: solid red;
+}
+
 input,
 textarea,
 select {
