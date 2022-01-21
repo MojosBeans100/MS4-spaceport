@@ -434,6 +434,7 @@ input.invalid {
     padding: 40px;
 }
 
+
 .detail-view-section {
     margin: 20px 0 20px 0;
 }
@@ -475,9 +476,9 @@ i {
     margin-top: 30px;
 }
 
-hr {
-    width: 90%;
-    margin-left: 5%;
+#detail-view-div hr {
+    width: 100%;
+    margin-left: 0;
 }
 
 .parameters-section {
@@ -498,7 +499,7 @@ hr {
 }
 
 #result-table tr:nth-child(even),
-#interval-table tr:nth-child(even){
+#interval-table tr:nth-child(even) {
     background-color: #ebf0fc;
 }
 
