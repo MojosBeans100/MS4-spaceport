@@ -4,6 +4,14 @@ LINKS/CREDITS
 https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/
 <a href="https://www.vecteezy.com/free-vector/vector">Vector Vectors by Vecteezy</a>
 
+true colour
+https://fineartamerica.com/featured/true-colour-satellite-image-of-montpellier-planetobserverscience-photo-library.html
+false colour urban
+https://www.sciencephoto.com/media/181608/view
+false colour ir
+https://www.researchgate.net/figure/Visible-infrared-false-colour-composition-Landsat-5-image-TM-bands-7-4-and-2-RGB-of_fig5_259715697
+
+
 Welcome MojosBeans100,
 
 This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.

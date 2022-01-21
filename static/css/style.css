@@ -390,12 +390,14 @@ input.invalid {
 #pipeline_card {
     border: none;
     width: 25rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
 .card-img-top {
-
     border: solid 1px rgb(177, 177, 177);
+    height: 300px;
 }
 
 .card-img-top:hover {
