@@ -22,6 +22,14 @@ output = (
     ('ga23d8a2-8f3d-481c-b7ef-9fa02839aab0', 'Near-infrared'),
 )
 
+# status of pipeline
+status_choice = (
+    ('active', 'active'),
+    ('pending', 'pending'),
+    ('complete', 'complete'),
+    ('inactive', 'inactive'),
+)
+
 
 # list of all pipelines created by all users
 class List(models.Model):
@@ -44,7 +52,7 @@ class List(models.Model):
     date_created = models.DateField(default=timezone.now, null=True)
     aoi_area = models.CharField(max_length=10, null=True)
     created_by = models.CharField(max_length=100, null=True)
-    status = models.CharField(max_length=30, null=True)
+    status = models.CharField(choices=status_choice, max_length=30, null=True)
     api_id = models.CharField(max_length=100, null=True)
     num_results = models.PositiveIntegerField(null=True)
     num_images = models.PositiveIntegerField(null=True)

@@ -1,4 +1,4 @@
-from .models import List, output
+from .models import List, output, status_choice
 from django.forms import ModelForm, DateInput, TextInput, Textarea, RadioSelect, Select
 
 class CreateList(ModelForm):
@@ -76,5 +76,21 @@ class UpdateList(ModelForm):
     class Meta:
         model = List
 
-        fields = ['pipeline_name', 'pipeline_des']
+        fields = ['pipeline_name', 'pipeline_des', 'status']
+
+        widgets = {
+            'pipeline_name': TextInput(attrs={
+                'class': 'form-control',
+                'id': 'pipeline_name',
+            }),
+            'pipeline_des': Textarea(attrs={
+                'class': 'form-control',
+                'rows': 3,
+                'id': 'pipeline_des',
+            }),
+            'status': RadioSelect(choices='status_choice', attrs={
+                'class': 'form-control',
+                
+            }),
+        }
 

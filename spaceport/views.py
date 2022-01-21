@@ -262,7 +262,7 @@ def detail_view(request, id):
 
     context = {
         'pipeline': List.objects.get(id=id),
-        'results': Result.objects.filter(pipeline_id=id),
+        'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
         'mapbox_key': mapbox_key,
     }
 
