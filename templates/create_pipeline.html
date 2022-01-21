@@ -641,15 +641,35 @@
                 document.getElementById('area_validation_feedback').remove();
             }
 
-            //const answer = document.getElementById('calculated-area');
 
             if (data.features.length > 0) {
 
                 const area = turf.area(data);
                 const rounded_area = Math.round(area * 100) / 100;
                 rounded_km = (rounded_area / 1000000).toFixed(2)
-                
-                answer.innerHTML = `<p><strong>${rounded_area}</strong></p><p>square meters</p>`;
+
+                if (rounded_km > 100) {
+
+                    area_validation = "Area is too large: choose an area smaller than 100 km<sup>2</sup>";
+                    area_validation_feedback.style.color = 'red';
+                    input_validation.value = "";
+
+                } else if (rounded_km < 25) {
+
+                    area_validation = "Area is too small: choose an area larger than 25 km<sup>2</sup>";
+                    area_validation_feedback.style.color = 'red';
+                    input_validation.value = "";
+
+                } else {
+
+                    area_validation = "";
+                    text = JSON.stringify(data);
+                    input_validation.value = text;
+                }
+
+                map_area.innerHTML = `<p>Area: <strong>${rounded_km} km <sup>2</sup>`;
+                area_validation_feedback.innerHTML = `${area_validation}`;
+                aoi_section.append(area_validation_feedback);
 
             } else {
                 answer.innerHTML = '';
