@@ -469,7 +469,8 @@ i {
 }
 
 #detail-links button:hover,
-.detail-view-section button:hover {
+.detail-view-section button:hover,
+#edit-container button:hover {
     background-color: rgb(255, 255, 255);
     border: solid 1px rgb(0, 0, 0);
     color: black;
@@ -527,5 +528,14 @@ i {
 #interval-table th {
     background-color: #8794b3;
     color: white;
+    font-weight: bold;
+}
+
+/* EDIT VIEW STYLING */
+#edit-container a {
+    color: black;  
+}
+
+#edit-container a:hover {
     font-weight: bold;
 }

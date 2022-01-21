@@ -27,6 +27,8 @@ def discover(request):
 # edit the pipeline (UPDATE)
 def edit(request, id):
 
+    edit_time = timezone.now()
+
     # get the object to update
     this_pipeline = List.objects.get(id=id)
 
@@ -52,6 +54,7 @@ def edit(request, id):
     context = {
         'form': form,
         'pipeline': this_pipeline,
+        'time_edited': edit_time,
     }
 
     return render(request, 'edit_pipeline.html', context)
