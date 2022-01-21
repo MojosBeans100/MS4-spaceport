@@ -57,6 +57,10 @@ body {
     color: black;
 }
 
+.small_view {
+
+}
+
 /* INDEX/HOMEPAGE STYLING */
 
 #index-container {
@@ -182,11 +186,14 @@ body {
 }
 
 /* CREATE PIPELINE STYLING */
-#create_container {
+#create_container,
+#edit-container {
     background-color: rgb(250, 251, 255);
+    height: 100vh;
 }
 
-#create_form {
+#create_form,
+#edit_form {
     position: relative;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
