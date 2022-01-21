@@ -43,7 +43,8 @@
             </div>
 
             <div class="col px-3">
-                <div><a class="pipelines_links" href="#saved_pipelines" class="status_buttons">Saved ({{saved.count}})</a>
+                <div><a class="pipelines_links" href="#saved_pipelines" class="status_buttons">Saved
+                        ({{saved.count}})</a>
                 </div>
                 <p><small>saved 'Create Pipeline' forms not yet submitted</small></p>
             </div>
@@ -58,10 +59,9 @@
         <div id="active_pipelines">
             <h1>ACTIVE ({{active.count}})</h1>
             <hr>
-
-            <div class="row">
+            <div class="d-flex justify-content-evenly">
                 {% for pipeline in active %}
-                <div class="col mx-5">
+                <div class="">
                     <div class="card" id="pipeline_card">
                         <!-- {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
@@ -89,15 +89,13 @@
         <div id="complete_pipelines">
             <h1>COMPLETE ({{complete.count}})</h1>
             <hr>
-
-            <div class="row d-flex justify-content-around">
+            <div class="d-flex justify-content-evenly">
                 {% for pipeline in complete %}
-                <div class="col">
+                <div>
                     <div class="card mx-5" id="pipeline_card">
                         {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img"
-                                src="{{pipeline.featured_image}}"
+                            <img class="card-img-top" id="pipeline-card-img" src="{{pipeline.featured_image}}"
                                 alt="pipeline image"></a>
                         {% else %}
                         <a href="{% url 'detail_view' pipeline.id %}">
@@ -120,22 +118,14 @@
         <div id="pending_pipelines">
             <h1>PENDING ({{pending.count}})</h1>
             <hr>
-
-            <div class="row">
+            <div class="d-flex justify-content-evenly">
                 {% for pipeline in pending %}
-                <div class="col mx-5">
-                    <div class="card" class="pipeline_card">
-                        <!-- {% if pipeline.featured_image %}
+                <div class="">
+                    <div class="card mx-5" class="pipeline_card">
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img"
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
                                 alt="pipeline image"></a>
-                        {% else %} -->
-                        <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img"
-                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
-                                alt="pipeline image"></a>
-                        <!-- {% endif %} -->
                         <div class="card-body">
                             <p>{{pipeline.date_created}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
@@ -152,9 +142,9 @@
             <h1>SAVED ({{saved.count}})</h1>
             <hr>
 
-            <div class="row">
+            <div class="d-flex justify-content-evenly">
                 {% for pipeline in saved %}
-                <div class="col mx-5">
+                <div class="">
                     <div class="card mx-5" class="pipeline_card">
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <i class="fas fa-tasks"></i></a>

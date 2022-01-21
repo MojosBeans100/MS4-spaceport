@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Delete pipeline confirmation</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid" id="edit-container">
+    <div class="container d-flex align-items-center" style="height: 80vh;">
+        <div id="delete_form" class="small_view">
+
+            <h2><strong>{{pipeline.pipeline_name}}</strong> has been deleted</h2>
+           
+            <div class="pt-5 d-flex justify-content-evenly">
+                <a href="{% url 'my_pipelines' %}"><button type="submit" class="btn btn-dark btn-lg"><i class="fas fa-home"></i>My Pipelines</button></a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

@@ -83,6 +83,8 @@ def save(request):
 
         return render(request, 'create_pipeline.html', context)
 
+    
+
     return render(request, 'save.html')
 
 
@@ -174,7 +176,7 @@ def create(request):
             # (should not happen due to form validation, Django + JS)
             if 'errors' in post_response or 'error' in post_response:
 
-                form = CreateList(request.POST)
+                form = CreateList()
                 # error message
 
                 context = {
@@ -299,10 +301,11 @@ def delete(request, id):
         result.delete()
 
     # delete object
-    object_to_delete.delete()
+   # object_to_delete.delete()
 
     # return redirect(reverse('pipeline_deleted', args=[id]))
-    return redirect(reverse('my_pipelines'))
+    #return redirect(reverse('my_pipelines'))
+    return redirect(reverse('delete_feedback', args=[id]))
 
 
 # display the delete page
@@ -317,6 +320,18 @@ def delete_view(request, id):
 
     return render(request, 'delete_view.html', context)
 
+
+def delete_feedback(request, id):
+
+    object_to_delete = List.objects.get(id=id)
+
+    context = {
+        'pipeline': object_to_delete,
+    }
+
+    object_to_delete.delete()
+
+    return render(request, 'delete_conf.html', context)
 
 # refresh the pipeline from the api
 # this is not the UPDATE aspect of CRUD (see views.edit)

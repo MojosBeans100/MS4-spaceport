@@ -12,7 +12,7 @@
         <div id="delete_form" class="small_view">
 
             {% if pipeline.status == 'pending' %}
-            <h3>You cannot edit this pipeline unless the status is Active or Complete.</h3>
+            <h3>You cannot delete this pipeline unless the status is Pending.</h3>
             <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
                         class="fas fa-arrow-left"></i>Back</button></a>
             {% else %}

@@ -16,6 +16,7 @@ class CreateList(ModelForm):
             'num_images',
             'results_updated',
             'featured_image',
+            'time_edited',
         ]
 
         widgets = {
