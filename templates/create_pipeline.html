@@ -734,7 +734,47 @@
        long = aoi_json['features'][0]['geometry']['coordinates'][0][0][0];
        lat = aoi_json['features'][0]['geometry']['coordinates'][0][0][1];
 
-       
+       mapboxgl.accessToken =
+            mapbox_key;
+        const map = new mapboxgl.Map({
+            container: 'review-aoi',
+            style: 'mapbox://styles/mapbox/light-v10',
+            center: [long, lat],
+            zoom: 9,
+        });
+
+        map.on('load', () => {
+
+            map.addSource('display_aoi', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'Feature',
+                    'geometry': aoi_map,
+                }
+            });
+
+            map.addLayer({
+                'id': 'display_aoi',
+                'type': 'fill',
+                'source': 'display_aoi',
+                'layout': {},
+                'paint': {
+                    'fill-color': '#0080ff',
+                    'fill-opacity': 0.5
+                }
+            });
+
+            map.addLayer({
+                'id': 'outline',
+                'type': 'line',
+                'source': 'display_aoi',
+                'layout': {},
+                'paint': {
+                    'line-color': '#000',
+                    'line-width': 3
+                }
+            });
+        });
         
     }
 
