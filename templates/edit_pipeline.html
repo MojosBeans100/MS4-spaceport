@@ -9,7 +9,13 @@
 
 <div class="container-fluid" id="edit-container">
     <div class="container d-flex align-items-center" style="height: 80vh;">
+        
         <form action="" method="POST" id="edit_form" class="small_view">
+            {% if pipeline.status == 'complete' or pipeline.status == 'pending' or pipeline.status == 'saved' %}
+            <h3>You cannot edit this pipeline unless the status is Active.</h3>
+            <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
+                class="fas fa-arrow-left"></i>Back</button></a>
+            {% else %}
             {% csrf_token%}
             <h2>Edit &nbsp; <strong>{{pipeline.pipeline_name}}</strong></h2>
             <p>Use this form to edit the following details for your pipeline.</p>
@@ -33,6 +39,7 @@
             </div>
         
         </form>
+        {% endif %}
     </div>
 </div>
 
