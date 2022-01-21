@@ -89,7 +89,7 @@ class UpdateList(ModelForm):
                 'id': 'pipeline_des',
             }),
             'status': RadioSelect(choices='status_choice', attrs={
-                'class': 'form-control',
+                #'class': 'form-control',
                 
             }),
         }

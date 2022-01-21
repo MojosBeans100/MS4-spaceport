@@ -9,19 +9,20 @@
 
 <div class="container-fluid" id="edit-container">
     <div class="container d-flex align-items-center" style="height: 80vh;">
-        
+
         <form action="" method="POST" id="edit_form" class="small_view">
             {% csrf_token%}
             {% if pipeline.status == 'complete' or pipeline.status == 'pending' or pipeline.status == 'saved' %}
             <h3>You cannot edit this pipeline unless the status is Active.</h3>
             <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
-                class="fas fa-arrow-left"></i>Back</button></a>
+                        class="fas fa-arrow-left"></i>Back</button></a>
             {% else %}
-            
+
             <h2>Edit &nbsp; <strong>{{pipeline.pipeline_name}}</strong></h2>
             <p>Use this form to edit the following details for your pipeline.</p>
             <p><small>As pipelines have very specific technical parameters, only the following fields can be edited.<br>
-            For choosing a new AOI, interval set up, or output image, please <a href="{% url 'create' %}">create a new pipeline</a>.</small></p>
+                    For choosing a new AOI, interval set up, or output image, please <a href="{% url 'create' %}">create
+                        a new pipeline</a>.</small></p>
 
             <div class="input-sections">
                 <label for="pipeline_name" class="form-label">Name</label>
@@ -34,20 +35,30 @@
             </div>
 
             <div class="input-sections"></div>
-                {% for choice in form.status %}
-                {{choice}}
-                {% endfor %}
+            {% if pipeline.status == 'active' %}
+
+            <div style="border: solid yellow; width: 30%; margin-left: 35%; text-align: center;">
+            <label style="text-align: center;">Deactivate pipeline</label>
+            
+                {{form.status.4.tag}}
             </div>
 
-            <div class="pt-5 d-flex justify-content-evenly">
-                    <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
-                        class="fas fa-arrow-left"></i>Back</button></a>
-                    <a><button type="submit" class="btn btn-dark btn-lg"><i class="far fa-save"></i>Save</button></a>
-            </div>
-        
-        </form>
-        {% endif %}
+            {% else %}
+            <label>Activate pipeline</label>
+            {{form.status.1.tag}}
+
+            {% endif %}
     </div>
+
+    <div class="pt-5 d-flex justify-content-evenly">
+        <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
+                    class="fas fa-arrow-left"></i>Back</button></a>
+        <a><button type="submit" class="btn btn-dark btn-lg"><i class="far fa-save"></i>Save</button></a>
+    </div>
+
+    </form>
+    {% endif %}
+</div>
 </div>
 
 {% endblock content %}
