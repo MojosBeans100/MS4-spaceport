@@ -62,6 +62,8 @@
                     </div>
                 </div>
 
+                <div id="map"></div>
+
                 <div class="input-sections">
                     {{form.aoi}}
                 </div>
@@ -69,8 +71,9 @@
                 <div class="input-sections">
                     <label for="aoi_area" class="form-label">Minimum coverage of the AOI</label>
                     <p><small>Minimum coverage area (%) of the AOI your result must have<br>
-                        i.e. if the selected AOI is 50 km<sup>2</sup> with 50% AOI coverage, only images with 25 km<sup>2</sup> AOI coverage will be returned <br>
-                        Enter a number between 1 and 100</small></p>
+                            i.e. if the selected AOI is 50 km<sup>2</sup> with 50% AOI coverage, only images with 25
+                            km<sup>2</sup> AOI coverage will be returned <br>
+                            Enter a number between 1 and 100</small></p>
                     {{form.aoi_area}}
                 </div>
 
@@ -132,9 +135,10 @@
 
                 <div class="input-sections">
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
-                    <p><small>Minimum cloud free area (%) your result must have<br>Enter a number between 1 and 100</small></p>
+                    <p><small>Minimum cloud free area (%) your result must have<br>Enter a number between 1 and
+                            100</small></p>
                     {{form.cloud_cover}}
-                  
+
                 </div>
 
             </div>
@@ -344,7 +348,8 @@
 
                     <tr>
                         <td class="table-left">geoJSON:</td>
-                        <td class="table-right"><textarea id="table-geojson" rows="10" cols="15" disabled></textarea></td>
+                        <td class="table-right"><textarea id="table-geojson" rows="10" cols="15" disabled></textarea>
+                        </td>
                     </tr>
                 </table>
 
@@ -386,7 +391,6 @@
 </body>
 
 
-
 <script>
     // library - https://www.w3schools.com/howto/howto_js_form_steps.asp
     // this step form uses code from the above link
@@ -394,6 +398,7 @@
     var currentTab = 0;
     showTab(currentTab)
     var interval;
+    var mapbox_key = "{{ mapbox_key | safe}}";
 
     function validateDate() {
 
@@ -522,7 +527,7 @@
             document.getElementById('nextButton').innerHTML = "Review";
 
         } else if (num == (tab.length - 1)) {
-            
+
             document.getElementById('nextButton').innerHTML = "Review";
 
         } else {
@@ -591,7 +596,47 @@
     }
 
     function createMap() {
-        console.log("creating map")
+
+        // external library - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
+        mapboxgl.accessToken = mapbox_key;
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+            center: [-91.874, 42.76], // starting position [lng, lat]
+            zoom: 12 // starting zoom
+        });
+
+        const draw = new MapboxDraw({
+            displayControlsDefault: false,
+            // Select which mapbox-gl-draw control buttons to add to the map.
+            controls: {
+                polygon: true,
+                trash: true
+            },
+            // Set mapbox-gl-draw to draw by default.
+            // The user does not have to click the polygon control button first.
+            defaultMode: 'draw_polygon'
+        });
+        map.addControl(draw);
+
+        map.on('draw.create', updateArea);
+        map.on('draw.delete', updateArea);
+        map.on('draw.update', updateArea);
+
+        function updateArea(e) {
+            const data = draw.getAll();
+            const answer = document.getElementById('calculated-area');
+            if (data.features.length > 0) {
+                const area = turf.area(data);
+                // Restrict the area to 2 decimal points.
+                const rounded_area = Math.round(area * 100) / 100;
+                answer.innerHTML = `<p><strong>${rounded_area}</strong></p><p>square meters</p>`;
+            } else {
+                answer.innerHTML = '';
+                if (e.type !== 'draw.delete')
+                    alert('Click the map to draw a polygon.');
+            }
+        }
     }
 
     function reviewMap() {

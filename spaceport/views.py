@@ -214,6 +214,7 @@ def create(request):
 
     context = {
         'form': form,
+        'mapbox_key': mapbox_key,
     }
 
     return render(request, 'create_pipeline.html', context)
@@ -266,6 +267,7 @@ def detail_view(request, id):
         'pipeline': List.objects.get(id=id),
         'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
         'mapbox_key': mapbox_key,
+        #'time_created': List.objects.get(id=id).date_created
     }
 
     return render(request, 'detail_view.html', context)
