@@ -234,6 +234,11 @@
         <!-- pipeline edit/update/delete section -->
         <div class="detail-view-section">
             <h3>Edit</h3>
+            {% if pipeline.time_edited %}
+            <p>Last edited: {{pipeline.time_edited}}</p>
+            {% else %}
+            {% endif %}
+            
             {% if pipeline.status == 'pending' %}
             <p>Pipelines cannot be edited or deleted when the status is "Pending".</p>
             {% elif pipeline.status == 'complete' %}
