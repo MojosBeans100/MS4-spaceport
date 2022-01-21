@@ -127,8 +127,6 @@
                     <div class="col">
                         <div class="form_title">
                             <h4>Parameters</h4>
-                            <br>
-                            <p>Select the following parameters</p>
                         </div>
                     </div>
 
@@ -142,7 +140,37 @@
                     <p><small>Minimum cloud free area (%) your result must have<br>Enter a number between 1 and
                             100</small></p>
                     {{form.cloud_cover}}
+                </div>
 
+                <div class="input-sections" id="cloud-cover">
+                    <div class="row">
+                        <div class="col px-3">
+                            <img
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/30-per-cloud-cover_vfgigm.jpg">
+                            <br>
+                            <p><strong>Low cloud cover</strong></p>
+                            <p>High AOI coverage</p>
+                            <p>Lower probability of image return</p>
+                        </div>
+
+                        <div class="col px-3">
+                            <img
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782570/65-per-cloud-cover_ufppk0.jpg">
+                            <br>
+                            <p><strong>Medium cloud cover</strong></p>
+                            <p>Medium AOI coverage</p>
+                            <p>Medium probability of image return</p>
+                        </div>
+
+                        <div class="col px-3">
+                            <img
+                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/80-per-cloud-cover_j3wok7.jpg">
+                            <br>
+                            <p><strong>High cloud cover</strong></p>
+                            <p>Low AOI coverage</p>
+                            <p>Higher probability of image return</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -172,7 +200,7 @@
                             <p class="image-label">True Colour</p>
                             {{form.output_image.1.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749757/true-colour_b02a5f.jpg">
                                 <div class="image-des">
                                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore"</p>
@@ -186,7 +214,7 @@
                             <p class="image-label">False Colour Urban</p>
                             {{form.output_image.2.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749875/false-colour-urban_mifri2.jpg">
                                 <div class="image-des">
                                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore"</p>
@@ -200,7 +228,7 @@
                             <p class="image-label">False Colour Infrared</p>
                             {{form.output_image.3.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749876/false-colour-infrared_vc3jjh.png">
                                 <div class="image-des">
                                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore"</p>
@@ -339,6 +367,8 @@
                     </tr>
 
                 </table>
+
+                <div id="review-aoi"></div>
 
                 <table id="feedback-aoi">
                     <tr>
@@ -521,7 +551,17 @@
 
         } else if (num == 1) {
             document.getElementById('prevButton').style.display = 'inline';
-            createMap();
+
+            if (document.getElementById('id_aoi').value != "null") {
+
+            } else {
+                createMap();
+            }
+        } else if (n==5) {
+            document.getElementById("prevBtn").style.display = "inline";
+            reviewMap();
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
         }
 
         if (num == (tab.length - 1)) {
@@ -687,7 +727,15 @@
     }
 
     function reviewMap() {
-        console.log("reviewing map")
+
+       aoi_json = JSON.parse(document.getElementById('id_aoi').value);
+       aoi_map = aoi_json['features'][0]['geometry'];
+
+       long = aoi_json['features'][0]['geometry']['coordinates'][0][0][0];
+       lat = aoi_json['features'][0]['geometry']['coordinates'][0][0][1];
+
+       
+        
     }
 
     function createReview() {

@@ -65,7 +65,7 @@ class CreateList(ModelForm):
                 'oninput': "this.className = ''",
             }),
             'output_image': RadioSelect(choices='output_image', attrs={
-                'class': 'form-control',
+                #'class': 'form-control',
                 'id': 'id_output',
                 'onchange': 'styleOutputImage()',
                 'oninput': "this.className = ''",
@@ -89,9 +89,9 @@ class UpdateList(ModelForm):
                 'rows': 3,
                 'id': 'pipeline_des',
             }),
-            'status': RadioSelect(choices='status_choice', attrs={
-                #'class': 'form-control',
+            # 'status': RadioSelect(choices='status_choice', attrs={
+            #     #'class': 'form-control',
                 
-            }),
+            # }),
         }
 

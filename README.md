@@ -10,6 +10,8 @@ false colour urban
 https://www.sciencephoto.com/media/181608/view
 false colour ir
 https://www.researchgate.net/figure/Visible-infrared-false-colour-composition-Landsat-5-image-TM-bands-7-4-and-2-RGB-of_fig5_259715697
+cloud cover
+https://www.nasa.gov/topics/earth/features/weather-20130130.html
 
 
 Welcome MojosBeans100,
