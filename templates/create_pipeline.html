@@ -200,7 +200,8 @@
                             <p class="image-label">True Colour</p>
                             {{form.output_image.1.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749757/true-colour_b02a5f.jpg">
+                                <img class="image-image"
+                                    src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749757/true-colour_b02a5f.jpg">
                                 <div class="image-des">
                                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore"</p>
@@ -214,7 +215,8 @@
                             <p class="image-label">False Colour Urban</p>
                             {{form.output_image.2.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749875/false-colour-urban_mifri2.jpg">
+                                <img class="image-image"
+                                    src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749875/false-colour-urban_mifri2.jpg">
                                 <div class="image-des">
                                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore"</p>
@@ -228,7 +230,8 @@
                             <p class="image-label">False Colour Infrared</p>
                             {{form.output_image.3.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749876/false-colour-infrared_vc3jjh.png">
+                                <img class="image-image"
+                                    src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749876/false-colour-infrared_vc3jjh.png">
                                 <div class="image-des">
                                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore"</p>
@@ -557,11 +560,11 @@
             } else {
                 createMap();
             }
-        } else if (n==5) {
-            document.getElementById("prevBtn").style.display = "inline";
+        } else if (num == 5) {
+            document.getElementById("prevButton").style.display = "inline";
             reviewMap();
         } else {
-            document.getElementById("prevBtn").style.display = "inline";
+            document.getElementById("prevButton").style.display = "inline";
         }
 
         if (num == (tab.length - 1)) {
@@ -728,13 +731,13 @@
 
     function reviewMap() {
 
-       aoi_json = JSON.parse(document.getElementById('id_aoi').value);
-       aoi_map = aoi_json['features'][0]['geometry'];
+        aoi_json = JSON.parse(document.getElementById('id_aoi').value);
+        aoi_map = aoi_json['features'][0]['geometry'];
 
-       long = aoi_json['features'][0]['geometry']['coordinates'][0][0][0];
-       lat = aoi_json['features'][0]['geometry']['coordinates'][0][0][1];
+        long = aoi_json['features'][0]['geometry']['coordinates'][0][0][0];
+        lat = aoi_json['features'][0]['geometry']['coordinates'][0][0][1];
 
-       mapboxgl.accessToken =
+        mapboxgl.accessToken =
             mapbox_key;
         const map = new mapboxgl.Map({
             container: 'review-aoi',
@@ -775,7 +778,7 @@
                 }
             });
         });
-        
+
     }
 
     function createReview() {
