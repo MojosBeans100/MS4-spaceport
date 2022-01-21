@@ -193,7 +193,8 @@ body {
 }
 
 #create_form,
-#edit_form {
+#edit_form,
+#delete_form {
     position: relative;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);

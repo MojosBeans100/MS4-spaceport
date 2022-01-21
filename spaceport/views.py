@@ -299,10 +299,10 @@ def delete(request, id):
         result.delete()
 
     # delete object
-    object_to_delete.delete() 
+    object_to_delete.delete()
 
     # return redirect(reverse('pipeline_deleted', args=[id]))
-    return render(request, 'my_pipelines.html')
+    return redirect(reverse('my_pipelines'))
 
 
 # display the delete page
