@@ -186,12 +186,18 @@ body {
     position: relative;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
-    width: 70%;
-    margin: 50px auto;
+    /* width: 70%;
+    margin: 50px auto; */
     height: auto;
     margin-top: 120px;
-    padding: 40px;
+    padding: 15px;
 }
+
+#create_form {
+    font-size: 15px !important;
+}
+
+
 
 .input-sections {
     padding-top: 25px;
@@ -226,7 +232,12 @@ select {
     border: 1px solid rgb(190, 190, 190);
     border-radius: 4px;
     font-family: Noto Sans Display;
-    font-size: 12px;
+    font-size: 15px;
+    /* font-size: 12px; */
+}
+
+.form-control {
+    font-size: 15px;
 }
 
 /* library - https://www.w3schools.com/howto/howto_js_form_steps.asp */
@@ -419,6 +430,7 @@ input.invalid {
     height: auto;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
+    padding: 15px;
 }
 
 #pipeline_card {}
@@ -492,6 +504,11 @@ input.invalid {
         width: 70% !important;
         margin-left: 15% !important;
         padding-top: 120px !important;
+    }
+
+    #interval-table,
+    #result-table {
+        font-size: 15px !important;
     }
 
 
