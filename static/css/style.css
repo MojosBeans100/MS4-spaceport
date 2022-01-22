@@ -54,80 +54,6 @@ body {
     color: black;
 }
 
-/* // X-Small devices (portrait phones, less than 576px) */
-/* // No media query for `xs` since this is the default in Bootstrap */
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-    #nav-title {
-        font-size: 30px;
-    }
-
-    #nav-icon {
-        height: 55px;
-        width: 55px;
-    }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    #banner-section {
-        margin-top: 50px;
-    }
-
-    #index-banner {
-        background-size: cover;
-        height: 70vh;
-    }
-
-
-
-
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    .navbar {
-        padding-left: 40px;
-    }
-
-    #purpose-img1,
-    #purpose-img2,
-    #purpose-img3,
-    #purpose-img4,
-    #purpose-img5,
-    #purpose-img6,
-    #purpose-img7 {
-        height: 50vh !important;
-    }
-
-    .purpose-section {
-        padding-top: 80px !important;
-        padding-bottom: 80px !important;
-        width: 60% !important;
-        margin-left: 20% !important;
-    }
-
-}
-
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
-    
-}
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-    #index-banner-text {
-        width: 60%;
-        margin-left: 10%;
-        text-align: left;
-    }
-
-    #banner-section {
-        margin-top: 70px;
-    }
-}
 
 /* INDEX/HOMEPAGE STYLING */
 
@@ -213,8 +139,6 @@ body {
     border: solid 1px rgb(0, 0, 0);
     color: black;
 }
-
-
 
 /* DISCOVER STYLING */
 
@@ -436,6 +360,91 @@ input.invalid {
 
 
 /* MY PIPELINES STYLING */
+/* // X-Small devices (portrait phones, less than 576px) */
+/* // No media query for `xs` since this is the default in Bootstrap */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    #nav-title {
+        font-size: 30px;
+    }
+
+    #nav-icon {
+        height: 55px;
+        width: 55px;
+    }
+
+    #pipeline_list_div {
+        width:80%;
+        margin-left: 10%;
+    }
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #banner-section {
+        margin-top: 50px;
+    }
+
+    #index-banner {
+        background-size: cover;
+        height: 70vh;
+    }
+
+
+
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .navbar {
+        padding-left: 40px;
+    }
+
+    #purpose-img1,
+    #purpose-img2,
+    #purpose-img3,
+    #purpose-img4,
+    #purpose-img5,
+    #purpose-img6,
+    #purpose-img7 {
+        height: 50vh !important;
+    }
+
+    .purpose-section {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+        width: 60% !important;
+        margin-left: 20% !important;
+    }
+
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+    #pipeline_list_div {
+        width:60%;
+        margin-left: 20%;
+    }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    #index-banner-text {
+        width: 60%;
+        margin-left: 10%;
+        text-align: left;
+    }
+
+    #banner-section {
+        margin-top: 70px;
+    }
+}
+
+
 .pipelines_links {
     text-decoration: none;
     font-weight: bold;
@@ -463,12 +472,13 @@ input.invalid {
     background-color: rgb(250, 251, 255);
     font-family: Noto Sans Display, sans-serif;
     padding-bottom: 50px;
+    /* overflow: hidden; */
 }
 
 #my_pipelines_blurb {
     width: 60%;
     margin-left: 20%;
-    margin-top: 70px;
+    margin-top: 40px;
     padding-top: 60px;
     padding-bottom: 60px;
     height: auto;
@@ -491,23 +501,18 @@ input.invalid {
 
 #pipeline_list_div {
     height: auto;
-    width: 80%;
-    margin-left: 10%;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
 }
 
 #pipeline_card {
-    border: none;
-    width: 25rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    
 }
 
 
 .card-img-top {
-    border: solid 1px rgb(177, 177, 177);
-    height: 300px;
+    /* border: solid 1px rgb(177, 177, 177); */
+    /* height: 300px; */
     background-color: rgb(250, 251, 255);
 }
 
@@ -519,7 +524,7 @@ input.invalid {
 #complete_pipelines,
 #pending_pipelines,
 #saved_pipelines {
-    padding: 35px;
+    padding: 15px;
 }
 
 

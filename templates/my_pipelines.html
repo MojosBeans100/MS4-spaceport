@@ -59,10 +59,10 @@
         <div id="active_pipelines">
             <h1>ACTIVE ({{active.count}})</h1>
             <hr>
-            <div class="d-flex justify-content-evenly">
+            <div class="row">
                 {% for pipeline in active %}
-                <div class="">
-                    <div class="card" id="pipeline_card">
+                <div class="col-sm-6 col-md-4 col-xxl-3">
+                    <div class="card my-3" id="pipeline_card">
                         <!-- {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img"
@@ -89,10 +89,10 @@
         <div id="complete_pipelines">
             <h1>COMPLETE ({{complete.count}})</h1>
             <hr>
-            <div class="d-flex justify-content-evenly">
+            <div class="row">
                 {% for pipeline in complete %}
-                <div>
-                    <div class="card mx-5" id="pipeline_card">
+                <div class="col-sm-6 col-md-4 col-xxl-3">
+                    <div class="card my-3" id="pipeline_card">
                         {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img" src="{{pipeline.featured_image}}"
@@ -118,10 +118,10 @@
         <div id="pending_pipelines">
             <h1>PENDING ({{pending.count}})</h1>
             <hr>
-            <div class="d-flex justify-content-evenly">
+            <div class="row">
                 {% for pipeline in pending %}
-                <div class="">
-                    <div class="card mx-5" class="pipeline_card">
+                <div class="col-sm-6 col-md-4 col-xxl-3">
+                    <div class="card my-3" id="pipeline_card">
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img"
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
@@ -142,10 +142,10 @@
             <h1>SAVED ({{saved.count}})</h1>
             <hr>
 
-            <div class="d-flex justify-content-evenly">
+            <div class="row">
                 {% for pipeline in saved %}
-                <div class="">
-                    <div class="card mx-5" class="pipeline_card">
+                <div class="col-sm-6 col-md-4 col-xxl-3">
+                    <div class="card my-3" id="pipeline_card">
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <i class="fas fa-tasks"></i></a>
                         <div class="card-body">
