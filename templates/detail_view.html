@@ -7,29 +7,21 @@
 
 {% block content %}
 
-<div id="detail-view-container" class="container-fluid">
+<div id="detail-view-container" class="container-fluid" style="overflow:hidden;">
 
     {% if user.is_authenticated %}
 
     <div class="container" id="detail-links">
-        <div class="row d-flex justify-content-between" style="border: solid orange;">
-            <div class="col-md">
+        <div class="row">
+            <div class="col-md-4 py-2">
                 <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i
-                            class="fas fa-arrow-left"></i>Back to
-                        pipelines</button></a>
+                            class="fas fa-arrow-left"></i>My pipelines</button></a>
             </div>
-            <div class="col-md">
+            <div class="col-md-4 py-2">
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
-                            class="fas fa-sync"></i>Update pipeline</button></a>
-
-                {% if pipeline.results_updated is None %}
-                <p><strong>Pipeline pending:<br> update to see results</strong></p>
-                {% else %}
-                <p><small>updated: {{pipeline.results_updated}}</small></p>
-                {% endif %}
-
+                            class="fas fa-sync"></i>Update</button></a>
             </div>
-            <div class="col-md">
+            <div class="col-md-4 py-2">
                 <a href="{% url 'edit_pipeline' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-edit"></i>Edit</button></a>
             </div>
@@ -66,6 +58,12 @@
                         <td>{{pipeline.date_created}}</td>
                     </tr>
                 </table>
+
+                {% if pipeline.results_updated is None %}
+                <p><strong>Pipeline pending:<br> update to see results</strong></p>
+                {% else %}
+                <p><small>updated:<br> {{pipeline.results_updated}}</small></p>
+                {% endif %}
             </div>
         </div>
 
