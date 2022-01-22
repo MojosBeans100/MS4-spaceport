@@ -168,15 +168,15 @@
                     <h5>Learn more about the applications of satellite imagery, browse examples and current events, or
                         <strong>create your own pipeline</strong></h5>
 
-                    <div class="row justify-content-evenly py-5">
-                        <div class="col">
+                    <div class="row  py-3">
+                        <div class="col-md py-2">
                             <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg">Discover More</button></a>
                         </div>
                         {% if user.is_authenticated %}
-                        <div class="col"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create a
+                        <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create a
                                     Pipeline</button></a></div>
                         {% else %}
-                        <div vlass="col"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg">Sign
+                        <div class="col-md py-2"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg">Sign
                                     Up</button></a></div>
                         {% endif %}
                     </div>
