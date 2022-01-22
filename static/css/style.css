@@ -360,90 +360,6 @@ input.invalid {
 
 
 /* MY PIPELINES STYLING */
-/* // X-Small devices (portrait phones, less than 576px) */
-/* // No media query for `xs` since this is the default in Bootstrap */
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-    #nav-title {
-        font-size: 30px;
-    }
-
-    #nav-icon {
-        height: 55px;
-        width: 55px;
-    }
-
-    #pipeline_list_div {
-        width:80%;
-        margin-left: 10%;
-    }
-
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    #banner-section {
-        margin-top: 50px;
-    }
-
-    #index-banner {
-        background-size: cover;
-        height: 70vh;
-    }
-
-
-
-
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    .navbar {
-        padding-left: 40px;
-    }
-
-    #purpose-img1,
-    #purpose-img2,
-    #purpose-img3,
-    #purpose-img4,
-    #purpose-img5,
-    #purpose-img6,
-    #purpose-img7 {
-        height: 50vh !important;
-    }
-
-    .purpose-section {
-        padding-top: 80px !important;
-        padding-bottom: 80px !important;
-        width: 60% !important;
-        margin-left: 20% !important;
-    }
-
-}
-
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
-    #pipeline_list_div {
-        width:60%;
-        margin-left: 20%;
-    }
-}
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-    #index-banner-text {
-        width: 60%;
-        margin-left: 10%;
-        text-align: left;
-    }
-
-    #banner-section {
-        margin-top: 70px;
-    }
-}
-
 
 .pipelines_links {
     text-decoration: none;
@@ -529,6 +445,90 @@ input.invalid {
 
 
 /* DETAIL VIEW STYLING */
+/* // X-Small devices (portrait phones, less than 576px) */
+/* // No media query for `xs` since this is the default in Bootstrap */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    #nav-title {
+        font-size: 30px;
+    }
+
+    #nav-icon {
+        height: 55px;
+        width: 55px;
+    }
+
+    #pipeline_list_div {
+        width:80%;
+        margin-left: 10%;
+    }
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #banner-section {
+        margin-top: 50px;
+    }
+
+    #index-banner {
+        background-size: cover;
+        height: 70vh;
+    }
+
+
+
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .navbar {
+        padding-left: 40px;
+    }
+
+    #purpose-img1,
+    #purpose-img2,
+    #purpose-img3,
+    #purpose-img4,
+    #purpose-img5,
+    #purpose-img6,
+    #purpose-img7 {
+        height: 50vh !important;
+    }
+
+    .purpose-section {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+        width: 60% !important;
+        margin-left: 20% !important;
+    }
+
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+    #pipeline_list_div {
+        width:60%;
+        margin-left: 20%;
+    }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    #index-banner-text {
+        width: 60%;
+        margin-left: 10%;
+        text-align: left;
+    }
+
+    #banner-section {
+        margin-top: 70px;
+    }
+}
+
 #detail-view-container {
     background-color: rgb(250, 251, 255);
     padding-bottom: 50px;
