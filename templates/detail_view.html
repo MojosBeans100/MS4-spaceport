@@ -74,6 +74,8 @@
             <div>
                 <h3>Intervals</h3>
 
+                <p>From {{pipeline.start_date|date:'d M Y'}} to {{pipeline.end_date|date:'d M Y'}}</p>
+
                 {% if pipeline.status == 'pending' %}
                 <p>Update the pipeline to see interval information</p>
                 {% else %}
@@ -84,35 +86,36 @@
 
                 <br>
                 <br>
-
-                <table id="interval-table">
-                    <tr>
-                        <th>Start date</th>
-                        <th>End date</th>
-                        <th>Status date</th>
-                    </tr>
-
-                    {% for result in results %}
-                    <tr>
-                        <td>{{result.interval_start_date}}</td>
-                        <td>{{result.interval_end_date}}</td>
-                        <td>{{result.status}}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
-
-                <!-- interval status table -->
-                <div>
-                    <table id="detail-table">
+                <div class="table-responsive">
+                    <table class="table" id="interval-table">
                         <tr>
-                            <td>Current interval:</td>
-                            <td></td>
+                            <th>Start date</th>
+                            <th>End date</th>
+                            <th>Status date</th>
                         </tr>
+
+                        {% for result in results %}
                         <tr>
-                            <td>Next interval:</td>
-                            <td></td>
+                            <td>{{result.interval_start_date|date:'d M'}}</td>
+                            <td>{{result.interval_end_date|date:'d M'}}</td>
+                            <td>{{result.status}}</td>
                         </tr>
+                        {% endfor %}
                     </table>
+
+                    <!-- interval status table -->
+                    <div>
+                        <table id="detail-table">
+                            <tr>
+                                <td>Current interval:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Next interval:</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 {% endif %}
 
@@ -129,55 +132,56 @@
             {% if pipeline.status == 'pending' %}
             <p>Update the pipeline to see results information</p>
             {% else %}
-            <table id="result-table">
-                <tr>
-                    <th>Status</th>
-                    <th>Interval dates</th>
-                    <th>Image</th>
-                    <th>Image Captured</th>
-                    <th>Image Source</th>
-                    <th>Metadata</th>
-                </tr>
+            <div class="table-responsive">
+                <table class="table" id="result-table">
+                    <tr>
+                        <th>Status</th>
+                        <th>Interval dates</th>
+                        <th>Image</th>
+                        <th>Image Captured</th>
+                        <th>Image Source</th>
+                        <th>Metadata</th>
+                    </tr>
 
-                {% for result in results %}
+                    {% for result in results %}
 
-                <!-- if an image has been found for the result object -->
-                <!-- display the image preview and image data -->
-                {% if result.image_visual_url %}
-                <tr>
-                    <td>{{result.status}}</td>
-                    <td>{{result.interval_start_date}} <br>to {{result.interval_end_date}}</td>
-                    <td><a href="{{result.image_visual_url}}" target="_blank" download><img
-                                style="height: 50px; width: 50px" src="{{result.image_visual_url}}"></a></td>
-                    <td>{{result.image_created_at}}</td>
-                    <td>{{result.image_source}}</td>
-                    <td><a href="{{result.image_metadata_url}}" target="_blank"><i
-                                class="fas fa-external-link-alt"></i></a></td>
-                </tr>
+                    <!-- if an image has been found for the result object -->
+                    <!-- display the image preview and image data -->
+                    {% if result.image_visual_url %}
+                    <tr>
+                        <td>{{result.status}}</td>
+                        <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}</td>
+                        <td><a href="{{result.image_visual_url}}" target="_blank" download><img
+                                    style="height: 50px; width: 50px" src="{{result.image_visual_url}}"></a></td>
+                        <td>{{result.image_created_at}}</td>
+                        <td>{{result.image_source}}</td>
+                        <td><a href="{{result.image_metadata_url}}" target="_blank"><i
+                                    class="fas fa-external-link-alt"></i></a></td>
+                    </tr>
 
-                <!-- if there is no image found (yet) -->
-                {% else %}
-                <tr>
-                    <td>{{result.status}}</td>
-                    <td>{{result.interval_start_date}} <br>to {{result.interval_end_date}}</td>
-
-                    <!-- if the result status is future, there may be a result in the future
-                    so set to pending -->
-                    {% if result.status == 'future' %}
-                    <td><em>pending</em></td>
-
-                    <!-- but if the interval is complete -->
+                    <!-- if there is no image found (yet) -->
                     {% else %}
-                    <td><em>No image found</em></td>
-                    {% endif %}
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;">-</td>
-                </tr>
-                {% endif %}
-                {% endfor %}
-            </table>
+                    <tr>
+                        <td>{{result.status}}</td>
+                        <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}</td>
 
+                        <!-- if the result status is future, there may be a result in the future
+                    so set to pending -->
+                        {% if result.status == 'future' %}
+                        <td><em>pending</em></td>
+
+                        <!-- but if the interval is complete -->
+                        {% else %}
+                        <td><em>No image found</em></td>
+                        {% endif %}
+                        <td style="text-align: center;">-</td>
+                        <td style="text-align: center;">-</td>
+                        <td style="text-align: center;">-</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
             {% endif %}
         </div>
 
@@ -192,28 +196,29 @@
 
             <div class="parameters-section">
                 <h5>AOI</h5>
+                <div class="table-responsive">
+                    <table class="table" id="aoi-table">
+                        <tr>
+                            <td>geoJSON:</td>
+                            <td><textarea disabled>{{pipeline.aoi}}</textarea></td>
+                        </tr>
 
-                <table id="aoi-table">
-                    <tr>
-                        <td>geoJSON:</td>
-                        <td><textarea disabled>{{pipeline.aoi}}</textarea></td>
-                    </tr>
+                        <tr>
+                            <td>Area:</td>
+                            <td>{{pipeline.aoi_area}} km<sup>2</sup></td>
+                        </tr>
 
-                    <tr>
-                        <td>Area:</td>
-                        <td>{{pipeline.aoi_area}} km<sup>2</sup></td>
-                    </tr>
+                        <tr>
+                            <td>AOI area coverage percentage:</td>
+                            <td></td>
+                        </tr>
 
-                    <tr>
-                        <td>AOI area coverage percentage:</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>Cloud cover percentage:</td>
-                        <td>{{pipeline.cloud_cover}}%</td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td>Cloud cover percentage:</td>
+                            <td>{{pipeline.cloud_cover}}%</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <div class="parameters-section">

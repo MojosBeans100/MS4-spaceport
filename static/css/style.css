@@ -636,9 +636,10 @@ i {
 }
 
 #interval-table {
-    /* width: 50%;
-    margin-left: 25%; */
-    font-size: 15px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 0;
+    font-size: 12px;
 }
 
 #aoi-table textarea {
@@ -650,6 +651,7 @@ i {
     width: 90%;
     margin-left: 5%;
     margin-top: 30px;
+    font-size: 12px;
 }
 
 #detail-view-div hr {
@@ -661,10 +663,10 @@ i {
     padding-top: 25px;
 }
 
-#aoi-table {
+/* #aoi-table {
     width: 60%;
     margin-left: 20%;
-}
+} */
 
 #result-table td,
 #interval-table td,
