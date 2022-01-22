@@ -91,11 +91,30 @@ body {
         padding-left: 40px;
     }
 
+    #purpose-img1,
+    #purpose-img2,
+    #purpose-img3,
+    #purpose-img4,
+    #purpose-img5,
+    #purpose-img6,
+    #purpose-img7 {
+        height: 50vh !important;
+    }
+
+    .purpose-section {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+        width: 60% !important;
+        margin-left: 20% !important;
+    }
 
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+
+    
+}
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
@@ -139,59 +158,50 @@ body {
 }
 
 .purpose-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    width: 60%;
-    margin-left: 20%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+#purpose-img1,
+#purpose-img2,
+#purpose-img3,
+#purpose-img4,
+#purpose-img5,
+#purpose-img6,
+#purpose-img7 {
+    height: 30vh;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #purpose-img1 {
-    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682319/san-fran-google_qpe6cf.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 #purpose-img2 {
-    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682184/san-fran_gtesjh.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 #purpose-img3 {
-    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/spectator-satellites_f9gzzb.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 #purpose-img4 {
-    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/7141cdc97a17b5a5da4da31e994b17d2_igxqw9.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 #purpose-img5 {
-    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/nasa_tds1ps.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 #purpose-img6 {
-    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682213/landsat-image_uwmjnv.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 #purpose-img7 {
-    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682213/image_4_-_the_parched_parana_river_ku0fqt.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .purpose-section button:hover {
