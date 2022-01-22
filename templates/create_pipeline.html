@@ -57,9 +57,9 @@
                         </div>
                     </div>
 
-                    <div class="col d-flex justify-content-end">
+                    <!-- <div class="col d-flex justify-content-end">
                         <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div id="map-feedback">
@@ -98,24 +98,24 @@
                         </div>
                     </div>
 
-                    <div class="col d-flex justify-content-end">
+                    <!-- <div class="col d-flex justify-content-end">
                         <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="row">
-                    <div class="col" id="s_date">
+                    <div class="col col-md-4" id="s_date">
                         <label for="start_date" class="form-label">from</label>
                         {{form.start_date}}
                     </div>
 
-                    <div class="col" id="e_date">
+                    <div class="col col-md-4" id="e_date">
                         <label for="end_date" class="form-label">to</label>
                         {{form.end_date}}
                     </div>
                 </div>
 
-                <div class="input-sections">
+                <div class="input-sections w-25">
                     <label for="interval" class="form-label">Interval</label>
                     {{form.interval}}
                 </div>
@@ -144,7 +144,7 @@
 
                 <div class="input-sections" id="cloud-cover">
                     <div class="row">
-                        <div class="col px-3">
+                        <div class="col-sm-4 p-3">
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/30-per-cloud-cover_vfgigm.jpg">
                             <br>
@@ -153,7 +153,7 @@
                             <p>Lower probability of image return</p>
                         </div>
 
-                        <div class="col px-3">
+                        <div class="col-sm-4 p-3">
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782570/65-per-cloud-cover_ufppk0.jpg">
                             <br>
@@ -162,7 +162,7 @@
                             <p>Medium probability of image return</p>
                         </div>
 
-                        <div class="col px-3">
+                        <div class="col-sm-4 p-3">
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/80-per-cloud-cover_j3wok7.jpg">
                             <br>
@@ -195,7 +195,7 @@
                 </div>
 
                 <div class="row input-sections">
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label class="output-label">
                             <p class="image-label">True Colour</p>
                             {{form.output_image.1.tag}}
@@ -210,7 +210,7 @@
                         </label>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label class="output-label">
                             <p class="image-label">False Colour Urban</p>
                             {{form.output_image.2.tag}}
@@ -225,7 +225,7 @@
                         </label>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label class="output-label">
                             <p class="image-label">False Colour Infrared</p>
                             {{form.output_image.3.tag}}
@@ -242,7 +242,7 @@
                 </div>
 
                 <div class="row input-sections">
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label class="output-label">
                             <p class="image-label">All Optical Bands</p>
                             {{form.output_image.4.tag}}
@@ -257,7 +257,7 @@
                         </label>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label class="output-label">
                             <p class="image-label">MSAVI2</p>
                             {{form.output_image.5.tag}}
@@ -272,7 +272,7 @@
                         </label>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label class="output-label">
                             <p class="image-label">Near Infrared</p>
                             {{form.output_image.6.tag}}
@@ -398,12 +398,12 @@
             <!-- buttons and progress display section -->
             <div id="buttons-div">
                 <div class="row align-items-center">
-                    <div class="py-2 col-sm-4 order-sm-first d-flex justify-content-center justify-content-sm-start" style="border: solid red;">
+                    <div class="py-2 col-sm-4 order-sm-first d-flex justify-content-center justify-content-sm-start">
                         <button type="button" class="btn btn-dark" id="prevButton"
                             onclick="nextPrev(-1)">Previous</button>
                     </div>
 
-                    <div class="py-2 order-last col-sm-4 d-flex justify-content-center" style="border: solid red;">
+                    <div class="py-2 order-last col-sm-4 d-flex justify-content-center">
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
@@ -412,7 +412,7 @@
                         <span class="step"></span>
                     </div>
 
-                    <div class="py-2 order-first order-sm-last col-sm-4 d-flex justify-content-center justify-content-sm-end" style="border: solid red;">
+                    <div class="py-2 order-first order-sm-last col-sm-4 d-flex justify-content-center justify-content-sm-end">
                         <button type="button" class="btn btn-dark" id="nextButton" onclick="nextPrev(1)">Next</button>
                     </div>
                 </div>
