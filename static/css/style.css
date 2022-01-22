@@ -471,6 +471,10 @@ input.invalid {
         padding: 30px !important;
     }
 
+    #detail_map {
+        height: 400px !important;
+    }
+
 }
 
 /* // Medium devices (tablets, 768px and up) */
@@ -534,6 +538,10 @@ input.invalid {
     .detail-view-section button {
         width: 80% !important;
         margin-left: 10% !important;
+    }
+
+    #detail_map {
+        height: 500px !important;
     }
 }
 
@@ -620,9 +628,17 @@ i {
     color: black;
 }
 
+#detail_map {
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 0 3px rgb(177, 177, 177);
+    padding-bottom: 50px;
+}
+
 #interval-table {
-    width: 50%;
-    margin-left: 25%;
+    /* width: 50%;
+    margin-left: 25%; */
+    font-size: 15px;
 }
 
 #aoi-table textarea {
