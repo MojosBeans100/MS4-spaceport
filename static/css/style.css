@@ -5,12 +5,9 @@ body {
     background-color: rgb(250, 251, 255);
 }
 
-#nav-title {}
-
 .navbar {
     box-shadow: 0 5px 3px -3px rgb(177, 177, 177);
     background-color: white;
-    /* padding-left: 40px; */
 }
 
 .nav-item {
@@ -25,7 +22,7 @@ body {
 }
 
 .navbar-collapse {
-    /* padding-left: 100px; */
+    text-align: center;
 }
 
 #nav-icon {
@@ -61,7 +58,7 @@ body {
 /* // No media query for `xs` since this is the default in Bootstrap */
 
 /* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
     #nav-title {
         font-size: 30px;
     }
@@ -73,18 +70,45 @@ body {
 }
 
 /* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    
- }
+@media (min-width: 768px) {
+    #banner-section {
+        margin-top: 50px;
+    }
+
+    #index-banner {
+        background-size: cover;
+        height: 70vh;
+    }
+
+
+
+
+}
 
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { ... }
+@media (min-width: 992px) {
+    .navbar {
+        padding-left: 40px;
+    }
+
+
+}
 
 /* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) {}
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { ... }
+@media (min-width: 1400px) {
+    #index-banner-text {
+        width: 60%;
+        margin-left: 10%;
+        text-align: left;
+    }
+
+    #banner-section {
+        margin-top: 70px;
+    }
+}
 
 /* INDEX/HOMEPAGE STYLING */
 
@@ -92,22 +116,21 @@ body {
     background-color: rgb(250, 251, 255);
 }
 
-
 #banner-section {
-    /* margin-top: 90px; */
     background-color: rgb(250, 251, 255);
 }
 
 #index-banner {
-    height: 70vh;
+    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682189/pexels-spacex-60132_ougyj5.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
 }
 
 #index-banner-text {
-    width: 60%;
-    margin-left: 10%;
+    text-align: center;
+    margin-top: 50px;
 }
 
 #site-purpose-section {
@@ -176,6 +199,7 @@ body {
     border: solid 1px rgb(0, 0, 0);
     color: black;
 }
+
 
 /* DISCOVER STYLING */
 
@@ -592,7 +616,7 @@ i {
 
 /* EDIT VIEW STYLING */
 #edit-container a {
-    color: black;  
+    color: black;
 }
 
 #edit-container a:hover {
