@@ -19,6 +19,7 @@ skywatch_key = os.environ.get('SKYWATCH_KEY', '')
 def homepage(request):
     return render(request, 'index.html')
 
+
 # display the discover page
 def discover(request):
     return render(request, 'discover.html')
@@ -323,6 +324,7 @@ def delete_view(request, id):
     return render(request, 'delete_view.html', context)
 
 
+
 def delete_feedback(request, id):
 
     object_to_delete = List.objects.get(id=id)
@@ -334,6 +336,7 @@ def delete_feedback(request, id):
     object_to_delete.delete()
 
     return render(request, 'delete_conf.html', context)
+
 
 # refresh the pipeline from the api
 # this is not the UPDATE aspect of CRUD (see views.edit)

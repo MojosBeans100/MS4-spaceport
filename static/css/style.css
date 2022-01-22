@@ -10,7 +10,7 @@ body {
 .navbar {
     box-shadow: 0 5px 3px -3px rgb(177, 177, 177);
     background-color: white;
-    padding-left: 40px;
+    /* padding-left: 40px; */
 }
 
 .nav-item {
@@ -18,19 +18,19 @@ body {
 }
 
 #nav-title {
-    font-size: 40px;
+    font-size: 20px;
     text-decoration: none;
     color: black;
     font-weight: bolder;
 }
 
 .navbar-collapse {
-    padding-left: 100px;
+    /* padding-left: 100px; */
 }
 
 #nav-icon {
-    height: 60px;
-    width: 60px;
+    height: 35px;
+    width: 35px;
 }
 
 .nav-item a {
@@ -57,9 +57,34 @@ body {
     color: black;
 }
 
-.small_view {
+/* // X-Small devices (portrait phones, less than 576px) */
+/* // No media query for `xs` since this is the default in Bootstrap */
 
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    #nav-title {
+        font-size: 30px;
+    }
+
+    #nav-icon {
+        height: 55px;
+        width: 55px;
+    }
 }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { ... }
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { ... }
 
 /* INDEX/HOMEPAGE STYLING */
 
@@ -69,7 +94,7 @@ body {
 
 
 #banner-section {
-    margin-top: 90px;
+    /* margin-top: 90px; */
     background-color: rgb(250, 251, 255);
 }
 
