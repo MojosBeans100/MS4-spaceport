@@ -86,7 +86,6 @@ def edit(request, id):
     return render(request, 'edit_pipeline.html', context)
 
 
-# save the form
 def save(request):
 
     form = CreateList(request.POST)
@@ -113,15 +112,10 @@ def save(request):
     return render(request, 'save.html')
 
 
-# create a pipeline (CREATE)
 def create(request):
     """
-    Creates the pipeline (List) object.
-
-    This function checks the validity of the form
-    and if valid, it then calls the Skywatch API with user's parameters
-    and, if successful, saves the List object and saves additional fields into
-    the List object, namely the api_id for cross reference.
+    A view to submit the user's form to the API 
+    and if valid, save the pipeline/List object.
 
     Parameters:
     Request - user's submitted form.
@@ -129,7 +123,6 @@ def create(request):
     Returns:
     Saved List object
     Redirects to Detail View of List object.
-
     """
 
     # current logged in user
@@ -254,20 +247,16 @@ def create(request):
     return render(request, 'create_pipeline.html', context)
 
 
-# display all the user's models
 def my_pipelines(request):
     """
-    Displays the user's pipelines.
-  
-    This function filters all user's pipelines 
-    by status and renders them in the webpage.
-  
-    Parameters:
-    Request.
-  
-    Returns:
-    All user's pipelines.
+    A view to fetch the user's pipelines and
+    display them by status.
 
+    Parameters:
+    Request - user's submitted form.
+
+    Returns:
+    List of pipelines for user.
     """
 
     user = str(request.user)
