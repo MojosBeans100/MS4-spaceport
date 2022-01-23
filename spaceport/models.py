@@ -40,7 +40,7 @@ class List(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     interval = models.CharField(choices=interval, max_length=15, default=None)
-    output_image = models.CharField(choices=output, max_length=100)
+    output_image = models.CharField(choices=output, max_length=100, default='a8fc3dde-a3e8-11e7-9793-ae4260ee3b4b')
     aoi = models.JSONField(null=True)
     cloud_cover = models.CharField(max_length=10)
 

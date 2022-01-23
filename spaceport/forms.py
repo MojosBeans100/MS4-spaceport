@@ -77,7 +77,7 @@ class UpdateList(ModelForm):
     class Meta:
         model = List
 
-        fields = ['pipeline_name', 'pipeline_des', 'status']
+        fields = ['pipeline_name', 'pipeline_des']
 
         widgets = {
             'pipeline_name': TextInput(attrs={

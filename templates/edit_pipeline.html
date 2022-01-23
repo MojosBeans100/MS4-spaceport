@@ -34,21 +34,7 @@
                 {{form.pipeline_des}}
             </div>
 
-            <div class="input-sections"></div>
-            {% if pipeline.status == 'active' %}
-
-            <div style="width: 30%; margin-left: 35%; text-align: center;">
-                <label style="text-align: center;">Deactivate pipeline</label>
-                <p><small>Your pipeline </small></p>
-
-                {{form.status.4.tag}}
-            </div>
-
-            {% else %}
-            <label>Activate pipeline</label>
-            {{form.status.1.tag}}
-
-            {% endif %}
+           
     </div>
 
     <div class="pt-5 d-flex justify-content-evenly">

@@ -412,7 +412,8 @@
                         <span class="step"></span>
                     </div>
 
-                    <div class="py-2 order-first order-sm-last col-sm-4 d-flex justify-content-center justify-content-sm-end">
+                    <div
+                        class="py-2 order-first order-sm-last col-sm-4 d-flex justify-content-center justify-content-sm-end">
                         <button type="button" class="btn btn-dark" id="nextButton" onclick="nextPrev(1)">Next</button>
                     </div>
                 </div>
@@ -431,7 +432,7 @@
 <script>
     // library - https://www.w3schools.com/howto/howto_js_form_steps.asp
     // this step form uses code from the above link
-
+    document.getElementById('id_output_1').checked = true;
     var currentTab = 0;
     showTab(currentTab)
     var interval;
@@ -563,6 +564,9 @@
         } else if (num == 5) {
             document.getElementById("prevButton").style.display = "inline";
             reviewMap();
+        } else if (num == 4) {
+            document.getElementById("prevButton").style.display = "inline";
+            styleOutputImage();
         } else {
             document.getElementById("prevButton").style.display = "inline";
         }
