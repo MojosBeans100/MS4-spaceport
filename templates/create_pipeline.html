@@ -453,6 +453,10 @@
 
             </div>
 
+            <div id="submitting_pipline" class="tab">
+                <h1>Setting up your pipeline...</h1>
+            </div>
+
             <!-- buttons and progress display section -->
             <div id="buttons-div">
                 <div class="row align-items-center">
@@ -468,6 +472,8 @@
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
+                        <span class="step"></span>
+
                     </div>
 
                     <div
@@ -620,34 +626,37 @@
         if (num == 0) {
             document.getElementById('prevButton').style.display = 'none';
 
-
         } else if (num == 1) {
-            document.getElementById('prevButton').style.display = 'inline';
+            document.getElementById("prevButton").style.display = "inline";
+
+        } else if (num == 2) {
 
             if (document.getElementById('id_aoi').value != "null") {
 
             } else {
                 createMap();
             }
-        } else if (num == 5) {
-            document.getElementById("prevButton").style.display = "inline";
-            reviewMap();
-        } else if (num == 4) {
-            document.getElementById("prevButton").style.display = "inline";
-            styleOutputImage();
-        } else {
-            document.getElementById("prevButton").style.display = "inline";
-        }
 
-        if (num == (tab.length - 1)) {
-            document.getElementById('nextButton').innerHTML = "Submit";
+        } else if (num == 4) {
+            
+            reviewMap();
+
+        } else if (num == 5) {
+            
+            styleOutputImage();
+
+        } else if (num == 6) {
+           
             createReview();
 
-        } else if (num == (tab.length - 2)) {
-            document.getElementById('nextButton').innerHTML = "Review";
+        } else if (num == 7) {
+            document.getElementById("buttons-div").style.display = "none";
+        }
 
-        } else if (num == (tab.length - 1)) {
+        if (num == (tab.length - 2)) {
+            document.getElementById('nextButton').innerHTML = "Submit";
 
+        } else if (num == (tab.length - 3)) {
             document.getElementById('nextButton').innerHTML = "Review";
 
         } else {
@@ -664,10 +673,7 @@
         x[currentTab].style.display = 'none';
         currentTab = currentTab + num;
 
-        console.log(currentTab)
-        console.log(num)
-
-        if (currentTab >= x.length) {
+        if (x.length - currentTab == 1) {
             document.getElementById('create_form').submit();
             return false;
         }
@@ -677,7 +683,7 @@
     function fixStepIndicator(num) {
 
         var i, x = document.getElementsByClassName("step");
-        for (i = 0; i < x.length; i++) {
+        for (i = 0; i < x.length-1; i++) {
             x[i].className = x[i].className.replace(" active", "");
         }
 
@@ -854,6 +860,8 @@
     }
 
     function createReview() {
+
+        reviewMap();
 
         // get table cells to fill in 
         table_feedback = document.getElementsByClassName('table-right');

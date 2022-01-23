@@ -33,11 +33,16 @@
         <!-- pipeline general info section -->
         <div class="detail-view-section">
 
-            
+
             {% if pipeline.status == 'pending' %}
-            <div class="pending-section" style="text-align: center; color: orange; padding: 30px 40px;">
-                <h3>Pipelines can take a few minutes to set up. <br> We recommend to allow 5 minutes for us to search our database for your results.<br>
-                Click the Update button at the top of the page to see if we have finished updating your pipeline.</h3>
+            <div class="d-flex justify-content-center">
+                <div class="col col-md-6 col-xl-9" id="pending-section"
+                    style="text-align: center; color: orange; padding: 30px 40px;">
+                    <h4>Pipelines can take a few minutes to set up. <br> We recommend to allow 5 minutes for us to
+                        search our database for your results.<br>
+                        Click the Update button at the top of the page to see if we have finished updating your
+                        pipeline.</h4>
+                </div>
             </div>
             {% else %}
             {% endif %}
@@ -158,7 +163,8 @@
                     {% if result.image_visual_url %}
                     <tr>
                         <td>{{result.status}}</td>
-                        <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}</td>
+                        <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
+                        </td>
                         <td><a href="{{result.image_visual_url}}" target="_blank" download><img
                                     style="height: 50px; width: 50px" src="{{result.image_visual_url}}"></a></td>
                         <td>{{result.image_created_at}}</td>
@@ -171,7 +177,8 @@
                     {% else %}
                     <tr>
                         <td>{{result.status}}</td>
-                        <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}</td>
+                        <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
+                        </td>
 
                         <!-- if the result status is future, there may be a result in the future
                     so set to pending -->
