@@ -214,22 +214,22 @@
                 <div class="table-responsive">
                     <table class="table" id="aoi-table">
                         <tr>
-                            <td>geoJSON:</td>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+
+                        <tr>
+                            <td>geoJSON</td>
                             <td><textarea disabled>{{pipeline.aoi}}</textarea></td>
                         </tr>
 
                         <tr>
-                            <td>Area:</td>
+                            <td>Area</td>
                             <td>{{pipeline.aoi_area}} km<sup>2</sup></td>
                         </tr>
 
                         <tr>
-                            <td>AOI area coverage percentage:</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Cloud cover percentage:</td>
+                            <td>Max cloud cover %</td>
                             <td>{{pipeline.cloud_cover}}%</td>
                         </tr>
                     </table>
@@ -239,7 +239,7 @@
             <div class="parameters-section">
                 <h5>Output</h5>
 
-                <p>{{pipeline.get_output_image_display}}</p>
+                <p>Image type: {{pipeline.get_output_image_display}}</p>
 
             </div>
             {% endif %}

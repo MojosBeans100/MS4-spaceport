@@ -202,8 +202,7 @@ body {
 }
 
 #start_form_section h2,
-#start_form_section h4
- {
+#start_form_section h4 {
     text-align: center;
 }
 
@@ -456,16 +455,23 @@ input.invalid {
     height: auto;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
-    padding: 15px;
+    padding: 5px;
 }
 
-#pipeline_card {}
+#pipeline_card {
+    border: none;
+}
+
+/* #pipeline-card-img {
+    max-height: 200px;
+}  */
 
 
 .card-img-top {
     /* border: solid 1px rgb(177, 177, 177); */
     /* height: 300px; */
     background-color: rgb(250, 251, 255);
+    height: 200px;
 }
 
 .card-img-top:hover {
@@ -537,23 +543,24 @@ input.invalid {
     }
 
     #feedback-table,
-#feedback-aoi {
-    width: 60%;
-    margin-left: 20%;
-    font-size: 15px;
+    #feedback-aoi
+     {
+        width: 60%;
+        margin-left: 20%;
+        font-size: 15px;
 
-}
+    }
 
-#feedback-aoi td {
-    padding: 15px;
-}
+    #feedback-aoi td {
+        padding: 15px;
+    }
 
-#review-aoi {
-    height: 50vh;
-    width: 80%;
-    margin-left: 10%;
+    #review-aoi {
+        height: 50vh;
+        width: 80%;
+        margin-left: 10%;
 
-}
+    }
 
 }
 
@@ -575,8 +582,16 @@ input.invalid {
     }
 
     #interval-table,
-    #result-table {
+    #result-table,
+    #aoi-table {
         font-size: 15px !important;
+    }
+
+    
+    #aoi-table,
+    #interval-table {
+        width: 60% !important;
+        margin-left: 20% !important;
     }
 
     #create_form {
@@ -618,7 +633,9 @@ input.invalid {
         padding: 0px 100px 50px 100px !important;
     }
 
-
+    #pipeline_list_div{
+        padding: 15px;
+    }
 
 }
 
@@ -750,6 +767,7 @@ i {
     margin-left: 5%;
     margin-top: 0;
     font-size: 12px;
+    text-align: center;
 }
 
 #aoi-table textarea {
@@ -757,7 +775,9 @@ i {
     height: 150px;
 }
 
-#result-table {
+#result-table,
+#aoi-table {
+    text-align: center;
     width: 90%;
     margin-left: 5%;
     margin-top: 30px;
@@ -781,23 +801,27 @@ i {
 #result-table td,
 #interval-table td,
 #result-table th,
-#interval-table th {
+#interval-table th,
+#aoi-table th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
 #result-table tr:nth-child(even),
-#interval-table tr:nth-child(even) {
+#interval-table tr:nth-child(even),
+#aoi-table tr:nth-child(even) {
     background-color: #ebf0fc;
 }
 
 #result-table tr:hover,
-#interval-table tr:hover {
+#interval-table tr:hover,
+#aoi-table tr:hover {
     background-color: #ddd;
 }
 
 #result-table th,
-#interval-table th {
+#interval-table th,
+#aoi-table th {
     background-color: #8794b3;
     color: white;
     font-weight: bold;

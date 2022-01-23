@@ -23,6 +23,12 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.css"
         type="text/css">
+
+    <!-- chart.js link  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js">
+    </script>
+
     <script src="https://kit.fontawesome.com/c013b232df.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../static/images/neptune-01.svg">
 
@@ -170,13 +176,16 @@
 
                     <div class="row  py-3">
                         <div class="col-md py-2">
-                            <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg">Discover More</button></a>
+                            <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg">Discover
+                                    More</button></a>
                         </div>
                         {% if user.is_authenticated %}
-                        <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create a
+                        <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create
+                                    a
                                     Pipeline</button></a></div>
                         {% else %}
-                        <div class="col-md py-2"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg">Sign
+                        <div class="col-md py-2"><a href="{% url 'account_login' %}"><button
+                                    class="btn btn-dark btn-lg">Sign
                                     Up</button></a></div>
                         {% endif %}
                     </div>
