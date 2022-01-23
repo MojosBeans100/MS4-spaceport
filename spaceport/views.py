@@ -283,21 +283,40 @@ def my_pipelines(request):
     return render(request, 'my_pipelines.html', context)
 
 
-# display view of this object (READ)
 def detail_view(request, id):
+    """
+    A view to fetch the instance of the pipeline
+    and relating results and display the information
+
+    Parameters:
+    request (object): HTTP request object.
+    id: pipeline instance
+
+    Returns:
+    Detailed view of pipeline and relating results
+    """
 
     context = {
         'pipeline': List.objects.get(id=id),
         'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
         'mapbox_key': mapbox_key,
-        #'time_created': List.objects.get(id=id).date_created
     }
 
     return render(request, 'detail_view.html', context)
 
 
-# delete the pipeline (both from models & in api) (DELETE)
 def delete(request, id):
+    """
+    A view to fetch the instance of the pipeline
+    and delete it if confirmed by user.
+
+    Parameters:
+    request (object): HTTP request object.
+    id: pipeline instance
+
+    Returns:
+    Confirmation of deleted pipeline (delete_conf)
+    """
 
     # get object to delete
     object_to_delete = List.objects.get(id=id)
@@ -333,8 +352,19 @@ def delete(request, id):
     return redirect(reverse('delete_feedback', args=[id]))
 
 
-# display the delete page
 def delete_view(request, id):
+    """
+    A view display the name of the pipeline
+    to be deleted, and request from user confirmation
+    of delete.
+
+    Parameters:
+    request (object): HTTP request object.
+    id: pipeline instance
+
+    Returns:
+    Confirmation of deleted pipeline (delete_conf)
+    """
 
     # get pipeline to delete
     pipeline = List.objects.get(id=id)
@@ -344,7 +374,6 @@ def delete_view(request, id):
     }
 
     return render(request, 'delete_view.html', context)
-
 
 
 def delete_feedback(request, id):
