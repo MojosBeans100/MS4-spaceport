@@ -208,8 +208,17 @@ def create(request):
         # if form is not valid
         # return to form
         else:
-            print('NOT VALID')
-            print(form.errors)
+            # fill in form details with users values
+
+            validation = "Please check your parameters."
+
+            context = {
+                'form': form,
+                'mapbox_key': mapbox_key,
+                'validation': validation,
+            }
+
+            return render(request, 'create_pipeline.html', context)
 
     form = CreateList()
 
@@ -412,7 +421,7 @@ def update(request, id):
                 new_result.image_source = i['results'][0]['metadata']['source']
                 new_result.scene_height = i['overall_metadata']['scene_height']
                 new_result.scene_width = i['overall_metadata']['scene_width']
-                new_result.filled_area = i['overall_metadata']['filled_area_km']
+                new_result.filled_area = i['overall_metadata']['filled_area_km2']
                 new_result.aoi_area_per = i['overall_metadata']['filled_area_percentage_of_aoi']
                 new_result.cloud_cover_per = i['overall_metadata']['cloud_cover_percentage']
                 new_result.aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi']
