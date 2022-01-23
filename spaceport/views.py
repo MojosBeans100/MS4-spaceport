@@ -15,18 +15,42 @@ mapbox_key = os.environ.get('MAPBOX_KEY', '')
 skywatch_key = os.environ.get('SKYWATCH_KEY', '')
 
 
-# display the homepage
 def homepage(request):
+    """
+    A view to display the homepage of the website
+    Args:
+        request (object): HTTP request object.
+    Returns:
+        Render of homepage
+    """
+
     return render(request, 'index.html')
 
 
-# display the discover page
 def discover(request):
+    """
+    A view to display the discover page of the website
+    Website application, context of satellite imagery.
+    Args:
+        request (object): HTTP request object.
+    Returns:
+        Render of discover page
+    """
     return render(request, 'discover.html')
 
 
-# edit the pipeline (UPDATE)
 def edit(request, id):
+    """
+    A view to display a short form with pipeline parameters
+    which can be updated.  If edited parameters are valid,
+    update the model with new values.
+
+    Args:
+        request (object): HTTP request object.
+        id: pipeline instance
+    Returns:
+        Redirect to detailed view of pipeline instance
+    """
 
     edit_time = timezone.now()
 
