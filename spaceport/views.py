@@ -39,11 +39,28 @@ def discover(request):
     return render(request, 'discover.html')
 
 
+def api_error(request):
+    """
+    A view to display the API error page, for any views
+    which required callingt the Skywatch API but it is not
+    available.
+
+    Args:
+        request (object): HTTP request object.
+    Returns:
+        Render of api error page
+    """
+
+    return render(request, 'api_error.html')
+
+
 def edit(request, id):
     """
     A view to display a short form with pipeline parameters
     which can be updated.  If edited parameters are valid,
     update the model with new values.
+    This view does not call the API as none of the updated
+    parameters affect the API parameters.
 
     Args:
         request (object): HTTP request object.
@@ -184,9 +201,16 @@ def create(request):
 
                 print(post_response)
 
+            
+
             # don't use bare except
             except:
-                print("Couldn't reach API")
+
+                print(post_response)
+                print("ERRORS")
+                # context = {
+                #     'errors': post_response.errors
+                # }
                 # redirect to page saying api could not be found
 
             # if the api returns errors in returning a response,
@@ -226,6 +250,8 @@ def create(request):
         # return to form
         else:
             # fill in form details with users values
+            print("form not valid")
+            print(form.errors)
 
             validation = "Please check your parameters."
 
@@ -318,13 +344,9 @@ def delete(request, id):
     Confirmation of deleted pipeline (delete_conf)
     """
 
-    # get object to delete
-    object_to_delete = List.objects.get(id=id)
-
     # get object to delete api id to post to api
     pipeline_id = List.objects.get(id=id).api_id
 
-    ## try except
     # delete from api
     url = (f'https://api.skywatch.co/earthcache/pipelines/{pipeline_id}')
 
@@ -344,11 +366,6 @@ def delete(request, id):
     for result in results_to_delete:
         result.delete()
 
-    # delete object
-   # object_to_delete.delete()
-
-    # return redirect(reverse('pipeline_deleted', args=[id]))
-    #return redirect(reverse('my_pipelines'))
     return redirect(reverse('delete_feedback', args=[id]))
 
 

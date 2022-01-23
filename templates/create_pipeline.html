@@ -526,6 +526,16 @@
             document.getElementById('nextButton').disabled = true;
         }
 
+        // if date is too far in the past
+        if (year1 < 2020 || year2 < 2020) {
+            interval_error = document.createElement('p');
+            interval_error.innerHTML =
+                '<small>We cannot look for images before 2020: <br> choose a more recent date<small>';
+            interval_error.style.fontWeight = 'bold';
+            interval_feedback.append(interval_error);
+            document.getElementById('nextButton').disabled = true;
+        }
+
     }
 
     function styleOutputImage() {

@@ -17,7 +17,7 @@ class CreateList(ModelForm):
             'results_updated',
             'featured_image',
             'time_edited',
-            #'aoi_area',
+            'aoi_area',
         ]
 
         widgets = {

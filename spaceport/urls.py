@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
+    path('api_error.html', views.api_error, name='api_error'),
     path('discover.html', views.discover, name='discover'),
     path('delete_conf/<int:id>', views.delete_feedback, name='delete_feedback'),
     path('create_pipeline.html', views.create, name='create'),

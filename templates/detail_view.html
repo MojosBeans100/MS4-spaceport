@@ -33,12 +33,20 @@
         <!-- pipeline general info section -->
         <div class="detail-view-section">
 
+            
+            {% if pipeline.status == 'pending' %}
+            <div class="pending-section" style="text-align: center; color: orange; padding: 30px 40px;">
+                <h3>Pipelines can take a few minutes to set up. <br> We recommend to allow 5 minutes for us to search our database for your results.<br>
+                Click the Update button at the top of the page to see if we have finished updating your pipeline.</h3>
+            </div>
+            {% else %}
+            {% endif %}
+
             <!-- pipeline general info table -->
             <div>
                 <h1>{{pipeline.pipeline_name}}</h1>
                 <p>{{pipeline.pipeline_des}}</p>
             </div>
-
 
             <!-- put map here -->
             <div id="detail_map"></div>
