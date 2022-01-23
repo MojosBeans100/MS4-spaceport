@@ -389,9 +389,18 @@ def delete_feedback(request, id):
     return render(request, 'delete_conf.html', context)
 
 
-# refresh the pipeline from the api
-# this is not the UPDATE aspect of CRUD (see views.edit)
 def update(request, id):
+    """
+    A view to refresh the details of the pipeline,
+    calling the API to return updated details of results.
+
+    Parameters:
+    request (object): HTTP request object.
+    id: pipeline instance
+
+    Returns:
+    Updated information from API for results.
+    """
 
     time_now = timezone.now()
     time = str(datetime.datetime.now())
