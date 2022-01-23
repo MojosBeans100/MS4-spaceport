@@ -541,6 +541,11 @@ input.invalid {
     width: 60%;
     margin-left: 20%;
     font-size: 15px;
+
+}
+
+#feedback-aoi td {
+    padding: 15px;
 }
 
 #review-aoi {

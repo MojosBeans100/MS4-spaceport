@@ -18,7 +18,8 @@
             <!-- start of form section -->
             <div id="start_form_section" class="tab">
                 <h2>Create a pipeline</h2>
-                <h4>Use this form to create your pipeline and start collecting satellite imagery.</h4>
+                <h4>Use this form to create your pipeline and start collecting satellite imagery</h4>
+                <p style="text-align: center; text-decoration: none; color: black;">If this is your first pipeline, we recommend exploring our <a href="discover.html"><strong>'Discover'</strong></a> page first</p>
                 <div class="d-flex justify-content-center">
                     <div id="start-form-div" class="col col-lg-9 col-xxl-9">
                         <div class="input-sections">
@@ -28,6 +29,7 @@
                                 <li>- The Area of Interest (AOI) must be more than 25 km<sup>2</sup>, and no more than
                                     100
                                     km<sup>2</sup></li>
+                                <li>- Only images with a minimum of 50% AOI coverage will be delivered</li>
                                 <li>- Pipelines can have no more than 10 intervals</li>
                                 <li>- Resolution is limited to 8 to 15 metres</li>
                                 <li>- Only images taken within the last 3 years (since 2020) are available</li>
@@ -48,14 +50,9 @@
                                         interval is
                                         set to 1 day</small></li>
                                 <li>- Increase allowable cloud cover percentage<br><small>If cloud cover percentage is
-                                        set
-                                        to a
-                                        low
-                                        number, it will reject any images above this number. (This does not mean all
-                                        images
-                                        will
-                                        be
-                                        below the number set.)</small></li>
+                                        set to a low number, it will reject any images above this number. (This does not
+                                        mean all images
+                                        will be below the number set.)</small></li>
                             </ul>
                         </div>
                         <div class="input-sections">
@@ -63,7 +60,7 @@
                             <h6>We can calculate the probability of return of images on the pipeline parameters you
                                 choose.
                             </h6>
-                            <p>If the percentage probability is low, we will give you advice on how to increase it.</p>
+                            <p>If the percentage probability is low, we will give you advice on how to increase it before you commit your pipeline.</p>
                             <p>Probability calculation is only available for <strong>True Colour</strong> images.</p>
                         </div>
                     </div>
@@ -108,6 +105,7 @@
                             <h4>Area of Interest</h4>
                             <br>
                             <p>Tell us where to look for images</p>
+                            <p>Your pipeline will only deliver results with a minimum of 50% of AOI coverage</p>
                             <p class="form_limits">Area must be between 25 km<sup>2</sup> and 100 km<sup>2</sup></p>
                         </div>
                     </div>
@@ -149,10 +147,10 @@
                             <p>Select the start and end date of this pipeline and how frequently to search for images
                                 <br>
                                 The pipeline will aim to deliver one image between each interval start and end date</p>
-                            <p class="form_limits">Pipelines can have no more than 10 intervals</p>
                             <p>Intervals in the past will search for archived imagery and, if available, deliver them
                                 straight away.<br>Future intervals will be set up to deliver images as soon as an image
                                 in that interval is found.</p>
+                            <p class="form_limits">Pipelines can have no more than 10 intervals</p>
                         </div>
                     </div>
 
@@ -383,7 +381,7 @@
                     </tr>
 
                     <tr>
-                        <td class="table-left">*Status:</td>
+                        <td class="table-left">Status:</td>
 
                         <!-- change this -->
                         <td class="table-right"></td>
@@ -414,7 +412,7 @@
                     </tr>
 
                     <tr>
-                        <td class="table-left">Number of interval:</td>
+                        <td class="table-left">Number of intervals:</td>
                         <td id="table-num-interval" class="table-right"></td>
                     </tr>
 
@@ -443,7 +441,7 @@
 
                     <tr>
                         <td class="table-left">geoJSON:</td>
-                        <td class="table-right"><textarea id="table-geojson" rows="10" cols="15" disabled></textarea>
+                        <td class="table-right"><textarea id="table-geojson" rows="8" cols="15" disabled></textarea>
                         </td>
                     </tr>
                 </table>
@@ -555,7 +553,8 @@
 
             pipeline_intervals = document.createElement('p');
             pipeline_intervals.id = 'pipeline_intervals';
-            pipeline_intervals.innerHTML = `Number of intervals: ~${num_intervals_rounded}`;
+            pipeline_intervals.innerHTML =
+                `Number of intervals: ${num_intervals_rounded}<br><small>This is an estimate but may change based on the layout of the intervals`;
             interval_feedback.append(pipeline_intervals);
         }
 
@@ -638,15 +637,15 @@
             }
 
         } else if (num == 4) {
-            
+
             reviewMap();
 
         } else if (num == 5) {
-            
+
             styleOutputImage();
 
         } else if (num == 6) {
-           
+
             createReview();
 
         } else if (num == 7) {
@@ -683,7 +682,7 @@
     function fixStepIndicator(num) {
 
         var i, x = document.getElementsByClassName("step");
-        for (i = 0; i < x.length-1; i++) {
+        for (i = 0; i < x.length - 1; i++) {
             x[i].className = x[i].className.replace(" active", "");
         }
 
@@ -772,6 +771,12 @@
                 area_validation_feedback = document.createElement('p')
                 area_validation_feedback.id = "area_validation_feedback"
 
+                map_a = document.createElement('p');
+                map_a.id = 'map-a';
+                map_a.style.display = "none";
+                map_a.innerHTML = rounded_km;
+                aoi_section.append(map_a)
+
                 if (rounded_km > 100) {
 
                     area_validation = "Area is too large: choose an area smaller than 100 km<sup>2</sup>";
@@ -805,6 +810,7 @@
         if (input_validation.value == 'null') {
             input_validation.value = "";
         }
+
     }
 
     function reviewMap() {
@@ -875,9 +881,10 @@
 
         review_sdate = document.getElementById('start_date').value;
         review_edate = document.getElementById('end_date').value;
-        review_length = "Length";
+        review_length = `${days_difference} days`;
         review_interval = interval;
-        review_num_intervals = "Num of intervals";
+        review_num_intervals = num_intervals_rounded;
+        review_area = `${document.getElementById('map-a').innerHTML} km <sup>2</sup>`;
 
         radios = document.getElementsByName('output_image');
         radios_labels = document.getElementsByClassName('image-label');
@@ -898,6 +905,8 @@
         for (i = 0; i < feedback.length; i++) {
             table_feedback[i].innerHTML = feedback[i];
         }
+
+        document.getElementById('table-area').append(review_area);
 
         document.getElementById('table-geojson').innerHTML = review_aoi;
 

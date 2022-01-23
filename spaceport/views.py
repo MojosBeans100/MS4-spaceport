@@ -177,7 +177,8 @@ def create(request):
                 'max_cost': 0,
                 'min_aoi_coverage_percentage': 50,
                 'result_delivery': {
-                    'max_latency': '0d',
+                    #check this
+                    'max_latency': form.cleaned_data['interval'],
                     'priorities': [
                         'latest',
                         'highest_resolution',
