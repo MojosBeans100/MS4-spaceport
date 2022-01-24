@@ -148,9 +148,20 @@ User story 3: As a **Site User** I can **access information on satellite imagery
 - 3.1: As a **New/returning Site User** I can **see at all times the Discover page link** so that **I can always refer to this page for more information**
 - 3.2: As a **New Site User** I am **firstly directed to the homepage** so that **the purpose of the site is immediately clear to me**
 - 3.3: As a **New/returning Site User** I can **explore technical terms associated with satellite imagery and pipelines** so that **I can check any definitions I am unsure of**
-- 3.4: As a **New/returning Site User** I am **given explanations of technical terms in the form** so that **I understand what the parameters I am setting is**
+- 3.4: As a **New/returning Site User** I am **given explanations of technical terms in the form** so that **I understand what the parameters I am setting means**
 - 3.5: As a **Site User** I am **provided with links to all image metadata** so that **I can use the images in post production**
+- 3.6: As a **New/returning Site User** I can **read examples of pipelines created by current/previous clients** so that **I have a context as to what I can use satellite imagery for**
+- 3.7: As a **New/returning Site User** I can **read topical events involving satellite imagery** so that **I am aware of the importance of being able to access satellite imagery**
 
+User story 4: As a **Site User** I can **view a list of all my pipelines**
+- 4.1: As a **Returning Site User** I can **see the My Pipelines link on the navbar when I am logged in** so that **I can easily refer back to this at all times**
+- 4.2: As a **Returning Site User** I can **see all my pipelines ordered by active status** so that **I am aware which pipelines are still active**
+- 4.3: As a **Returning Site User** I can **see all my pipelines ordered by completed status** so that **I am aware which pipelines have completed all intervals**
+- 4.4: As a **Returning Site User** I can **see all my pipelines ordered by pending status** so that **I am aware which pipelines I should update**
+- 4.5: As a **Returning Site User** I can **see a status link section at the top of My Pipelines** so that **I can see how many pipelines are in each category, and navigate to each list separately**
+
+
+User story 3: As a **Site User** I can ****
 User story 3: As a **Site User** I can ****
 
 ### Admin
