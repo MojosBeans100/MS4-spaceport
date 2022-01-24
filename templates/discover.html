@@ -168,7 +168,8 @@
                 <td>A pipeline is a term used across many industries to describe an organised plan, with a start and end
                     date, involving a series of stages.<br>
                     In this context, we are looking for satellite images between two dates, hopefully delivering results
-                    within specified intervals.<br>It is similar to a project timeline, with defined goals along the way to be met by specific dates.</td>
+                    within specified intervals.<br>It is similar to a project timeline, with defined goals along the way
+                    to be met by specific dates.</td>
             </tr>
 
             <tr>
@@ -188,13 +189,14 @@
             <tr>
                 <td>Archived imagery</td>
                 <td>Imagery which has already been captured and downloaded by satellites. If your pipeline involves any
-                    intervals which will start and finish before today will deliver archived images.  These can be delivered straight away.</td>
+                    intervals which started and finished before today will deliver archived images. These can be
+                    delivered straight away, once we have processed them.</td>
             </tr>
 
             <tr>
                 <td>Tasking</td>
                 <td>Tasking refers to the future plan of accessing satellite images, in effect intervals which are
-                    scheduled for any time after today.</td>
+                    scheduled for any time after today.  Your pipeline can be a mix of archived imagery (past) and tasking intervals (future).</td>
             </tr>
 
             <tr>
@@ -202,16 +204,20 @@
                 <td>The API used on this platform uses the AOI, interval dates and other parameters selected to match up
                     to the most suitable satellite.<br>
                     Satellites follow a specific trajectory around the Earth, therefore the API cross references the
-                    selected AOI with any satellites orbiting above that AOI.<br>
+                    selected AOI with any satellites orbiting above that AOI.  Satellites also have a limited footprint (area of the Earth's surface which is visible to them).<br>
                     If the satellite orbits above the AOI within the prescribed interval, and can meet all other
-                    parameter requirements, this is successful satellite aquisition.</td>
+                    parameter requirements, this is successful satellite aquisition.<br>
+                    See these sources for more information on satellite trajectories and see satellites in orbit. <a
+                        href="https://maps.esri.com/rc/sat2/index.html">Esri</a> | <a
+                        href="https://spectator.earth/">Spectator Earth</a> | <a href="https://www.n2yo.com/">NY20</td>
             </tr>
 
             <tr>
                 <td>Tasking interval</td>
                 <td>The interval is the length of time between two dates. There will be several intervals within the
                     pipeline. If the interval is set to one day, the user wishes to capture an image of that AOI every
-                    day.  The longer the interval, the higher chance an image can be found for that interval, as there is less restriction on when the image can be taken and by which satellite.</td>
+                    day. The longer the interval, the higher chance an image can be found for that interval, as there is
+                    less restriction on when the image can be taken and by which satellite.</td>
             </tr>
 
             <tr>
@@ -223,19 +229,24 @@
 
             <tr>
                 <td>Metadata</td>
-                <td>Metadata is considered 'data about data'; in this case, refers to the raw data about the satellite used to capture the image. <br>
-                Any images delivered to your pipeline will provide a relevant link with all the metadata for that image.  This data is used when post processing the image for whatever the purpose may be.</td>
+                <td>Metadata is considered 'data about data'; in this case, refers to the raw data about the satellite
+                    used to capture the image. <br>
+                    Any images delivered to your pipeline will provide a relevant link with all the metadata for that
+                    image. This data is used when post processing the image for whatever the purpose may be.</td>
             </tr>
 
             <tr>
                 <td>Cloud cover percentage</td>
-                <td>This parameter refers to the maximum allowable percentage of the delivered image which can be obscured by clouds.</td>
+                <td>This parameter refers to the maximum allowable percentage of the delivered image which can be
+                    obscured by clouds.</td>
             </tr>
 
             <tr>
                 <td>Image resolution</td>
-                <td>This refers to the detail an image holds, and how many visible pixels proportionate to the size of the image.  An image with a resolution of 10 metres means that each pixel stands for a 10 m x 10 m area on the ground. <br
-                >Images available to the users on this platform will have a resolution between 8 and 15 metres.</td>
+                <td>This refers to the detail an image holds, and how many visible pixels proportionate to the size of
+                    the image. An image with a resolution of 10 metres means that each pixel stands for a 10 m x 10 m
+                    area on the ground. <br>Images available to the users on this platform will have a resolution
+                    between 8 and 15 metres.</td>
             </tr>
         </table>
     </div>

@@ -178,7 +178,7 @@ def create(request):
                 'min_aoi_coverage_percentage': 50,
                 'result_delivery': {
                     #check this
-                    'max_latency': form.cleaned_data['interval'],
+                    'max_latency': '0d',
                     'priorities': [
                         'latest',
                         'highest_resolution',
@@ -328,6 +328,8 @@ def detail_view(request, id):
         'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
         'mapbox_key': mapbox_key,
     }
+
+    print(List.objects.get(id=id).start_date)
 
     return render(request, 'detail_view.html', context)
 
@@ -542,8 +544,8 @@ def update(request, id):
 
                 # save latest image as featured image on my_pipelines.html
                 print(i['results'][0]['preview_url'])
-                # update_list.featured_image = i['results'][0]['preview_url']
-                # update_list.save()    
+                update_list.featured_image = i['results'][0]['preview_url']
+                update_list.save()    
 
             # save the updated result
             update_result.save()
