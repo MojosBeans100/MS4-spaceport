@@ -177,7 +177,16 @@ User story 5: As a **Site User** I can **view all details of a specific pipeline
 - 5.11: As a **Site User** I can **see a timestamp on 'last edited** so that **I know if/when I edited the pipeline**
 - 5.12: As a **Site User** I can **see buttons to edit/delete my pipeline** so that **I know how to access these functions**
 
-User story 3: As a **Site User** I can ****
+User story 6: As a **Site User** I can **create a pipeline**
+- 6.1: As a **New/ returning Site User** I can **see an introduction page to creating a pipeline** so that **I understand the restrictions and recommendations**
+- 6.2: As a **New/ returning Site User** I can **see a progress indicator on the form** so that **I know what my progress in the form is, and which sections I have completed**
+- 6.3: As a **New/ returning Site User** I can **see inline feedback on my form** so that **I know if the parameter I entered was incorrect**
+- 6.4: As a **New/ returning Site User** I can **see visual representations of relevant parameters** so that **I have an more accessible understanding of what I am selecting**
+- 6.5: As a **New/ returning Site User** I can **see descriptions/placeholders of parameters** so that **I know what this parameter means for my pipeline**
+- 6.6: As a **New/ returning Site User** I can **navigate forwards and backwards in the form** so that **I can change details before I submit**
+- 6.7: As a **New/ returning Site User** I can **review the details of the pipeline I have created** so that **I can review the details before I submit**
+- 6.8: As a **New/ returning Site User** I have **feedback on submission** so that **I have confirmation that the pipeline was submitted**
+
 User story 3: As a **Site User** I can ****
 
 ### Admin
