@@ -20,7 +20,13 @@
             <div class="col-md-6 py-2">
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
-                            <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to refresh the pipeline</small></p>
+                <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to
+                        refresh the pipeline</small></p>
+                {% if pipeline.results_updated is None %}
+                <p><strong>Pipeline pending:<br> update to see results</strong></p>
+                {% else %}
+                <p><small>updated:<br> {{pipeline.results_updated}}</small></p>
+                {% endif %}
             </div>
             <!-- <div class="col-md-4 py-2">
                 <a href="{% url 'edit_pipeline' pipeline.id %}"><button type="button" class="btn btn-dark"><i
@@ -72,11 +78,7 @@
                     </tr>
                 </table>
 
-                {% if pipeline.results_updated is None %}
-                <p><strong>Pipeline pending:<br> update to see results</strong></p>
-                {% else %}
-                <p><small>updated:<br> {{pipeline.results_updated}}</small></p>
-                {% endif %}
+
             </div>
         </div>
 
@@ -105,7 +107,7 @@
                         <tr>
                             <th>Start date</th>
                             <th>End date</th>
-                            <th>Status date</th>
+                            <th>Status</th>
                         </tr>
 
                         {% for result in results %}
@@ -177,7 +179,7 @@
                     <!-- if there is no image found (yet) -->
                     {% else %}
                     <tr>
-                        <td>{{result.status}}</td>
+                        <td>{{result.message}}</td>
                         <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
                         </td>
 
@@ -267,7 +269,7 @@
             </div>
             {% else %}
             <p>Pipelines can be edited and deleted using the links below.</p>
-            <div class="row d-flex justify-content-evenly"  id="detail-edit-buttons">
+            <div class="row d-flex justify-content-evenly" id="detail-edit-buttons">
                 <div class=" py-2"><a href="{% url 'edit_pipeline' pipeline.id %}"><button class="btn btn-dark"><i
                                 class="fas fa-edit"></i>Edit pipeline</button></a></div>
                 <div class=" py-2"><a href="{% url 'delete_view' pipeline.id %}"><button class="btn btn-dark"><i
@@ -287,61 +289,61 @@
 {{ pipeline.aoi|json_script:"map_aoi" }}
 
 <script>
-    // var mapbox_key = "{{ mapbox_key | safe}}";
-    // var aoi = JSON.parse(document.getElementById('map_aoi').textContent);
-    // var map_aoi = aoi["features"][0]['geometry'];
+    var mapbox_key = "{{ mapbox_key | safe}}";
+    var aoi = JSON.parse(document.getElementById('map_aoi').textContent);
+    var map_aoi = aoi["features"][0]['geometry'];
 
-    // var lat = aoi['features'][0]['geometry']['coordinates'][0][0][1];
-    // var long = aoi['features'][0]['geometry']['coordinates'][0][0][0];
+    var lat = aoi['features'][0]['geometry']['coordinates'][0][0][1];
+    var long = aoi['features'][0]['geometry']['coordinates'][0][0][0];
 
-    // displayAOI();
+    displayAOI();
 
-    // /* external library - Mapbox */
-    // function displayAOI() {
-    //     mapboxgl.accessToken =
-    //         mapbox_key;
-    //     const map = new mapboxgl.Map({
-    //         container: 'detail_map',
-    //         style: 'mapbox://styles/mapbox/light-v10',
-    //         center: [long, lat],
-    //         zoom: 9,
-    //     });
+    /* external library - Mapbox */
+    function displayAOI() {
+        mapboxgl.accessToken =
+            mapbox_key;
+        const map = new mapboxgl.Map({
+            container: 'detail_map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            center: [long, lat],
+            zoom: 10,
+        });
 
-    //     map.on('load', () => {
+        map.on('load', () => {
 
-    //         map.addSource('display_aoi', {
-    //             'type': 'geojson',
-    //             'data': {
-    //                 'type': 'Feature',
-    //                 'geometry': map_aoi,
+            map.addSource('display_aoi', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'Feature',
+                    'geometry': map_aoi,
 
-    //             }
-    //         });
+                }
+            });
 
 
-    //         map.addLayer({
-    //             'id': 'display_aoi',
-    //             'type': 'fill',
-    //             'source': 'display_aoi',
-    //             'layout': {},
-    //             'paint': {
-    //                 'fill-color': '#0080ff',
-    //                 'fill-opacity': 0.5
-    //             }
-    //         });
+            map.addLayer({
+                'id': 'display_aoi',
+                'type': 'fill',
+                'source': 'display_aoi',
+                'layout': {},
+                'paint': {
+                    'fill-color': '#0080ff',
+                    'fill-opacity': 0.5
+                }
+            });
 
-    //         map.addLayer({
-    //             'id': 'outline',
-    //             'type': 'line',
-    //             'source': 'display_aoi',
-    //             'layout': {},
-    //             'paint': {
-    //                 'line-color': '#000',
-    //                 'line-width': 3
-    //             }
-    //         });
-    //     });
-    // }
+            map.addLayer({
+                'id': 'outline',
+                'type': 'line',
+                'source': 'display_aoi',
+                'layout': {},
+                'paint': {
+                    'line-color': '#000',
+                    'line-width': 3
+                }
+            });
+        });
+    }
     /* external library end  */
 </script>
 

@@ -75,7 +75,7 @@
                                 alt="pipeline image"></a>
                         <!-- {% endif %} -->
                         <div class="card-body">
-                            <p>{{pipeline.date_created}}</p>
+                            <p>{{pipeline.start_date|date:'d M'}} - {{pipeline.end_date|date:'d M'}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
                             <p class="card-text">{{pipeline.pipeline_des}}<br>
                                 {% if pipeline.num_images is None %}
@@ -108,7 +108,7 @@
                                 alt="pipeline image"></a>
                         {% endif %}
                         <div class="card-body">
-                            <p>{{pipeline.date_created}}</p>
+                            <p>{{pipeline.start_date|date:'d M'}} - {{pipeline.end_date|date:'d M'}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
                             <p class="card-text">{{pipeline.pipeline_des}}<br>
                                 {% if pipeline.num_images is None %}
@@ -135,7 +135,7 @@
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
                                 alt="pipeline image"></a>
                         <div class="card-body">
-                            <p>{{pipeline.date_created}}</p>
+                            <p>{{pipeline.start_date|date:'d M'}} - {{pipeline.end_date|date:'d M'}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
                             <p class="card-text">{{pipeline.pipeline_des}}</p>
                             <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
