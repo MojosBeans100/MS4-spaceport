@@ -13,18 +13,19 @@
 
     <div class="container" id="detail-links">
         <div class="row">
-            <div class="col-md-4 py-2">
+            <div class="col-md-6 py-2">
                 <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-arrow-left"></i>My pipelines</button></a>
             </div>
-            <div class="col-md-4 py-2">
+            <div class="col-md-6 py-2">
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
+                            <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to refresh the pipeline</small></p>
             </div>
-            <div class="col-md-4 py-2">
+            <!-- <div class="col-md-4 py-2">
                 <a href="{% url 'edit_pipeline' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-edit"></i>Edit</button></a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -266,10 +267,10 @@
             </div>
             {% else %}
             <p>Pipelines can be edited and deleted using the links below.</p>
-            <div class="d-flex justify-content-center">
-                <div class="px-5"><a href="{% url 'edit_pipeline' pipeline.id %}"><button class="btn btn-dark"><i
+            <div class="row d-flex justify-content-evenly"  id="detail-edit-buttons">
+                <div class=" py-2"><a href="{% url 'edit_pipeline' pipeline.id %}"><button class="btn btn-dark"><i
                                 class="fas fa-edit"></i>Edit pipeline</button></a></div>
-                <div class="px-5"><a href="{% url 'delete_view' pipeline.id %}"><button class="btn btn-dark"><i
+                <div class=" py-2"><a href="{% url 'delete_view' pipeline.id %}"><button class="btn btn-dark"><i
                                 class="far fa-trash-alt"></i>Delete pipeline</button></a></div>
             </div>
             {% endif %}

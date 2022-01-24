@@ -562,6 +562,12 @@ input.invalid {
 
     }
 
+    #detail-edit-buttons {
+        font-size: 15px;
+        width: 80%;
+        margin-left: 10%;
+    }
+
 }
 
 /* // Medium devices (tablets, 768px and up) */
@@ -649,8 +655,8 @@ input.invalid {
 
     #detail-links button,
     .detail-view-section button {
-        width: 80% !important;
-        margin-left: 10% !important;
+        width: 50% !important;
+        margin-left: 25% !important;
     }
 
     #detail_map {
@@ -669,6 +675,12 @@ input.invalid {
 
     .image-parent {
         height: 250px;
+    }
+
+    #detail-edit-buttons {
+        font-size: 20px;
+        width: 60%;
+        margin-left: 20%;
     }
 }
 
@@ -760,6 +772,11 @@ i {
     height: 300px;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     padding-bottom: 50px;
+}
+
+#detail-edit-buttons {
+    font-size: 15px;
+    width: 100%;
 }
 
 #interval-table {

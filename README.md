@@ -137,12 +137,17 @@ There are three models in this project.  As the project uses an API for a lot of
 ### Site user stories (new and existing)
 
 User story 1: As a **Site User** I can **navigate the site easily**
-- 1.1: As a **New/returning Site User** I see **the navigation bar displayed on all pages** so that **I can see all accessible pages wherever I am**
+- 1.1: As a **New/returning Site User** I can **see the navigation bar displayed on all pages** so that **I can see all accessible pages wherever I am**
 - 1.2: As a **Returning Site User** I am **redicted to My Pipelines page when I log in** so that **the information relating to my account is immediately displayed**
-- 1.3: As a **New/returning Site User** I see **the active page** so that **I know which page I am currently on**
+- 1.3: As a **New/returning Site User** I can **see the active page** so that **I know which page I am currently on**
 - 1.4: As a **New/returning Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
+- 1.5: As a **New/returning Site User** I can **see my login status at all times in the nav bar** so that **I am aware if I am logged in**
 
-User story 2: As a **Site User** I can **create an account** so that **I can start creating my own pipelines**
+User story 2: As a **Site User** I can **create and use an account on the site**
+- 2.1: As a **New User** I see **create an account using a username and password** so that **I can access pipeline functionality**
+- 2.2: As a **New User** I am **redirected to the Discover page when I signup** so that **I can view more information about pipelines/satellite imagery**
+- 2.3: As a **Returning User** I am **redirected to My Pipelines when I log in** so that **I can view a list of my pipelines**
+- 2.4: As a **New/returning User** I can **see the status of my login on navbar** so that **I am aware if I am logged in**
 
 User story 3: As a **Site User** I can **access information on satellite imagery**
 - 3.1: As a **New/returning Site User** I can **see at all times the Discover page link** so that **I can always refer to this page for more information**
@@ -152,6 +157,7 @@ User story 3: As a **Site User** I can **access information on satellite imagery
 - 3.5: As a **Site User** I am **provided with links to all image metadata** so that **I can use the images in post production**
 - 3.6: As a **New/returning Site User** I can **read examples of pipelines created by current/previous clients** so that **I have a context as to what I can use satellite imagery for**
 - 3.7: As a **New/returning Site User** I can **read topical events involving satellite imagery** so that **I am aware of the importance of being able to access satellite imagery**
+- 3.8: As a **New/returning Site User** I can **click on links for futher information on how satellite imagery works** so that **I can further my understanding**
 
 User story 4: As a **Site User** I can **view a list of all my pipelines**
 - 4.1: As a **Returning Site User** I can **see the My Pipelines link on the navbar when I am logged in** so that **I can easily refer back to this at all times**
@@ -165,36 +171,42 @@ User story 4: As a **Site User** I can **view a list of all my pipelines**
 - 4.9: As a **New Site User** I am **shown a message at the top of My Pipelines, directing me to create a pipeline** so that **when first signing up, I am linked to the next logical step**
 
 User story 5: As a **Site User** I can **view all details of a specific pipeline**
-- 5.1: As a **Site User** I can **see that the detail view is separated into sections** so that **I can scroll to the section I am interested in**
-- 5.2: As a **Site User** I can **see all important and general information at the top of the detail view** so that **I can identify which pipeline it refers to**
-- 5.3: As a **Site User** I can **click an Update button** so that **I can refresh the details of the pipeline**
-- 5.4: As a **Site User** I can **see a zoomable map of the AOI in the detail view** so that **I can see the area on the Earth this pipeline refers to**
-- 5.5: As a **Site User** I can **see a timeline chart of my pipeline** so that **I can visualise the pipeline period, completed intervals, incomplete intervals, today's date and if/when images were found**
-- 5.6: As a **Site User** I can **see a table of all interval dates** so that **I can see the status of each interval**
-- 5.7: As a **Site User** I can **see a table of results** so that **I can easily see if images have been delivered**
-- 5.8: As a **Site User** I am **directed to a separate tab when I click on a found image** so that **I can view it in detail and download it**
-- 5.9: As a **Site User** I am **directed to a separate tab when I click on image metadata** so that **I can read it or use it in post production of the image**
-- 5.10: As a **Site User** I can **view the parameters I selected when creating the pipeline** so that **I am reminded of the parameters I set**
-- 5.11: As a **Site User** I can **see a timestamp on 'last edited** so that **I know if/when I edited the pipeline**
-- 5.12: As a **Site User** I can **see buttons to edit/delete my pipeline** so that **I know how to access these functions**
-- 5.13: As a **Site User** I am **told if I cannot edit/delete my pipeline** so that **I am aware why these functions are/are not available**
+- 5.1: As a **Returning Site User** I can **see that the detail view is separated into sections** so that **I can scroll to the section I am interested in**
+- 5.2: As a **Returning Site User** I can **see all important and general information at the top of the detail view** so that **I can identify which pipeline it refers to**
+- 5.3: As a **Returning Site User** I can **click an Update button** so that **I can refresh the details of the pipeline**
+- 5.4: As a **Returning Site User** I can **see a zoomable map of the AOI in the detail view** so that **I can see the area on the Earth this pipeline refers to**
+- 5.5: As a **Returning Site User** I can **see a timeline chart of my pipeline** so that **I can visualise the pipeline period, completed intervals, incomplete intervals, today's date and if/when images were found**
+- 5.6: As a **Returning Site User** I can **see a table of all interval dates** so that **I can see the status of each interval**
+- 5.7: As a **Returning Site User** I can **see a table of results** so that **I can easily see if images have been delivered**
+- 5.8: As a **Returning Site User** I am **directed to a separate tab when I click on a found image** so that **I can view it in detail and download it**
+- 5.9: As a **Returning Site User** I am **directed to a separate tab when I click on image metadata** so that **I can read it or use it in post production of the image**
+- 5.10: As a **Returning Site User** I can **view the parameters I selected when creating the pipeline** so that **I am reminded of the parameters I set**
+- 5.11: As a **Returning Site User** I can **see a timestamp on 'last edited** so that **I know if/when I edited the pipeline**
+- 5.12: As a **Returning Site User** I can **see buttons to edit/delete my pipeline** so that **I know how to access these functions**
+- 5.13: As a **Returning Site User** I am **told if I cannot edit/delete my pipeline** so that **I am aware why these functions are/are not available**
 
 User story 6: As a **Site User** I can **create a pipeline**
-- 6.1: As a **New/ returning Site User** I can **see an introduction page to creating a pipeline** so that **I understand the restrictions and recommendations**
-- 6.2: As a **New/ returning Site User** I am **made aware that submitting a pipeline does not guarantee results** so that **I am not disappointed if my pipeline does not receive images**
-- 6.2: As a **New/ returning Site User** I can **see a progress indicator on the form** so that **I know what my progress in the form is, and which sections I have completed**
-- 6.3: As a **New/ returning Site User** I can **see inline feedback on my form** so that **I know if the parameter I entered was incorrect**
-- 6.4: As a **New/ returning Site User** I can **see visual representations of relevant parameters** so that **I have a more accessible understanding of what I am selecting**
-- 6.5: As a **New/ returning Site User** I can **see descriptions/placeholders of parameters** so that **I know what this parameter means for my pipeline**
-- 6.6: As a **New/ returning Site User** I can **navigate forwards and backwards in the form** so that **I can change details before I submit**
-- 6.7: As a **New/ returning Site User** I can **review the details of the pipeline I have created** so that **I can review the details before I submit**
-- 6.8: As a **New/ returning Site User** I can **see which parameters can be changed after submission** so that **I am aware what can be edited**
-- 6.9: As a **New/ returning Site User** I have **feedback on submission** so that **I have confirmation that the pipeline was submitted**
-- 6.10: As a **New/ returning Site User** I am **redirected to the detail view of the pipeline after submission** so that **I can view the details of the pipeline I submitted**
-- 6.11: As a **New/ returning Site User** I am **encouraged to allow for the website to process the pipeline when first redirected** so that **I understand why the pipeline detail is initially sparse**
+- 6.1: As a **New/returning Site User** I can **see an introduction page to creating a pipeline** so that **I understand the restrictions**
+- 6.2: As a **New/returning Site User** I can **see an advice on how to maximise my chance of my pipeline returning images** so that **I can choose my parameters accordingly**
+- 6.3: As a **New Site User** I am **provided with a list of examples** so that **I have a starting point for my first pipeline**
+- 6.2: As a **New/returning Site User** I am **made aware that submitting a pipeline does not guarantee results** so that **I am not disappointed if my pipeline does not receive images**
+- 6.2: As a **New/returning Site User** I can **see a progress indicator on the form** so that **I know what my progress in the form is, and which sections I have completed**
+- 6.3: As a **New/returning Site User** I can **see inline feedback on my form** so that **I know if the parameter I entered was incorrect**
+- 6.4: As a **New/returning Site User** I can **see visual representations of relevant parameters** so that **I have a more accessible understanding of what I am selecting**
+- 6.5: As a **New/returning Site User** I can **see descriptions/placeholders of parameters** so that **I know what this parameter means for my pipeline**
+- 6.6: As a **New/returning Site User** I can **navigate forwards and backwards in the form** so that **I can change details before I submit**
+- 6.7: As a **New/returning Site User** I can **review the details of the pipeline I have created** so that **I can review the details before I submit**
+- 6.8: As a **New/returning Site User** I can **see which parameters can be changed after submission** so that **I am aware what can be edited**
+- 6.9: As a **New/returning Site User** I have **feedback on submission** so that **I have confirmation that the pipeline was submitted**
+- 6.10: As a **New/returning Site User** I am **redirected to the detail view of the pipeline after submission** so that **I can view the details of the pipeline I submitted**
+- 6.11: As a **New/returning Site User** I am **encouraged to allow for the website to process the pipeline when first redirected** so that **I understand why the pipeline detail is initially sparse**
 
 User story 7: As a **Site User** I can **edit, update and delete pipelines**
-- 6.1: As a **New/ returning Site User** I can **see an introduction page to creating a pipeline** so that **I understand the restrictions and recommendations**
+- 7.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I edit the pipeline**
+- 7.2: As a **New/returning Site User** I can **see which parameters I can change for my pipeline** so that **I am aware of the limitations once my pipeline has been submitted**
+- 7.3: As a **New/returning Site User** I can **change the name and description of my pipeline** so that **I can correct if needed, or add details about results in the description**
+- 7.4: As a **New/returning Site User** I can **update/refresh the pipeline** so that **I can see if any new images have been delivered/update interval statuses**
+- 7.5: As a **New/returning Site User** I know **that I have to update the pipeline myself** so that **I am not confused why the status/interval/results have not changed**
 
 ### Admin
 
