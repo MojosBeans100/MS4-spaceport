@@ -1,5 +1,5 @@
 # Spaceport
-Spaceport is a full stack website which allows users to access satellite imagery of the Earth.  Users can create a tasking pipeline which will deliver images of the specified area when they are available.  The website was developed for Milestone 4 as part of the Code Institute Diploma in Software Developement. 
+Spaceport is a full stack website which allows users to access satellite imagery of the Earth.  Users can create a tasking pipeline which will deliver images of the specified area when they are available.  The Skywatch API is used to access information about satellites, and set up the pipelines. The website was developed for Milestone 4 as part of the Code Institute Diploma in Software Developement. 
 
 # Table of contents
 - [Spaceport]
@@ -92,6 +92,7 @@ Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 Insert schema here.
 
 #### Models
+There are three models in this project.  As the project uses an API for a lot of the information stored in the databases, see the associated tables to understand how the data is created (whether by the User, the Spaceport app, or from the API)
 
 ##### User
 - The User model contains information about the user, as part of the Django allauth library
@@ -101,6 +102,30 @@ Insert schema here.
 ##### List
 - The List model contains information about the pipeline the user set up
 - The model fields are: pipeline_name, pipeline_description, start_date, end_date, interval, output_image, aoi, cloud_cover, num_intervals, date_created, aoi_area, created_by, status, api_id, num_results, num_images, results_updated, featured_image, time_edited
+
+| Field | Description | Created from | Field type|
+|-------|-------------|--------------|-----------|
+|id|the primary key for this model, used to cross reference Result objects|Django|Primary Key|
+|pipeline_name|the name the user gives to the pipeline|User| Charfield|
+|pipeline_des|the description the user inputs to identify the pipeline|User| Charfield|
+|start_date|what date the pipeline will start looking for images|User| Date|
+|end_date|what date the pipeline will stop looking for images|User| Date|
+|interval|the interval period set by the user (daily, biweekly, weekly, bimonthly, monthly)|User| Charfield|
+|aoi|the coordinates for the Area of Interest chosen by the user|User| JSON|
+|output_image|the type of images the pipeline should return|User|Charfield (choice of 6)|
+|cloud_cover|the maximum allowable cloud cover in returned images|User|Charfield|
+|num_intervals|the number of intervals between the start and end date|API|Charfield|
+|date_created|the date the pipeline was created|Spaceport|Date|
+|aoi_area|the area in km2 of the AOI|API|Charfield|
+|created_by|the user the pipeline was created by|Spaceport|Charfield|
+|status|whether the pipeline is active, complete, or pending|Spaceport|Charfield|
+|api_id|the unique id given to the pipeline by the API|API|Charfield|
+|num_results||||
+|num_images|the number of images successfully received by the pipeline|Spaceport|Charfield|
+|results_updated|when the pipeline was last refreshed from the API|API|Datetime|
+|featured_image|a url to display an image on My Pipelines page|API|Charfield|
+|time_edited|when the pipeline was last edited|Spaceport|Datetime|
+
 
 
 ##### Result
