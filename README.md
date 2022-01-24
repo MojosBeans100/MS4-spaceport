@@ -127,9 +127,25 @@ There are three models in this project.  As the project uses an API for a lot of
 |time_edited|when the pipeline was last edited|Spaceport|Datetime|
 
 
-
 ##### Result
 - The Result model contains information about results relating to the pipeline.  The number of results for a pipeline is directly linked to the number of intervals a pipeline has. Example: if a pipeline is 5 days in length, with an interval of 1 day, there will be 5 intervals (1 for each day), and thus 5 results.
 - It contains the List as the foreign key.
 - The model fields are: 
+
+## Scope
+
+### Site user stories (new and existing)
+
+User story 1: As a **Site User** I can **navigate the site easily**
+- 1.1: As a **Site User** I see **the navigation bar displayed on all pages** so that **I can see all accessible pages wherever I am**
+- 1.2: As a **Site User** I am **redicted to My Pipelines page when I log in** so that **the information relating to my account is immediately displayed**
+- 1.3: As a **Site User** I see **the active page** so that **I know which page I am currently on**
+- 1.4: As a **Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
+
+User story 2: As a **Site User** I can **create an account** so that **I can start creating my own pipelines**
+
+User story 3: As a **Site User** I can **access information on satellite imagery**
+- 3.1: 
+
+### Admin
 
