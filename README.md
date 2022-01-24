@@ -61,3 +61,50 @@ The primary goals of the website user are as follows:
 
 
 ## Structure
+### Pages
+The website has five main pages, with user authentication on three:
+- Homepage: to introduce users to the website and detail the purpose
+- Discover: to allow users to explore the uses of satellite imagery
+- My Pipelines: to list all pipelines created by the user
+- View of pipeline: to display all details of the pipeline instance
+- Create pipeline: to display an interactive form for creating a pipeline
+
+The additional pages are as follows:
+- Edit pipeline
+- Delete pipeline
+- Confirmation of deleted pipeline
+- User authentication pages
+
+The website was designed to be simple, clear and non-cluttered, basic in structure, with attractive images of satellites and images captured by satellites.
+Bootstrap was used to aid responsiveness, as well as media queries in CSS.
+
+### Database
+
+- Spaceport App
+- templates
+- static
+- README
+- manage.py
+- Procfile
+- Requirements.txt
+
+#### Database Model
+Insert schema here.
+
+#### Models
+
+##### User
+- The User model contains information about the user, as part of the Django allauth library
+- No additional features are added to this model, as a basic username and password satisfy the requirements of the project
+- The model fields are: 
+
+##### List
+- The List model contains information about the pipeline the user set up
+- The model fields are: pipeline_name, pipeline_description, start_date, end_date, interval, output_image, aoi, cloud_cover, num_intervals, date_created, aoi_area, created_by, status, api_id, num_results, num_images, results_updated, featured_image, time_edited
+
+
+##### Result
+- The Result model contains information about results relating to the pipeline.  The number of results for a pipeline is directly linked to the number of intervals a pipeline has. Example: if a pipeline is 5 days in length, with an interval of 1 day, there will be 5 intervals (1 for each day), and thus 5 results.
+- It contains the List as the foreign key.
+- The model fields are: 
+
