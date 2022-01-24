@@ -39,9 +39,9 @@ Spaceport is a full stack website which allows users to access satellite imagery
 - The website was built with a responsive look and feel, designed to be enjoyable to use on all screen sizes.
 
 # Definitions
-This website is based on a technical concept of access satellite imagery, therefore see below some useful definitions which may be used in this document.
+This website is based on a technical concept of accessessing satellite imagery, therefore see below some useful definitions which may be used in this document.
 These definitions can also be found on the Discover website page.
-- Pipeline: a pipeline refers to the timeline, or projected plan, of receiving satellite images. Each object in the 'List' model represents a pipeline.  Pipelines are active if they have not completed all intervals, and complete if all intervals have been completed
+- Pipeline: a pipeline refers to the timeline, or projected plan or schedule, of receiving satellite images. Each object in the 'List' model represents a pipeline.  Pipelines are active if they have not completed all intervals, and complete if all intervals have been completed
 - Interval:
 - 
 
@@ -159,7 +159,23 @@ User story 4: As a **Site User** I can **view a list of all my pipelines**
 - 4.3: As a **Returning Site User** I can **see all my pipelines ordered by completed status** so that **I am aware which pipelines have completed all intervals**
 - 4.4: As a **Returning Site User** I can **see all my pipelines ordered by pending status** so that **I am aware which pipelines I should update**
 - 4.5: As a **Returning Site User** I can **see a status link section at the top of My Pipelines** so that **I can see how many pipelines are in each category, and navigate to each list separately**
+- 4.6: As a **Returning Site User** I can see **a card displaying important information about each pipeline** so that **I can identify which pipeline it refers to**
+- 4.7: As a **Returning Site User** I can see **a featured image on the pipeline card** so that **I know if that pipeline has found any images**
+- 4.8: As a **Returning Site User** I can see **an interactive style change when I hover over a pipeline** so that **I know I can click on the pipeline card and view pipeline details**
+- 4.9: As a **New Site User** I am **shown a message at the top of My Pipelines, directing me to create a pipeline** so that **when first signing up, I am linked to the next logical step**
 
+User story 5: As a **Site User** I can **view all details of a specific pipeline**
+- 5.1: As a **Site User** I can **see that the detail view is separated into sections** so that **I can scroll to the section I am interested in**
+- 5.2: As a **Site User** I can **see all important and general information at the top of the detail view** so that **I can identify which pipeline it refers to**
+- 5.3: As a **Site User** I can **see a zoomable map of the AOI in the detail view** so that **I can see the area on the Earth this pipeline refers to**
+- 5.5: As a **Site User** I can **see a timeline chart of my pipeline** so that **I can visualise the pipeline period, completed intervals, incomplete intervals, today's date and if/when images were found**
+- 5.6: As a **Site User** I can **see a table of all interval dates** so that **I can see the status of each interval**
+- 5.7: As a **Site User** I can **see a table of results** so that **I can easily see if images have been delivered**
+- 5.8: As a **Site User** I am **directed to a separate tab when I click on a found image** so that **I can view it in detail and download it**
+- 5.9: As a **Site User** I am **directed to a separate tab when I click on image metadata** so that **I can read it or use it in post production of the image**
+- 5.10: As a **Site User** I can **view the parameters I selected when creating the pipeline** so that **I am reminded of the parameters I set**
+- 5.11: As a **Site User** I can **see a timestamp on 'last edited** so that **I know if/when I edited the pipeline**
+- 5.12: As a **Site User** I can **see buttons to edit/delete my pipeline** so that **I know how to access these functions**
 
 User story 3: As a **Site User** I can ****
 User story 3: As a **Site User** I can ****
