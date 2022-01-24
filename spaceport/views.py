@@ -242,6 +242,7 @@ def create(request):
                 current_list.created_by = user
                 current_list.status = 'pending'
                 current_list.api_id = api_id
+                current_list.aoi_area = post_response['data']['area_km2']
                 current_list.save()
 
                 # direct user to detail view of this model
@@ -456,6 +457,18 @@ def update(request, id):
 
     print(results_response)
 
+    # update fields in List object & save
+    update_list.num_results = len(results_response['data'])
+
+    num_images = 0
+    for i in results_response['data']:
+        if len(i['results'])==1:
+            num_images += 1
+  
+    update_list.num_images = num_images
+    print(update_list.num_images)
+    update_list.save()
+
     # if there are no results created yet for this List object
     # create them
     if len(Result.objects.filter(pipeline_id=id)) == 0:
@@ -545,6 +558,9 @@ def update(request, id):
                 # save latest image as featured image on my_pipelines.html
                 print(i['results'][0]['preview_url'])
                 update_list.featured_image = i['results'][0]['preview_url']
+
+               
+    
                 update_list.save()    
 
             # save the updated result

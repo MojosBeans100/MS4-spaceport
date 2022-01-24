@@ -553,7 +553,7 @@
 
         // calculate day difference
         var time_difference = date2.getTime() - date1.getTime();
-        days_difference = time_difference / (1000 * 60 * 60 * 24);
+        days_difference = Math.round(time_difference / (1000 * 60 * 60 * 24));
         num_intervals = days_difference / interval_num;
         num_intervals_rounded = Math.round(num_intervals)
 
