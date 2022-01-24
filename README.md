@@ -137,15 +137,21 @@ There are three models in this project.  As the project uses an API for a lot of
 ### Site user stories (new and existing)
 
 User story 1: As a **Site User** I can **navigate the site easily**
-- 1.1: As a **Site User** I see **the navigation bar displayed on all pages** so that **I can see all accessible pages wherever I am**
-- 1.2: As a **Site User** I am **redicted to My Pipelines page when I log in** so that **the information relating to my account is immediately displayed**
-- 1.3: As a **Site User** I see **the active page** so that **I know which page I am currently on**
-- 1.4: As a **Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
+- 1.1: As a **New/returning Site User** I see **the navigation bar displayed on all pages** so that **I can see all accessible pages wherever I am**
+- 1.2: As a **Returning Site User** I am **redicted to My Pipelines page when I log in** so that **the information relating to my account is immediately displayed**
+- 1.3: As a **New/returning Site User** I see **the active page** so that **I know which page I am currently on**
+- 1.4: As a **New/returning Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
 
 User story 2: As a **Site User** I can **create an account** so that **I can start creating my own pipelines**
 
 User story 3: As a **Site User** I can **access information on satellite imagery**
-- 3.1: 
+- 3.1: As a **New/returning Site User** I can **see at all times the Discover page link** so that **I can always refer to this page for more information**
+- 3.2: As a **New Site User** I am **firstly directed to the homepage** so that **the purpose of the site is immediately clear to me**
+- 3.3: As a **New/returning Site User** I can **explore technical terms associated with satellite imagery and pipelines** so that **I can check any definitions I am unsure of**
+- 3.4: As a **New/returning Site User** I am **given explanations of technical terms in the form** so that **I understand what the parameters I am setting is**
+- 3.5: As a **Site User** I am **provided with links to all image metadata** so that **I can use the images in post production**
+
+User story 3: As a **Site User** I can ****
 
 ### Admin
 
