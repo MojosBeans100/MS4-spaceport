@@ -242,7 +242,7 @@ def create(request):
                 current_list.created_by = user
                 current_list.status = 'pending'
                 current_list.api_id = api_id
-                current_list.aoi_area = post_response['data']['area_km2']
+                current_list.aoi_area = round(float((post_response['data']['area_km2'])), 2)
                 current_list.save()
 
                 # direct user to detail view of this model

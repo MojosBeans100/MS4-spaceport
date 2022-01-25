@@ -13,6 +13,8 @@
 
     <div class="container" id="detail-links">
         <div class="row">
+            <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to
+                refresh the pipeline</small></p>
             <div class="col-md-6 py-2">
                 <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-arrow-left"></i>My pipelines</button></a>
@@ -20,12 +22,10 @@
             <div class="col-md-6 py-2">
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
-                <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to
-                        refresh the pipeline</small></p>
                 {% if pipeline.results_updated is None %}
                 <p><strong>Pipeline pending:<br> update to see results</strong></p>
                 {% else %}
-                <p><small>updated:<br> {{pipeline.results_updated}}</small></p>
+                <p><small>last updated: {{pipeline.results_updated}}</small></p>
                 {% endif %}
             </div>
             <!-- <div class="col-md-4 py-2">
@@ -184,7 +184,7 @@
                         <td colspan="7">
                             <div class="row d-flex justify-content-evenly">
                                 <div class="col-3">
-                                    <table class="dropdown-table">
+                                    <table>
 
                                         <tr>
                                             <td>Scene height</td>
@@ -217,7 +217,7 @@
                                 </div>
 
                                 <div class="col-3">
-                                    <table class="dropdown-table">
+                                    <table>
                                         <tr>
                                             <td>AOI area coverage</td>
                                             {% if result.aoi_area_per is None %}
@@ -258,7 +258,7 @@
                                 </div>
 
                                 <div class="col-3">
-                                    <table class="dropdown-table">
+                                    <table>
                                         <tr>
                                             <td><a href="{{result.image_analytics_url}}" target="_blank">Download
                                                     image  <i class="fas fa-download"></i></a></td>
