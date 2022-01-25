@@ -63,17 +63,17 @@
                 {% for pipeline in active %}
                 <div class="col-sm-6 col-md-4 col-xxl-3">
                     <div class="card my-3" id="pipeline_card">
-                        <!-- {% if pipeline.featured_image %}
+                        {% if pipeline.featured_image %}
+                        <a href="{% url 'detail_view' pipeline.id %}">
+                            <img class="card-img-top" id="pipeline-card-img"
+                            src="{{pipeline.featured_image}}"
+                                alt="pipeline image"></a>
+                        {% else %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img"
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
                                 alt="pipeline image"></a>
-                        {% else %} -->
-                        <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img"
-                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682210/satellite-1030782_1920_xgul20.jpg"
-                                alt="pipeline image"></a>
-                        <!-- {% endif %} -->
+                        {% endif %}
                         <div class="card-body">
                             <p>{{pipeline.start_date|date:'d M'}} - {{pipeline.end_date|date:'d M'}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
@@ -97,6 +97,7 @@
                 {% for pipeline in complete %}
                 <div class="col-sm-6 col-md-4 col-xxl-3">
                     <div class="card my-3" id="pipeline_card">
+                       
                         {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img" src="{{pipeline.featured_image}}"

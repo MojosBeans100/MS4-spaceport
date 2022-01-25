@@ -109,14 +109,12 @@ def save(request):
 
     # if the form is valid, save it
     if form.is_valid():
-        #form.save(commit=False)
+        
         print("is valid")
-    
+
     # if it's not valid, return to form
     else:
 
-        print(form)
-       
         context = {
             'form': form,
             'validation': 'Form not valid',
@@ -177,7 +175,6 @@ def create(request):
                 'max_cost': 0,
                 'min_aoi_coverage_percentage': 50,
                 'result_delivery': {
-                    #check this
                     'max_latency': '0d',
                     'priorities': [
                         'latest',
@@ -190,8 +187,6 @@ def create(request):
                 'tags': []
             }
 
-            print(params)
-
             # post the pipeline to the api
             try:
                 post_pipeline = requests.post(
@@ -201,8 +196,6 @@ def create(request):
                 post_response = post_pipeline.json()
 
                 print(post_response)
-
-            
 
             # don't use bare except
             except:
@@ -460,13 +453,13 @@ def update(request, id):
     # update fields in List object & save
     update_list.num_results = len(results_response['data'])
 
+    # count how many images have been found for this pipeline
     num_images = 0
     for i in results_response['data']:
-        if len(i['results'])==1:
+        if len(i['results']) == 1:
             num_images += 1
-  
+
     update_list.num_images = num_images
-    print(update_list.num_images)
     update_list.save()
 
     # if there are no results created yet for this List object
@@ -534,7 +527,7 @@ def update(request, id):
             update_result.message = i['message']
 
             # if there are now images
-            # add images to result object
+            # add images & data to result object
             if len(i['results']) > 0:
 
                 update_result.image_created_at = i['results'][0]['capture_time']
@@ -556,12 +549,8 @@ def update(request, id):
                 update_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
 
                 # save latest image as featured image on my_pipelines.html
-                print(i['results'][0]['preview_url'])
                 update_list.featured_image = i['results'][0]['preview_url']
-
-               
-    
-                update_list.save()    
+                update_list.save()
 
             # save the updated result
             update_result.save()
