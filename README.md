@@ -141,7 +141,8 @@ User story 1: As a **Site User** I can **navigate the site easily**
 - 1.2: As a **Returning Site User** I am **redicted to My Pipelines page when I log in** so that **the information relating to my account is immediately displayed**
 - 1.3: As a **New/returning Site User** I can **see the active page** so that **I know which page I am currently on**
 - 1.4: As a **New/returning Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
-- 1.5: As a **New/returning Site User** I can **see my login status at all times in the nav bar** so that **I am aware if I am logged in**
+- 1.5: As a **New/returning Site User** I can **see my login status in the nav bar** so that **I am aware if I am logged in**
+- 1.6: As a **New/returning Site User** I can **see the nav bar at all times** so that **I do not have to scroll up/down to divert to another page**
 
 User story 2: As a **Site User** I can **create and use an account on the site**
 - 2.1: As a **New User** I see **create an account using a username and password** so that **I can access pipeline functionality**
