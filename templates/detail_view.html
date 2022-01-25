@@ -150,7 +150,9 @@
             {% else %}
             <div class="table-responsive">
                 <table class="table" id="result-table">
-                    <tr>
+                    <tr data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                        <th>Expand all  <i class="fas fa-angle-down"></i></th>
                         <th>Status</th>
                         <th>Interval dates</th>
                         <th>Image</th>
@@ -165,6 +167,7 @@
                     <!-- display the image preview and image data -->
                     {% if result.image_visual_url %}
                     <tr>
+                        <td></td>
                         <td>{{result.status}}</td>
                         <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
                         </td>
@@ -176,9 +179,82 @@
                                     class="fas fa-external-link-alt"></i></a></td>
                     </tr>
 
+                    <tr id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <td colspan="7">
+                        <table>
+                            <tr>
+                                <td>Scene height</td>
+                                {% if result.scene_height is None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{result.scene_height}} km</td>
+                                {% endif %}
+                            </tr>
+
+                            <tr>
+                                <td>Scene width</td>
+                                {% if result.scene_width is None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{result.scene_width}} km</td>
+                                {% endif %}
+                            </tr>
+
+                            <tr>
+                                <td>Cloud cover</td>
+                                {% if result.cloud_cover_per is None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{result.cloud_cover_per}} %</td>
+                                {% endif %}
+                            </tr>
+
+                            <tr>
+                                <td>AOI area coverage</td>
+                                {% if result.aoi_area_per is None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{result.aoi_area_per}} %</td>
+                                {% endif %}
+                            </tr>
+
+                            <tr>
+                                <td>Visible area</td>
+                                {% if result.visible_area is None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{result.visible_area}} km <sup>2</sup></td>
+                                {% endif %}
+                            </tr>
+
+                            <tr>
+                                <td>Visible area %</td>
+                                {% if result.aoi_visible_area_per is None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{result.aoi_visible_area_per}} %</td>
+                                {% endif %}
+                            </tr>
+
+                            <tr>
+                                <td>Filled area</td>
+                                {% if result.filled_area is None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{result.filled_area}} km <sup>2</sup></td>
+                                {% endif %}
+                            </tr>
+
+                        </table>
+
+
+                    </tr>
+
                     <!-- if there is no image found (yet) -->
                     {% else %}
                     <tr>
+                        <td></td>
                         <td>{{result.message}}</td>
                         <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
                         </td>
