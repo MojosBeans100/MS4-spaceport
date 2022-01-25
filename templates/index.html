@@ -85,6 +85,13 @@
     {% block content %}
     <div class="container-fluid" id="index-container">
 
+        {% if error %}
+        <div style="padding-top: 100px; border: solid black; width: 50%; margin-left: 25%;">
+            <h2 style="text-align: center">{{error}}</h2>
+        </div>
+        {% else %}
+        {% endif %}
+
         <!-- banner image and text -->
         <div id="banner-section">
             <div class="row align-items-center">

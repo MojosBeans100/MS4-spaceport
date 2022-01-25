@@ -163,7 +163,8 @@ def create(request):
             # api parameters required
             params = {
                 'name': form.cleaned_data['pipeline_name'],
-                'interval': form.cleaned_data['interval'],
+                #'interval': form.cleaned_data['interval'],
+                'interval': 7,
                 'start_date': str(form.cleaned_data['start_date']),
                 'output': {
                     'id': form.cleaned_data['output_image'],
@@ -188,41 +189,18 @@ def create(request):
             }
 
             # post the pipeline to the api
-            try:
-                post_pipeline = requests.post(
-                    url,
-                    headers={'x-api-key': skywatch_key},
-                    json=params)
-                post_response = post_pipeline.json()
+            post_pipeline = requests.post(
+                url,
+                headers={'x-api-key': skywatch_key},
+                json=params)
+            post_response = post_pipeline.json()
 
-                print(post_response)
-
-            # don't use bare except
-            except:
-
-                print(post_response)
-                print("ERRORS")
-                # context = {
-                #     'errors': post_response.errors
-                # }
-                # redirect to page saying api could not be found
-
-            # if the api returns errors in returning a response,
-            # redirect to form page with error message
-            # (should not happen due to form validation, Django + JS)
-            if 'errors' in post_response or 'error' in post_response:
-
-                form = CreateList()
-                # error message
-
-                context = {
-                    'form': form,
-                    # error message
-                }
+            print(post_response)
 
             # if no errors in api response,
             # save form as object and fill in other fields
-            else:
+
+            if post_pipeline.status_code == 201:
 
                 form.save()
 
@@ -231,7 +209,6 @@ def create(request):
                 id = current_list.id
 
                 api_id = post_response['data']['id']
-                # current_list.slug = slugify(pipeline_name)
                 current_list.created_by = user
                 current_list.status = 'pending'
                 current_list.api_id = api_id
@@ -240,6 +217,47 @@ def create(request):
 
                 # direct user to detail view of this model
                 return redirect(reverse('detail_view', args=[id]))
+
+            else:
+
+                if post_pipeline.status_code == 400:
+
+                    context = {
+                        'error': "Response 400:  there was an error when submitting the form"
+                    }
+
+                else: 
+
+                    context = {
+                        'error': "Response 500:  we could not reach the API just now.  Please try again later."
+                    }
+
+                return render(request, 'index.html', context)
+
+             
+
+            # # don't use bare except
+            # except:
+
+            #     print(post_response)
+            #     print("ERRORS")
+            #     # context = {
+            #     #     'errors': post_response.errors
+            #     # }
+            #     # redirect to page saying api could not be found
+
+            # # if the api returns errors in returning a response,
+            # # redirect to form page with error message
+            # # (should not happen due to form validation, Django + JS)
+            # if 'errors' in post_response or 'error' in post_response:
+
+            #     form = CreateList()
+            #     # error message
+
+            #     context = {
+            #         'form': form,
+            #         # error message
+            #     }
 
         # if form is not valid
         # return to form
