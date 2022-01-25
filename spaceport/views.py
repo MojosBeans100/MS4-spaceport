@@ -414,135 +414,162 @@ def update(request, id):
 
     # api url to update the pipeline status
     url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}')
-    list_response = requests.get(
+    
+    updated_list = requests.get(
         url,
         headers={
             'x-api-key': skywatch_key,
         }
-    ).json()
+    )
 
-    # get object to update
-    update_list = List.objects.get(id=id)
+    list_response = updated_list.json()
 
-    # update fields in List object  & save
-    update_list.results_updated = time_now
-    update_list.status = list_response['data']['status']
-    update_list.save()
+    if updated_list.status_code == 200 or updated_list.status_code == 201:
 
-    url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}/interval_results')
+        # get object to update
+        update_list = List.objects.get(id=id)
 
-    results_response = requests.get(
-        url,
-        headers={
-            'x-api-key': skywatch_key
-        }
-    ).json()
+        # update fields in List object  & save
+        update_list.results_updated = time_now
+        update_list.status = list_response['data']['status']
+        update_list.save()
 
-    print(results_response)
+        url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}/interval_results')
 
-    # update fields in List object & save
-    update_list.num_results = len(results_response['data'])
+        results_response = requests.get(
+            url,
+            headers={
+                'x-api-key': skywatch_key
+            }
+        ).json()
 
-    # count how many images have been found for this pipeline
-    num_images = 0
-    for i in results_response['data']:
-        if len(i['results']) == 1:
-            num_images += 1
+        print(results_response)
 
-    update_list.num_images = num_images
-    update_list.save()
+        # update fields in List object & save
+        update_list.num_results = len(results_response['data'])
 
-    # if there are no results created yet for this List object
-    # create them
-    if len(Result.objects.filter(pipeline_id=id)) == 0:
-
+        # count how many images have been found for this pipeline
+        num_images = 0
         for i in results_response['data']:
+            if len(i['results']) == 1:
+                num_images += 1
 
-            # create new result object
-            new_result = Result(
-                pipeline_id=update_list,
-                created_at=i['created_at'],
-                updated_at=i['updated_at'],
-                api_pipeline_id=i['pipeline_id'],
-                status=i['status'],
-                output_id=i['output_id'],
-                message=i['message'],
-                interval_start_date=i['interval']['start_date'],
-                interval_end_date=i['interval']['end_date'],
-            )
+        update_list.num_images = num_images
+        update_list.save()
 
-            # save the newly created result
-            new_result.save()
+        # if there are no results created yet for this List object
+        # create them
+        if len(Result.objects.filter(pipeline_id=id)) == 0:
 
-            # if an image is found for each interval
-            if len(i['results']) > 0:
+            for i in results_response['data']:
 
-                new_result.image_created_at = i['results'][0]['created_at']
-                new_result.image_updated_at = i['results'][0]['updated_at']
-                new_result.image_preview_url = i['results'][0]['preview_url']
-                new_result.image_visual_url = i['results'][0]['visual_url']
-                new_result.image_analytics_url = i['results'][0]['analytics_url']
-                new_result.image_metadata_url = i['results'][0]['metadata_url']
-                new_result.image_size = i['results'][0]['metadata']['size_in_mb']
-                new_result.image_valid_pixels_per = i['results'][0]['metadata']['valid_pixels_percentage']
-                new_result.image_source = i['results'][0]['metadata']['source']
-                new_result.scene_height = i['overall_metadata']['scene_height']
-                new_result.scene_width = i['overall_metadata']['scene_width']
-                new_result.filled_area = i['overall_metadata']['filled_area_km2']
-                new_result.aoi_area_per = i['overall_metadata']['filled_area_percentage_of_aoi']
-                new_result.cloud_cover_per = i['overall_metadata']['cloud_cover_percentage']
-                new_result.aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi']
-                new_result.visible_area = i['overall_metadata']['visible_area_km2']
-                new_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
+                # create new result object
+                new_result = Result(
+                    pipeline_id=update_list,
+                    created_at=time_now,
+                    #created_at=i['created_at'],
+                    updated_at=i['updated_at'],
+                    api_pipeline_id=i['pipeline_id'],
+                    status=i['status'],
+                    output_id=i['output_id'],
+                    message=i['message'],
+                    interval_start_date=i['interval']['start_date'],
+                    interval_end_date=i['interval']['end_date'],
+                )
 
-            # save the newly created result
-            new_result.save()
+                # save the newly created result
+                new_result.save()
 
-    # if there are already results created for this List object
-    # update them
+                # if an image is found for each interval
+                if len(i['results']) > 0:
+
+                    new_result.image_created_at = i['results'][0]['capture_time']
+                    new_result.image_updated_at = i['results'][0]['updated_at']
+                    new_result.image_preview_url = i['results'][0]['preview_url']
+                    new_result.image_visual_url = i['results'][0]['visual_url']
+                    new_result.image_analytics_url = i['results'][0]['analytics_url']
+                    new_result.image_metadata_url = i['results'][0]['metadata_url']
+                    new_result.image_size = i['results'][0]['metadata']['size_in_mb']
+                    new_result.image_valid_pixels_per = i['results'][0]['metadata']['valid_pixels_percentage']
+                    new_result.image_source = i['results'][0]['metadata']['source']
+                    new_result.scene_height = i['overall_metadata']['scene_height']
+                    new_result.scene_width = i['overall_metadata']['scene_width']
+                    new_result.filled_area = i['overall_metadata']['filled_area_km2']
+                    new_result.aoi_area_per = i['overall_metadata']['filled_area_percentage_of_aoi']
+                    new_result.cloud_cover_per = i['overall_metadata']['cloud_cover_percentage']
+                    new_result.aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi']
+                    new_result.visible_area = i['overall_metadata']['visible_area_km2']
+                    new_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
+
+                    # save latest image as featured image on my_pipelines.html
+                    update_list.featured_image = i['results'][0]['preview_url']
+                    update_list.save()
+
+                # save the newly created result
+                new_result.save()
+
+        # if there are already results created for this List object
+        # update them
+        else:
+
+            for i in results_response['data']:
+
+                # get the object to update
+                # use unique pipeline id, and interval dates
+                # to get the correct result object
+                update_result = Result.objects.get(
+                    pipeline_id=id,
+                    interval_start_date=i['interval']['start_date'],
+                    interval_end_date=i['interval']['end_date'])
+
+                update_result.updated_at = i['updated_at']
+                update_result.status = i['status']
+                update_result.message = i['message']
+
+                # if there are now images
+                # add images & data to result object
+                if len(i['results']) > 0:
+
+                    update_result.image_created_at = i['results'][0]['capture_time']
+                    update_result.image_updated_at = i['results'][0]['updated_at']
+                    update_result.image_preview_url = i['results'][0]['preview_url']
+                    update_result.image_visual_url = i['results'][0]['visual_url']
+                    update_result.image_analytics_url = i['results'][0]['analytics_url']
+                    update_result.image_metadata_url = i['results'][0]['metadata_url']
+                    update_result.image_size = i['results'][0]['metadata']['size_in_mb']
+                    update_result.image_valid_pixels_per = i['results'][0]['metadata']['valid_pixels_percentage']
+                    update_result.image_source = i['results'][0]['metadata']['source']
+                    update_result.scene_height = i['overall_metadata']['scene_height']
+                    update_result.scene_width = i['overall_metadata']['scene_width']
+                    update_result.filled_area = i['overall_metadata']['filled_area_km2']
+                    update_result.aoi_area_per = i['overall_metadata']['filled_area_percentage_of_aoi']
+                    update_result.cloud_cover_per = i['overall_metadata']['cloud_cover_percentage']
+                    update_result.aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi']
+                    update_result.visible_area = i['overall_metadata']['visible_area_km2']
+                    update_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
+
+                    # save latest image as featured image on my_pipelines.html
+                    update_list.featured_image = i['results'][0]['preview_url']
+                    update_list.save()
+
+                # save the updated result
+                update_result.save()
+
+    # if api returns error code
     else:
 
-        for i in results_response['data']:
+        if updated_list.status_code == 404:
+            error = "Error 404:  unfortunately we could not find your pipeline to update."
+        elif updated_list.status_code == 400 or updated_list.status_code == 401 or updated_list.status_code == 413 or updated_list.status_code == 415:
+            error = "Error 400:  some of your pipeline details were not correct.  We can not update your pipeline."
+        else:
+            error = "Error 504: the server timed out.  Please try again later."
 
-            # get the object to update
-            # use unique pipeline id, and interval dates
-            # to get the correct result object
-            update_result = Result.objects.get(
-                pipeline_id=id,
-                interval_start_date=i['interval']['start_date'],
-                interval_end_date=i['interval']['end_date'])
+        context = {
+            'error': error
+        }
 
-            update_result.updated_at = i['updated_at']
-            update_result.status = i['status']
-            update_result.message = i['message']
+        return redirect(reverse('detail_view', args=[id]), context)
 
-            # if there are now images
-            # add images & data to result object
-            if len(i['results']) > 0:
-
-                update_result.image_created_at = i['results'][0]['capture_time']
-                update_result.image_updated_at = i['results'][0]['updated_at']
-                update_result.image_preview_url = i['results'][0]['preview_url']
-                update_result.image_visual_url = i['results'][0]['visual_url']
-                update_result.image_analytics_url = i['results'][0]['analytics_url']
-                update_result.image_metadata_url = i['results'][0]['metadata_url']
-                update_result.image_size = i['results'][0]['metadata']['size_in_mb']
-                update_result.image_valid_pixels_per = i['results'][0]['metadata']['valid_pixels_percentage']
-                update_result.image_source = i['results'][0]['metadata']['source']
-                update_result.scene_height = i['overall_metadata']['scene_height']
-                update_result.scene_width = i['overall_metadata']['scene_width']
-                update_result.filled_area = i['overall_metadata']['filled_area_km2']
-                update_result.aoi_area_per = i['overall_metadata']['filled_area_percentage_of_aoi']
-                update_result.cloud_cover_per = i['overall_metadata']['cloud_cover_percentage']
-                update_result.aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi']
-                update_result.visible_area = i['overall_metadata']['visible_area_km2']
-                update_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
-
-                # save latest image as featured image on my_pipelines.html
-                update_list.featured_image = i['results'][0]['preview_url']
-                update_list.save()
-
-            # save the updated result
-            update_result.save()
 
     return redirect(reverse('detail_view', args=[id]))

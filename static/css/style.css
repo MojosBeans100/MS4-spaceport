@@ -248,7 +248,7 @@ select {
     display: inline-block;
     border: 1px solid rgb(190, 190, 190);
     border-radius: 4px;
-    font-family: Noto Sans Display;
+    /* font-family: Noto Sans Display; */
     font-size: 15px;
     /* font-size: 12px; */
 }
@@ -422,7 +422,7 @@ input.invalid {
 
 #my_pipelines_container {
     background-color: rgb(250, 251, 255);
-    font-family: Noto Sans Display, sans-serif;
+    /* font-family: Noto Sans Display, sans-serif; */
     padding-bottom: 50px;
     /* overflow: hidden; */
 }

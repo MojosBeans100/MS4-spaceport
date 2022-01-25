@@ -14,7 +14,7 @@
     <div class="container" id="detail-links">
         <div class="row">
             <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to
-                refresh the pipeline</small></p>
+                    refresh the pipeline</small></p>
             <div class="col-md-6 py-2">
                 <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-arrow-left"></i>My pipelines</button></a>
@@ -22,10 +22,15 @@
             <div class="col-md-6 py-2">
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
+                {% if error %}
+                <p>Your pipeline could not be updated</p>
+                {{error}}
+                {% else %}
                 {% if pipeline.results_updated is None %}
                 <p><strong>Pipeline pending:<br> update to see results</strong></p>
                 {% else %}
                 <p><small>last updated: {{pipeline.results_updated}}</small></p>
+                {% endif %}
                 {% endif %}
             </div>
             <!-- <div class="col-md-4 py-2">
@@ -261,7 +266,7 @@
                                     <table>
                                         <tr>
                                             <td><a href="{{result.image_analytics_url}}" target="_blank">Download
-                                                    image  <i class="fas fa-download"></i></a></td>
+                                                    image <i class="fas fa-download"></i></a></td>
                                         </tr>
 
                                         <tr>
