@@ -16,10 +16,19 @@
             {% csrf_token%}
 
             <!-- start of form section -->
-            <div id="start_form_section" class="tab">
+            <div id="start_form_section" style="height: 70vh; overflow: auto;" class="tab">
+
+                {% if error %}
+                <div style="padding-top: 100px; border: solid black; width: 50%; margin-left: 25%;">
+                    <h2 style="text-align: center">{{error}}</h2>
+                </div>
+                {% else %}
+                {% endif %}
+
                 <h2>Create a pipeline</h2>
                 <h4>Use this form to create your pipeline and start collecting satellite imagery</h4>
-                <p style="text-align: center; text-decoration: none; color: black;">If this is your first pipeline, we recommend exploring our <a href="discover.html"><strong>'Discover'</strong></a> page first</p>
+                <p style="text-align: center; text-decoration: none; color: black;">If this is your first pipeline, we
+                    recommend exploring our <a href="discover.html"><strong>'Discover'</strong></a> page first</p>
                 <div class="d-flex justify-content-center">
                     <div id="start-form-div" class="col col-lg-9 col-xxl-9">
                         <div class="input-sections">
@@ -60,17 +69,20 @@
                             <h6>We can calculate the probability of return of images on the pipeline parameters you
                                 choose.
                             </h6>
-                            <p>If the percentage probability is low, we will give you advice on how to increase it before you commit your pipeline.</p>
+                            <p>If the percentage probability is low, we will give you advice on how to increase it
+                                before you commit your pipeline.</p>
                             <p>Probability calculation is only available for <strong>True Colour</strong> images.</p>
                         </div>
 
                         <div class="input-sections">
                             <h5>Pipeline Ideas</h5>
-                            <h6>Not sure how to begin? <br>Here are some ideas to get you started..</h6>
+                            <h6>Not sure how to begin?  Here are some ideas to get you started..</h6>
 
                             <ul>
-                                <li>Select an AOI of the area you used to live in, to see if the landscape has changed</li>
-                                <li>See if you can collect images from the Tonga volcano eruption on the 14<sup>th</sup> January 2022</li>
+                                <li>Select an AOI of the area you used to live in, to see if the landscape has changed
+                                </li>
+                                <li>See if you can collect images from the Tonga volcano eruption on the 14<sup>th</sup>
+                                    January 2022</li>
                                 <li>Track a Hurricane Ida in Louisiana, USA from August to September 2021</li>
                             </ul>
 
@@ -116,9 +128,7 @@
                         <div class="form_title">
                             <h4>Area of Interest</h4>
                             <br>
-                            <p>Tell us where to look for images</p>
-                            <p>Your pipeline will only deliver results with a minimum of 50% of AOI coverage</p>
-                            <p class="form_limits">Area must be between 25 km<sup>2</sup> and 100 km<sup>2</sup></p>
+                            <p>Tell us where to look for images. <span class="form_limits">Area must be between 25 km<sup>2</sup> and 100 km<sup>2</sup></span></p>
                         </div>
                     </div>
 
@@ -359,7 +369,7 @@
             </div>
 
             <!-- review form section -->
-            <div id="review_form_section" class="tab">
+            <div id="review_form_section" style="height: 70vh; overflow-y: auto;" class="tab">
                 <div class="row">
 
                     <div class="col">
@@ -735,6 +745,10 @@
 
     function createMap() {
 
+        if (document.getElementById('map-a')) {
+            document.getElementById('map-a').remove()
+        }
+
         input_validation = document.getElementById('id_aoi');
 
         // external library - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
@@ -773,6 +787,8 @@
             if (document.getElementById('area_validation_feedback')) {
                 document.getElementById('area_validation_feedback').remove();
             }
+
+
 
 
             if (data.features.length > 0) {

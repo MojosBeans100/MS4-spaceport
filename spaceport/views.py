@@ -163,8 +163,8 @@ def create(request):
             # api parameters required
             params = {
                 'name': form.cleaned_data['pipeline_name'],
-                #'interval': form.cleaned_data['interval'],
-                'interval': 7,
+                'interval': form.cleaned_data['interval'],
+                #'interval': 7,
                 'start_date': str(form.cleaned_data['start_date']),
                 'output': {
                     'id': form.cleaned_data['output_image'],
@@ -199,7 +199,6 @@ def create(request):
 
             # if no errors in api response,
             # save form as object and fill in other fields
-
             if post_pipeline.status_code == 201:
 
                 form.save()
@@ -218,6 +217,8 @@ def create(request):
                 # direct user to detail view of this model
                 return redirect(reverse('detail_view', args=[id]))
 
+            # if api cannot be reached
+            # return user to homepage with error message
             else:
 
                 if post_pipeline.status_code == 400:
@@ -226,7 +227,7 @@ def create(request):
                         'error': "Response 400:  there was an error when submitting the form"
                     }
 
-                else: 
+                else:
 
                     context = {
                         'error': "Response 500:  we could not reach the API just now.  Please try again later."
@@ -234,44 +235,15 @@ def create(request):
 
                 return render(request, 'index.html', context)
 
-             
-
-            # # don't use bare except
-            # except:
-
-            #     print(post_response)
-            #     print("ERRORS")
-            #     # context = {
-            #     #     'errors': post_response.errors
-            #     # }
-            #     # redirect to page saying api could not be found
-
-            # # if the api returns errors in returning a response,
-            # # redirect to form page with error message
-            # # (should not happen due to form validation, Django + JS)
-            # if 'errors' in post_response or 'error' in post_response:
-
-            #     form = CreateList()
-            #     # error message
-
-            #     context = {
-            #         'form': form,
-            #         # error message
-            #     }
-
         # if form is not valid
         # return to form
         else:
+            
             # fill in form details with users values
-            print("form not valid")
-            print(form.errors)
-
-            validation = "Please check your parameters."
-
             context = {
                 'form': form,
                 'mapbox_key': mapbox_key,
-                'validation': validation,
+                'error': "Error: some parameters were not valid.  Please check all parameters meet requirements.",
             }
 
             return render(request, 'create_pipeline.html', context)
