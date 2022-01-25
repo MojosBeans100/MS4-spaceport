@@ -868,3 +868,18 @@ i {
 #delete_conf h2 {
     text-align: center;
 }
+
+/* ACCOUNTS */
+
+.accounts-container{
+    background-color:rgb(255, 255, 255); 
+}
+
+.accounts-divs {
+    margin-top: 100px;
+    /* width: 80%;
+    margin-left: 10%; */
+    box-shadow: 0 0 3px rgb(177, 177, 177);
+    background-color: white;
+    padding: 20px;
+}

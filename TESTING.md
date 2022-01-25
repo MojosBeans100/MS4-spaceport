@@ -19,8 +19,8 @@ Steps:
 |1|The homepage is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_1_lg.JPG)|[Tablet](readme_img/US1.1_1_lg.JPG)|[Mobile](readme_img/US1.1_1_sm.JPG)|Passed|
 |2|The Discover page is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_2_lg.JPG)|[Tablet](readme_img/US1.1_2_md.JPG)|[Mobile](readme_img/US1.1_2_sm.JPG)|FAIL|
 |3|The My Pipelines page is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_3_lg.JPG)|[Tablet](readme_img/US1.1_3_md.JPG)|[Mobile](readme_img/US1.1_3_sm.JPG)|Pass|
-|4|The Create pipeline form is displayed, with the nav bar fixed at the top|[Desktop]|[Tablet]|[Mobile]|
-|5|When scrolling through all pages, the nav bar remains fixed at the top|[Desktop]|[Tablet]|[Mobile]|
+|4|The Create pipeline form is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_4_lg.JPG)|[Tablet](readme_img/US1.1_4_md.JPG)|[Mobile](readme_img/US1.1_4_sm.JPG)|Pass|
+|5|When scrolling through all pages, the nav bar remains fixed at the top|[Desktop](readme_img/US1.1_5_lg.JPG)|[Tablet](readme_img/US1.1_5_md.JPG)|[Mobile](readme_img/US1.1_5_sm.JPG)|Pass|
 
 ## User Story 1.2
 - As a **Returning Site User** I am **redicted to My Pipelines page when I log in** so that **the information relating to my account is immediately displayed**
