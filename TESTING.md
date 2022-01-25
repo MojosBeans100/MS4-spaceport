@@ -2,6 +2,7 @@
 
 
 # User Story 1
+As a **Site User** I can **navigate the site easily**
 
 ## User Story 1.1
 - As a **New/returning Site User** I can **see the navigation bar displayed on all pages** so that **I can see all accessible pages wherever I am**
@@ -33,3 +34,30 @@ Steps:
 |----|------|-------|------|------|------|
 |1|The Login/Sign Up page is displayed|||||
 |2|The My Pipelines page opens, displaying previously created pipelines||||
+
+## User Story 1.3
+As a **New/returning Site User** I can **see the active page** so that **I know which page I am currently on**
+
+Steps:
+1. 
+2. 
+
+
+## User Story 1.4
+As a **New/returning Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
+
+Steps:
+1. Navigate to the homepage and scroll to the bottom to see prompts to explore the Discover page, or Sign Up
+2. 
+
+## User Story 1.5
+As a **New/returning Site User** I can **see my login status in the nav bar** so that **I am aware if I am logged in**
+
+|Step|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|-|In all pages, the user can see if they are logged in at the right of the navbar.|[Desktop](readme_img/US1.5 lg.JPG)|[Tablet](readme_img/US1.5_md.JPG)|[Mobile](readme_img/US1.5_sm.JPG)|
+
+
+# User Story 2
+
+## User Story 2.1
