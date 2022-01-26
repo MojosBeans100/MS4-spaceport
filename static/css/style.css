@@ -785,6 +785,10 @@ input.invalid {
     padding: 10px;
 }
 
+.detail-pipeline-complete {
+    color: rgb(10, 124, 10); 
+}
+
 #detail-links {
     padding-top: 90px;
     width: 70%;

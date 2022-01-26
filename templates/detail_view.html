@@ -13,21 +13,31 @@
 
     <div class="container" id="detail-links">
         <div class="row d-flex justify-content-evenly">
+            {% if pipeline.status == 'complete' %}
+            {% else %}
             <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to
                     refresh the pipeline</small></p>
+            {% endif %}
             <div class="col-sm-6 col-lg-4 py-2">
                 <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-arrow-left"></i>My pipelines</button></a>
             </div>
             <div class="col-sm-6 col-lg-4 py-2">
+                {% if pipeline.status == 'complete' %}
+                <a href="#"><button type="button" disabled class="btn btn-dark"><i
+                            class="fas fa-sync"></i>Update</button></a>
+                {% else %}
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
+                {% endif %}
                 {% if error %}
                 <p>Your pipeline could not be updated</p>
                 {{error}}
                 {% else %}
                 {% if pipeline.results_updated is None %}
                 <p><strong>Pipeline pending:<br> update to see results</strong></p>
+                {% elif pipeline.status == 'complete' %}
+                <p><small><span class="detail-pipeline-complete">Pipeline complete <br>(last updated {{pipeline.results_updated}})</span></small></p>
                 {% else %}
                 <p><small>last updated: {{pipeline.results_updated}}</small></p>
                 {% endif %}
@@ -54,6 +64,13 @@
                         search our database for your results.<br>
                         Click the Update button at the top of the page to see if we have finished updating your
                         pipeline.<br> Thank you for your patience, and we hope your pipeline is successful.</h4>
+                </div>
+            </div>
+            {% elif pipeline.status == 'complete' %}
+            <div class="d-flex justify-content-center">
+                <div class="col col-md-6 col-xl-9" id="pending-section"
+                    style="text-align: center; padding: 30px 40px;">
+                    <h4><span class="detail-pipeline-complete">This pipeline is complete.</span></h4>
                 </div>
             </div>
             {% else %}

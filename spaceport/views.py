@@ -335,6 +335,7 @@ def detail_view(request, id):
         if s_date <= today and today <= e_date :
             current_interval.append(start_date)
             current_interval.append(end_date)
+            result.status = "current"
         
         else:
             all_dates.append(start_date)
