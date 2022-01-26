@@ -392,6 +392,9 @@
 
 {{ pipeline.aoi|json_script:"map_aoi" }}
 {{ complete|json_script:"complete" }}
+{{ current|json_script:"current" }}
+{{ future|json_script:"future" }}
+{{ images|json_script:"images" }}
 
 <script>
     detailMap();
@@ -458,22 +461,21 @@
 
     function timelineChart() {
 
-        // var images = {{ images|safe }}
+
         var complete = JSON.parse(document.getElementById('complete').textContent)
-        // var current = {{ current|safe }}
-        // var future = {{ future|safe }}
+        var current = JSON.parse(document.getElementById('current').textContent)
+        var future = JSON.parse(document.getElementById('future').textContent)
+        var images = JSON.parse(document.getElementById('images').textContent)
 
         var day, month, year
         var days = months = years = []
-        var com_data = curr_data = fut_data = today_data = []
+        var com_data = curr_data = fut_data = today_data = images_data = []
         var date_object = {}
 
         for (i in complete) {
             day = parseFloat(complete[i].slice(0, 2))
             month = parseFloat(complete[i].slice(3, 5) - 1)
             year = parseFloat(complete[i].slice(6, 10))
-
-            console.log(day)
 
             days.push(day)
             months.push(month)
@@ -486,7 +488,53 @@
             com_data.push(date_object)
         }
 
-       
+        for (i in current) {
+            day = parseFloat(current[i].slice(0, 2))
+            month = parseFloat(current[i].slice(3, 5) - 1)
+            year = parseFloat(current[i].slice(6, 10))
+
+            days.push(day)
+            months.push(month)
+            years.push(year)
+
+            date_object = {
+                'x': new Date(year,month,day),
+                'y': 0
+            }
+            curr_data.push(date_object)
+        }
+
+        for (i in future) {
+            day = parseFloat(future[i].slice(0, 2))
+            month = parseFloat(future[i].slice(3, 5) - 1)
+            year = parseFloat(future[i].slice(6, 10))
+
+            days.push(day)
+            months.push(month)
+            years.push(year)
+
+            date_object = {
+                'x': new Date(year,month,day),
+                'y': 0
+            }
+            fut_data.push(date_object)
+        }
+
+        for (i in images) {
+            day = parseFloat(images[i].slice(0, 2))
+            month = parseFloat(images[i].slice(3, 5) - 1)
+            year = parseFloat(images[i].slice(6, 10))
+
+            days.push(day)
+            months.push(month)
+            years.push(year)
+
+            date_object = {
+                'x': new Date(year,month,day),
+                'y': 0
+            }
+            images_data.push(date_object)
+        }
 
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
