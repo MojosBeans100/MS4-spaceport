@@ -677,6 +677,8 @@ input.invalid {
         padding: 15px;
     }
 
+    
+
     .accounts-divs {
         width: 60%;
     }
@@ -699,10 +701,10 @@ input.invalid {
         margin-left: 15%;
     }
 
-    #create_form {
+    /* #create_form {
         width: 60%;
         margin-left: 20%;
-    }
+    } */
 
     .image-parent {
         height: 250px;
@@ -713,17 +715,17 @@ input.invalid {
         width: 60%;
         margin-left: 20%;
     } */
-
+    #pipeline_list_div {
+        width: 70%;
+        margin-left: 15%;
+    }
 
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
 
-    #pipeline_list_div {
-        width: 70%;
-        margin-left: 15%;
-    }
+   
 
     #index-banner-text {
         width: 60%;
@@ -754,6 +756,15 @@ input.invalid {
     #pipeline_card {
         width: 90% !important;
         margin: auto;
+    }
+
+     
+}
+
+@media (min-width: 1600px) {
+    #create_form {
+        width: 60%;
+        margin-left: 20%;
     }
 }
 
