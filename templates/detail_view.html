@@ -37,7 +37,8 @@
                 {% if pipeline.results_updated is None %}
                 <p><strong>Pipeline pending:<br> update to see results</strong></p>
                 {% elif pipeline.status == 'complete' %}
-                <p><small><span class="detail-pipeline-complete">Pipeline complete <br>(last updated {{pipeline.results_updated}})</span></small></p>
+                <p><small><span class="detail-pipeline-complete">Pipeline complete <br>(last updated
+                            {{pipeline.results_updated}})</span></small></p>
                 {% else %}
                 <p><small>last updated: {{pipeline.results_updated}}</small></p>
                 {% endif %}
@@ -68,8 +69,7 @@
             </div>
             {% elif pipeline.status == 'complete' %}
             <div class="d-flex justify-content-center">
-                <div class="col col-md-6 col-xl-9" id="pending-section"
-                    style="text-align: center; padding: 30px 40px;">
+                <div class="col col-md-6 col-xl-9" id="pending-section" style="text-align: center; padding: 30px 40px;">
                     <h4><span class="detail-pipeline-complete">This pipeline is complete.</span></h4>
                 </div>
             </div>
@@ -119,7 +119,9 @@
                 {% else %}
 
                 <div class="detail-view-section">
-                    <canvas id="myChart" width="800" height="200"></canvas>
+                    <div id="detail-chart-div" style="border: solid red;">
+                    <canvas id="myChart" width="600" height="100"></canvas>
+                </div>
                 </div>
 
                 <br>
@@ -133,14 +135,28 @@
                         </tr>
 
                         {% for result in results %}
-                        <tr>
+                        {% if result.status == 'complete' %}
+                        <tr id="detail-interval-table-complete">
                             <td>{{result.interval_start_date|date:'d M'}}</td>
                             <td>{{result.interval_end_date|date:'d M'}}</td>
                             <td>{{result.status}}</td>
                         </tr>
+                        {% elif result.status == 'current' %}
+                        <tr id="detail-interval-table-current">
+                            <td>{{result.interval_start_date|date:'d M'}}</td>
+                            <td>{{result.interval_end_date|date:'d M'}}</td>
+                            <td>{{result.status}}</td>
+                        </tr>
+                        {% else %}
+                        <tr id="detail-interval-table-future">
+                            <td>{{result.interval_start_date|date:'d M'}}</td>
+                            <td>{{result.interval_end_date|date:'d M'}}</td>
+                            <td>{{result.status}}</td>
+                        </tr>
+                        {% endif %}
                         {% endfor %}
                     </table>
-
+                    <br>
                     <!-- interval status table -->
                     <div>
                         <table id="detail-table">
@@ -148,14 +164,14 @@
                                 <td>Interval length:</td>
                                 <td>{{pipeline.interval}}</td>
                             </tr>
+                            {% for result in results %}
+                            {% if result.status == 'current' %}
                             <tr>
                                 <td>Current interval:</td>
-                                <td></td>
+                                <td>{{result.interval_start_date|date:'d M'}} to {{result.interval_end_date|date:'d M'}}</td>
                             </tr>
-                            <tr>
-                                <td>Next interval:</td>
-                                <td></td>
-                            </tr>
+                            {% endif %}
+                            {% endfor %}
                         </table>
                     </div>
                 </div>

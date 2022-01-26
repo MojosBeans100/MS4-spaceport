@@ -880,22 +880,32 @@ i {
     padding-top: 25px;
 }
 
-/* #aoi-table {
-    width: 60%;
-    margin-left: 20%;
-} */
+#detail-interval-table-complete td{
+    background-color: #ebf0fc;
+}
+
+#detail-interval-table-current td{
+    background-color: #5c6885;
+    color: white;
+    font-weight: bold;
+    border:rgb(0, 0, 0);
+}
+#detail-interval-table-future td{
+    background-color: white;
+}
+
 
 #result-table td,
-#interval-table td,
+/* #interval-table td, */
 #result-table th,
-#interval-table th,
+/* #interval-table th, */
 #aoi-table th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
 #result-table tr:nth-child(even),
-#interval-table tr:nth-child(even),
+/* #interval-table tr:nth-child(even), */
 #aoi-table tr:nth-child(even) {
     background-color: #ebf0fc;
 }
@@ -907,7 +917,7 @@ i {
 }
 
 #result-table th,
-#interval-table th,
+/* #interval-table th, */
 #aoi-table th {
     background-color: #8794b3;
     color: white;

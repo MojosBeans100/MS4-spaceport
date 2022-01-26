@@ -332,10 +332,11 @@ def detail_view(request, id):
             complete_intervals.append(start_date)
             complete_intervals.append(end_date)
 
-        if s_date <= today and today <= e_date :
+        if s_date <= today and today <= e_date:
             current_interval.append(start_date)
             current_interval.append(end_date)
             result.status = "current"
+            result.save()
         
         else:
             all_dates.append(start_date)
