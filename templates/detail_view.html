@@ -472,9 +472,7 @@
         var days = []
         var months = []
         var years = []
-        var com_data = []
         var curr_data = []
-        var fut_data = []
         var today_data = []
         var images_data = []
         var all_data = []
@@ -496,22 +494,6 @@
             all_data.push(date_object)
         }
 
-        for (i in complete) {
-            day = parseFloat(complete[i].slice(0, 2))
-            month = parseFloat(complete[i].slice(3, 5) - 1)
-            year = parseFloat(complete[i].slice(6, 10))
-
-            days.push(day)
-            months.push(month)
-            years.push(year)
-
-            date_object = {
-                'x': new Date(year, month, day),
-                'y': 0
-            }
-            com_data.push(date_object)
-        }
-
         for (i in current) {
             day = parseFloat(current[i].slice(0, 2))
             month = parseFloat(current[i].slice(3, 5) - 1)
@@ -528,22 +510,6 @@
             curr_data.push(date_object)
         }
 
-        for (i in future) {
-            day = parseFloat(future[i].slice(0, 2))
-            month = parseFloat(future[i].slice(3, 5) - 1)
-            year = parseFloat(future[i].slice(6, 10))
-
-            days.push(day)
-            months.push(month)
-            years.push(year)
-
-            date_object = {
-                'x': new Date(year, month, day),
-                'y': 0
-            }
-            fut_data.push(date_object)
-        }
-
         for (i in images) {
             day = parseFloat(images[i].slice(0, 2))
             month = parseFloat(images[i].slice(3, 5) - 1)
@@ -555,7 +521,7 @@
 
             date_object = {
                 'x': new Date(year, month, day),
-                'y': 0
+                'y': 0.1
             }
             images_data.push(date_object)
         }
@@ -564,20 +530,36 @@
         pointBackgroundColors = []
         pointRadii = []
 
+        var todayImage = new Image()
+        todayImage.src = '../static/images/saticon.png'
+
+        var picImage = new Image()
+        picImage.src = '../static/images/picture.png'
+
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [{
                         data: curr_data,
-                        label: "Current interval",
+                        label: "    Current interval",
                         backgroundColor: "blue",
-                        pointRadius: 4,
+                        pointRadius: 5,
+                        borderColor: "transparent",
                     }, {
                         data: all_data,
-                        label: "Completed intervals",
+                        label: "    Completed intervals",
                         backgroundColor: pointBackgroundColors,
                         pointRadius: pointRadii,
+                        borderWidth: 1,
+                    },
+                    {
+                        data: images_data,
+                        label: "    Image taken",
+                        pointStyle: picImage,
+                        backgroundColor: "white",
+                        pointRadius: 15,
+                        borderColor: "transparent",
                     },
 
                 ]
@@ -606,7 +588,7 @@
                             font: {
                                 size: 12,
                             },
-                            autoSkip: true,
+                            autoskip: true,
                             padding: 25,
                         },
                         grid: {
@@ -628,11 +610,11 @@
         for (i = 0; i < myChart.data.datasets[1].data.length; i++) {
             if (myChart.data.datasets[1].data[i]['x'] > todaysDate) {
                 pointBackgroundColors.push("transparent");
-                pointRadii.push('2')
+                pointRadii.push('3')
 
             } else {
                 pointBackgroundColors.push("black");
-                pointRadii.push('3')
+                pointRadii.push('4')
 
             }
         }
