@@ -64,7 +64,7 @@
 
                                 <div class="col-md-4 py-2 text-center ">
                                     <p>Choose your parameters</p>
-                                    <img style="width: 100%; height: 200px; "
+                                    <img style="width: 100%; height: 200px;"
                                         src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643132328/tokyo1_jyg3wc.jpg">
                                 </div>
 
@@ -477,7 +477,8 @@
                         <div class="form_title">
                             <h4>Review</h4>
                             <br>
-                            <p>Review the pipeline parameters and ensure they are correct before submitting</p>
+                            <p>Congratulations on setting up your pipeline. <br>
+                                Please review the pipeline parameters and ensure they are correct before submitting</p>
                             <p class="form_limits">*parameters which can be changed after pipeline is committed</p>
                         </div>
                     </div>
@@ -620,6 +621,7 @@
     // this step form uses code from the above link
     document.getElementById('id_output_1').checked = true;
     var currentTab = 0;
+    var mapLoads = true
     showTab(currentTab)
     var interval;
     var mapbox_key = "{{ mapbox_key | safe}}";
@@ -885,12 +887,11 @@
 
             const data = draw.getAll();
 
+            
+
             if (document.getElementById('area_validation_feedback')) {
                 document.getElementById('area_validation_feedback').remove();
             }
-
-
-
 
             if (data.features.length > 0) {
 
