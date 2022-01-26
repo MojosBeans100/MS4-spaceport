@@ -119,8 +119,9 @@
                 {% else %}
 
                 <div class="detail-view-section">
-                    <div id="detail-chart-div" style="border: solid red;">
-                    <canvas id="myChart" width="600" height="100"></canvas>
+                    <div id="detail-chart-div">
+                        
+                    <canvas id="myChart" width="600" height="150"></canvas>
                 </div>
                 </div>
 
@@ -558,7 +559,7 @@
 
             date_object = {
                 'x': new Date(year, month, day),
-                'y': 0.1
+                'y': 0.2
             }
             images_data.push(date_object)
         }

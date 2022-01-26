@@ -706,6 +706,13 @@ input.invalid {
     }
 
     /* DETAIL VIEW 1200 */
+
+    #detail-chart-div{
+        height: auto !important;
+        width: 90% !important;
+        margin-left: 5%;
+    }
+
     #detail_map {
         height: 500px !important;
     }
@@ -761,7 +768,7 @@ input.invalid {
 }
 
 @media (min-width: 1600px) {
-    
+
     /* GENERAL 1200 */
     /* HOMEPAGE 1200 */
     /* DISCOVER 1200 */
@@ -774,7 +781,7 @@ input.invalid {
     /* MY PIPELINES 1200 */
     /* DETAIL VIEW 1200 */
     /* ACCOUNTS 1200 */
-    
+
 }
 
 /* DETAIL VIEW STYLING */
@@ -786,7 +793,7 @@ input.invalid {
 }
 
 .detail-pipeline-complete {
-    color: rgb(10, 124, 10); 
+    color: rgb(10, 124, 10);
 }
 
 #detail-links {
@@ -880,20 +887,27 @@ i {
     padding-top: 25px;
 }
 
-#detail-interval-table-complete td{
+#detail-interval-table-complete td {
     background-color: #ebf0fc;
 }
 
-#detail-interval-table-current td{
+#detail-interval-table-current td {
     background-color: #5c6885;
     color: white;
     font-weight: bold;
-    border:rgb(0, 0, 0);
+    border: rgb(0, 0, 0);
 }
-#detail-interval-table-future td{
+
+#detail-interval-table-future td {
     background-color: white;
 }
 
+
+#detail-chart-div {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
 
 #result-table td,
 /* #interval-table td, */
