@@ -391,6 +391,7 @@
 </div>
 
 {{ pipeline.aoi|json_script:"map_aoi" }}
+{{ complete|json_script:"complete" }}
 
 <script>
     detailMap();
@@ -401,7 +402,6 @@
         var mapbox_key = "{{ mapbox_key | safe}}";
         var aoi = JSON.parse(document.getElementById('map_aoi').textContent);
         var map_aoi = aoi["features"][0]['geometry'];
-
         var lat = aoi['features'][0]['geometry']['coordinates'][0][0][1];
         var long = aoi['features'][0]['geometry']['coordinates'][0][0][0];
 
@@ -458,10 +458,33 @@
 
     function timelineChart() {
 
-        var images = "{{ images|safe }}"
-        var complete = "{{ complete|safe }}"
-        var current = "{{ current|safe }}"
-        var future = "{{ future|safe }}"
+        // var images = {{ images|safe }}
+        var complete = JSON.parse(document.getElementById('complete').textContent)
+        // var current = {{ current|safe }}
+        // var future = {{ future|safe }}
+
+        var day, month, year
+        var days = months = years = []
+        var com_data = curr_data = fut_data = today_data = []
+        var date_object = {}
+
+        for (i in complete) {
+            day = parseFloat(complete[i].slice(0, 2))
+            month = parseFloat(complete[i].slice(3, 5) - 1)
+            year = parseFloat(complete[i].slice(6, 10))
+
+            console.log(day)
+
+            days.push(day)
+            months.push(month)
+            years.push(year)
+
+            date_object = {
+                'x': new Date(year,month,day),
+                'y': 0
+            }
+            com_data.push(date_object)
+        }
 
        
 
