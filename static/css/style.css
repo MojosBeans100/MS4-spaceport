@@ -501,10 +501,7 @@ input.invalid {
 
 
 /* DETAIL VIEW STYLING */
-/* // X-Small devices (portrait phones, less than 576px) */
-/* // No media query for `xs` since this is the default in Bootstrap */
 
-/* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 450px) {
     .image-parent {
         height: 250px;
@@ -512,6 +509,8 @@ input.invalid {
 }
 
 @media (min-width: 576px) {
+
+    /* GENERAL 576 */
     #nav-title {
         font-size: 30px;
     }
@@ -521,16 +520,20 @@ input.invalid {
         width: 55px;
     }
 
+    /* HOMEPAGE 576 */
+    /* DISCOVER 576 */
+
+    /* MY PIPELINES 576 */
     #pipeline_list_div {
         width: 80%;
         margin-left: 10%;
     }
 
-    /* #detail-links {
-        width: 40% !important;
-        margin-left: 30% !important;
-    } */
+    #pipeline_card {
+        width: 100% !important;
+    }
 
+    /* DETAIL VIEW 576 */
     #detail-view-container {
         padding: 30px !important;
     }
@@ -543,6 +546,7 @@ input.invalid {
         width: 50%;
     }
 
+    /* CREATE PIPELINE 576 */
     #cloud-cover p {
         font-size: 15px;
     }
@@ -561,7 +565,6 @@ input.invalid {
         width: 60%;
         margin-left: 20%;
         font-size: 15px;
-
     }
 
     #feedback-aoi td {
@@ -575,23 +578,12 @@ input.invalid {
 
     }
 
-    /* #detail-edit-buttons {
-        font-size: 15px;
-        width: 80%;
-        margin-left: 10%;
-    } */
-
-    #pipeline_card {
-        width: 100% !important;
-    }
-
+    /* ACCOUNTS 576 */
     .accounts-divs {
         margin-top: 150px;
         width: 80%;
         margin: auto;
     }
-
-
 
 }
 
