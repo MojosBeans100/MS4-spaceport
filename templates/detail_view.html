@@ -395,6 +395,7 @@
 {{ current|json_script:"current" }}
 {{ future|json_script:"future" }}
 {{ images|json_script:"images" }}
+{{ all_dates|json_script:"all_dates" }}
 
 <script>
     detailMap();
@@ -465,6 +466,7 @@
         var current = JSON.parse(document.getElementById('current').textContent)
         var future = JSON.parse(document.getElementById('future').textContent)
         var images = JSON.parse(document.getElementById('images').textContent)
+        var all_dates = JSON.parse(document.getElementById('all_dates').textContent)
 
         var day, month, year
         var days = []
@@ -475,7 +477,26 @@
         var fut_data = []
         var today_data = []
         var images_data = []
+        var all_data = []
         var date_object = {}
+
+        for (i in all_dates) {
+            day = parseFloat(all_dates[i].slice(0, 2))
+            month = parseFloat(all_dates[i].slice(3, 5) - 1)
+            year = parseFloat(all_dates[i].slice(6, 10))
+
+            days.push(day)
+            months.push(month)
+            years.push(year)
+
+            date_object = {
+                'x': new Date(year, month, day),
+                'y': 0
+            }
+            all_data.push(date_object)
+        }
+
+        console.log(all_data)
 
         for (i in complete) {
             day = parseFloat(complete[i].slice(0, 2))
@@ -508,8 +529,6 @@
             }
             curr_data.push(date_object)
         }
-
-        console.log(curr_data)
 
         for (i in future) {
             day = parseFloat(future[i].slice(0, 2))
@@ -548,18 +567,18 @@
             type: 'line',
             data: {
                 datasets: [{
-                    data: com_data,
-                    label: "Completed intervals",
-                    backgroundColor: "black",
-                    pointRadius: 3,
-                },
-                {
-                    data: curr_data,
-                    label: "Current interval",
-                    backgroundColor: "blue",
-                    pointRadius: 4,
-                },
-            ]
+                        data: all_data,
+                        label: "Completed intervals",
+                        backgroundColor: "black",
+                        pointRadius: 3,
+                    },
+                    {
+                        data: curr_data,
+                        label: "Current interval",
+                        backgroundColor: "blue",
+                        pointRadius: 4,
+                    },
+                ]
             },
             options: {
                 events: [],
@@ -579,7 +598,7 @@
                             unit: 'day',
                         },
                         ticks: {
-                            source: 'com_data',
+                            source: 'all_data',
                             maxRotation: 90,
                             minRotation: 90,
                             font: {

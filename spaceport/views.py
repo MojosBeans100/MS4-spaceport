@@ -223,13 +223,19 @@ def create(request):
 
                 if post_pipeline.status_code == 400:
 
+                    form = createList()
+
                     context = {
+                        'form': form,
                         'error': "Response 400:  there was an error when submitting the form"
                     }
 
                 else:
 
+                    form = createList()
+
                     context = {
+                         'form': form,
                         'error': "Response 500:  we could not reach the API just now.  Please try again later."
                     }
 
@@ -307,6 +313,7 @@ def detail_view(request, id):
     Detailed view of pipeline and relating results
     """
 
+    all_dates = []
     complete_intervals = []
     current_interval = []
     future_intervals = []
@@ -325,9 +332,13 @@ def detail_view(request, id):
             complete_intervals.append(start_date)
             complete_intervals.append(end_date)
 
-        if s_date >= today and today <= e_date :
+        if s_date <= today and today <= e_date :
             current_interval.append(start_date)
             current_interval.append(end_date)
+        
+        else:
+            all_dates.append(start_date)
+            all_dates.append(end_date)
 
         if s_date > today and e_date > today:
             future_intervals.append(start_date)
@@ -337,6 +348,8 @@ def detail_view(request, id):
             image_taken = result.image_created_at.strftime("%d-%m-%Y")
             image_dates.append(image_taken)
 
+    print(current_interval)
+
     context = {
         'pipeline': List.objects.get(id=id),
         'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
@@ -345,6 +358,7 @@ def detail_view(request, id):
         'complete': complete_intervals,
         'future': future_intervals,
         'images': image_dates,
+        'all_dates': all_dates,
     }
 
     return render(request, 'detail_view.html', context)
