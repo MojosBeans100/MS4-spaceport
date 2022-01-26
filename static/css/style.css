@@ -45,7 +45,7 @@ body {
 
 .nav-link a,
 .nav-link p,
-.nav-link i{
+.nav-link i {
     color: black;
 }
 
@@ -587,27 +587,38 @@ input.invalid {
 
 }
 
-/* // Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
 
-    /* #general_form_section {
-        width: 80%;
-        margin-left: 10%;
-    } */
+    /* GENERAL 768 */
 
-    #my_pipelines_blurb {
-        padding-top: 100px;
+    /* HOMEPAGE 768 */
+    #index-banner {
+        background-size: cover;
+        height: 70vh;
     }
 
     #banner-section {
         margin-top: 50px;
     }
 
-    #index-banner {
-        background-size: cover;
-        height: 70vh;
+    /* DISCOVER 768 */
+    /* CREATE PIPELINE 768 */
+    #create_form {
+        width: 80%;
+        margin-left: 10%;
     }
 
+    #create-map {
+        height: 52vh;
+    }
+
+    /* MY PIPELINES 768 */
+    #my_pipelines_blurb {
+        padding-top: 100px;
+    }
+
+    /* DETAIL VIEW 768 */
     #detail-links {
         width: 70% !important;
         margin-left: 15% !important;
@@ -620,27 +631,25 @@ input.invalid {
         font-size: 15px !important;
     }
 
-
     #aoi-table,
     #interval-table {
         width: 60% !important;
         margin-left: 20% !important;
     }
 
-    #create_form {
-        width: 80%;
-        margin-left: 10%;
-    }
-
-    #create-map {
-        height: 52vh;
-    }
-
-
+    /* ACCOUNTS 768 */
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+
+    /* GENERAL 768 */
+    /* MY PIPELINES 768 */
+    /* CREATE PIPELINE 768 */
+    /* DETAIL VIEW 768 */
+    /* ACCOUNTS 768 */
+    /* DISCOVER 768 */
+
     .navbar {
         padding-left: 40px;
     }
