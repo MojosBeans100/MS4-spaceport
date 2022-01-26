@@ -391,10 +391,10 @@
 </div>
 
 {{ pipeline.aoi|json_script:"map_aoi" }}
-{{images}}
 
 <script>
     detailMap();
+    timelineChart();
 
     function detailMap() {
 
@@ -457,6 +457,14 @@
     /* external library end  */
 
     function timelineChart() {
+
+        var images = "{{ images|safe }}"
+        var complete = "{{ complete|safe }}"
+        var current = "{{ current|safe }}"
+        var future = "{{ future|safe }}"
+
+       
+
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
