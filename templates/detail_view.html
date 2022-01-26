@@ -537,10 +537,10 @@
         pointRadii = []
 
         var todayImage = new Image()
-        todayImage.src = '../static/images/saticon.png'
+        todayImage.src = "{%  static 'images/favicon.ico' %}"
 
         var picImage = new Image()
-        picImage.src = '../static/images/picture.png'
+        picImage.src = "{%  static 'images/picture.png' %}"
 
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
