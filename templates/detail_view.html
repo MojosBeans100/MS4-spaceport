@@ -496,8 +496,6 @@
             all_data.push(date_object)
         }
 
-        console.log(all_data)
-
         for (i in complete) {
             day = parseFloat(complete[i].slice(0, 2))
             month = parseFloat(complete[i].slice(3, 5) - 1)
@@ -562,22 +560,26 @@
             images_data.push(date_object)
         }
 
+        todaysDate = new Date(Date.now())
+        pointBackgroundColors = []
+        pointRadii = []
+
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [{
-                        data: all_data,
-                        label: "Completed intervals",
-                        backgroundColor: "black",
-                        pointRadius: 3,
-                    },
-                    {
                         data: curr_data,
                         label: "Current interval",
                         backgroundColor: "blue",
                         pointRadius: 4,
+                    }, {
+                        data: all_data,
+                        label: "Completed intervals",
+                        backgroundColor: pointBackgroundColors,
+                        pointRadius: pointRadii,
                     },
+
                 ]
             },
             options: {
@@ -604,7 +606,7 @@
                             font: {
                                 size: 12,
                             },
-                            autoskip: true,
+                            autoSkip: true,
                             padding: 25,
                         },
                         grid: {
@@ -622,6 +624,20 @@
                 },
             },
         }, );
+
+        for (i = 0; i < myChart.data.datasets[1].data.length; i++) {
+            if (myChart.data.datasets[1].data[i]['x'] > todaysDate) {
+                pointBackgroundColors.push("transparent");
+                pointRadii.push('2')
+
+            } else {
+                pointBackgroundColors.push("black");
+                pointRadii.push('3')
+
+            }
+        }
+
+        myChart.update();
     }
 </script>
 
