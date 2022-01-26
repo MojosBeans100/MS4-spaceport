@@ -681,6 +681,10 @@ input.invalid {
         width: 60%;
     }
 
+    .accounts-forms {
+        
+        top: 150px !important;
+    }
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */
@@ -907,10 +911,14 @@ i {
 /* ACCOUNTS */
 
 
+
 .accounts-divs {
-    margin-top: 100px;
-    /* width: 80%;
-    margin-left: 10%; */
+    height: 115vh;
+}
+
+.accounts-forms {
+    position: relative;
+    top: 100px;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     background-color: white;
     padding: 20px;
@@ -930,7 +938,7 @@ i {
 }
 
 .accounts-divs button {
-    width: 200px;
+    width: 180px;
     margin-top: 20px;
 }
 
