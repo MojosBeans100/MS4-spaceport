@@ -584,9 +584,7 @@ input.invalid {
         width: 80%;
         margin: auto;
     }
-
 }
-
 
 @media (min-width: 768px) {
 
@@ -640,20 +638,14 @@ input.invalid {
     /* ACCOUNTS 768 */
 }
 
-/* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 
-    /* GENERAL 768 */
-    /* MY PIPELINES 768 */
-    /* CREATE PIPELINE 768 */
-    /* DETAIL VIEW 768 */
-    /* ACCOUNTS 768 */
-    /* DISCOVER 768 */
-
+    /* GENERAL 992 */
     .navbar {
         padding-left: 40px;
     }
 
+    /* HOMEPAGE 992 */
     #purpose-img1,
     #purpose-img2,
     #purpose-img3,
@@ -671,28 +663,38 @@ input.invalid {
         margin-left: 20% !important;
     }
 
-    #detail-view-container {
-        padding: 0px 100px 50px 100px !important;
-    }
+    /* DISCOVER 992 */
+    /* CREATE PIPELINE 992 */
 
+    /* MY PIPELINES 992 */
     #pipeline_list_div {
         padding: 15px;
     }
 
+    /* DETAIL VIEW 992 */
+    #detail-view-container {
+        padding: 0px 100px 50px 100px !important;
+    }
 
-
+    /* ACCOUNTS 992 */
     .accounts-divs {
         width: 60%;
     }
 
     .accounts-forms {
-
         top: 150px !important;
     }
 }
 
-/* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+
+    /* GENERAL 1200 */
+    /* HOMEPAGE 1200 */
+    /* DISCOVER 1200 */
+    /* CREATE PIPELINE 1200 */
+    /* MY PIPELINES 1200 */
+    /* DETAIL VIEW 1200 */
+    /* ACCOUNTS 1200 */
 
     #detail_map {
         height: 500px !important;
