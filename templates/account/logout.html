@@ -7,23 +7,26 @@
 
 {% block content %}
 
-<div class="container accounts-container">
+<div class="container">
+
   <div class="accounts-divs">
-<h1>{% trans "Sign Out" %}</h1>
+    <div class="accounts-forms">
+      <h1>{% trans "Sign Out" %}</h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
-<p>You will no longer be able to access your pipelines.</p>
+      <p>{% trans 'Are you sure you want to sign out?' %}</p>
+      <p>You will no longer be able to access your pipelines.</p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
+      <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
 
-  <div class="accounts-divs-buttons">
-  <button class="btn btn-dark" type="submit">{% trans 'Sign Out' %}</button></div>
-</form>
-</div>
+        <div class="accounts-divs-buttons">
+          <button class="btn btn-dark" type="submit">{% trans 'Sign Out' %}</button></div>
+      </form>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

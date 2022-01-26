@@ -43,8 +43,15 @@ body {
     padding: 0;
 }
 
-.nav-link {
+.nav-link a,
+.nav-link p,
+.nav-link i{
     color: black;
+}
+
+.nav-link {
+    color: black !important;
+    font-weight: bold;
 }
 
 .nav-item a:hover {
@@ -477,16 +484,7 @@ input.invalid {
     margin: auto;
 }
 
-
-/* #pipeline-card-img {
-    max-height: 200px;
-}  */
-
-
 .card-img-top {
-    /* border: solid 1px rgb(177, 177, 177); */
-    /* height: 300px; */
-    /* background-color: rgb(250, 251, 255); */
     height: 200px;
 }
 
@@ -600,7 +598,10 @@ input.invalid {
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
-
+    /* #general_form_section {
+        width: 80%;
+        margin-left: 10%;
+    } */
 
     #my_pipelines_blurb {
         padding-top: 100px;
@@ -677,14 +678,14 @@ input.invalid {
         padding: 15px;
     }
 
-    
+
 
     .accounts-divs {
         width: 60%;
     }
 
     .accounts-forms {
-        
+
         top: 150px !important;
     }
 }
@@ -701,10 +702,10 @@ input.invalid {
         margin-left: 15%;
     }
 
-    /* #create_form {
-        width: 60%;
-        margin-left: 20%;
-    } */
+    #create_form {
+        width: 70%;
+        margin-left: 15%;
+    }
 
     .image-parent {
         height: 250px;
@@ -725,7 +726,7 @@ input.invalid {
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
 
-   
+
 
     #index-banner-text {
         width: 60%;
@@ -758,7 +759,7 @@ input.invalid {
         margin: auto;
     }
 
-     
+
 }
 
 @media (min-width: 1600px) {
@@ -924,7 +925,7 @@ i {
 
 
 .accounts-divs {
-    height: 115vh;
+    height: 120vh;
 }
 
 .accounts-forms {
@@ -955,5 +956,5 @@ i {
 
 .accounts-divs-buttons {
     width: 100%;
- 
+
 }
