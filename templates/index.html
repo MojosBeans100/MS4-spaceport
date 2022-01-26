@@ -30,7 +30,9 @@
     </script>
 
     <script src="https://kit.fontawesome.com/c013b232df.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../static/images/neptune-01.svg">
+    <!-- <link rel="icon" type="image/x-icon" href="../static/images/neptune-01.svg"> -->
+    <!-- <link rel="icon" type="image/png" href="{% static 'favicon.png' %}"> -->
+    <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
 
     <title>Spaceport</title>
 </head>
@@ -38,7 +40,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg py-2">
         <div class="container-fluid">
-            <a id="nav-icon" href="{% url 'homepage' %}"><img src="../static/images/neptune-01.svg"></a>
+            <a id="nav-icon" href="{% url 'homepage' %}"><img src="{% static 'favicon.png' %}"></a>
             <a class="nav-link" href="{% url 'homepage' %}" id="nav-title">SPACEPORT</a>
 
             <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
