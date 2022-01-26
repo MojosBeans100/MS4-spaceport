@@ -473,9 +473,10 @@ input.invalid {
 
 #pipeline_card {
     border: none;
-    width: 200px;
+    width: 180px;
     margin: auto;
 }
+
 
 /* #pipeline-card-img {
     max-height: 200px;
@@ -527,10 +528,10 @@ input.invalid {
         margin-left: 10%;
     }
 
-    #detail-links {
+    /* #detail-links {
         width: 40% !important;
         margin-left: 30% !important;
-    }
+    } */
 
     #detail-view-container {
         padding: 30px !important;
@@ -577,20 +578,24 @@ input.invalid {
 
     }
 
-    #detail-edit-buttons {
+    /* #detail-edit-buttons {
         font-size: 15px;
         width: 80%;
         margin-left: 10%;
-    }
+    } */
 
     #pipeline_card {
-        width: 100%;
+        width: 100% !important;
     }
+
+    
 
 }
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+
+    
 
     #my_pipelines_blurb {
         padding-top: 100px;
@@ -672,17 +677,6 @@ input.invalid {
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
-    #pipeline_list_div {
-        width: 60%;
-        margin-left: 20%;
-    }
-
-    #detail-links button,
-    .detail-view-section button {
-        width: 50% !important;
-        margin-left: 25% !important;
-    }
-
     #detail_map {
         height: 500px !important;
     }
@@ -701,15 +695,23 @@ input.invalid {
         height: 250px;
     }
 
-    #detail-edit-buttons {
+    /* #detail-edit-buttons {
         font-size: 20px;
         width: 60%;
         margin-left: 20%;
-    }
+    } */
+
+  
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
+
+    #pipeline_list_div {
+        width: 70%;
+        margin-left: 15%;
+    }
+
     #index-banner-text {
         width: 60%;
         margin-left: 10%;
@@ -735,6 +737,11 @@ input.invalid {
         margin-left: 15%;
         padding: 30px !important;
     }
+
+    #pipeline_card {
+        width: 90% !important;
+        margin: auto;
+    }
 }
 
 #detail-view-container {
@@ -748,6 +755,10 @@ input.invalid {
     width: 70%;
     margin-left: 15%;
     font-size: 15px;
+}
+
+#detail-links button {
+    width: 100%;
 }
 
 #detail-links p {
@@ -778,10 +789,7 @@ i {
     margin-right: 10px;
 }
 
-#detail-links button,
-.detail-view-section button {
-    width: 100%;
-}
+
 
 #detail-links button:hover,
 .detail-view-section button:hover,
@@ -799,8 +807,9 @@ i {
 }
 
 #detail-edit-buttons {
-    font-size: 15px;
-    width: 100%;
+    font-size: 12px;
+    width: 200px;
+    margin: auto;
 }
 
 #interval-table {

@@ -12,14 +12,14 @@
     {% if user.is_authenticated %}
 
     <div class="container" id="detail-links">
-        <div class="row">
+        <div class="row d-flex justify-content-evenly">
             <p class="w-lg-50"><small>Pipelines are not updated automatically: press <strong>Update</strong> to
                     refresh the pipeline</small></p>
-            <div class="col-md-6 py-2">
+            <div class="col-sm-6 col-lg-4 py-2">
                 <a href="{% url 'my_pipelines' %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-arrow-left"></i>My pipelines</button></a>
             </div>
-            <div class="col-md-6 py-2">
+            <div class="col-sm-6 col-lg-4 py-2">
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
                 {% if error %}
