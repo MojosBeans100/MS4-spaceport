@@ -672,6 +672,7 @@ input.invalid {
         padding: 15px;
     }
 
+
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */
@@ -806,10 +807,8 @@ i {
     padding-bottom: 50px;
 }
 
-#detail-edit-buttons {
-    font-size: 12px;
+#detail-edit-buttons button {
     width: 200px;
-    margin: auto;
 }
 
 #interval-table {
