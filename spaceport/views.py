@@ -341,6 +341,10 @@ def detail_view(request, id):
         'pipeline': List.objects.get(id=id),
         'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
         'mapbox_key': mapbox_key,
+        'current': current_interval,
+        'complete': complete_intervals,
+        'future': future_intervals,
+        'images': image_dates,
     }
 
     return render(request, 'detail_view.html', context)
