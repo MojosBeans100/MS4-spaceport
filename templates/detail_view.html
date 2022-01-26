@@ -461,15 +461,20 @@
 
     function timelineChart() {
 
-
         var complete = JSON.parse(document.getElementById('complete').textContent)
         var current = JSON.parse(document.getElementById('current').textContent)
         var future = JSON.parse(document.getElementById('future').textContent)
         var images = JSON.parse(document.getElementById('images').textContent)
 
         var day, month, year
-        var days = months = years = []
-        var com_data = curr_data = fut_data = today_data = images_data = []
+        var days = []
+        var months = []
+        var years = []
+        var com_data = []
+        var curr_data = []
+        var fut_data = []
+        var today_data = []
+        var images_data = []
         var date_object = {}
 
         for (i in complete) {
@@ -482,7 +487,7 @@
             years.push(year)
 
             date_object = {
-                'x': new Date(year,month,day),
+                'x': new Date(year, month, day),
                 'y': 0
             }
             com_data.push(date_object)
@@ -498,11 +503,13 @@
             years.push(year)
 
             date_object = {
-                'x': new Date(year,month,day),
+                'x': new Date(year, month, day),
                 'y': 0
             }
             curr_data.push(date_object)
         }
+
+        console.log(curr_data)
 
         for (i in future) {
             day = parseFloat(future[i].slice(0, 2))
@@ -514,7 +521,7 @@
             years.push(year)
 
             date_object = {
-                'x': new Date(year,month,day),
+                'x': new Date(year, month, day),
                 'y': 0
             }
             fut_data.push(date_object)
@@ -530,7 +537,7 @@
             years.push(year)
 
             date_object = {
-                'x': new Date(year,month,day),
+                'x': new Date(year, month, day),
                 'y': 0
             }
             images_data.push(date_object)
@@ -538,39 +545,64 @@
 
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
+                    data: com_data,
+                    label: "Completed intervals",
+                    backgroundColor: "black",
+                    pointRadius: 3,
+                },
+                {
+                    data: curr_data,
+                    label: "Current interval",
+                    backgroundColor: "blue",
+                    pointRadius: 4,
+                },
+            ]
             },
             options: {
+                events: [],
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            usePointStyle: true,
+                            padding: 30,
+                        },
+                    },
+                },
                 scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                        },
+                        ticks: {
+                            source: 'com_data',
+                            maxRotation: 90,
+                            minRotation: 90,
+                            font: {
+                                size: 12,
+                            },
+                            autoskip: true,
+                            padding: 25,
+                        },
+                        grid: {
+                            display: false,
+                        },
+                    },
                     y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+                        display: false,
+                        grid: {
+                            display: false,
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 0.5
+                    },
+                },
+            },
+        }, );
     }
 </script>
 
