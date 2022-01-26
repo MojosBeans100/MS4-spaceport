@@ -307,13 +307,41 @@ def detail_view(request, id):
     Detailed view of pipeline and relating results
     """
 
+    complete_intervals = []
+    current_interval = []
+    future_intervals = []
+    image_dates = []
+    today = datetime.date.today()
+
+    for result in Result.objects.filter(pipeline_id=id):
+
+        s_date = result.interval_start_date
+        start_date = s_date.strftime("%d-%m-%Y")
+        
+        e_date = result.interval_end_date
+        end_date = e_date.strftime("%d-%m-%Y")
+
+        if s_date < today and e_date < today:
+            complete_intervals.append(start_date)
+            complete_intervals.append(end_date)
+
+        if s_date >= today and today <= e_date :
+            current_interval.append(start_date)
+            current_interval.append(end_date)
+
+        if s_date > today and e_date > today:
+            future_intervals.append(start_date)
+            future_intervals.append(end_date)
+        
+        if result.image_created_at is not None:
+            image_taken = result.image_created_at.strftime("%d-%m-%Y")
+            image_dates.append(image_taken)
+
     context = {
         'pipeline': List.objects.get(id=id),
         'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
         'mapbox_key': mapbox_key,
     }
-
-    print(List.objects.get(id=id).start_date)
 
     return render(request, 'detail_view.html', context)
 
