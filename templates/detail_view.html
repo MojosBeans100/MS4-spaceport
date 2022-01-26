@@ -128,6 +128,10 @@
                     <div>
                         <table id="detail-table">
                             <tr>
+                                <td>Interval length:</td>
+                                <td>{{pipeline.interval}}</td>
+                            </tr>
+                            <tr>
                                 <td>Current interval:</td>
                                 <td></td>
                             </tr>
@@ -526,6 +530,8 @@
             images_data.push(date_object)
         }
 
+        console.log(all_dates)
+
         todaysDate = new Date(Date.now())
         pointBackgroundColors = []
         pointRadii = []
@@ -551,7 +557,6 @@
                         label: "    Completed intervals",
                         backgroundColor: pointBackgroundColors,
                         pointRadius: pointRadii,
-                        borderWidth: 1,
                     },
                     {
                         data: images_data,
@@ -561,7 +566,6 @@
                         pointRadius: 15,
                         borderColor: "transparent",
                     },
-
                 ]
             },
             options: {
@@ -583,12 +587,12 @@
                         },
                         ticks: {
                             source: 'all_data',
-                            maxRotation: 90,
-                            minRotation: 90,
+                            maxRotation: 75,
+                            minRotation: 75,
                             font: {
                                 size: 12,
                             },
-                            autoskip: true,
+                            autoSkip: true,
                             padding: 25,
                         },
                         grid: {

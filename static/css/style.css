@@ -473,6 +473,8 @@ input.invalid {
 
 #pipeline_card {
     border: none;
+    width: 200px;
+    margin: auto;
 }
 
 /* #pipeline-card-img {
@@ -579,6 +581,10 @@ input.invalid {
         font-size: 15px;
         width: 80%;
         margin-left: 10%;
+    }
+
+    #pipeline_card {
+        width: 100%;
     }
 
 }
