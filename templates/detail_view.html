@@ -462,7 +462,8 @@
 {{ future|json_script:"future" }}
 {{ images|json_script:"images" }}
 {{ all_dates|json_script:"all_dates" }}
-
+{{ pipeline.start_date|json_script:"start_date" }}
+{{ pipeline.end_date|json_script:"end_date" }}
 
 
 <script>
@@ -537,6 +538,8 @@
         var future = JSON.parse(document.getElementById('future').textContent)
         var images = JSON.parse(document.getElementById('images').textContent)
         var all_dates = JSON.parse(document.getElementById('all_dates').textContent)
+        var start_date = JSON.parse(document.getElementById('start_date').textContent)
+        var end_date = JSON.parse(document.getElementById('end_date').textContent)
 
         var day, month, year
         var days = []
@@ -597,11 +600,34 @@
         }
 
         todaysDate = new Date(Date.now())
+        
+        pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)),parseFloat(start_date.slice(5, 7)-1),parseFloat(start_date.slice(8, 10)))
+        pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)),parseFloat(end_date.slice(5, 7)-1),parseFloat(end_date.slice(8, 10)))
+
+        if (pipeline_ends > todaysDate && pipeline_starts < todaysDate) {
+                todays_date_object = {
+                  'x': todaysDate,
+                  'y': 0
+                }
+
+                pipeline_start_date = {
+                  'x': pipeline_starts,
+                  'y': 0
+                }
+                today_data.push(pipeline_start_date)
+                today_data.push(todays_date_object)
+
+              } else {
+                todays_date_object = {}
+                today_data.push(todays_date_object)
+              }
+
+        
         pointBackgroundColors = []
         pointRadii = []
 
         var todayImage = new Image()
-        todayImage.src = "{%  static 'images/favicon.ico' %}"
+        todayImage.src = "{%  static 'images/saticon.png' %}"
 
         var picImage = new Image()
         picImage.src = "{%  static 'images/picture.png' %}"
@@ -623,11 +649,21 @@
                         pointRadius: pointRadii,
                     },
                     {
+                        data: today_data,
+                        label: "    Today",
+                        pointStyle: todayImage,
+                        backgroundColor: "white",
+                        pointRadius: [0,15],
+                        borderWidth: 1,
+                        borderColor: "grey",
+                    },
+                    {
                         data: images_data,
                         label: "    Image taken",
                         pointStyle: picImage,
                         backgroundColor: "white",
                         pointRadius: 15,
+                        borderColor: "transparent",
                         borderColor: "transparent",
                     },
                 ]
