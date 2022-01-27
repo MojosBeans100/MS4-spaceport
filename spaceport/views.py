@@ -458,7 +458,7 @@ def update(request, id):
     """
 
     time_now = timezone.now()
-    time = str(datetime.datetime.now())
+    time = datetime.date.today()
 
     # get the api id of this object to post to api
     api_id = List.objects.get(id=id).api_id
@@ -483,6 +483,10 @@ def update(request, id):
         # update fields in List object  & save
         update_list.results_updated = time_now
         update_list.status = list_response['data']['status']
+
+        if update_list.status == "active" and update_list.start_date > time:
+            update_list.status = "not started"
+
         update_list.save()
 
         url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}/interval_results')

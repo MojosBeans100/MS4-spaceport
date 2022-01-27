@@ -73,7 +73,18 @@
                     <h4><span class="detail-pipeline-complete">This pipeline is complete.</span></h4>
                 </div>
             </div>
+
+            {% elif pipeline.status == "active (not started)" %}
+            <div class="d-flex justify-content-center">
+                <div class="col col-md-6 col-xl-9" id="pending-section" style="text-align: center; padding: 30px 40px;">
+                    <h4><span>This pipeline has not started.</span></h4>
+                </div>
+            </div>
+
+
             {% else %}
+
+
             {% endif %}
 
             <!-- pipeline general info table -->
@@ -121,17 +132,22 @@
                 <h3>Intervals</h3>
 
                 <p>From {{pipeline.start_date|date:'d M Y'}} to {{pipeline.end_date|date:'d M Y'}}</p>
-                
+
 
                 {% if pipeline.status == 'pending' %}
                 <p>Update the pipeline to see interval information</p>
                 {% else %}
 
+                {% for result in results %}
+                {% if result.status == "current" %}
                 <div class="detail-view-section">
                     <div id="detail-chart-div">
                         <canvas id="myChart" width="500" height="150"></canvas>
                     </div>
                 </div>
+                {% else %}
+                {% endif %}
+                {% endfor %}
 
                 <br>
                 <br>
@@ -468,7 +484,6 @@
 {{ pipeline.end_date|json_script:"end_date" }}
 
 <script>
-
     detailMap();
     timelineChart();
 
@@ -541,8 +556,10 @@
         var start_date = JSON.parse(document.getElementById('start_date').textContent)
         var end_date = JSON.parse(document.getElementById('end_date').textContent)
 
-        pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)),parseFloat(start_date.slice(5, 7)-1),parseFloat(start_date.slice(8, 10)))
-        pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)),parseFloat(end_date.slice(5, 7)-1),parseFloat(end_date.slice(8, 10)))
+        pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)), parseFloat(start_date.slice(5, 7) - 1),
+            parseFloat(start_date.slice(8, 10)))
+        pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)), parseFloat(end_date.slice(5, 7) - 1), parseFloat(
+            end_date.slice(8, 10)))
 
         var day, month, year
         var days = []
@@ -552,9 +569,9 @@
         var today_data = []
         var images_data = []
         var all_data = [{
-                'x': pipeline_starts,
-                'y': 0
-            }]
+            'x': pipeline_starts,
+            'y': 0
+        }]
         var date_object = {}
 
         for (i in all_dates) {
@@ -606,28 +623,28 @@
         }
 
         todaysDate = new Date(Date.now())
-        
-        
+
+
 
         if (pipeline_ends > todaysDate && pipeline_starts < todaysDate) {
-                todays_date_object = {
-                  'x': todaysDate,
-                  'y': 0
-                }
+            todays_date_object = {
+                'x': todaysDate,
+                'y': 0
+            }
 
-                pipeline_start_date = {
-                  'x': pipeline_starts,
-                  'y': 0
-                }
-                today_data.push(pipeline_start_date)
-                today_data.push(todays_date_object)
+            pipeline_start_date = {
+                'x': pipeline_starts,
+                'y': 0
+            }
+            today_data.push(pipeline_start_date)
+            today_data.push(todays_date_object)
 
-              } else {
-                todays_date_object = {}
-                today_data.push(todays_date_object)
-              }
+        } else {
+            todays_date_object = {}
+            today_data.push(todays_date_object)
+        }
 
-        
+
         pointBackgroundColors = []
         pointRadii = []
 
@@ -646,20 +663,20 @@
                         label: "    Current interval",
                         backgroundColor: "#5c6885",
                         pointRadius: 6,
-                       
+
                     }, {
                         data: all_data,
                         label: "    Completed intervals",
                         backgroundColor: pointBackgroundColors,
                         pointRadius: pointRadii,
-                        
+
                     },
                     {
                         data: today_data,
                         label: "    Today",
                         pointStyle: todayImage,
                         backgroundColor: "white",
-                        pointRadius: [0,15],
+                        pointRadius: [0, 15],
                         //borderWidth: 1,
                         borderColor: "black",
                     },
