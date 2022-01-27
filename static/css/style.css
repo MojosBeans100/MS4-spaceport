@@ -188,7 +188,7 @@ body {
 }
 
 #create_form,
-#edit_form,
+/* #edit_form, */
 #delete_form {
     position: relative;
     background-color: white;
@@ -640,6 +640,12 @@ input.invalid {
     }
 
     /* ACCOUNTS 768 */
+
+    /* EDIT 768 */
+    #edit_form {
+        width: 80%;
+        margin-left: 10%;
+    }
 }
 
 @media (min-width: 992px) {
@@ -688,6 +694,8 @@ input.invalid {
     .accounts-forms {
         top: 150px !important;
     }
+
+    
 }
 
 @media (min-width: 1200px) {
@@ -729,6 +737,16 @@ input.invalid {
     }
 
     /* ACCOUNTS 1200 */
+    /* EDIT 1200 */
+    
+    #edit-container {
+        padding-top: 130px !important;
+    }
+
+    #edit_form {
+        width: 60%;
+        margin-left: 20%;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -793,7 +811,7 @@ input.invalid {
 /* DETAIL VIEW STYLING */
 
 #detail-view-container {
-    background-color: rgb(250, 251, 255);
+    /* background-color: rgb(172, 176, 197); */
     /* padding-bottom: 20px; */
     padding: 10px;
 }
@@ -886,6 +904,10 @@ i {
     font-size: 12px;
 }
 
+#result-table a {
+    color: black;
+}
+
 #detail-view-div hr {
     width: 100%;
     margin-left: 0;
@@ -960,6 +982,25 @@ i {
 
 #edit-container a:hover {
     font-weight: bold;
+}
+
+#edit-container {
+    min-height: 100vh;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#edit_form {
+    background-color: white;
+    box-shadow: 0 0 3px rgb(177, 177, 177);
+    padding: 20px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+#edit_form button {
+    font-size: 13px;
 }
 
 /* #edit-container[input=radio] {
