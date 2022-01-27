@@ -174,6 +174,7 @@ def create(request):
                 'end_date': str(form.cleaned_data['end_date']),
                 'aoi': format_aoi,
                 'max_cost': 0,
+                'cloud_cover_percentage': form.cleaned_data['cloud_cover'],
                 'min_aoi_coverage_percentage': 50,
                 'result_delivery': {
                     'max_latency': '0d',
@@ -187,6 +188,8 @@ def create(request):
                 'resolution_high': 10,
                 'tags': []
             }
+
+            print(params)
 
             # post the pipeline to the api
             post_pipeline = requests.post(

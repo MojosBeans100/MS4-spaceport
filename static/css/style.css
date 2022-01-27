@@ -375,6 +375,10 @@ input.invalid {
     font-size: 12px;
 }
 
+#id_cloud {
+    width: 200px;
+}
+
 #interval_feedback {
     padding-top: 30px;
 }

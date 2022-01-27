@@ -99,10 +99,13 @@
                         <td>{{pipeline.date_created}}</td>
                     </tr>
 
+                    {% if pipeline.status == 'pending' %}
+                    {% else %}
                     <tr>
                         <td><i class="far fa-images"></i></td>
                         <td>{{pipeline.num_images}}</td>
                     </tr>
+                    {% endif %}
                 </table>
 
 

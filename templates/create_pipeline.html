@@ -327,7 +327,7 @@
                 <div class="input-sections">
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
                     <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have</p>
-                    {{form.cloud_cover}}
+                    {{form.cloud_cover}} %
                 </div>
 
                 <div class="input-sections" id="cloud-cover">
@@ -382,6 +382,7 @@
                     </div> -->
                 </div>
 
+                <!-- the image description (class="image-des") are taken from the Skywatch EarthCache concole -->
                 <div class="row input-sections">
                     <div class="col-sm-4 py-1">
                         <label class="output-label">
@@ -391,8 +392,7 @@
                                 <img class="image-image"
                                     src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749757/true-colour_b02a5f.jpg">
                                 <div class="image-des">
-                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore"</p>
+                                    <p>A true colour image is a combination of red, green, and blue bands. The results have been pansharpened where possible.</p>
                                 </div>
                             </div>
                         </label>
@@ -406,8 +406,7 @@
                                 <img class="image-image"
                                     src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749875/false-colour-urban_mifri2.jpg">
                                 <div class="image-des">
-                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore"</p>
+                                    <p>A false colour urban composite image is a combination of short wave infrared 1 (SWIR1), short wave infrared 2 (SWIR2), and red bands. It is often used to track urban sprawl and identify areas at risk of flooding.</p>
                                 </div>
                             </div>
                         </label>
@@ -421,8 +420,7 @@
                                 <img class="image-image"
                                     src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749876/false-colour-infrared_vc3jjh.png">
                                 <div class="image-des">
-                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore"</p>
+                                    <p>A false colour infrared composite image is a combination of near-infrared, red, and green bands. It is often used to track vegetation health or help identify different types of soil and minerals.</p>
                                 </div>
                             </div>
                         </label>
@@ -435,11 +433,9 @@
                             <p class="image-label">All Optical Bands</p>
                             {{form.output_image.4.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/allbands-img_n2sfpo.jpg">
                                 <div class="image-des">
-                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor
-                                        incididunt ut labore"</p>
+                                    <p>All optical spectral bands in a product</p>
                                 </div>
                             </div>
                         </label>
@@ -450,11 +446,9 @@
                             <p class="image-label">MSAVI2</p>
                             {{form.output_image.5.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/msavi2-image_uspufz.jpg">
                                 <div class="image-des">
-                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor
-                                        incididunt ut labore"</p>
+                                    <p>MSAVI2 images are often used to look at vegetation cover, biomass and to determine leaf area index. They can also be used as an input layer for mapping land cover or vegetation classes</p>
                                 </div>
                             </div>
                         </label>
@@ -465,11 +459,9 @@
                             <p class="image-label">Near Infrared</p>
                             {{form.output_image.6.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="../static/images/truecolourimg.jpg">
+                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/nearingrared-img_n2w1my.jpg">
                                 <div class="image-des">
-                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor
-                                        incididunt ut labore"</p>
+                                    <p>This will return the near-infrared (NIR) values for your area of interest.</p>
                                 </div>
                             </div>
                         </label>
@@ -628,6 +620,7 @@
 <script>
     // library - https://www.w3schools.com/howto/howto_js_form_steps.asp
     // this step form uses code from the above link
+    // modified and enhanced to fit the purpose of this project
     document.getElementById('id_output_1').checked = true;
     var currentTab = 0;
     var mapLoads = true
@@ -837,7 +830,6 @@
         y = x[currentTab].getElementsByTagName("input");
         // A loop that checks every input field in the current tab:
         for (i = 0; i < y.length; i++) {
-            console.log(y[i])
 
             // If a field is empty...
             if (y[i].value == "") {
@@ -1067,7 +1059,6 @@
             document.getElementById('nextButton').disabled = false;
         }
 
-        console.log(cloud_input)
     }
 
 </script>
