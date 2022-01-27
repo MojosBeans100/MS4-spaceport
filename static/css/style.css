@@ -97,6 +97,11 @@ body {
     margin-left: 5%;
 }
 
+.purpose-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 #purpose-img1,
 #purpose-img2,
 #purpose-img3,
