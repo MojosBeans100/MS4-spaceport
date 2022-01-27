@@ -320,15 +320,15 @@
                         </div>
                     </div>
 
-                    <div class="col d-flex justify-content-end">
+                    <!-- <div class="col d-flex justify-content-end">
                         <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="input-sections">
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
                     <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have</p>
-                    {{form.cloud_cover}} %
+                    {{form.cloud_cover}}
                 </div>
 
                 <div class="input-sections" id="cloud-cover">
@@ -337,7 +337,7 @@
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/30-per-cloud-cover_vfgigm.jpg">
                             <br>
-                            <p><strong>Low cloud cover</strong></p>
+                            <p><strong>Low cloud cover (1% - 30%)</strong></p>
                             <p>High AOI coverage</p>
                             <p>Lower probability of image return</p>
                         </div>
@@ -346,7 +346,7 @@
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782570/65-per-cloud-cover_ufppk0.jpg">
                             <br>
-                            <p><strong>Medium cloud cover</strong></p>
+                            <p><strong>Medium cloud cover (30% - 80%)</strong></p>
                             <p>Medium AOI coverage</p>
                             <p>Medium probability of image return</p>
                         </div>
@@ -355,7 +355,7 @@
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/80-per-cloud-cover_j3wok7.jpg">
                             <br>
-                            <p><strong>High cloud cover</strong></p>
+                            <p><strong>High cloud cover (80% - 100%)</strong></p>
                             <p>Low AOI coverage</p>
                             <p>Higher probability of image return</p>
                         </div>
@@ -752,7 +752,6 @@
         for (i = 0; i < parent_checked.length; i++) {
 
             if (parent_checked[i].childNodes[3].checked) {
-                console.log(parent_checked[i])
                 parent_checked[i].style.fontWeight = 'bold';
                 parent_checked[i].childNodes[5].style.opacity = '0.6';
             } else {
@@ -865,10 +864,6 @@
 
     function createMap() {
 
-        if (document.getElementById('map-a')) {
-            document.getElementById('map-a').remove()
-        }
-
         input_validation = document.getElementById('id_aoi');
 
         // external library - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
@@ -897,14 +892,16 @@
 
         function updateArea(e) {
 
+            if (document.getElementById('map-a')) {
+                (document.getElementById('map-a').remove())
+            }
+
             input_validation = document.getElementById('id_aoi')
 
             map_area = document.getElementById('map-area')
             map_area.innerHTML = "Area: 0 km<sup>2</sup>"
 
             const data = draw.getAll();
-
-
 
             if (document.getElementById('area_validation_feedback')) {
                 document.getElementById('area_validation_feedback').remove();
@@ -921,7 +918,7 @@
 
                 map_a = document.createElement('p');
                 map_a.id = 'map-a';
-                map_a.style.display = "none";
+                //map_a.style.display = "none";
                 map_a.innerHTML = rounded_km;
                 aoi_section.append(map_a)
 
@@ -958,7 +955,6 @@
         if (input_validation.value == 'null') {
             input_validation.value = "";
         }
-
     }
 
     function reviewMap() {
@@ -1010,7 +1006,6 @@
                 }
             });
         });
-
     }
 
     function createReview() {
@@ -1024,15 +1019,13 @@
         review_name = document.getElementById('pipeline_name').value;
         review_des = document.getElementById('pipeline_des').value;
         review_status = "Not yet committed";
-
         review_aoi = document.getElementById('id_aoi').value;
-
         review_sdate = document.getElementById('start_date').value;
         review_edate = document.getElementById('end_date').value;
         review_length = `${days_difference} days`;
         review_interval = interval;
         review_num_intervals = num_intervals_rounded;
-        review_area = `${document.getElementById('map-a').innerHTML} km <sup>2</sup>`;
+        review_area = `${document.getElementById('map-a').innerHTML} km<sup>2</sup>`;
 
         radios = document.getElementsByName('output_image');
         radios_labels = document.getElementsByClassName('image-label');
@@ -1054,10 +1047,8 @@
             table_feedback[i].innerHTML = feedback[i];
         }
 
-        document.getElementById('table-area').append(review_area);
-
+        document.getElementById('table-area').innerHTML = review_area;
         document.getElementById('table-geojson').innerHTML = review_aoi;
-
     }
 
     function validateCloudCover() {
@@ -1069,7 +1060,6 @@
         } else {
             document.getElementById('nextButton').disabled = false;
         }
-
     }
 </script>
 

@@ -290,14 +290,14 @@ def my_pipelines(request):
     pending_pipelines = List.objects.filter(status='pending',
         created_by=user).order_by('date_created')
 
-    saved_pipelines = List.objects.filter(status='saved',
-        created_by=user).order_by('date_created')
+    # not_started_pipelines = List.objects.filter(status='not started',
+    #     created_by=user).order_by('date_created')
 
     context = {
         'active': active_pipelines,
         'complete': complete_pipelines,
         'pending': pending_pipelines,
-        'saved': saved_pipelines,
+        #'not_started': not_started_pipelines,
     }
 
     return render(request, 'my_pipelines.html', context)
@@ -353,7 +353,11 @@ def detail_view(request, id):
             image_taken = result.image_created_at.strftime("%d-%m-%Y")
             image_dates.append(image_taken)
 
-    print(current_interval)
+    pipeline_s_date = List.objects.get(id=id).start_date
+    if pipeline_s_date > today:
+        message = "not started"
+    else:
+        message = ""
 
     context = {
         'pipeline': List.objects.get(id=id),
@@ -364,6 +368,7 @@ def detail_view(request, id):
         'future': future_intervals,
         'images': image_dates,
         'all_dates': all_dates,
+        'message': message,
     }
 
     return render(request, 'detail_view.html', context)
@@ -484,8 +489,8 @@ def update(request, id):
         update_list.results_updated = time_now
         update_list.status = list_response['data']['status']
 
-        if update_list.status == "active" and update_list.start_date > time:
-            update_list.status = "not started"
+        # if update_list.status == "active" and update_list.start_date > time:
+        #     update_list.status = "not started"
 
         update_list.save()
 

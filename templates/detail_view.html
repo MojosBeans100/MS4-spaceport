@@ -74,17 +74,15 @@
                 </div>
             </div>
 
-            {% elif pipeline.status == "active (not started)" %}
+            {% else %}
+            {% if message == "not started" %}
             <div class="d-flex justify-content-center">
                 <div class="col col-md-6 col-xl-9" id="pending-section" style="text-align: center; padding: 30px 40px;">
-                    <h4><span>This pipeline has not started.</span></h4>
+                    <h4>This pipeline has not started.</h4>
                 </div>
             </div>
-
-
             {% else %}
-
-
+            {% endif %}
             {% endif %}
 
             <!-- pipeline general info table -->
