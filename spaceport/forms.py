@@ -1,5 +1,5 @@
 from .models import List, output, status_choice
-from django.forms import ModelForm, DateInput, TextInput, Textarea, RadioSelect, Select
+from django.forms import ModelForm, DateInput, TextInput, Textarea, RadioSelect, Select, NumberInput
 
 class CreateList(ModelForm):
     class Meta:
@@ -69,6 +69,12 @@ class CreateList(ModelForm):
                 #'class': 'form-control',
                 'id': 'id_output',
                 'onchange': 'styleOutputImage()',
+                'oninput': "this.className = ''",
+            }),
+            'cloud_cover': NumberInput(attrs={
+                'class': 'form-control',
+                'id': 'id_cloud',
+                'onchange': 'validateCloudCover()',
                 'oninput': "this.className = ''",
             })
         }

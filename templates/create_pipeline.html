@@ -326,8 +326,7 @@
 
                 <div class="input-sections">
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
-                    <p><small>Minimum cloud free area (%) your result must have<br>Enter a number between 1 and
-                            100</small></p>
+                    <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have</p>
                     {{form.cloud_cover}}
                 </div>
 
@@ -1057,6 +1056,20 @@
         document.getElementById('table-geojson').innerHTML = review_aoi;
 
     }
+
+    function validateCloudCover() {
+
+        cloud_input = document.getElementById('id_cloud').value
+
+        if (cloud_input > 100 || cloud_input < 1) {
+            document.getElementById('nextButton').disabled = true;
+        } else {
+            document.getElementById('nextButton').disabled = false;
+        }
+
+        console.log(cloud_input)
+    }
+
 </script>
 
 {% endblock content %}
