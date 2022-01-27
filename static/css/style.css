@@ -150,24 +150,36 @@ body {
 /* DISCOVER STYLING */
 
 #discover-banner {
-    height: 60vh;
+    height: 50vh;
     background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682217/pexels-pixabay-41949_eondcs.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-#discover-banner h1 {
-    color: white;
+#discover-container h1 {
+    /* color: white; */
     text-align: center;
-    font-size: 70px;
+    /* font-size: 70px; */
+    padding-top: 40px;
 }
 
 #discover-container {
     text-align: center;
 }
 
+#discover-page-links {
+    font-weight: bold;
+}
+
+#discover-page-links p:hover {
+    text-decoration: underline double black;
+    text-underline-position: under;
+    text-underline-offset: 3px;
+    color: black;
+}
+
 #discover-container div {
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 
 #applications .card {
@@ -823,6 +835,10 @@ input.invalid {
 
 .detail-pipeline-complete {
     color: rgb(10, 124, 10);
+}
+
+.detail-pipeline-not-started {
+
 }
 
 #detail-links {
