@@ -129,7 +129,6 @@
 
                 <div class="detail-view-section">
                     <div id="detail-chart-div">
-
                         <canvas id="myChart" width="500" height="150"></canvas>
                     </div>
                 </div>
@@ -468,9 +467,7 @@
 {{ pipeline.start_date|json_script:"start_date" }}
 {{ pipeline.end_date|json_script:"end_date" }}
 
-
 <script>
-
 
     detailMap();
     timelineChart();
@@ -544,6 +541,9 @@
         var start_date = JSON.parse(document.getElementById('start_date').textContent)
         var end_date = JSON.parse(document.getElementById('end_date').textContent)
 
+        pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)),parseFloat(start_date.slice(5, 7)-1),parseFloat(start_date.slice(8, 10)))
+        pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)),parseFloat(end_date.slice(5, 7)-1),parseFloat(end_date.slice(8, 10)))
+
         var day, month, year
         var days = []
         var months = []
@@ -551,7 +551,10 @@
         var curr_data = []
         var today_data = []
         var images_data = []
-        var all_data = []
+        var all_data = [{
+                'x': pipeline_starts,
+                'y': 0
+            }]
         var date_object = {}
 
         for (i in all_dates) {
@@ -604,8 +607,7 @@
 
         todaysDate = new Date(Date.now())
         
-        pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)),parseFloat(start_date.slice(5, 7)-1),parseFloat(start_date.slice(8, 10)))
-        pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)),parseFloat(end_date.slice(5, 7)-1),parseFloat(end_date.slice(8, 10)))
+        
 
         if (pipeline_ends > todaysDate && pipeline_starts < todaysDate) {
                 todays_date_object = {
@@ -644,12 +646,13 @@
                         label: "    Current interval",
                         backgroundColor: "#5c6885",
                         pointRadius: 6,
-                        borderColor: "transparent",
+                       
                     }, {
                         data: all_data,
                         label: "    Completed intervals",
                         backgroundColor: pointBackgroundColors,
                         pointRadius: pointRadii,
+                        
                     },
                     {
                         data: today_data,
@@ -657,8 +660,8 @@
                         pointStyle: todayImage,
                         backgroundColor: "white",
                         pointRadius: [0,15],
-                        borderWidth: 1,
-                        borderColor: "grey",
+                        //borderWidth: 1,
+                        borderColor: "black",
                     },
                     {
                         data: images_data,
@@ -666,7 +669,6 @@
                         pointStyle: picImage,
                         backgroundColor: "white",
                         pointRadius: 15,
-                        borderColor: "transparent",
                         borderColor: "transparent",
                     },
                 ]
@@ -717,7 +719,7 @@
 
         for (i = 0; i < myChart.data.datasets[1].data.length; i++) {
             if (myChart.data.datasets[1].data[i]['x'] > todaysDate) {
-                pointBackgroundColors.push("transparent");
+                pointBackgroundColors.push("white");
                 pointRadii.push('4')
 
             } else {

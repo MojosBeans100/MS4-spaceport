@@ -283,7 +283,8 @@
                             <p>Intervals in the past will search for archived imagery and, if available, deliver them
                                 straight away.<br>Future intervals will be set up to deliver images as soon as an image
                                 in that interval is found.</p>
-                            <p class="form_limits">Pipelines can have no more than 10 intervals</p>
+                            <p class="form_limits">Pipelines can not be <em>set up</em> to have more than 10 intervals,
+                                but depending on the layout of dates, our system may deliver more than 10 results</p>
                         </div>
                     </div>
 
@@ -392,7 +393,8 @@
                                 <img class="image-image"
                                     src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749757/true-colour_b02a5f.jpg">
                                 <div class="image-des">
-                                    <p>A true colour image is a combination of red, green, and blue bands. The results have been pansharpened where possible.</p>
+                                    <p>A true colour image is a combination of red, green, and blue bands. The results
+                                        have been pansharpened where possible.</p>
                                 </div>
                             </div>
                         </label>
@@ -406,7 +408,9 @@
                                 <img class="image-image"
                                     src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749875/false-colour-urban_mifri2.jpg">
                                 <div class="image-des">
-                                    <p>A false colour urban composite image is a combination of short wave infrared 1 (SWIR1), short wave infrared 2 (SWIR2), and red bands. It is often used to track urban sprawl and identify areas at risk of flooding.</p>
+                                    <p>A false colour urban composite image is a combination of short wave infrared 1
+                                        (SWIR1), short wave infrared 2 (SWIR2), and red bands. It is often used to track
+                                        urban sprawl and identify areas at risk of flooding.</p>
                                 </div>
                             </div>
                         </label>
@@ -420,7 +424,9 @@
                                 <img class="image-image"
                                     src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642749876/false-colour-infrared_vc3jjh.png">
                                 <div class="image-des">
-                                    <p>A false colour infrared composite image is a combination of near-infrared, red, and green bands. It is often used to track vegetation health or help identify different types of soil and minerals.</p>
+                                    <p>A false colour infrared composite image is a combination of near-infrared, red,
+                                        and green bands. It is often used to track vegetation health or help identify
+                                        different types of soil and minerals.</p>
                                 </div>
                             </div>
                         </label>
@@ -433,7 +439,8 @@
                             <p class="image-label">All Optical Bands</p>
                             {{form.output_image.4.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/allbands-img_n2sfpo.jpg">
+                                <img class="image-image"
+                                    src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/allbands-img_n2sfpo.jpg">
                                 <div class="image-des">
                                     <p>All optical spectral bands in a product</p>
                                 </div>
@@ -446,9 +453,12 @@
                             <p class="image-label">MSAVI2</p>
                             {{form.output_image.5.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/msavi2-image_uspufz.jpg">
+                                <img class="image-image"
+                                    src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/msavi2-image_uspufz.jpg">
                                 <div class="image-des">
-                                    <p>MSAVI2 images are often used to look at vegetation cover, biomass and to determine leaf area index. They can also be used as an input layer for mapping land cover or vegetation classes</p>
+                                    <p>MSAVI2 images are often used to look at vegetation cover, biomass and to
+                                        determine leaf area index. They can also be used as an input layer for mapping
+                                        land cover or vegetation classes</p>
                                 </div>
                             </div>
                         </label>
@@ -459,7 +469,8 @@
                             <p class="image-label">Near Infrared</p>
                             {{form.output_image.6.tag}}
                             <div class="image-parent">
-                                <img class="image-image" src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/nearingrared-img_n2w1my.jpg">
+                                <img class="image-image"
+                                    src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643284152/nearingrared-img_n2w1my.jpg">
                                 <div class="image-des">
                                     <p>This will return the near-infrared (NIR) values for your area of interest.</p>
                                 </div>
@@ -1060,7 +1071,6 @@
         }
 
     }
-
 </script>
 
 {% endblock content %}
