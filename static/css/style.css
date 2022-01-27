@@ -457,6 +457,17 @@ input.invalid {
     width: 60%;
 }
 
+#submitting_name {
+    padding-top: 200px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#submitting-gif{
+    width: 100px;
+    margin-left: 45%;
+}
+
 
 /* MY PIPELINES STYLING */
 
