@@ -4,17 +4,27 @@ from .models import List, Result
 
 @admin.register(List)
 class ListAdmin(admin.ModelAdmin):
+
     list_display = (
-         'id',
          'pipeline_name',
+         'status',
          'created_by',
          'start_date',
          'end_date',
          'date_created',
          'cloud_cover',
+         'num_results',
+         'num_images',
     )
 
-    # prepopulated_fields = {'slug': ('pipeline_name',)}
+    admin.site.site_header = "Spaceport Pipelines Admin"
+    list_filter = ('status', 'created_by')
+
+    search_fields = ['pipeline_name']
+
+    # class Meta:
+    #     order_by('-created_at')
+
 
 
 @admin.register(Result)

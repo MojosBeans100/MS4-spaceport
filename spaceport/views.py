@@ -164,7 +164,6 @@ def create(request):
             params = {
                 'name': form.cleaned_data['pipeline_name'],
                 'interval': form.cleaned_data['interval'],
-                #'interval': 7,
                 'start_date': str(form.cleaned_data['start_date']),
                 'output': {
                     'id': form.cleaned_data['output_image'],
@@ -173,6 +172,7 @@ def create(request):
                 },
                 'end_date': str(form.cleaned_data['end_date']),
                 'aoi': format_aoi,
+                # max cost must be kept to 0!!
                 'max_cost': 0,
                 'cloud_cover_percentage': form.cleaned_data['cloud_cover'],
                 'min_aoi_coverage_percentage': 50,
