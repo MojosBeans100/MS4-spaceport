@@ -238,6 +238,7 @@ body {
 
 .input-sections {
     padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 #id_aoi {
@@ -383,7 +384,7 @@ input.invalid {
 }
 
 #buttons-div button {
-    width: 40%;
+    width: 50%;
 }
 
 .form_limits {
