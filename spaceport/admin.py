@@ -8,11 +8,13 @@ class ListAdmin(admin.ModelAdmin):
          'id',
          'pipeline_name',
          'created_by',
-         'aoi',
+         'start_date',
+         'end_date',
          'date_created',
+         'cloud_cover',
     )
 
-    prepopulated_fields = {'slug': ('pipeline_name',)}
+    # prepopulated_fields = {'slug': ('pipeline_name',)}
 
 
 @admin.register(Result)

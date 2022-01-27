@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from cloudinary.models import CloudinaryField
+from django.core.validators import MaxValueValidator, MinValueValidator 
 
 # api interval options
 interval = (
@@ -57,17 +58,18 @@ class List(models.Model):
     aoi = models.JSONField(
         null=True
     )
-    cloud_cover = models.CharField(
-        max_length=10
+    cloud_cover = models.PositiveIntegerField(
+        default=100,
+        validators=[MinValueValidator(1), MaxValueValidator(100)],
     )
 
     # auto generated parameters
     # accept null as many of these parameters are input after
     # form is submitted
-    slug = models.SlugField(
-        max_length=200,
-        null=True
-    )
+    # slug = models.SlugField(
+    #     max_length=200,
+    #     null=True
+    # )
     num_intervals = models.PositiveIntegerField(
         default=0,
         null=True
