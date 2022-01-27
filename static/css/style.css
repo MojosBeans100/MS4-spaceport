@@ -909,6 +909,9 @@ i {
     background-color: white;
 }
 
+#interval-table tr:hover {
+    background-color: #ddd;
+}
 
 #detail-chart-div {
     height: 0;
@@ -933,6 +936,7 @@ i {
 
 #result-table tr:hover,
 #interval-table tr:hover,
+
 #aoi-table tr:hover {
     background-color: #ddd;
 }

@@ -120,9 +120,9 @@
 
                 <div class="detail-view-section">
                     <div id="detail-chart-div">
-                        
-                    <canvas id="myChart" width="600" height="150"></canvas>
-                </div>
+
+                        <canvas id="myChart" width="600" height="150"></canvas>
+                    </div>
                 </div>
 
                 <br>
@@ -181,7 +181,8 @@
                             {% if result.status == 'current' %}
                             <tr>
                                 <td>Current interval:</td>
-                                <td>{{result.interval_start_date|date:'d M'}} to {{result.interval_end_date|date:'d M'}}</td>
+                                <td>{{result.interval_start_date|date:'d M'}} to {{result.interval_end_date|date:'d M'}}
+                                </td>
                             </tr>
                             {% endif %}
                             {% endfor %}
@@ -595,8 +596,8 @@
                 datasets: [{
                         data: curr_data,
                         label: "    Current interval",
-                        backgroundColor: "blue",
-                        pointRadius: 5,
+                        backgroundColor: "#5c6885",
+                        pointRadius: 6,
                         borderColor: "transparent",
                     }, {
                         data: all_data,
@@ -640,6 +641,7 @@
                             },
                             autoSkip: true,
                             padding: 25,
+
                         },
                         grid: {
                             display: false,
@@ -660,12 +662,11 @@
         for (i = 0; i < myChart.data.datasets[1].data.length; i++) {
             if (myChart.data.datasets[1].data[i]['x'] > todaysDate) {
                 pointBackgroundColors.push("transparent");
-                pointRadii.push('3')
-
-            } else {
-                pointBackgroundColors.push("black");
                 pointRadii.push('4')
 
+            } else {
+                pointBackgroundColors.push("#ebf0fc");
+                pointRadii.push('5')
             }
         }
 
