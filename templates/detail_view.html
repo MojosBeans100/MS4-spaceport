@@ -98,6 +98,11 @@
                         <td>Date created:</td>
                         <td>{{pipeline.date_created}}</td>
                     </tr>
+
+                    <tr>
+                        <td><i class="far fa-images"></i></td>
+                        <td>{{pipeline.num_images}}</td>
+                    </tr>
                 </table>
 
 
@@ -113,6 +118,7 @@
                 <h3>Intervals</h3>
 
                 <p>From {{pipeline.start_date|date:'d M Y'}} to {{pipeline.end_date|date:'d M Y'}}</p>
+                
 
                 {% if pipeline.status == 'pending' %}
                 <p>Update the pipeline to see interval information</p>
@@ -121,7 +127,7 @@
                 <div class="detail-view-section">
                     <div id="detail-chart-div">
 
-                        <canvas id="myChart" width="600" height="150"></canvas>
+                        <canvas id="myChart" width="500" height="150"></canvas>
                     </div>
                 </div>
 
@@ -173,6 +179,10 @@
                     <!-- interval status table -->
                     <div>
                         <table id="detail-table">
+                            <tr>
+                                <td>No. intervals</td>
+                                <td>{{results.count}}</td>
+                            </tr>
                             <tr>
                                 <td>Interval length:</td>
                                 <td>{{pipeline.interval}}</td>
@@ -340,7 +350,7 @@
 
                         <!-- if the result status is future, there may be a result in the future
                     so set to pending -->
-                        {% if result.status == 'future' %}
+                        {% if result.status == 'future' or result.status == 'current' %}
                         <td><em>pending</em></td>
 
                         <!-- but if the interval is complete -->
@@ -389,6 +399,11 @@
                         <tr>
                             <td>Max cloud cover %</td>
                             <td>{{pipeline.cloud_cover}}%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Min AOI coverage %</td>
+                            <td>50%</td>
                         </tr>
                     </table>
                 </div>
@@ -448,7 +463,11 @@
 {{ images|json_script:"images" }}
 {{ all_dates|json_script:"all_dates" }}
 
+
+
 <script>
+
+
     detailMap();
     timelineChart();
 
@@ -577,8 +596,6 @@
             images_data.push(date_object)
         }
 
-        console.log(all_dates)
-
         todaysDate = new Date(Date.now())
         pointBackgroundColors = []
         pointRadii = []
@@ -633,15 +650,15 @@
                             unit: 'day',
                         },
                         ticks: {
+                            //maxTicksLimit: 10,
+                            autoSkip: true,
                             source: 'all_data',
                             maxRotation: 75,
                             minRotation: 75,
                             font: {
                                 size: 12,
                             },
-                            autoSkip: true,
                             padding: 25,
-
                         },
                         grid: {
                             display: false,

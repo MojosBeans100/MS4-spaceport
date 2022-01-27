@@ -715,8 +715,8 @@ input.invalid {
 
     #detail-chart-div {
         height: auto !important;
-        width: 90% !important;
-        margin-left: 5%;
+        width: 80% !important;
+        margin-left: 10%;
     }
 
     #detail_map {
@@ -794,7 +794,7 @@ input.invalid {
 
 #detail-view-container {
     background-color: rgb(250, 251, 255);
-    /* padding-bottom: 50px; */
+    /* padding-bottom: 20px; */
     padding: 10px;
 }
 
@@ -825,6 +825,7 @@ input.invalid {
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     padding: 15px;
+    margin-bottom: 50px;
 }
 
 
@@ -909,9 +910,7 @@ i {
     background-color: white;
 }
 
-#interval-table tr:hover {
-    background-color: #ddd;
-}
+
 
 #detail-chart-div {
     height: 0;
