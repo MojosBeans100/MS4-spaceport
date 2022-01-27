@@ -202,6 +202,22 @@ body {
     
 }
 
+#discover-examples img {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    height: 30vh;
+    padding-top: 10px;
+    
+}
+
+.image-caption {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
 /* CREATE PIPELINE STYLING */
 #create_container,
 #edit-container {
