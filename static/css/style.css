@@ -918,14 +918,14 @@ i {
 
 #result-table td,
 /* #interval-table td, */
-#result-table th,
+#result-table th, 
 /* #interval-table th, */
 #aoi-table th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#result-table tr:nth-child(even),
+/* #result-table tr:nth-child(even), */
 /* #interval-table tr:nth-child(even), */
 #aoi-table tr:nth-child(even) {
     background-color: #ebf0fc;
@@ -935,6 +935,11 @@ i {
 #interval-table tr:hover,
 #aoi-table tr:hover {
     background-color: #ddd;
+}
+
+.detail-result-data tr,
+.detail-result-data td{
+    border: none !important;
 }
 
 #result-table th,

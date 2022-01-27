@@ -133,6 +133,7 @@
                             <th>Start date</th>
                             <th>End date</th>
                             <th>Status</th>
+                            <th>Result</th>
                         </tr>
 
                         {% for result in results %}
@@ -141,18 +142,29 @@
                             <td>{{result.interval_start_date|date:'d M'}}</td>
                             <td>{{result.interval_end_date|date:'d M'}}</td>
                             <td>{{result.status}}</td>
+                            {% if result.image_visual_url %}
+                            <td><i class="far fa-images"></i></td>
+                            {% else %}
+                            <td>-</td>
+                            {% endif %}
                         </tr>
                         {% elif result.status == 'current' %}
                         <tr id="detail-interval-table-current">
                             <td>{{result.interval_start_date|date:'d M'}}</td>
                             <td>{{result.interval_end_date|date:'d M'}}</td>
                             <td>{{result.status}}</td>
+                            {% if result.image_visual_url %}
+                            <td><i class="far fa-images"></i></td>
+                            {% else %}
+                            <td>...</td>
+                            {% endif %}
                         </tr>
                         {% else %}
                         <tr id="detail-interval-table-future">
                             <td>{{result.interval_start_date|date:'d M'}}</td>
                             <td>{{result.interval_end_date|date:'d M'}}</td>
                             <td>{{result.status}}</td>
+                            <td></td>
                         </tr>
                         {% endif %}
                         {% endfor %}
@@ -195,7 +207,7 @@
                 <table class="table" id="result-table">
                     <tr data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
-                        <th>Expand all <i class="fas fa-angle-down"></i></th>
+                        <th style="color: black; text-align: center;"><i class="fas fa-angle-down"></i></th>
                         <th>Status</th>
                         <th>Interval dates</th>
                         <th>Image Preview</th>
@@ -227,7 +239,7 @@
                         <td colspan="7">
                             <div class="row d-flex justify-content-evenly">
                                 <div class="col-3">
-                                    <table>
+                                    <table id="detail-result-data">
 
                                         <tr>
                                             <td>Scene height</td>
@@ -260,7 +272,7 @@
                                 </div>
 
                                 <div class="col-3">
-                                    <table>
+                                    <table id="detail-result-data">
                                         <tr>
                                             <td>AOI area coverage</td>
                                             {% if result.aoi_area_per is None %}
@@ -301,7 +313,7 @@
                                 </div>
 
                                 <div class="col-3">
-                                    <table>
+                                    <table id="detail-result-data">
                                         <tr>
                                             <td><a href="{{result.image_analytics_url}}" target="_blank">Download
                                                     image <i class="fas fa-download"></i></a></td>
