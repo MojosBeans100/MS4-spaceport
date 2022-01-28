@@ -156,7 +156,7 @@ class Result(models.Model):
     image_updated_at = models.DateTimeField(
         null=True
     )
-    image_previous_url = models.CharField(
+    image_preview_url = models.CharField(
         max_length=400,
         null=True
     )

@@ -24,7 +24,7 @@
             </div>
             <div class="col-sm-6 col-lg-4 py-2">
                 {% if pipeline.status == 'complete' %}
-                <a href="#"><button type="button" disabled class="btn btn-dark"><i
+                <a href="{% url 'update' pipeline.id %}"><button disabled type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
                 {% else %}
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
@@ -71,7 +71,8 @@
             <div class="d-flex justify-content-center">
                 <div class="col col-md-6 col-xl-9" id="pending-section" style="text-align: center; padding: 30px 40px;">
                     <h4><span class="detail-pipeline-complete">This pipeline is complete.</span></h4>
-                    <p>Find out how to use your images, create another pipeline, or read our FAQ if your pipeline was unsuccessful.</p>
+                    <p>Read our <a href="{% url 'discover' %}">FAQ</a> if your pipeline was unsuccessful and find out
+                        how to use your images, or <a href="{% url 'create' %}">create another pipeline</a>.</p>
                 </div>
             </div>
 
@@ -249,13 +250,16 @@
                     <!-- if an image has been found for the result object -->
                     <!-- display the image preview and image data -->
                     {% if result.image_visual_url %}
+
                     <tr>
                         <td></td>
                         <td>{{result.status}}</td>
                         <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
                         </td>
-                        <td><a href="{{result.image_visual_url}}" target="_blank" download><img
-                                    style="height: 50px; width: 50px" src="{{result.image_visual_url}}"></a></td>
+                        <td>{{result.image_preview_url}}
+                            <!-- <a href="{{result.image_visual_url}}" target="_blank"><img
+                                    style="height: 50px; width: 50px" src="{{result.image_visual_url}}"></a> -->
+                                </td>
                         <td>{{result.image_created_at}}</td>
                         <td>{{result.image_source}}</td>
                         <td><a href="{{result.image_metadata_url}}" target="_blank"><i

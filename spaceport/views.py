@@ -613,6 +613,8 @@ def update(request, id):
                     update_list.featured_image = i['results'][0]['preview_url']
                     update_list.save()
 
+                    print(update_result.image_preview_url)
+
                 # save the updated result
                 update_result.save()
 

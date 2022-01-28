@@ -904,6 +904,19 @@ input.invalid {
     margin-bottom: 50px;
 }
 
+#detail-view-div a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#detail-view-div a:hover {
+    text-decoration: underline double black;
+    text-underline-position: under;
+    text-underline-offset: 3px;
+    color: black;
+}
+
 
 .detail-view-section {
     margin: 20px 0 20px 0;
