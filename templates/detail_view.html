@@ -24,7 +24,7 @@
             </div>
             <div class="col-sm-6 col-lg-4 py-2">
                 {% if pipeline.status == 'complete' %}
-                <a href="{% url 'update' pipeline.id %}"><button disabled type="button" class="btn btn-dark"><i
+                <a href="#"><button disabled type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
                 {% else %}
                 <a href="{% url 'update' pipeline.id %}"><button type="button" class="btn btn-dark"><i
@@ -114,7 +114,11 @@
                     {% else %}
                     <tr>
                         <td><i class="far fa-images"></i></td>
+                        {% if results.count == 0 %}
+                        <td>retrieving images</td>
+                        {% else %}
                         <td>{{pipeline.num_images}}</td>
+                        {% endif %}
                     </tr>
                     {% endif %}
                 </table>
@@ -134,7 +138,7 @@
                 <p>From {{pipeline.start_date|date:'d M Y'}} to {{pipeline.end_date|date:'d M Y'}}</p>
 
 
-                {% if pipeline.status == 'pending' %}
+                {% if pipeline.status == 'pending' or results.count == 0 %}
                 <p>Update the pipeline to see interval information</p>
                 {% else %}
 
@@ -229,7 +233,7 @@
         <!-- pipeline results section -->
         <div class="detail-view-section">
             <h3>Results</h3>
-            {% if pipeline.status == 'pending' %}
+            {% if pipeline.status == 'pending' or results.count == 0 %}
             <p>Update the pipeline to see results information</p>
             {% else %}
             <div class="table-responsive">
@@ -256,9 +260,9 @@
                         <td>{{result.status}}</td>
                         <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
                         </td>
-                        <td>{{result.image_preview_url}}
-                            <!-- <a href="{{result.image_visual_url}}" target="_blank"><img
-                                    style="height: 50px; width: 50px" src="{{result.image_visual_url}}"></a> -->
+                        <td>
+                            <a href="{{result.image_preview_url}}" target="_blank"><img
+                                    style="height: 50px; width: 50px" src="{{result.image_preview_url}}"></a>
                                 </td>
                         <td>{{result.image_created_at}}</td>
                         <td>{{result.image_source}}</td>
@@ -394,7 +398,7 @@
         <!-- pipeline parameters section -->
         <div class="detail-view-section">
             <h3>Parameters</h3>
-            {% if pipeline.status == 'pending' %}
+            {% if pipeline.status == 'pending'  %}
             <p>Update the pipeline to see parameters information</p>
             {% else %}
 
@@ -418,7 +422,7 @@
                         </tr>
 
                         <tr>
-                            <td>Max cloud cover %</td>
+                            <td>Min cloud cover %</td>
                             <td>{{pipeline.cloud_cover}}%</td>
                         </tr>
 

@@ -227,7 +227,7 @@ def create(request):
 
                 if post_pipeline.status_code == 400:
 
-                    form = createList()
+                    form = CreateList()
 
                     context = {
                         'form': form,
@@ -236,10 +236,10 @@ def create(request):
 
                 else:
 
-                    form = createList()
+                    form = CreateList()
 
                     context = {
-                         'form': form,
+                        'form': form,
                         'error': "Response 500:  we could not reach the API just now.  Please try again later."
                     }
 
@@ -328,28 +328,32 @@ def detail_view(request, id):
 
         s_date = result.interval_start_date
         start_date = s_date.strftime("%d-%m-%Y")
-        
+
         e_date = result.interval_end_date
         end_date = e_date.strftime("%d-%m-%Y")
 
         if s_date < today and e_date < today:
             complete_intervals.append(start_date)
             complete_intervals.append(end_date)
+            result.status = "complete"
+            result.save()
 
         if s_date <= today and today <= e_date:
             current_interval.append(start_date)
             current_interval.append(end_date)
             result.status = "current"
             result.save()
-        
+
         else:
             all_dates.append(start_date)
             all_dates.append(end_date)
-
+            
         if s_date > today and e_date > today:
             future_intervals.append(start_date)
             future_intervals.append(end_date)
-        
+            result.status = "future"
+            result.save()
+
         if result.image_created_at is not None:
             image_taken = result.image_created_at.strftime("%d-%m-%Y")
             image_dates.append(image_taken)
@@ -612,8 +616,6 @@ def update(request, id):
                     # save latest image as featured image on my_pipelines.html
                     update_list.featured_image = i['results'][0]['preview_url']
                     update_list.save()
-
-                    print(update_result.image_preview_url)
 
                 # save the updated result
                 update_result.save()
