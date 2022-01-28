@@ -127,7 +127,7 @@ body {
 }
 
 #purpose-img4 {
-    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643350552/timeline_ziavmx.jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/7141cdc97a17b5a5da4da31e994b17d2_igxqw9.jpg');
 }
 
 #purpose-img5 {
@@ -457,11 +457,13 @@ input.invalid {
     width: 60%;
 }
 
-#submitting_name {
+#submitting_pipeline h2 {
     padding-top: 200px;
     text-align: center;
     padding-bottom: 20px;
 }
+
+
 
 #submitting-gif{
     width: 100px;
@@ -498,7 +500,25 @@ input.invalid {
     background-color: rgb(250, 251, 255);
     /* font-family: Noto Sans Display, sans-serif; */
     padding-bottom: 50px;
+    min-height: 100vh;
     /* overflow: hidden; */
+}
+
+#pipelines-no-pipelines {
+    margin-top: 100px;
+}
+
+#pipelines-no-pipelines a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#pipelines-no-pipelines a:hover {
+    text-decoration: underline double black;
+    text-underline-position: under;
+    text-underline-offset: 3px;
+    color: black;
 }
 
 #my_pipelines_blurb {
@@ -757,6 +777,9 @@ input.invalid {
     /* GENERAL 1200 */
     /* HOMEPAGE 1200 */
     /* DISCOVER 1200 */
+    #applications .card {
+        max-width: 360px;}
+
     /* CREATE PIPELINE 1200 */
     #create_form {
         width: 70%;

@@ -116,7 +116,8 @@
                                         a satellite is orbiting overhead at some point within those 30 days, than if the
                                         interval is
                                         set to 1 day</small></li>
-                                <li>- Increase allowable cloud cover percentage<br><small>If allowable cloud cover percentage is
+                                <li>- Increase allowable cloud cover percentage<br><small>If allowable cloud cover
+                                        percentage is
                                         set to a low number, it will reject any images above this number. (This does not
                                         mean all images
                                         will be below the number set.)</small></li>
@@ -326,7 +327,8 @@
                 <div class="input-sections">
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
                     <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have.<br>
-                        <p>If this is set to 100%, you want your pipeline to have 100% cloud free area (100% AOI visible)</p>
+                        <p>If this is set to 100%, you want your pipeline to have 100% cloud free area (100% AOI
+                            visible)</p>
                     </p>
                     {{form.cloud_cover}}
                 </div>
@@ -482,7 +484,7 @@
             </div>
 
             <!-- review form section -->
-            <div id="review_form_section" style="height: 70vh; overflow-y: auto;" class="tab">
+            <div id="review_form_section" style="height: auto;" class="tab">
                 <div class="row">
 
                     <div class="col">
@@ -582,13 +584,15 @@
                     </tr>
                 </table>
 
-                <p>Once submitted, you will be redirected to your new pipeline.</p>
-                <p>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline</p>
+                <div style="text-align:center;">
+                    <h3>Once submitted, you will be redirected to your new pipeline.</h3>
+                    <h3>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline</h3>
+                </div>
 
 
             </div>
 
-            <div id="submitting_pipeline" class="tab">
+            <div id="submitting_pipeline" style="text-align: center;" class="tab">
                 <h2>Thank you for submitting your pipeline.</h2>
                 <h3 id="submitting_name"></h3>
                 <p>Please do not refresh the browser while we do this.</p>
@@ -635,6 +639,7 @@
     // library - https://www.w3schools.com/howto/howto_js_form_steps.asp
     // this step form uses code from the above link
     // modified and enhanced to fit the purpose of this project
+    //document.getElementsByClassName("nav-link")[2].style.color = "red"
     document.getElementById('id_output_1').checked = true;
     var currentTab = 0;
     var mapLoads = true
@@ -927,20 +932,20 @@
 
                 map_a = document.createElement('p');
                 map_a.id = 'map-a';
-                //map_a.style.display = "none";
+                map_a.style.display = "none";
                 map_a.innerHTML = rounded_km;
                 aoi_section.append(map_a)
 
                 if (rounded_km > 10000) {
 
                     area_validation = "Area is too large: choose an area smaller than 10,000 km<sup>2</sup>";
-                    area_validation_feedback.style.color = 'red';
+                    area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
 
                 } else if (rounded_km < 25) {
 
                     area_validation = "Area is too small: choose an area larger than 25 km<sup>2</sup>";
-                    area_validation_feedback.style.color = 'red';
+                    area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
 
                 } else {

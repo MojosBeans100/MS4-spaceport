@@ -11,14 +11,14 @@
     {% if user.is_authenticated %}
     <div id="my_pipelines_blurb">
         <h3>MY PIPELINES</h3>
-        <p>See a list below of all your current pipelines, ordered by status</p>
+        
 
-        {% if active_num == 0 and complete_num == 0 and pending_num == 0 %}
-        <div>
+        {% if active.count == 0 and complete.count == 0 and pending.count == 0 %}
+        <div id="pipelines-no-pipelines">
             <h4>You currently have no pipelines</h4>
             <br>
-            <h6>Learn more about creating a pipeline here</h6>
-            <h6>Create a new pipeline here</h6>
+            <h6>Learn more about creating a pipeline <a href="{% url 'discover' %}">here</a></h6>
+            <h6>Create a new pipeline <a href="{% url 'create' %}">here</a></h6>
         </div>
         {% else %}
         <div class="row py-4">
@@ -48,7 +48,8 @@
                 <p><small>saved 'Create Pipeline' forms not yet submitted</small></p>
             </div> -->
         </div>
-        {% endif %}
+        <p>See a list below of all your current pipelines, ordered by status</p>
+        
     </div>
 
     <div id="pipeline_list_div">
@@ -168,11 +169,11 @@
             </div>
         </div> -->
     </div>
-
+    {% endif %}
     {% else %}
     <p style="margin-top: 150px;">Ooops you have been redirected to the wrong. Please return home.</p>
     {% endif %}
-
+    
 </div>
 
 
