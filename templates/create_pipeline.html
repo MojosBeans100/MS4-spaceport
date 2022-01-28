@@ -86,7 +86,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <hr>
 
                         <div class="input-sections" id="restrictions">
@@ -94,14 +93,13 @@
                             <h6>This service is free, therefore there are some strict parameter limits.</h6>
                             <ul>
                                 <li>- The Area of Interest (AOI) must be more than 25 km<sup>2</sup>, and no more than
-                                    100
+                                    10,000
                                     km<sup>2</sup></li>
                                 <li>- Pipelines can have no more than 10 intervals</li>
                                 <li>- Resolution is limited to 8 to 15 metres</li>
                                 <li>- Only images taken within the last 3 years (since 2020) are available</li>
                             </ul>
                         </div>
-
                         <hr>
 
                         <div class="input-sections" id="satellite-aquisition">
@@ -123,7 +121,6 @@
                                         will be below the number set.)</small></li>
                             </ul>
                         </div>
-
                         <hr>
 
                         <div class="input-sections" id="calc-probability">
@@ -135,7 +132,6 @@
                                 before you commit your pipeline.</p>
                             <p>Probability calculation is only available for <strong>True Colour</strong> images.</p>
                         </div>
-
                         <hr>
 
                         <div class="input-sections" id="aoi-selection">
@@ -182,7 +178,6 @@
                             </div>
 
                         </div>
-
                         <hr>
 
                         <div class="input-sections" id="pipeline-ideas">
@@ -240,7 +235,7 @@
                             <h4>Area of Interest</h4>
                             <br>
                             <p>Tell us where to look for images. <span class="form_limits">Area must be between 25
-                                    km<sup>2</sup> and 100 km<sup>2</sup></span></p>
+                                    km<sup>2</sup> and 10,000 km<sup>2</sup></span></p>
                         </div>
                     </div>
 
@@ -825,7 +820,7 @@
             document.getElementById('submitting_pipeline').style.display = 'block';
             document.getElementById('buttons-div').style.display = "none";
             document.getElementById('submitting_name').innerHTML = `We are setting up ${document.getElementById('pipeline_name').value}..`
-            //document.getElementById('create_form').submit();
+            document.getElementById('create_form').submit();
             return false;
         }
 
@@ -932,9 +927,9 @@
                 map_a.innerHTML = rounded_km;
                 aoi_section.append(map_a)
 
-                if (rounded_km > 100) {
+                if (rounded_km > 10000) {
 
-                    area_validation = "Area is too large: choose an area smaller than 100 km<sup>2</sup>";
+                    area_validation = "Area is too large: choose an area smaller than 10,000 km<sup>2</sup>";
                     area_validation_feedback.style.color = 'red';
                     input_validation.value = "";
 
@@ -981,7 +976,7 @@
             container: 'review-aoi',
             style: 'mapbox://styles/mapbox/light-v10',
             center: [long, lat],
-            zoom: 9,
+            zoom: 5,
         });
 
         map.on('load', () => {

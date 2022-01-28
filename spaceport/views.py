@@ -198,6 +198,7 @@ def create(request):
                 json=params)
             post_response = post_pipeline.json()
 
+            print(post_pipeline)
             print(post_response)
 
             # if no errors in api response,

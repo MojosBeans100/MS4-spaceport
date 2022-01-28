@@ -59,7 +59,7 @@ class List(models.Model):
         null=True
     )
     cloud_cover = models.PositiveIntegerField(
-        default=100,
+        default=1,
         validators=[MinValueValidator(1), MaxValueValidator(100)],
     )
 
