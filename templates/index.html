@@ -28,7 +28,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js">
     </script>
-    <script>src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"</script>
+    <script>
+        src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
+    </script>
 
     <script src="https://kit.fontawesome.com/c013b232df.js" crossorigin="anonymous"></script>
     <!-- <link rel="icon" type="image/x-icon" href="../static/images/neptune-01.svg"> -->
@@ -85,7 +87,7 @@
         </div>
     </nav>
 
-    
+
     <div class="container-fluid" id="index-container">
         {% block content %}
         {% if error %}
@@ -184,18 +186,20 @@
                     <h5>Learn more about the applications of satellite imagery, browse examples and current events, or
                         <strong>create your own pipeline</strong></h5>
 
-                    <div class="row  py-3">
+                    <div class="row py-5">
                         <div class="col-md py-2">
-                            <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg">Discover
+                            <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg"><i
+                                        class="fas fa-search"></i>Discover
                                     More</button></a>
                         </div>
                         {% if user.is_authenticated %}
-                        <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg">Create
+                        <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg"><i
+                                        class="far fa-images"></i>Create
                                     a
                                     Pipeline</button></a></div>
                         {% else %}
                         <div class="col-md py-2"><a href="{% url 'account_login' %}"><button
-                                    class="btn btn-dark btn-lg">Sign
+                                    class="btn btn-dark btn-lg"><i class="fa fa-sign-in"></i>Sign
                                     Up</button></a></div>
                         {% endif %}
                     </div>
@@ -209,4 +213,3 @@
 </body>
 
 </html>
-
