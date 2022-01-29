@@ -61,6 +61,26 @@ body {
     color: black;
 }
 
+.a-links {
+    color: black !important;
+    font-weight: bold;
+}
+
+#discover-container a,
+#start_form_section a {
+    color: black !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#discover-container a:hover,
+#start_form_section a:hover {
+    text-decoration: underline double black;
+    text-underline-position: under;
+    text-underline-offset: 3px;
+    color: black;
+}
+
 
 /* INDEX/HOMEPAGE STYLING */
 
@@ -172,34 +192,17 @@ body {
     text-align: center;
 }
 
-#discover-page-links {
-    font-weight: bold;
-}
-
-#discover-page-links p:hover {
-    text-decoration: underline double black;
-    text-underline-position: under;
-    text-underline-offset: 3px;
-    color: black;
-}
-
-#discover-container div {
-    /* padding-top: 30px; */
-}
-
 #applications .card {
     border: none;
     max-width: 270px;
     margin: auto;
     background-color: rgb(250, 251, 255);
-    
 }
 
 #applications img {
     height: 30vh;
     border-radius: 5px;
     border: none;
-    
 }
 
 #discover-examples img {
@@ -244,19 +247,6 @@ body {
 
 #create_form {
     font-size: 15px !important;
-}
-
-#start_form_section a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#start_form_section a:hover {
-    text-decoration: underline double black;
-    text-underline-position: under;
-    text-underline-offset: 3px;
-    color: black;
 }
 
 #start_form_section {
