@@ -49,38 +49,25 @@ body {
     color: black;
 }
 
-.nav-link {
-    color: black !important;
-    font-weight: bold;
-}
-
-.nav-item a:hover {
-    text-decoration: underline double black;
-    text-underline-position: under;
-    text-underline-offset: 3px;
-    color: black;
-}
-
-.a-links {
-    color: black !important;
-    font-weight: bold;
-}
-
+.nav-link,
 #discover-container a,
 #start_form_section a,
 #my_pipelines_container a,
 #detail-view-div a,
-.accounts-divs a {
+.accounts-divs a,
+#edit-container a {
     color: black !important;
     font-weight: bold;
     text-decoration: none;
 }
 
+.nav-item a:hover,
 #discover-container a:hover,
 #start_form_section a:hover,
 #my_pipelines_container a:hover,
 #detail-view-div a:hover,
-.accounts-divs a:hover {
+.accounts-divs a:hover,
+#edit-container a:hover {
     text-decoration: underline double black;
     text-underline-position: under;
     text-underline-offset: 3px;
@@ -1021,13 +1008,6 @@ i {
 }
 
 /* EDIT VIEW STYLING */
-#edit-container a {
-    color: black;
-}
-
-#edit-container a:hover {
-    font-weight: bold;
-}
 
 #edit-container {
     min-height: 100vh;
