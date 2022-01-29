@@ -212,7 +212,8 @@ body {
 
 }
 
-#discover-glossary table td {
+#discover-glossary table td,
+#discover-examples p {
     text-align:justify;
 }
 
