@@ -67,14 +67,20 @@ body {
 }
 
 #discover-container a,
-#start_form_section a {
+#start_form_section a,
+#my_pipelines_container a,
+#detail-view-div a,
+.accounts-divs a {
     color: black !important;
     font-weight: bold;
     text-decoration: none;
 }
 
 #discover-container a:hover,
-#start_form_section a:hover {
+#start_form_section a:hover,
+#my_pipelines_container a:hover,
+#detail-view-div a:hover,
+.accounts-divs a:hover {
     text-decoration: underline double black;
     text-underline-position: under;
     text-underline-offset: 3px;
@@ -457,8 +463,6 @@ input.invalid {
     padding-bottom: 20px;
 }
 
-
-
 #submitting-gif{
     width: 100px;
     margin-left: calc(50% - 100px);
@@ -466,20 +470,6 @@ input.invalid {
 
 
 /* MY PIPELINES STYLING */
-
-.pipelines_links {
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    text-transform: uppercase;
-}
-
-.pipelines_links:hover {
-    text-decoration: underline double black;
-    text-underline-position: under;
-    text-underline-offset: 3px;
-    color: black;
-}
 
 #my_pipelines_container h3 {
     font-weight: 700;
@@ -502,19 +492,6 @@ input.invalid {
     margin-top: 100px;
 }
 
-#pipelines-no-pipelines a {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#pipelines-no-pipelines a:hover {
-    text-decoration: underline double black;
-    text-underline-position: under;
-    text-underline-offset: 3px;
-    color: black;
-}
-
 #my_pipelines_blurb {
     width: 60%;
     margin-left: 20%;
@@ -535,8 +512,6 @@ input.invalid {
 
 #pipeline_list_div a {
     font-style: italic;
-    text-decoration: none;
-    color: black;
 }
 
 #pipeline_list_div {
@@ -921,20 +896,6 @@ input.invalid {
     margin-bottom: 50px;
 }
 
-#detail-view-div a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-#detail-view-div a:hover {
-    text-decoration: underline double black;
-    text-underline-position: under;
-    text-underline-offset: 3px;
-    color: black;
-}
-
-
 .detail-view-section {
     margin: 20px 0 20px 0;
 }
@@ -990,10 +951,6 @@ i {
     margin-left: 5%;
     margin-top: 30px;
     font-size: 12px;
-}
-
-#result-table a {
-    color: black;
 }
 
 #detail-view-div hr {
@@ -1116,19 +1073,6 @@ i {
     box-shadow: 0 0 3px rgb(177, 177, 177);
     background-color: white;
     padding: 20px;
-}
-
-.accounts-divs a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.accounts-divs a:hover {
-    text-decoration: underline double black;
-    text-underline-position: under;
-    text-underline-offset: 3px;
-    color: black;
 }
 
 .accounts-divs button {
