@@ -74,6 +74,15 @@ body {
     color: black;
 }
 
+.purpose-section button:hover,
+#detail-links button:hover,
+.detail-view-section button:hover,
+#edit-container button:hover {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(0, 0, 0);
+    color: black;
+}
+
 
 /* INDEX/HOMEPAGE STYLING */
 
@@ -159,11 +168,7 @@ body {
     width: 230px;
 }
 
-.purpose-section button:hover {
-    background-color: rgb(255, 255, 255);
-    border: solid 1px rgb(0, 0, 0);
-    color: black;
-}
+
 
 /* DISCOVER STYLING */
 
@@ -204,7 +209,11 @@ body {
     margin: auto;
     height: 30vh;
     padding-top: 10px;
-    
+
+}
+
+#discover-glossary table td {
+    text-align:justify;
 }
 
 .image-caption {
@@ -450,7 +459,7 @@ input.invalid {
     padding-bottom: 20px;
 }
 
-#submitting-gif{
+#submitting-gif {
     width: 100px;
     margin-left: calc(50% - 100px);
 }
@@ -725,7 +734,7 @@ input.invalid {
         top: 150px !important;
     }
 
-    
+
 }
 
 @media (min-width: 1200px) {
@@ -734,7 +743,8 @@ input.invalid {
     /* HOMEPAGE 1200 */
     /* DISCOVER 1200 */
     #applications .card {
-        max-width: 360px;}
+        max-width: 360px;
+    }
 
     /* CREATE PIPELINE 1200 */
     #create_form {
@@ -771,7 +781,7 @@ input.invalid {
 
     /* ACCOUNTS 1200 */
     /* EDIT 1200 */
-    
+
     #edit-container {
         padding-top: 130px !important;
     }
@@ -853,9 +863,7 @@ input.invalid {
     color: rgb(10, 124, 10);
 }
 
-.detail-pipeline-not-started {
-
-}
+.detail-pipeline-not-started {}
 
 #detail-links {
     padding-top: 90px;
@@ -899,13 +907,7 @@ i {
 
 
 
-#detail-links button:hover,
-.detail-view-section button:hover,
-#edit-container button:hover {
-    background-color: rgb(255, 255, 255);
-    border: solid 1px rgb(0, 0, 0);
-    color: black;
-}
+
 
 #detail_map {
     width: 100%;
@@ -974,7 +976,7 @@ i {
 
 #result-table td,
 /* #interval-table td, */
-#result-table th, 
+#result-table th,
 /* #interval-table th, */
 #aoi-table th {
     border: 1px solid #ddd;
@@ -995,7 +997,7 @@ i {
 }
 
 .detail-result-data tr,
-.detail-result-data td{
+.detail-result-data td {
     border: none !important;
 }
 
