@@ -74,7 +74,7 @@ body {
     color: black;
 }
 
-.purpose-section button:hover,
+/* .purpose-section button:hover, */
 #detail-links button:hover,
 .detail-view-section button:hover,
 #edit-container button:hover {
@@ -226,6 +226,16 @@ body {
     font-style: italic;
     font-weight: bold;
     padding-bottom: 10px;
+}
+
+#carouselExampleControls button:hover {
+    /* border: none;
+    background-color: none;
+    opacity: 0; */
+}
+
+#carouselExampleControls img {
+    height: 45vh;
 }
 
 /* CREATE PIPELINE STYLING */
@@ -532,7 +542,7 @@ input.invalid {
     height: 200px;
 }
 
-.card-img-top:hover {
+#my_pipelines_container .card-img-top:hover {
     opacity: 0.5;
 }
 
