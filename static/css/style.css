@@ -25,7 +25,7 @@ body {
     text-align: center;
 }
 
-#nav-icon {
+#nav-icon img{
     height: 35px;
     width: 35px;
 }
@@ -567,9 +567,9 @@ input.invalid {
         font-size: 30px;
     }
 
-    #nav-icon {
-        height: 55px;
-        width: 55px;
+    #nav-icon img {
+        height: 50px;
+        width: 50px;
     }
 
     /* HOMEPAGE 576 */
@@ -663,6 +663,10 @@ input.invalid {
         height: 52vh;
     }
 
+    #discover-applications .card {
+        max-width: 400px;
+    }
+
     /* MY PIPELINES 768 */
     #my_pipelines_blurb {
         padding-top: 100px;
@@ -723,8 +727,8 @@ input.invalid {
     .purpose-section {
         padding-top: 80px !important;
         padding-bottom: 80px !important;
-        width: 60% !important;
-        margin-left: 20% !important;
+        width: 70% !important;
+        margin-left: 15% !important;
     }
 
     /* DISCOVER 992 */
@@ -757,13 +761,16 @@ input.invalid {
     /* GENERAL 1200 */
     /* HOMEPAGE 1200 */
     /* DISCOVER 1200 */
-    #discover-applications .card {
-        max-width: 360px;
-    }
 
-    /* #discover-examples img {
-        max-width: 400px;
+    /* #discover-applications .card {
+        max-width: 420px;
     } */
+    
+
+    #discover-examples img {
+        max-width: 400px;
+        padding: 20px;
+    }
 
     /* CREATE PIPELINE 1200 */
     #create_form {
