@@ -10,14 +10,13 @@
 
 
 <body id="create_container">
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-bottom: 30px;">
         {% if user.is_authenticated %}
         <form action="" method="POST" id="create_form">
             {% csrf_token%}
 
             <!-- start of form section -->
-            <div id="start_form_section" style="margin-top: 50px; height: 70vh; overflow-y: auto; overflow-x: hidden;"
-                class="tab">
+            <div id="start_form_section" style="margin-top: 50px; height: auto;" class="tab">
 
                 {% if error %}
                 <div style="padding-top: 100px; border: solid black; width: 50%; margin-left: 25%;">
@@ -328,7 +327,8 @@
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
                     <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have.<br>
                         <p>If this is set to 100%, you want your pipeline to have 100% cloud free area (100% AOI
-                            visible)</p>
+                            visible).<br> The higher this parameter, the lower chance of receiving images as the platform
+                            will reject images below this number.</p>
                     </p>
                     {{form.cloud_cover}}
                 </div>
@@ -339,7 +339,7 @@
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/30-per-cloud-cover_vfgigm.jpg">
                             <br>
-                            <p><strong>Low cloud cover (1% - 30%)</strong></p>
+                            <p><strong>Low cloud cover (high cloud free area)</strong></p>
                             <p>High AOI coverage</p>
                             <p>Lower probability of image return</p>
                         </div>
@@ -348,7 +348,7 @@
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782570/65-per-cloud-cover_ufppk0.jpg">
                             <br>
-                            <p><strong>Medium cloud cover (30% - 80%)</strong></p>
+                            <p><strong>Medium cloud cover (medium cloud free area)</strong></p>
                             <p>Medium AOI coverage</p>
                             <p>Medium probability of image return</p>
                         </div>
@@ -357,7 +357,7 @@
                             <img
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/80-per-cloud-cover_j3wok7.jpg">
                             <br>
-                            <p><strong>High cloud cover (80% - 100%)</strong></p>
+                            <p><strong>High cloud cover (low cloud free area)</strong></p>
                             <p>Low AOI coverage</p>
                             <p>Higher probability of image return</p>
                         </div>
@@ -585,8 +585,9 @@
                 </table>
 
                 <div style="text-align:center;">
-                    <h3>Once submitted, you will be redirected to your new pipeline.</h3>
-                    <h3>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline</h3>
+                    <h4>Once submitted, you will be redirected to your new pipeline.</h4>
+                    <h4>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline
+                    </h4>
                 </div>
 
 

@@ -26,26 +26,30 @@
     </div>
 
     <div class="row d-flex justify-content-evenly" id="discover-page-links">
-        <div class="col-md-3 p-1">
-            <p>Applications</p>
+        <div class="col-md p-1">
+            <a href="#discover-applications-title">Applications</a>
         </div>
 
-        <div class="col-md-3 p-1">
-            <p>Examples</p>
+        <div class="col-md p-1">
+            <a href="#discover-examples-title">Examples</a>
         </div>
 
-        <div class="col-md-3 p-1">
-            <p>FAQ</p>
+        <div class="col-md p-1">
+            <a href="#discover-news-title">News</a>
         </div>
 
-        <div class="col-md-3 p-1">
-            <p>Glossary</p>
+        <div class="col-md p-1">
+            <a href="#discover-glossary-title">Glossary</a>
         </div>
+
+        <div class="col-md p-1">
+            <a href="#discover-faq-title">FAQ</a>
+        </div>  
     </div>
 
     <div id="applications">
         <div class="purpose-section">
-            <h3>Applications</h3>
+            <h3 id="discover-applications-title">Applications</h3>
             <p>Satellite imagery, or remote sensing data, provides essential observation and analysis related to the
                 Earth's surface
                 and environment due to their priviledge point of view. See some common applications below.</p>
@@ -203,7 +207,7 @@
 
     <div id="discover-examples">
         <div class="purpose-section">
-            <h3>Examples</h3>
+            <h3 id="discover-examples-title">Examples</h3>
             <p>Read some of our examples of previous clients who have used satellite imagery collected by this platform.
             </p>
 
@@ -265,7 +269,7 @@
 
     <div id="applications">
         <div class="purpose-section">
-            <h3>Glossary</h3>
+            <h3 id="discover-glossary-title">Glossary</h3>
             <p>Here is a glossary of technical terms you may find while using this website</p>
 
             <table class="table">
@@ -409,7 +413,7 @@
 
     <div id="applications">
         <div class="purpose-section">
-            <h3>FAQ</h3>
+            <h3 id="discover-faq-title">FAQ</h3>
             <p>Here are some frequently asked questions about our platform.</p>
 
             <h5>My pipeline starts and finishes in the past, why is it still 'active'?</h5>
@@ -417,6 +421,11 @@
                 either retrieving, processing or formatting the images. You are recommended to allow a few minutes for
                 this process, and
                 welcome to update the pipeline until complete.</p>
+
+            <h5>Why are some of my images taken in the day, and some at night?</h5>
+            <p>As long as the images have been captured within the specified interval, they will be delivered. If the
+                interval is set to 1 day, the image could have been captured at any time within those 24 hours, day and
+                night.  Intervals cannot be set to more specific times, such as within the hour or minute.</p>
 
             <h5>Why was my pipeline unsuccessful in delivering images?</h5>
             <p>Successful retrieval of images depends on many factors. Most importantly, in order to capture an image of
@@ -432,7 +441,8 @@
                 have an interest in using the images for a specific purpose, you can:
                 - compare all images from the same pipeline, to distinguish changes in the environment<br>
                 - browse the metadata for technical information about the images<br>
-                - download the images and apply standard image processing techniques, such as increasing or decreasing the exposure, contrast, saturation,
+                - download the images and apply standard image processing techniques, such as increasing or decreasing
+                the exposure, contrast, saturation,
                 and hue, to determine if you can enhance the image quality
             </p>
 
