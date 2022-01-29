@@ -190,14 +190,14 @@ body {
     text-align: center;
 }
 
-#applications .card {
+#discover-applications .card {
     border: none;
     max-width: 270px;
     margin: auto;
     background-color: rgb(250, 251, 255);
 }
 
-#applications img {
+#discover-applications img {
     height: 30vh;
     border-radius: 5px;
     border: none;
@@ -742,7 +742,7 @@ input.invalid {
     /* GENERAL 1200 */
     /* HOMEPAGE 1200 */
     /* DISCOVER 1200 */
-    #applications .card {
+    #discover-applications .card {
         max-width: 360px;
     }
 
