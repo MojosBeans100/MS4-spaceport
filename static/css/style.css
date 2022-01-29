@@ -217,6 +217,10 @@ body {
     text-align:justify;
 }
 
+#discover-examples h5 {
+    padding-top: 30px;
+}
+
 .image-caption {
     text-align: center !important;
     font-style: italic;
@@ -746,6 +750,10 @@ input.invalid {
     #discover-applications .card {
         max-width: 360px;
     }
+
+    /* #discover-examples img {
+        max-width: 400px;
+    } */
 
     /* CREATE PIPELINE 1200 */
     #create_form {
