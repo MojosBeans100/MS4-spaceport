@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -178,6 +178,13 @@
 </div>
 
 
-
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.getElementById('nav-active-page')) {
+            document.getElementById('nav-active-page').removeAttribute('nav-active-page')
+        }
+        document.getElementsByClassName('nav-link')[3].setAttribute("id", "nav-active-page")
+    });
+</script>
 
 {% endblock content %}

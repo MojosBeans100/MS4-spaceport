@@ -25,7 +25,7 @@ body {
     text-decoration: underline double black;
     text-underline-position: under;
     text-underline-offset: 3px;
-    color: black;
+    font-weight: bolder;
 }
 
 .navbar-collapse {

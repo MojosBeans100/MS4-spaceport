@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -327,7 +327,8 @@
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
                     <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have.<br>
                         <p>If this is set to 100%, you want your pipeline to have 100% cloud free area (100% AOI
-                            visible).<br> The higher this parameter, the lower chance of receiving images as the platform
+                            visible).<br> The higher this parameter, the lower chance of receiving images as the
+                            platform
                             will reject images below this number.</p>
                     </p>
                     {{form.cloud_cover}}
@@ -637,6 +638,12 @@
 
 
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.getElementById('nav-active-page')) {
+            document.getElementById('nav-active-page').removeAttribute('nav-active-page')
+        }
+        document.getElementsByClassName('nav-link')[2].setAttribute("id", "nav-active-page")
+    });
     // library - https://www.w3schools.com/howto/howto_js_form_steps.asp
     // this step form uses code from the above link
     // modified and enhanced to fit the purpose of this project

@@ -509,8 +509,10 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('nav-active-page').removeAttribute('nav-active-page')
+     document.addEventListener('DOMContentLoaded', () => {
+        if (document.getElementById('nav-active-page')) {
+            document.getElementById('nav-active-page').removeAttribute('nav-active-page')
+        }
         document.getElementsByClassName('nav-link')[1].setAttribute("id", "nav-active-page")
     });
 </script>
