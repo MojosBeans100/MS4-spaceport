@@ -549,7 +549,7 @@ input.invalid {
 
 #pipeline_card {
     border: none;
-    width: 180px;
+    width: 230px;
     margin: auto;
 }
 
@@ -598,6 +598,7 @@ input.invalid {
 
     #pipeline_card {
         width: 100% !important;
+        max-width: 250px;
     }
 
     /* DETAIL VIEW 576 */
@@ -1003,7 +1004,9 @@ i {
     background-color: white;
 }
 
-
+.detail-view-section button {
+    width: 200px;
+}
 
 #detail-chart-div {
     height: 0;

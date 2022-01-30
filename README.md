@@ -211,3 +211,29 @@ User story 7: As a **Site User** I can **edit, update and delete pipelines**
 
 ### Admin
 
+
+# Features
+
+## Homepage
+The Spaceport homepage presents the purpose of the website to the user in a clear and concise manner, with attractive images and minimalist design.
+
+# Navbar
+The navigation bar at the top of the webpage is featured on all pages, and remains fixed at the top in order for the user to be able to navigate to other pages easily, demonstrate the page the user is on, and provide a general overview of the website content.  The content of the navigation bar changes depending on the user's log in state in order to reflect the relevant pages.
+
+To the left is the website title and featured icon.  The user can use either of these to navigate back to the homepage.
+Offset from the left is a collection of other pages - Discover, Create and Pipelines - the latter two of which are only available for signed up and logged in users.
+Fixed to the right is the link to login/signup/logout, for the user to change their login state.  If the user is logged in their username is also displayed here, clearly showing they are logged in. 
+
+The navigation bar links are underlined to show the active page and also display this style on mouse hover.
+
+# Banner image
+# Introduction to website
+
+## Discover
+
+# Links
+# Applications
+# Examples
+# News
+# Glossary
+# FAQ
