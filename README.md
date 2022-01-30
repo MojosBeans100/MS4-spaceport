@@ -238,7 +238,7 @@ After reading the website introduction, the user is directed to either the Disco
 ## Discover
 The Discover page is named aptly to encourage users to explore more about satellite imagery before jumping in to creating their own pipelines.  The purpose of the page is to provide more technical information and context about the site's purpose.  This information is kept separate from the homepage as it holds a lot of information, and the user is directed to this page at several places on other pages, as the developer feels it is beneficiery to explore this page before using the site.  In short, as the website is based on a very specific, technical concept, the developer wants the user to have a comprehensive understanding of the purpose of the site. 
 
-### Links
+### Discover links
 As the Discover page is long, a sub navigation section is rendered to display the information the user can expect to find on this page, and to allow the user to jump to the page section of most interest.
 
 ### Applications
@@ -255,3 +255,41 @@ The glossary section defines any technical or unfamiliar terms the user may come
 
 ### FAQ
 The frequently asked questions section provides access to some questions the user may ask when using the site, and attempts to provide a clear answer.
+
+## Pipelines
+The Pipelines/My Pipelines page lists all the pipelines the user has created.  This page can be used to review the status of current pipelines, and click on each to see the detailed view.
+
+### Pipelines links
+There is sub navigation section which categorises the pipelines by their status.  There is also a brief description beneath each link to convey what each status means in the context of satellite imagery pipelines.
+
+### Pipelines cards
+Each pipeline is represented by a Bootstrap card, identified by the name of the pipeline.  The description, start and end dates, number of images collected, and a link to view the pipeline detail are also displayed.  The latest image the pipeline has collected is displayed in the card, or a placeholder image if there are none. 
+
+## Detail
+The detail view of the pipeline displays all information about the pipeline object.  The user can view not only the parameters they set, but information the platform gathers about intervals, and any results created.
+
+### Calls to action
+There are two calls to action at the top of the page.  One to navigate back to the user's list of all pipelines.  The second calls the 'Update' function, which is placed at the top of the page in the immediate view of the user as it is an important function.  User's must update their pipelines manually, reasons for which are outlined in the 'Limitations' section of this document.  The time of the last update is rendered beneath this button.
+
+### General
+The general section conveys the most important, identifying and summarising information about the pipeline - the name, status, AOI, date created and number of images collected.  The AOI is displayed in a map, which automatically locates to the area and renders the user's drawn area.
+
+### Interval
+The interval section provides a table of all intervals in the pipeline, colour coded to represent the status of that interval (current, complete, future) and if they successful in collecting an image.  The overall start and end dates of the pipeline are also rendered, as well as the interval period (1d/daily, 7d/weekly etc) and number of intervals.
+
+If the pipeline is active, a timeline graph is shown to provide a visual representation of the interval table data.  This timeline is not displayed under a screen width of 1200px.
+
+### Results
+The pipeline results are also displayed in a table.  The user can see:
+
+- the status of the interval
+- dates of the interval the result relates to
+- an selectable image which opens a separate tab showing a preview of the image
+- the time the image was captured by the satellite
+- the satellite the image was captured by
+- a link to the metadata which opens a separate tab displaying technical data of the image in JSON format
+
+The user can expand the table by clicking the drop down, which will open all rows to display further technical data about the image, as well as a link which downloads the full size image.
+
+### Parameters
+### Edit/Delete
