@@ -86,7 +86,11 @@ body {
 /* .purpose-section button:hover, */
 #detail-links button:hover,
 .detail-view-section button:hover,
-#edit-container button:hover {
+#edit-container button:hover,
+#index-container button:hover,
+#my_pipelines_container button:hover,
+#create_container button:hover,
+.purpose-section button:hover {
     background-color: rgb(255, 255, 255);
     border: solid 1px rgb(0, 0, 0);
     color: black;
@@ -250,15 +254,16 @@ body {
 
 /* CREATE PIPELINE STYLING */
 #create_container,
-#edit-container {
+#edit-container,
+#delete-container {
     background-color: rgb(250, 251, 255);
     height: 100vh;
     padding-bottom: 40px;
 }
 
-#create_form,
+#create_form
 /* #edit_form, */
-#delete_form {
+/* #delete_form { */{
     position: relative;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
@@ -710,7 +715,8 @@ input.invalid {
     /* ACCOUNTS 768 */
 
     /* EDIT 768 */
-    #edit_form {
+    #edit_form,
+    #delete_form {
         width: 80%;
         margin-left: 10%;
     }
@@ -816,7 +822,8 @@ input.invalid {
         padding-top: 130px !important;
     }
 
-    #edit_form {
+    #edit_form,
+    #delete_form {
         width: 60%;
         margin-left: 20%;
     }
@@ -1041,24 +1048,34 @@ i {
 
 /* EDIT VIEW STYLING */
 
-#edit-container {
+#edit-container,
+#delete-container {
     min-height: 100vh;
     height: auto;
     padding-top: 20px;
     padding-bottom: 30px;
+    border: solid yellow;
 }
 
-#edit_form {
+#edit_form,
+#delete_form {
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     padding: 20px;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-bottom: 30px;
+    border: solid orange;
+    min-height: 60vh;
 }
 
 #edit_form button {
-    font-size: 13px;
+    width: 150px;
 }
+
+
+/* #edit_form button {
+    font-size: 13px;
+} */
 
 /* #edit-container[input=radio] {
     width: 50px;

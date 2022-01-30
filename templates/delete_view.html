@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -7,9 +7,9 @@
 
 {% block content %}
 
-<div class="container-fluid" id="edit-container">
-    <div class="container d-flex align-items-center" style="height: 80vh;">
-        <div id="delete_form" class="small_view">
+<div class="container-fluid" id="delete-container">
+    <div class="container">
+        <div id="delete_form">
 
             {% if pipeline.status == 'pending' %}
             <h3>You cannot delete this pipeline unless the status is Pending.</h3>
