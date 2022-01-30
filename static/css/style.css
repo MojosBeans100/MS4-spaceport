@@ -2,7 +2,7 @@
 
 /* GENERAL STYLING */
 body {
-    background-color: rgb(250, 251, 255);
+    background-color: rgb(250, 251, 255) !important;
 }
 
 .navbar {
@@ -19,6 +19,13 @@ body {
     text-decoration: none;
     color: black;
     font-weight: bolder;
+}
+
+#nav-active-page {
+    text-decoration: underline double black;
+    text-underline-position: under;
+    text-underline-offset: 3px;
+    color: black;
 }
 
 .navbar-collapse {
@@ -50,6 +57,7 @@ body {
 }
 
 .nav-link,
+.nav-link a,
 #discover-container a,
 #start_form_section a,
 #my_pipelines_container a,
@@ -61,6 +69,7 @@ body {
     text-decoration: none;
 }
 
+.nav-link:hover,
 .nav-item a:hover,
 #discover-container a:hover,
 #start_form_section a:hover,
@@ -188,6 +197,7 @@ body {
 
 #discover-container {
     text-align: center;
+    background-color: rgb(250, 251, 255);
 }
 
 #discover-applications .card {
@@ -761,12 +771,6 @@ input.invalid {
     /* GENERAL 1200 */
     /* HOMEPAGE 1200 */
     /* DISCOVER 1200 */
-
-    /* #discover-applications .card {
-        max-width: 420px;
-    } */
-    
-
     #discover-examples img {
         max-width: 400px;
         padding: 20px;

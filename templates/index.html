@@ -1,216 +1,126 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="container-fluid" id="index-container">
+    {% block content %}
+    {% if error %}
+    <div style="padding-top: 100px; border: solid black; width: 50%; margin-left: 25%;">
+        <h2 style="text-align: center">{{error}}</h2>
+    </div>
+    {% else %}
+    {% endif %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- styling links css/BS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-    </script>
-
-    <!-- mapbox link -->
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
-    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.css"
-        type="text/css">
-
-    <!-- chart.js link  -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js">
-    </script>
-    <script>
-        src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
-    </script>
-
-    <script src="https://kit.fontawesome.com/c013b232df.js" crossorigin="anonymous"></script>
-    <!-- <link rel="icon" type="image/x-icon" href="../static/images/neptune-01.svg"> -->
-    <!-- <link rel="icon" type="image/png" href="{% static 'favicon.png' %}"> -->
-    <link rel="shortcut icon" href="{%  static 'images/planet.png' %}">
-
-    <title>Spaceport</title>
-</head>
-
-<body>
-    <nav class="navbar fixed-top navbar-expand-lg py-2">
-        <div class="container-fluid">
-            <a id="nav-icon" href="{% url 'homepage' %}"><img src="{%  static 'images/planet.png' %}"
-                ></a>
-            <a class="nav-link" href="{% url 'homepage' %}" id="nav-title">SPACEPORT</a>
-
-            <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link px-5" href="{% url 'discover' %}">Discover</a>
-                    </li>
-                    <li class="nav-item px-5">
-                        <a class="nav-link" href="{% url 'create' %}">Create</a>
-                    </li>
-                    <li class="nav-item px-5">
-                        <a class="nav-link" href="{% url 'my_pipelines' %}">Pipelines</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link px-5" href="{% url 'discover' %}">Discover</a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end text-end">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout <i class="fa fa-sign-in"
-                                aria-hidden="true"></i></a>
-                        <p>Logged in as <strong>{{user}}</strong></p>
-                        {% else %}
-                    </li>
-                    <a class="nav-link" href="{% url 'account_login' %}">Login/Sign Up <i class="fa fa-sign-in"
-                            aria-hidden="true"></i></a>
-                    {% endif %}
-                </ul>
-
-            </div>
-        </div>
-    </nav>
-
-
-    <div class="container-fluid" id="index-container">
-        {% block content %}
-        {% if error %}
-        <div style="padding-top: 100px; border: solid black; width: 50%; margin-left: 25%;">
-            <h2 style="text-align: center">{{error}}</h2>
-        </div>
-        {% else %}
-        {% endif %}
-
-        <!-- banner image and text -->
-        <div id="banner-section">
-            <div class="row align-items-center">
-                <div class="col-md order-last order-md-first">
-                    <div id="index-banner-text" class="p-5">
-                        <h1>Access satellite imagery in minutes</h1>
-                        <br>
-                        <p>It only takes 5 minutes to fill in our simple 'Create a Pipeline' form, and can be done as many times as you
-                            need.
-                            Simply set up an account, and we'll guide you through the process. All our images are
-                            <strong>free</strong>.</p>
-                    </div>
-                </div>
-
-                <!-- banner image -->
-                <div class="col-md" id="index-banner" title="Space X Satellite">
+    <!-- banner image and text -->
+    <div id="banner-section">
+        <div class="row align-items-center">
+            <div class="col-md order-last order-md-first">
+                <div id="index-banner-text" class="p-5">
+                    <h1>Access satellite imagery in minutes</h1>
+                    <br>
+                    <p>It only takes 5 minutes to fill in our simple 'Create a Pipeline' form, and can be done as many
+                        times as you
+                        need.
+                        Simply set up an account, and we'll guide you through the process. All our images are
+                        <strong>free</strong>.</p>
                 </div>
             </div>
-        </div>
 
-        <!-- section to tell users what the site does -->
-        <div class="container" id="site-purpose-section">
-
-            <!-- what to do -->
-            <div>
-
-                <div class="purpose-section">
-                    <h3>Images of where you want, when you want</h3>
-                    <p>Tell us where to look for images, and on which dates you'd like them taken - this setup is called a
-                        <strong> pipeline</strong>.</p>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-sm" id="purpose-img1" title="San Francisco on Google Maps">
-                    </div>
-
-                    <div class="col-sm" id="purpose-img2" title="San Francisco satellite image">
-                    </div>
-
-                </div>
-
-                <div class="purpose-section">
-                    <h3>Let us look for results</h3>
-                    <p>We will then search our network of satellite providers, using an API to match up your chosen Area
-                        of Interest (or AOI) to a satellite which provides coverage of the location within the interval
-                        selected.</p>
-                </div>
-
-                <div id="purpose-img3" title="Trajectory of satellites from Spectator.earth">
-                </div>
-
-                <div class="purpose-section">
-                    <h3>Follow the progress of your pipeline</h3>
-                    <p>As soon as the pipeline is created, you can track the results and upcoming intervals.<br>
-                        You can also monitor the status of the pipeline, or edit specific parameters.</p>
-                </div>
-
-                <div id="purpose-img4" title="Progress timeline of pipeline">
-                </div>
-
-                <div class="purpose-section">
-                    <h3>Download high quality pictures and metadata</h3>
-                    <p>Once the images are taken, you can download them and any associated data to use in post
-                        production.</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-md">
-                        <div id="purpose-img5" title="Progress timeline of pipeline">
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div id="purpose-img6" title="Progress timeline of pipeline">
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div id="purpose-img7" title="Progress timeline of pipeline">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="purpose-section">
-                    <h2>Ready to explore earth from space?</h2>
-                    <h5>Learn more about the applications of satellite imagery, browse examples and current events, or
-                        <strong>create your own pipeline</strong></h5>
-
-                    <div class="row py-5">
-                        <div class="col-md py-2">
-                            <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg"><i
-                                        class="fas fa-search"></i>Discover
-                                    More</button></a>
-                        </div>
-                        {% if user.is_authenticated %}
-                        <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg"><i
-                                        class="far fa-images"></i>Create
-                                    a
-                                    Pipeline</button></a></div>
-                        {% else %}
-                        <div class="col-md py-2"><a href="{% url 'account_login' %}"><button
-                                    class="btn btn-dark btn-lg"><i class="fa fa-sign-in"></i>Sign
-                                    Up</button></a></div>
-                        {% endif %}
-                    </div>
-                </div>
-
+            <!-- banner image -->
+            <div class="col-md" id="index-banner" title="Space X Satellite">
             </div>
         </div>
     </div>
-    {% endblock content %}
 
-</body>
+    <!-- section to tell users what the site does -->
+    <div class="container" id="site-purpose-section">
 
-</html>
+        <!-- what to do -->
+        <div>
+
+            <div class="purpose-section">
+                <h3>Images of where you want, when you want</h3>
+                <p>Tell us where to look for images, and on which dates you'd like them taken - this setup is called a
+                    <strong> pipeline</strong>.</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm" id="purpose-img1" title="San Francisco on Google Maps">
+                </div>
+
+                <div class="col-sm" id="purpose-img2" title="San Francisco satellite image">
+                </div>
+
+            </div>
+
+            <div class="purpose-section">
+                <h3>Let us look for results</h3>
+                <p>We will then search our network of satellite providers, using an API to match up your chosen Area
+                    of Interest (or AOI) to a satellite which provides coverage of the location within the interval
+                    selected.</p>
+            </div>
+
+            <div id="purpose-img3" title="Trajectory of satellites from Spectator.earth">
+            </div>
+
+            <div class="purpose-section">
+                <h3>Follow the progress of your pipeline</h3>
+                <p>As soon as the pipeline is created, you can track the results and upcoming intervals.<br>
+                    You can also monitor the status of the pipeline, or edit specific parameters.</p>
+            </div>
+
+            <div id="purpose-img4" title="Progress timeline of pipeline">
+            </div>
+
+            <div class="purpose-section">
+                <h3>Download high quality pictures and metadata</h3>
+                <p>Once the images are taken, you can download them and any associated data to use in post
+                    production.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <div id="purpose-img5" title="Progress timeline of pipeline">
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div id="purpose-img6" title="Progress timeline of pipeline">
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div id="purpose-img7" title="Progress timeline of pipeline">
+                    </div>
+                </div>
+            </div>
+
+            <div class="purpose-section">
+                <h2>Ready to explore earth from space?</h2>
+                <h5>Learn more about the applications of satellite imagery, browse examples and current events, or
+                    <strong>create your own pipeline</strong></h5>
+
+                <div class="row py-5">
+                    <div class="col-md py-2">
+                        <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg"><i
+                                    class="fas fa-search"></i>Discover
+                                More</button></a>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg"><i
+                                    class="far fa-images"></i>Create
+                                a
+                                Pipeline</button></a></div>
+                    {% else %}
+                    <div class="col-md py-2"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg"><i
+                                    class="fa fa-sign-in"></i>Sign
+                                Up</button></a></div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

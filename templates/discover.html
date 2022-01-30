@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -275,31 +275,38 @@
             <h5>Tonga volcano eruption</h5>
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643457599/maxar-technologies-tonga-volcano-1-1_cfitzk.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643457794/maxar-techTonga_Volcano_Eruption_Explainer_53770_kecbkq.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643457878/tamonakiundersea-volcano_znsxym.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643468609/abc-dinestletonga-volcano-eruption-was-one-of-the-strongest-ever-recorded_clpf6o.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643468727/newyorklatesttonga-volcano-eruption-space-4-1_amejz1.jpg" class="d-block w-100" alt="...">
-                  </div>
+                    <div class="carousel-item active">
+                        <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643457599/maxar-technologies-tonga-volcano-1-1_cfitzk.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643457794/maxar-techTonga_Volcano_Eruption_Explainer_53770_kecbkq.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643457878/tamonakiundersea-volcano_znsxym.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643468609/abc-dinestletonga-volcano-eruption-was-one-of-the-strongest-ever-recorded_clpf6o.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643468727/newyorklatesttonga-volcano-eruption-space-4-1_amejz1.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
-              </div>
+            </div>
         </div>
 
     </div>
@@ -501,7 +508,11 @@
 
 </div>
 
-
-
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('nav-active-page').removeAttribute('nav-active-page')
+        document.getElementsByClassName('nav-link')[1].setAttribute("id", "nav-active-page")
+    });
+</script>
 
 {% endblock content %}
