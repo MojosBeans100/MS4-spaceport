@@ -254,8 +254,8 @@ body {
 
 /* CREATE PIPELINE STYLING */
 #create_container,
-#edit-container,
-#delete-container {
+#edit-container
+/* #delete-container { */{
     background-color: rgb(250, 251, 255);
     height: 100vh;
     padding-bottom: 40px;
@@ -1068,8 +1068,13 @@ i {
     min-height: 60vh;
 }
 
-#edit_form button {
+#edit_form button,
+#delete_form button {
     width: 150px;
+}
+
+#delete_form {
+    margin-top: 160px;
 }
 
 

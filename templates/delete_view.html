@@ -9,7 +9,7 @@
 
 <div class="container-fluid" id="delete-container">
     <div class="container">
-        <div id="delete_form">
+        <div id="delete_form" style="border: solid purple;">
 
             {% if pipeline.status == 'pending' %}
             <h3>You cannot delete this pipeline unless the status is Pending.</h3>
@@ -17,21 +17,32 @@
                         class="fas fa-arrow-left"></i>Back</button></a>
             {% else %}
 
-            <h2>Delete &nbsp; <strong>{{pipeline.pipeline_name}}</strong></h2>
+            <h2>Delete &nbsp; <strong>"{{pipeline.pipeline_name}}"</strong></h2>
             <p>Use this form to delete your pipeline.</p>
 
-            <div style="text-align: center; margin-top: 100px;">
-                <h3>Are you sure you want to delete this pipeline?</h3>
-                <p>All relating data will be deleted, and cannot be recovered.</p>
-                <p>You will be redirected to 'My Pipelines'.</p>
+            <br><br>
+
+            <p><strong>Are you sure you want to delete this pipeline?</strong></p>
+            <p>All relating data will be deleted, and cannot be recovered.</p>
+            <p>You will be redirected to 'My Pipelines'.</p>
+
+            <div class="row align-bottom pt-2" style="border: solid pink;">
+                <div class="col-sm p-4 d-flex justify-content-center">
+                    <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
+                                class="fas fa-arrow-left"></i>Back</button></a></div>
+                <div class="col-sm p-4 d-flex justify-content-center">
+                    <a href="{% url 'delete' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
+                                class="far fa-trash-alt"></i>Delete</button></a>
+                </div>
             </div>
 
-            <div class="pt-5 d-flex justify-content-evenly">
+
+            <!-- <div class="pt-5 d-flex justify-content-evenly">
                 <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
                             class="fas fa-arrow-left"></i>Back</button></a>
-                <a href="{% url 'delete' pipeline.id %}"><button type="submit" class="btn btn-dark btn-lg"><i
+                <a href="{% url 'delete' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
                             class="far fa-trash-alt"></i>Delete</button></a>
-            </div>
+            </div> -->
         </div>
         {% endif %}
     </div>
