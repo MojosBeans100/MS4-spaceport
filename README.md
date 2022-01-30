@@ -217,7 +217,7 @@ User story 7: As a **Site User** I can **edit, update and delete pipelines**
 ## Homepage
 The Spaceport homepage presents the purpose of the website to the user in a clear and concise manner, with attractive images and minimalist design.
 
-# Navbar
+### Navbar
 The navigation bar at the top of the webpage is featured on all pages, and remains fixed at the top in order for the user to be able to navigate to other pages easily, demonstrate the page the user is on, and provide a general overview of the website content.  The content of the navigation bar changes depending on the user's log in state in order to reflect the relevant pages.
 
 To the left is the website title and featured icon.  The user can use either of these to navigate back to the homepage.
@@ -226,20 +226,32 @@ Fixed to the right is the link to login/signup/logout, for the user to change th
 
 The navigation bar links are underlined to show the active page and also display this style on mouse hover.  The navigation bar responds to smaller screens by removing all links aside from the homepage link and icon, placing these in a drop down bar.
 
-# Banner image
+### Banner image
 The homepage image is chosen specifically because of the attractive colours and content.  It displays an imaging satellite and in the background is a high resolution render of Earth taken from space, both of which are of most relevance to the purpose of the website.  Alongside this image is a concise website description - "Access satellite imagery in minutes" - to further reinforce the purpose of the website, and demonstrate the simplicity of the process of creating a pipeline.
 
-# Introduction to website
+### Introduction to website
 The rest of the homepage attempts to capture the concept of the website in a concise and understandable way, by explaining in four simple steps what their experience using the website will be - simply put, to choose an area on Earth, allow the platform to set up their pipeline and await results, continually track the progress, and ultimately view and use the collected images.
 
-# Calls to action
+### Calls to action
 After reading the website introduction, the user is directed to either the Discover page or (if logged in) to create a pipeline, or (if not logged in) create an account.  This section is designed to encourage the user to either learn more about satellite imagery and pipelines, namely for new users, or if they are returning they can move directly to creating a pipeline. 
 
 ## Discover
+The Discover page is named aptly to encourage users to explore more about satellite imagery before jumping in to creating their own pipelines.  The purpose of the page is to provide more technical information and context about the site's purpose.  This information is kept separate from the homepage as it holds a lot of information, and the user is directed to this page at several places on other pages, as the developer feels it is beneficiery to explore this page before using the site.  In short, as the website is based on a very specific, technical concept, the developer wants the user to have a comprehensive understanding of the purpose of the site. 
 
-# Links
-# Applications
-# Examples
-# News
-# Glossary
-# FAQ
+### Links
+As the Discover page is long, a sub navigation section is rendered to display the information the user can expect to find on this page, and to allow the user to jump to the page section of most interest.
+
+### Applications
+The applications section of the Discover page convey to the user the industry uses of satellite imagery.  This section is intented to provide the user with more context to the site's purpose.  The section details three common uses of satellite imagery, with a relevant image and short description attached to each use. 
+
+### Examples
+The examples section is an extension of the applications section, explaining in more detail an example of how and why satellite imagery is collected.
+
+### News
+The news section further reinforces the importance of access to satellite imagery, providing a couple of topical examples which the user may have recently come across to provoke the user's interest.
+
+### Glossary
+The glossary section defines any technical or unfamiliar terms the user may come across on the site.
+
+### FAQ
+The frequently asked questions section provides access to some questions the user may ask when using the site, and attempts to provide a clear answer.
