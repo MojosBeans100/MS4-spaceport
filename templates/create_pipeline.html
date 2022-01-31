@@ -584,11 +584,13 @@
                         </td>
                     </tr>
                 </table>
+                <hr>
 
-                <div style="text-align:center;">
-                    <h4>Once submitted, you will be redirected to your new pipeline.</h4>
-                    <h4>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline
-                    </h4>
+                <div style="text-align:center; margin-top: 60px; margin-bottom: 60px;">
+                    <h4>Ready to submit?</h4><br>
+                    <h5>Once submitted, you will be redirected to your new pipeline.</h5>
+                    <h5>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline after a few minutes
+                    </h5>
                 </div>
 
 
@@ -666,6 +668,10 @@
             document.getElementById('nextButton').disabled = false;
         };
 
+        if (document.getElementById('prevButton').disabled = true) {
+            document.getElementById('prevButton').disabled = false;
+        };
+
         // create new div to display interval feedback/validation
         interval_append = document.getElementById('interval_form_section');
         interval_feedback = document.createElement('div');
@@ -721,6 +727,7 @@
             date_error.style.fontWeight = 'bold';
             interval_feedback.append(date_error);
             document.getElementById('nextButton').disabled = true;
+            document.getElementById('prevButton').disabled = true;
             document.getElementById('pipeline_intervals').innerHTML = ""
             document.getElementById('pipeline_length').innerHTML = ""
         }
@@ -733,6 +740,7 @@
             interval_error.style.fontWeight = 'bold';
             interval_feedback.append(interval_error);
             document.getElementById('nextButton').disabled = true;
+            document.getElementById('prevButton').disabled = true;
             document.getElementById('pipeline_length').innerHTML = ""
         }
 
@@ -744,6 +752,7 @@
             interval_error.style.fontWeight = 'bold';
             interval_feedback.append(interval_error);
             document.getElementById('nextButton').disabled = true;
+            document.getElementById('prevButton').disabled = true;
             document.getElementById('pipeline_length').innerHTML = ""
         }
 
@@ -755,6 +764,7 @@
             interval_error.style.fontWeight = 'bold';
             interval_feedback.append(interval_error);
             document.getElementById('nextButton').disabled = true;
+            document.getElementById('prevButton').disabled = true;
             document.getElementById('pipeline_intervals').innerHTML = ""
             document.getElementById('pipeline_length').innerHTML = ""
         }
@@ -968,7 +978,7 @@
                 aoi_section.append(area_validation_feedback);
 
             } else {
-                answer.innerHTML = '';
+                //answer.innerHTML = '';
                 if (e.type !== 'draw.delete')
                     alert('Click the map to draw a polygon.');
             }
@@ -1079,8 +1089,10 @@
 
         if (cloud_input > 100 || cloud_input < 1) {
             document.getElementById('nextButton').disabled = true;
+            document.getElementById('prevButton').disabled = true;
         } else {
             document.getElementById('nextButton').disabled = false;
+            document.getElementById('prevButton').disabled = false;
         }
     }
 </script>
