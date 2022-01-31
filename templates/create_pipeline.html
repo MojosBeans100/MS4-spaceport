@@ -583,6 +583,11 @@
                         <td class="table-right"><textarea id="table-geojson" rows="8" cols="15" disabled></textarea>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td class="table-left">Minimum cloud cover:</td>
+                        <td class="table-right" id="table-cloud"></td>
+                    </tr>
                 </table>
                 <hr>
 
@@ -1058,6 +1063,7 @@
         review_interval = interval;
         review_num_intervals = num_intervals_rounded;
         review_area = `${document.getElementById('map-a').innerHTML} km<sup>2</sup>`;
+        review_cloud = document.getElementById('id_cloud').value
 
         radios = document.getElementsByName('output_image');
         radios_labels = document.getElementsByClassName('image-label');
@@ -1079,8 +1085,10 @@
             table_feedback[i].innerHTML = feedback[i];
         }
 
+
         document.getElementById('table-area').innerHTML = review_area;
         document.getElementById('table-geojson').innerHTML = review_aoi;
+        document.getElementById('table-cloud').innerHTML = `${review_cloud}%`;
     }
 
     function validateCloudCover() {
