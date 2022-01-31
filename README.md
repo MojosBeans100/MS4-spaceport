@@ -38,6 +38,12 @@ Spaceport is a full stack website which allows users to access satellite imagery
 - The repository on Github that contains the website source code and assets is available at the following url:
 - The website was built with a responsive look and feel, designed to be enjoyable to use on all screen sizes.
 
+# Access
+The assesor can create their own account to test the functionality of the website, and/or can use the details below to sign in and view some example pipelines which have been created for convenience.
+
+- Username: ms4_test
+- Password: spaceport_test_password
+
 # Definitions
 This website is based on a technical concept of accessessing satellite imagery, therefore see below some useful definitions which may be used in this document.
 These definitions can also be found on the Discover website page.
@@ -142,7 +148,6 @@ User story 1: As a **Site User** I can **navigate the site easily**
 - 1.3: As a **New/returning Site User** I can **see the active page** so that **I know which page I am currently on**
 - 1.4: As a **New/returning Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
 - 1.5: As a **New/returning Site User** I can **see my login status in the nav bar** so that **I am aware if I am logged in**
-
 
 User story 2: As a **Site User** I can **create and use an account on the site**
 - 2.1: As a **New User** I see **create an account using a username and password** so that **I can access pipeline functionality**
@@ -266,7 +271,7 @@ There is sub navigation section which categorises the pipelines by their status.
 Each pipeline is represented by a Bootstrap card, identified by the name of the pipeline.  The description, start and end dates, number of images collected, and a link to view the pipeline detail are also displayed.  The latest image the pipeline has collected is displayed in the card, or a placeholder image if there are none. 
 
 ## Detail
-The detail view of the pipeline displays all information about the pipeline object.  The user can view not only the parameters they set, but information the platform gathers about intervals, and any results created.  The information is ordered specifically to render the identifying information first, then the information of most interest to the user (interals/results), then the information the user already knows (the parameters selected by the user).
+The detail view of the pipeline displays all information about the pipeline object.  The user can view not only the parameters they set, but information the platform gathers about intervals, and any results created.  The information is ordered specifically to render the identifying information first, then the information of most interest to the user (intervals/results), then the information the user already knows (the parameters selected by the user).
 
 ### Calls to action
 There are two calls to action at the top of the page.  One to navigate back to the user's list of all pipelines.  The second calls the 'Update' function, which is placed at the top of the page in the immediate view of the user as it is an important function.  User's must update their pipelines manually, reasons for which are outlined in the 'Limitations' section of this document.  The time of the last update is rendered beneath this button.
@@ -292,4 +297,14 @@ The pipeline results are also displayed in a table.  The user can see:
 The user can expand the table by clicking the drop down, which will open all rows to display further technical data about the image, as well as a link which downloads the full size image.
 
 ### Parameters
+The parameters the user selected are displayed towards the bottom of the detail page for the user to review.
+
 ### Edit/Delete
+
+
+
+# Limitations
+
+## API Limitations
+
+- The developer has a limited account with the Skywatch API.  During development, many pipelines were created for testing purposes under the accounts 'admin' and 'testing_account' and 'testing_account2'.  As the account is limited to 100 pipelines, all of these pipelines were deleted from the API before deployment.  The objects remain in the website database, but cannot be edited, updated or deleted as there is no longer a model in the API which represents these objects.
