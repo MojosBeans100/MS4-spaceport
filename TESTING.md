@@ -139,6 +139,57 @@ As a **Site User** I can **view a list of all my pipelines**
 |2.8|The image opacity is changed when the user hovers over the pipeline card|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643648308/Spaceport/Desktop/2.8_inmtwv.png)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643654316/Spaceport/Tablet/2.8_pynk3r.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643653987/Spaceport/Mobile/2.8_wtlj8b.jpg)|Pass|
 |2.9|Users with no pipelines are shown a message prompting them to create a pipeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643648308/Spaceport/Desktop/2.9_ak1wzx.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643654316/Spaceport/Tablet/2.9_krhhch.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643653987/Spaceport/Mobile/2.9_sk6kmq.jpg)|Pass|
 
+## Acceptance Criteria Status
+- [x] All user pipelines are listed
+- [x] Pipelines are organized by status, and it is obvious how many pipelines are in each status category
+- [x] Only user pipelines are listed (cannot see any other user's, testing, or admin pipelines)
+- [x] Pipelines are clearly identified with name, description, date created
+
 # User Story 3
 As a **Site User** I can **view all details of a specific pipeline**
 
+- 3.1: As a **Returning Site User** I can **see that the detail view is separated into sections** so that **I can scroll to the section I am interested in**
+- 3.2: As a **Returning Site User** I can **see all important and general information at the top of the detail view** so that **I can identify which pipeline it refers to**
+- 3.3: As a **Returning Site User** I can **click an Update button** so that **I can refresh the details of the pipeline**
+- 3.4: As a **Returning Site User** I can **see a zoomable map of the AOI in the detail view** so that **I can see the area on the Earth this pipeline refers to**
+- 3.5: As a **Returning Site User** I can **see a timeline chart of my pipeline** so that **I can visualise the pipeline period, completed intervals, incomplete intervals, today's date and if/when images were found**
+- 3.6: As a **Returning Site User** I can **see a table of all interval dates** so that **I can see the status of each interval**
+- 3.7: As a **Returning Site User** I can **see a table of results** so that **I can easily see if images have been delivered**
+- 3.8: As a **Returning Site User** I am **directed to a separate tab when I click on a found image** so that **I can view it in detail and download it**
+- 3.9: As a **Returning Site User** I am **directed to a separate tab when I click on image metadata** so that **I can read it or use it in post production of the image**
+- 3.10: As a **Returning Site User** I can **view the parameters I selected when creating the pipeline** so that **I am reminded of the parameters I set**
+- 3.11: As a **Returning Site User** I can **see a timestamp on 'last edited'** so that **I know if/when I edited the pipeline**
+- 3.12: As a **Returning Site User** I can **see buttons to edit/delete my pipeline** so that **I know how to access these functions**
+- 3.13: As a **Returning Site User** I am **told if I cannot edit/delete my pipeline** so that **I am aware why these functions are/are not available**
+
+## Acceptance Criteria
+- User is clearly aware which pipeline details they are looking at
+- User is aware of the status and progress so far of the pipeline
+- User can access how to update, edit or delete this pipeline
+- User can see all relating results/images gathered by pipeline
+
+## Testing
+
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|3.1|When scrolling throught the detail view of the pipeline, the user can see the page divided into 5 sections|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658623/Spaceport/Tablet/3.1_kzrxk5.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658622/Spaceport/Tablet/3.1_2_xzjuhi.jpg) [Desktop 3](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658623/Spaceport/Tablet/3.1_3_vrzevw.jpg) [Desktop 4](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658623/Spaceport/Tablet/3.1_4_zy66vn.jpg)|[Tablet 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658805/Spaceport/Tablet/3.1_s0raxv.jpg) [Tablet 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658803/Spaceport/Tablet/3.1_2_s8sehh.jpg) [Tablet 3](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658804/Spaceport/Tablet/3.1_3_gaeeu4.jpg) [Tablet 4](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658805/Spaceport/Tablet/3.1_4_ifi1cy.jpg) [Tablet 5](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658804/Spaceport/Tablet/3.1_5_fsnqks.jpg)|[Mobile 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658677/Spaceport/Mobile/3.1_nqn7j7.jpg) [Mobile 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658676/Spaceport/Mobile/3.1_2_gxvm7h.jpg) [Mobile 3](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658676/Spaceport/Mobile/3.1_3_pzynzb.jpg) [Mobile 4](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658676/Spaceport/Mobile/3.1_4_xo2gzk.jpg) [Mobile 5](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658677/Spaceport/Mobile/3.1_5_vawynl.jpg) [Mobile 6](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643658678/Spaceport/Mobile/3.1_6_kfnzyb.jpg)||
+|3.2|The information immediately visible is the pipeline's identifying information (name, description, status, date created, num images)|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643660488/Spaceport/Desktop/3.2_qapebn.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643659504/Spaceport/Tablet/3.2_xnm3ck.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643660424/Spaceport/Mobile/3.2_my5qck.jpg)||
+|3.3|For 'pending' and 'active' pipelines, the update button is at the top of the page to refresh the pipeline.  The 'complete' pipelines the button is disabled.|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643659504/Spaceport/Tablet/3.3_d0fumr.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643659504/Spaceport/Tablet/3.3_d0fumr.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643660424/Spaceport/Mobile/3.3_ldtqoy.jpg)||
+|3.4|The AOI chosen by the user is rendered on a zoomable map at the top of the page.  The user can zoom out for better placement of the AOI|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643659503/Spaceport/Tablet/3.4_ppkv8g.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643659503/Spaceport/Tablet/3.4_2_ieo1oh.jpg)|[Tablet 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643659503/Spaceport/Tablet/3.4_ppkv8g.jpg) [Tablet 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643659503/Spaceport/Tablet/3.4_2_ieo1oh.jpg)|[Mobile 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643660424/Spaceport/Mobile/3.4_sml4ix.jpg) [Mobile 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643660424/Spaceport/Mobile/3.4_2_nnpl1j.jpg)||
+|3.5||[Desktop]|[Tablet]|[Mobile]||
+|3.6||[Desktop]|[Tablet]|[Mobile]||
+|3.7||[Desktop]|[Tablet]|[Mobile]||
+|3.8||[Desktop]|[Tablet]|[Mobile]||
+|3.9||[Desktop]|[Tablet]|[Mobile]||
+|3.10||[Desktop]|[Tablet]|[Mobile]||
+|3.11||[Desktop]|[Tablet]|[Mobile]||
+|3.12||[Desktop]|[Tablet]|[Mobile]||
+|3.13||[Desktop]|[Tablet]|[Mobile]||
+
+
+
+## Testing
+
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|3.1||[Desktop]|[Tablet]|[Mobile]||
