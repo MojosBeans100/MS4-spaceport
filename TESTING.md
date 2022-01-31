@@ -61,3 +61,22 @@ As a **New/returning Site User** I can **see my login status in the nav bar** so
 # User Story 2
 
 ## User Story 2.1
+
+
+# User Story 6
+As a **Site User** I can **create a pipeline**
+
+- 6.1: As a **New/returning Site User** I can **see an introduction page to creating a pipeline** so that **I understand the restrictions**
+- 6.2: As a **New/returning Site User** I can **see an advice on how to maximise my chance of my pipeline returning images** so that **I can choose my parameters accordingly**
+- 6.3: As a **New Site User** I am **provided with a list of examples** so that **I have a starting point for my first pipeline**
+- 6.2: As a **New/returning Site User** I am **made aware that submitting a pipeline does not guarantee results** so that **I am not disappointed if my pipeline does not receive images**
+- 6.2: As a **New/returning Site User** I can **see a progress indicator on the form** so that **I know what my progress in the form is, and which sections I have completed**
+- 6.3: As a **New/returning Site User** I can **see inline feedback on my form** so that **I know if the parameter I entered was incorrect**
+- 6.4: As a **New/returning Site User** I can **see visual representations of relevant parameters** so that **I have a more accessible understanding of what I am selecting**
+- 6.5: As a **New/returning Site User** I can **see descriptions/placeholders of parameters** so that **I know what this parameter means for my pipeline**
+- 6.6: As a **New/returning Site User** I can **navigate forwards and backwards in the form** so that **I can change details before I submit**
+- 6.7: As a **New/returning Site User** I can **review the details of the pipeline I have created** so that **I can review the details before I submit**
+- 6.8: As a **New/returning Site User** I can **see which parameters can be changed after submission** so that **I am aware what can be edited**
+- 6.9: As a **New/returning Site User** I have **feedback on submission** so that **I have confirmation that the pipeline was submitted**
+- 6.10: As a **New/returning Site User** I am **redirected to the detail view of the pipeline after submission** so that **I can view the details of the pipeline I submitted**
+- 6.11: As a **New/returning Site User** I am **encouraged to allow for the website to process the pipeline when first redirected** so that **I understand why the pipeline detail is initially sparse**
