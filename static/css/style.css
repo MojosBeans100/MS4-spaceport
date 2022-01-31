@@ -32,7 +32,7 @@ body {
     text-align: center;
 }
 
-#nav-icon img{
+#nav-icon img {
     height: 35px;
     width: 35px;
 }
@@ -228,7 +228,7 @@ body {
 
 #discover-glossary table td,
 #discover-examples p {
-    text-align:justify;
+    text-align: justify;
 }
 
 #discover-examples h5 {
@@ -255,15 +255,19 @@ body {
 /* CREATE PIPELINE STYLING */
 #create_container,
 #edit-container
-/* #delete-container { */{
+
+/* #delete-container { */
+    {
     background-color: rgb(250, 251, 255);
     height: 100vh;
     padding-bottom: 40px;
 }
 
 #create_form
+
 /* #edit_form, */
-/* #delete_form { */{
+/* #delete_form { */
+    {
     position: relative;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
@@ -483,15 +487,47 @@ input.invalid {
     width: 60%;
 }
 
-#submitting_pipeline h2 {
-    padding-top: 200px;
+#submitting_pipeline {
+    width: 100%;
     text-align: center;
-    padding-bottom: 20px;
 }
 
-#submitting-gif {
-    width: 100px;
-    margin-left: calc(50% - 100px);
+#submitting_pipeline h2 {
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+
+.loader {
+    margin-top: 70px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #284a61;
+    width: 120px;
+    margin-left: calc(50% - 60px);
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 

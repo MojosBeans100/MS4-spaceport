@@ -86,7 +86,7 @@ As a **Site User** I can **create a pipeline**
 |1.1|Upon opening "Create" page, an introduction to creating a pipeline is displayed|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625901/Spaceport/Desktop/1.1_aw58u0.jpg)|[Tablet]|[Mobile]|
 |1.2|The form introduction gives advice on how to maximise chances of images|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625901/Spaceport/Desktop/1.2_rdxz5q.jpg)|[Tablet]|[Mobile]|
 |1.3|For new/unfamiliar users, the form introduction suggests 3 starting points|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625900/Spaceport/Desktop/1.3_rkqnvr.jpg)|[Tablet]|[Mobile]|
-|1.4||[Desktop]|[Tablet]|[Mobile]|
+|1.4||[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643634436/Spaceport/Desktop/1.4_lrtmdn.jpg)|[Tablet]|[Mobile]|
 |1.5|On all form pages, a process indicator shows number of steps, completed steps in darker turquoise, current step in dark grey, incomplete/future steps in light grey|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625900/Spaceport/Desktop/1.5_fd0uwc.jpg)|[Tablet]|[Mobile]|
 |1.6|Pages with invalid data display a message to inform the user, and do not allow form progression|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625901/Spaceport/Desktop/1.6_uka4iv.jpg) [Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643626582/Spaceport/Desktop/1.6_2_ag8uz9.jpg)|[Tablet]|[Mobile]|
 |1.7|Where relevant, pictures are shown to represent the form field value|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625902/Spaceport/Desktop/1.7_gkdnmg.jpg)|[Tablet]|[Mobile]|
@@ -97,4 +97,3 @@ As a **Site User** I can **create a pipeline**
 |1.12||[Desktop]|[Tablet]|[Mobile]|
 |1.13||[Desktop]|[Tablet]|[Mobile]|
 |1.14||[Desktop]|[Tablet]|[Mobile]|
-|1.15||[Desktop]|[Tablet]|[Mobile]|

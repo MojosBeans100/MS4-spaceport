@@ -103,7 +103,8 @@
 
                         <div class="input-sections" id="satellite-aquisition">
                             <h5>Satellite aquisition:</h5>
-                            <h6>See our recommendations for the maximum chance of your pipeline delivering images</h6>
+                            <h6>We cannot guarantee that pipelines will deliver images, but see our recommendations for
+                                the maximum chance of your pipeline delivering images</h6>
                             <ul>
                                 <li>- Choose a larger AOI (up to 10,000 km<sup>2</sup>)<br><small>The larger the AOI,
                                         the
@@ -585,7 +586,7 @@
                     </tr>
 
                     <tr>
-                        <td class="table-left">Minimum cloud cover:</td>
+                        <td class="table-left">Minimum cloud free area:</td>
                         <td class="table-right" id="table-cloud"></td>
                     </tr>
                 </table>
@@ -594,18 +595,19 @@
                 <div style="text-align:center; margin-top: 60px; margin-bottom: 60px;">
                     <h4>Ready to submit?</h4><br>
                     <h5>Once submitted, you will be redirected to your new pipeline.</h5>
-                    <h5>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline after a few minutes
+                    <h5>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline
+                        after a few minutes
                     </h5>
                 </div>
 
 
             </div>
 
-            <div id="submitting_pipeline" style="text-align: center;" class="tab">
+            <div id="submitting_pipeline" class="tab">
                 <h2>Thank you for submitting your pipeline.</h2>
-                <h3 id="submitting_name"></h3>
-                <p>Please do not refresh the browser while we do this.</p>
-                <img id="submitting-gif" src="https://img.icons8.com/ios-filled/50/000000/gps-receiving--v2.gif" />
+                <h5 id="submitting_name"></h5>
+                <p>Please do not refresh your browser while we do this.</p>
+                <div class="loader"></div>
             </div>
 
             <!-- buttons and progress display section -->
@@ -645,6 +647,9 @@
 
 
 <script>
+    
+
+
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
             document.getElementById('nav-active-page').removeAttribute('nav-active-page')
@@ -851,7 +856,7 @@
             document.getElementById('submitting_pipeline').style.display = 'block';
             document.getElementById('buttons-div').style.display = "none";
             document.getElementById('submitting_name').innerHTML =
-                `We are setting up ${document.getElementById('pipeline_name').value}..`
+                `We are setting up "${document.getElementById('pipeline_name').value}"..`
             document.getElementById('create_form').submit();
             return false;
         }
@@ -1103,6 +1108,12 @@
             document.getElementById('prevButton').disabled = false;
         }
     }
+
+    // for (i = 0; i < document.getElementsByClassName('tab').length - 1; i++) {
+    //     document.getElementsByClassName('tab')[i].style.display = "none"
+    // }
+ 
+    // document.getElementsByClassName('tab')[7].style.display = "inline-block"
 </script>
 
 {% endblock content %}
