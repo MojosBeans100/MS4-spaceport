@@ -1093,7 +1093,7 @@ i {
     height: auto;
     padding-top: 20px;
     padding-bottom: 30px;
-    border: solid yellow;
+   
 }
 
 #edit_form,
@@ -1103,7 +1103,7 @@ i {
     padding: 20px;
     margin-top: 60px;
     margin-bottom: 30px;
-    border: solid orange;
+  
     min-height: 60vh;
 }
 

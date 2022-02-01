@@ -248,9 +248,15 @@ As a **Site User** I can **edit details of my pipelines**
 ## Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
-|12.1|[Desktop]()|[Tablet]()|[Mobile]()||
-|12.2|[Desktop]()|[Tablet]()|[Mobile]()||
-|12.3|[Desktop]()|[Tablet]()|[Mobile]()||
-|12.4|[Desktop]()|[Tablet]()|[Mobile]()||
-|12.5|[Desktop]()|[Tablet]()|[Mobile]()||
-|12.6|[Desktop]()|[Tablet]()|[Mobile]()||
+|12.1|The Edit Pipeline button sits at the bottom of the pipeline instance page|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.1_a9ejp2.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643738531/Spaceport/Tablet/12.1_d7arfk.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728882/Spaceport/Mobile/12.1_ketqxn.jpg)||
+|12.2|Parameters available to be edited are displayed in the review tab of the create pipeline form.  They are also the only options present on the edit form|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625902/Spaceport/Desktop/1.10_wbjaas.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.3_x1eh6u.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643643401/Spaceport/Tablet/1.11_g6pbh5.jpg)|[Mobile]()||
+|12.3|Users can input different values for the name and description of the pipeline, and save|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.3_x1eh6u.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.3_2_j7avva.jpg)|[Tablet 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729211/Spaceport/Tablet/12.3_z9gla5.jpg)[Tablet 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729213/Spaceport/Tablet/12.392_byr3tr.jpg)|[Mobile 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728882/Spaceport/Mobile/12.3_2_bhwmpl.jpg) [Mobile 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728882/Spaceport/Mobile/12.3_dp2vuo.jpg)||
+|12.4|Users can access the Edit Pipeline button if the pipeline can be edited.  If not, the reason is displayed why|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.4_wukt8g.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728204/Spaceport/Desktop/12.4_2_kng5bg.jpg)|[Tablet 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729212/Spaceport/Tablet/12.4_2_ieseuo.jpg) [Tablet 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729212/Spaceport/Tablet/12.4_rpasm7.jpg)|[Mobile 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728883/Spaceport/Mobile/12.4_qvfcpr.jpg) [Mobile 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728883/Spaceport/Mobile/12.4_2_ldyhul.jpg)||
+|12.5|The changes the user made in the Edit Pipeline form are reflected when the user is redirected back to the pipeline instance|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728204/Spaceport/Desktop/12.5_lv7par.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729213/Spaceport/Tablet/12.5_rkpxle.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728883/Spaceport/Mobile/12.5_w3lsew.jpg)||
+|12.6|If the pipeline was edited, a timestamp of when is displayed|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.6_cbki2o.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729213/Spaceport/Tablet/12.6_dyhqfc.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728883/Spaceport/Mobile/12.6_kr9x7q.jpg)||
+
+## Acceptance Criteria
+- [x] User can edit specific parameters of their pipeline
+- [x] User is aware by feedback that their pipeline has been edited
+- [x] User is aware which features they can edit
+- [x] User is aware when pipeline was last edited
