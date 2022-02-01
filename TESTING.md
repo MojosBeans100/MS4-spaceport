@@ -228,3 +228,29 @@ As a **Site User** I can **access information on satellite imagery**
 - [x] Users are clearly and immediately aware of the purpose of the site
 - [x] Users can explore further on 'discover' page to see applications of satellite imagery
 - [x] Users can explore testimonials/examples to aid with their own pipeline creation
+
+# User Story 12
+As a **Site User** I can **edit details of my pipelines**
+
+- 12.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I edit the pipeline**
+- 12.2: As a **New/returning Site User** I can **see which parameters I can change for my pipeline** so that **I am aware of the limitations once my pipeline has been submitted**
+- 12.3: As a **New/returning Site User** I can **change the name and description of my pipeline** so that **I can correct if needed, or add details about results in the description**
+- 12.4: As a **New/returning Site User** I can **see if my pipeline is able to be edited** so that **I am aware if I can edit the pipeline and, if not, the reason why**
+- 12.5: As a **New/returning Site User** I am **redirected back to the detail view of the pipeline** so that **I can see the changes I made reflected**
+- 12.6: As a **New/returning Site User** I am **shown a timestamp of when the pipeline was last edited** so that **I am aware if and when I last edited my pipeline**
+
+## Acceptance Criteria
+- User can edit specific parameters of their pipeline
+- User is aware by feedback that their pipeline has been edited
+- User is aware which features they can edit
+- User is aware when pipeline was last edited
+
+## Testing
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|12.1|[Desktop]()|[Tablet]()|[Mobile]()||
+|12.2|[Desktop]()|[Tablet]()|[Mobile]()||
+|12.3|[Desktop]()|[Tablet]()|[Mobile]()||
+|12.4|[Desktop]()|[Tablet]()|[Mobile]()||
+|12.5|[Desktop]()|[Tablet]()|[Mobile]()||
+|12.6|[Desktop]()|[Tablet]()|[Mobile]()||
