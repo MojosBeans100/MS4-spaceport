@@ -398,14 +398,14 @@ def delete(request, id):
     # delete from api
     url = (f'https://api.skywatch.co/earthcache/pipelines/{pipeline_id}')
 
-    # delete_pipeline = requests.delete(
-    #     url,
-    #     headers={
-    #         'x-api-key': skywatch_key
-    #     }
-    # )
+    delete_pipeline = requests.delete(
+        url,
+        headers={
+            'x-api-key': skywatch_key
+        }
+    )
 
-    # print(delete_pipeline)
+    print(delete_pipeline)
 
     # get all related results
     results_to_delete = Result.objects.filter(pipeline_id=id)

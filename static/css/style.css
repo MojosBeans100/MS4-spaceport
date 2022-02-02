@@ -91,7 +91,8 @@ body {
 #my_pipelines_container button:hover,
 #create_container button:hover,
 .purpose-section button:hover,
-#delete_form button:hover {
+#delete_form button:hover,
+#delete_conf button:hover {
     background-color: rgb(255, 255, 255);
     border: solid 1px rgb(0, 0, 0);
     color: black;
@@ -689,6 +690,12 @@ input.invalid {
         width: 80%;
         margin: auto;
     }
+
+    #delete_conf {
+        margin-top: 160px;
+        width: 60% !important;
+        margin-left: 20% !important;
+    }
 }
 
 @media (min-width: 768px) {
@@ -758,6 +765,12 @@ input.invalid {
         width: 80%;
         margin-left: 10%;
     }
+
+    #delete_conf {
+
+        width: 50% !important;
+        margin-left: 0 !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -809,6 +822,10 @@ input.invalid {
 
     #delete_form {
         margin-top: 160px !important;
+    }
+
+    #delete_conf {
+        margin-top: 140px !important;
     }
 
 
@@ -868,6 +885,12 @@ input.invalid {
     #delete_form {
         width: 60%;
         margin-left: 20%;
+    }
+
+    #delete_conf {
+
+        width: 45% !important;
+        margin-left: 0 !important;
     }
 }
 
@@ -1093,12 +1116,13 @@ i {
 /* EDIT VIEW STYLING */
 
 #edit-container,
-#delete-container {
+#delete-container,
+#delete_conf_container {
     min-height: 100vh;
     height: auto;
     padding-top: 20px;
     padding-bottom: 30px;
-   
+
 }
 
 #edit_form,
@@ -1106,9 +1130,9 @@ i {
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     padding: 20px;
-  
+
     margin-bottom: 30px;
-  
+
     min-height: 60vh;
 }
 
@@ -1130,6 +1154,31 @@ i {
     padding-top: 10px;
 }
 
+#delete_conf {
+    background-color: white;
+    box-shadow: 0 0 3px rgb(177, 177, 177);
+    padding: 20px;
+
+    margin-bottom: 30px;
+
+    height: auto;
+}
+
+#delete_conf {
+    height: auto;
+    margin-top: 80px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+#delete_conf h2 {
+    padding-top: 50px;
+}
+
+#delete_conf button {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
 
 /* #edit_form button {
     font-size: 13px;
