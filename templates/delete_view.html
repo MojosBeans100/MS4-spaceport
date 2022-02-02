@@ -9,7 +9,7 @@
 
 <div class="container-fluid" id="delete-container">
     <div class="container">
-        <div id="delete_form" style="border: solid purple;">
+        <div id="delete_form">
 
             {% if pipeline.status == 'pending' %}
             <h3>You cannot delete this pipeline unless the status is Pending.</h3>
@@ -20,13 +20,26 @@
             <h2>Delete &nbsp; <strong>"{{pipeline.pipeline_name}}"</strong></h2>
             <p>Use this form to delete your pipeline.</p>
 
-            <br><br>
+            <br>
 
             <p><strong>Are you sure you want to delete this pipeline?</strong></p>
-            <p>All relating data will be deleted, and cannot be recovered.</p>
-            <p>You will be redirected to 'My Pipelines'.</p>
 
-            <div class="row align-bottom pt-2" style="border: solid pink;">
+            <p>When deleted:</p>
+            <ul>
+                <li>-  The pipeline will not show up in your list of pipelines</li>
+                <li>-  This pipeline and all related data
+                    (intervals, results, images) will be deleted</li>
+                <li>-  You will no longer
+                    have access to the pipeline details or results</li>
+                <li>-  If you would like to maintain access to any images delivered from this pipeline, we recommend you
+                    download them to your computer first</li>
+            </ul>
+
+
+            <p style="text-align: center;">You will be redirected to 'My Pipelines'.</p>
+<br>
+
+            <div class="row bottom-0">
                 <div class="col-sm p-4 d-flex justify-content-center">
                     <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
                                 class="fas fa-arrow-left"></i>Back</button></a></div>

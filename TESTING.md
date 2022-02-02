@@ -229,10 +229,59 @@ As a **Site User** I can **access information on satellite imagery**
 - [x] Users can explore further on 'discover' page to see applications of satellite imagery
 - [x] Users can explore testimonials/examples to aid with their own pipeline creation
 
+# User Story 10
+As a **Site User** I can **select the AOI for my pipeline on a map feature** so that **there is a more accessible way of selection/viewing my chosen AOI**
+
+- 10.1: As a **Site User** I am **instructed to select an area of an interactive map** so that **my pipeline will retrieve satellite images of that area**
+- 10.2: As a **Site User** I am **made aware of the restrictions of the map selection** so that **I can draw an area which will meet those restrictions**
+- 10.3: As a **Site User** I am **given inline feedback of my map selection size** so that **I can adjust the area I drew if it does not meet the requirements**
+- 10.4: As a **Site User** I am **given instructions on how to use the map features** so that **understand how to draw, select, edit and delete the area I drew**
+- 10.5: As a **Site User** I can **zoom in and out on the map** so that **I can more easily find the area on Earth I am looking for**
+- 10.6: As a **Site User** I am **given a review of the AOI I selected in the form review and my pipeline detail view** so that **I am reminded of the location of the AOI I selected**
+- 10.7: As a **Site User** I can **see the geoJSON data/coordinates of the area I selected** so that **I can use this information in post production**
+
+## Acceptance Criteria
+- Users can select the Area of Interest (AOI) on a map feature, which inputs the selection into the form
+- Users can delete/edit a selection if they change their mind
+- Users can see what the area of their selection is, and if it is within an acceptable range
+
+## Testing
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|10.1|The user can see a definition of what the AOI, and is instructed to select the map|[Desktop]|[Tablet]|[Mobile]||
+|10.2|The restriction on the size of AOI is displayed at all times|[Desktop]|[Tablet]|[Mobile]||
+|10.3|If the AOI selected falls outwith the restriction, the user is notified and cannot progress the form|[Desktop]|[Tablet]|[Mobile]||
+|10.4|At the start of the form, there are 6 steps to teach the user how to use the form|[Desktop]|[Tablet]|[Mobile]||
+|10.5|The user can use their mouse scroll to zoom in and out to view the AOI from different zooms|[Desktop]|[Tablet]|[Mobile]||
+|10.6|The AOI is rendered |[Desktop]|[Tablet]|[Mobile]||
+|10.7||[Desktop]|[Tablet]|[Mobile]||
+
+# User Story 11
+As a **Site User** I can **view/download images and metadata of retrieved API results** so that **I can use this information in post production**
+
+- 11.1: As a **Site User** I can **view a preview of a delivered image** so that **I can determine if the image is of good quality**
+- 11.2: As a **Site User** I can **download the full-size image** so that **I can use the image for the purpose I need it/view it in higher resolution**
+- 11.3: As a **Site User** I can **see the size of the full-size image** so that **I am aware how large in computer memory the image is**
+- 11.4: As a **Site User** I can **see technical data associated with any delivered images** so that **I can determine if the image is of use to me/meets the parameters I set**
+- 11.5: As a **Site User** I can **open a file containing the metadata associated with delivered images** so that **I can view further technical information about the image/satellite which took the image**
+
+## Acceptance Criteria
+- Users can click on resulting images and view/download them
+- Users can click on a link to the image metadata and copy it
+
+## Testing
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|11.1|The user can click on the Image Preview in the Results table, which will open a separate tab with a smaller resolution image preview|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739946/Spaceport/Desktop/11.1_quhbnl.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739951/Spaceport/Desktop/11.1_2_hzkcpq.jpg)|""|""||
+|11.2|The user can click Download Image in the Results table, which will download the full size image to their computer|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739946/Spaceport/Desktop/11.2_zyew4j.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739946/Spaceport/Desktop/11.2_2_n0cty4.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740552/Spaceport/Tablet/11.2_boivk7.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740311/Spaceport/Mobile/11.2_d0exg4.jpg)||
+|11.3|The user can see the size in megabytes of the full-size image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739946/Spaceport/Desktop/11.3_grhxhj.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740551/Spaceport/Tablet/11.3_yhrcds.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740310/Spaceport/Mobile/11.3_xzwdhv.jpg)||
+|11.4|The user can expand the Results table to review additional information about the image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739950/Spaceport/Desktop/11.4_wkuqjd.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740552/Spaceport/Tablet/11.4_xcxtrt.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740311/Spaceport/Mobile/11.4_hcgspb.jpg)||
+|11.5|The user can click on the Metadata tab in the Results table to open a seperate tab including further technical information about the image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739952/Spaceport/Desktop/11.5_ewxawt.jpg)|""|""||
+
 # User Story 12
 As a **Site User** I can **edit details of my pipelines**
 
-- 12.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I edit the pipeline**
+- 12.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I can edit the pipeline**
 - 12.2: As a **New/returning Site User** I can **see which parameters I can change for my pipeline** so that **I am aware of the limitations once my pipeline has been submitted**
 - 12.3: As a **New/returning Site User** I can **change the name and description of my pipeline** so that **I can correct if needed, or add details about results in the description**
 - 12.4: As a **New/returning Site User** I can **see if my pipeline is able to be edited** so that **I am aware if I can edit the pipeline and, if not, the reason why**

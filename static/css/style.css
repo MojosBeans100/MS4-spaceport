@@ -90,7 +90,8 @@ body {
 #index-container button:hover,
 #my_pipelines_container button:hover,
 #create_container button:hover,
-.purpose-section button:hover {
+.purpose-section button:hover,
+#delete_form button:hover {
     background-color: rgb(255, 255, 255);
     border: solid 1px rgb(0, 0, 0);
     color: black;
@@ -806,6 +807,10 @@ input.invalid {
         top: 150px !important;
     }
 
+    #delete_form {
+        margin-top: 160px !important;
+    }
+
 
 }
 
@@ -1101,7 +1106,7 @@ i {
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     padding: 20px;
-    margin-top: 60px;
+  
     margin-bottom: 30px;
   
     min-height: 60vh;
@@ -1113,7 +1118,16 @@ i {
 }
 
 #delete_form {
-    margin-top: 160px;
+    margin-top: 80px;
+}
+
+#delete_form ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#delete_form li {
+    padding-top: 10px;
 }
 
 
