@@ -229,6 +229,27 @@ As a **Site User** I can **access information on satellite imagery**
 - [x] Users can explore further on 'discover' page to see applications of satellite imagery
 - [x] Users can explore testimonials/examples to aid with their own pipeline creation
 
+# User Story 9
+As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
+
+- 9.1: As a **Site User** I can **see a timeline spanning the full duration of my pipeline** so that **I can see when the pipeline starts and ends**
+- 9.2: As a **Site User** I can **see a legend on the timeline** so that **I know what all icons and colours represent**
+- 9.3: As a **Site User** I can **see all intervals in my pipeline** so that **I know when the intervals start, end, and the duration**
+- 9.4: As a **Site User** I can **see the status of all pipelines colour-coded** so that **I can see which intervals have been completed, and which are still to be completed**
+- 9.5: As a **Site User** I can **see today represented on the timeline** so that **I can gauge an understanding of how much of the pipeline has been completed, and how much is left**
+- 9.6: As a **Site User** I can **see when images were delivered** so that **I know which intervals were successful**
+
+## Acceptance Criteria
+- Users can see a timeline graph of the entire pipeline, displaying start, end dates and all intervals
+- Users can see where the pipeline is in the timeline
+- Users can see which intervals are complete, incomplete, current
+- Users can see which intervals have been successful
+
+## Testing
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|9|For active pipelines, the user can see interval detail, status, dates, image dates and a respresentation of today on the timeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643809183/Spaceport/Desktop/9_ekbquo.jpg)|N/A for tablet|N/A for mobile||
+
 # User Story 10
 As a **Site User** I can **select the AOI for my pipeline on a map feature** so that **there is a more accessible way of selection/viewing my chosen AOI**
 
