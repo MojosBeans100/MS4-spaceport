@@ -1209,6 +1209,8 @@ i {
     box-shadow: 0 0 3px rgb(177, 177, 177);
     background-color: white;
     padding: 20px;
+    height: auto;
+
 }
 
 .accounts-divs button {
@@ -1219,4 +1221,8 @@ i {
 .accounts-divs-buttons {
     width: 100%;
 
+}
+
+#signout-form {
+    text-align: center;
 }

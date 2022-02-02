@@ -250,6 +250,12 @@ As a **Site User** I can **see a visual graph of the progress of the pipeline** 
 |----|------|-------|------|------|------|
 |9|For active pipelines, the user can see interval detail, status, dates, image dates and a respresentation of today on the timeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643809183/Spaceport/Desktop/9_ekbquo.jpg)|N/A for tablet|N/A for mobile||
 
+## Acceptance Criteria Status
+- [x] Users can see a timeline graph of the entire pipeline, displaying start, end dates and all intervals
+- [x] Users can see where the pipeline is in the timeline
+- [x] Users can see which intervals are complete, incomplete, current
+- [x] Users can see which intervals have been successful
+
 # User Story 10
 As a **Site User** I can **select the AOI for my pipeline on a map feature** so that **there is a more accessible way of selection/viewing my chosen AOI**
 
