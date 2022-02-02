@@ -309,3 +309,37 @@ As a **Site User** I can **edit details of my pipelines**
 - [x] User is aware by feedback that their pipeline has been edited
 - [x] User is aware which features they can edit
 - [x] User is aware when pipeline was last edited
+
+# User Story 13
+As a **Site User** I can **delete my pipeline** so that **I can remove pipelines I no longer need, or were incorrect**
+
+- 13.1: As a **Site User** I can **see the Delete Pipeline button on my pipeline view** so that **I can access the delete form**
+- 13.2: As a **Site User** I am **provided with an intermediate view of deleting the pipeline** so that **I do not delete my pipeline immediately by pressing the Delete Pipeline button**
+- 13.3: As a **Site User** I am **aware which pipeline I am about to delete** so that **I am certain which pipeline I am about to delete**
+- 13.4: As a **Site User** I can **see a list of results of deleting the pipeline** so that **I am aware of the consequences of deleting a pipeline**
+- 13.5: As a **Site User** I can **see an exit button when deleting my pipeline** so that **I can change my mind if I no longer want to delete this pipeline**
+- 13.6: As a **Site User** I am **given feedback that the pipeline was deleted** so that **I have confirmation that the pipeline was deleted**
+
+## Acceptance Critera
+- User knows how to delete their pipeline
+- User is aware of the consequences of deleting their pipeline
+- User is clear which pipeline they are deleting
+- User is given an opportunity to change their mind about deleting
+- User is aware that pipeline has been deleted
+
+## Testing
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|13.1|The Delete Pipeline button is displayed at the bottom of the pipeline instance detail page|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806374/Spaceport/Desktop/13.1_rpvbma.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806445/Spaceport/Tablet/13.1_rlpdik.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806522/Spaceport/Mobile/13.1_wqiw79.jpg)|Pass|
+|13.2|Users are given an opportunity to review the details of deleting the pipeline, before officially deleting the pipeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806375/Spaceport/Desktop/13.2_x6ezme.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806445/Spaceport/Tablet/13.2_dyvx0q.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806522/Spaceport/Mobile/13.2_nxkmx3.jpg)|Pass|
+|13.3|The pipeline name is displayed on the delete form so the user knows for certain which pipeline they are deleting|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806374/Spaceport/Desktop/13.3_xq6u22.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806444/Spaceport/Tablet/13.3_oiquny.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806522/Spaceport/Mobile/13.3_nbydnv.jpg)|Pass|
+|13.4|The consequences of deleting the pipeline are displayed in list format|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806375/Spaceport/Desktop/13.4_i09m9u.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806444/Spaceport/Tablet/13.4_wgr4bz.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806523/Spaceport/Mobile/13.4_r5arnf.jpg)|Pass|
+|13.5|Users have an opportunity to back out from deleting the pipeline by returning back to the pipeline detail view|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806375/Spaceport/Desktop/13.5_pnz24h.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806445/Spaceport/Tablet/13.5_ozjygo.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806523/Spaceport/Mobile/13.5_c8d5x2.jpg)|Pass|
+|13.6|The user can see confirmation that the pipeline was deleted|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806375/Spaceport/Desktop/13.6_fjr0id.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806445/Spaceport/Tablet/13.6_hyo5sz.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806523/Spaceport/Mobile/13.6_xlkl7l.jpg)|Pass|
+
+## Acceptance Critera Status
+- [x] User knows how to delete their pipeline
+- [x] User is aware of the consequences of deleting their pipeline
+- [x] User is clear which pipeline they are deleting
+- [x] User is given an opportunity to change their mind about deleting
+- [x] User is aware that pipeline has been deleted
