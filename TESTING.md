@@ -192,6 +192,33 @@ As a **Site User** I can **view all details of a specific pipeline**
 - [x] User can access how to update, edit or delete this pipeline
 - [x] User can see all relating results/images gathered by pipeline
 
+# User Story 4
+As a **Site User** I can **create an account** so that **I can log in to create pipelines, and view my pipelines**
+
+- 4.1: As a **New Site User** I can **sign up to Spaceport** so that **I can create pipelines**
+- 4.2: As a **Returning Site User** I can **log in to my account when revisiting the page** so that **I view details of my pipelines**
+- 4.3: As a **Site User** I can **see the login/signup/logout link in the nav bar** so that **I am always aware of my log in state**
+- 4.4: As a **Site User** I am **redirected to my pipelines when I log in** so that **my account information is immediately visible to me**
+- 4.5: As a **Site User** I can **logout from my account on Spaceport** so that **my account information is kept safe and private**
+
+## Acceptance Criteria
+- User can Sign Up to the website from the homepage
+- Users are aware of their current login/logout status
+- Users are redirected to the relevant page when signing up, logged in etc
+
+|User story|Result|Desktop|Tablet|Mobile|Status|
+|----|------|-------|------|------|------|
+|4.1|The user can click on the navigation bar to see the login page, and create an account with a username and password|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.1_yfgqm7.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817438/Spaceport/Tablet/4.1_omdbgm.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817245/Spaceport/Mobile/4.1_owben4.jpg)||
+|4.2|If the user clicks Login/Signup, they are directed to the login page|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.2_qlzy3g.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817439/Spaceport/Tablet/4.2_fkptee.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817244/Spaceport/Mobile/4.2_srsunr.jpg)||
+|4.3|If logged in, the user can see their username in the navigation bar so they are aware of their log in status|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.3_hsidlg.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817440/Spaceport/Tablet/4.3_c1m4op.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817244/Spaceport/Mobile/4.3_j4palf.jpg)||
+|4.4|When the user has logged in, their My Pipelines page is visible|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.3_hsidlg.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817440/Spaceport/Tablet/4.3_c1m4op.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.4_cezgzh.jpg)||
+|4.5|The user can confirm they want to log out|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814152/Spaceport/Desktop/4.5_gwzjdv.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817439/Spaceport/Tablet/4.5_ldybbf.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.5_jzgdk0.jpg)||
+
+## Acceptance Criteria Status
+- [x] User can Sign Up to the website from the homepage
+- [x] Users are aware of their current login/logout status
+- [x] Users are redirected to the relevant page when signing up, logged in etc
+
 # User Story 5
 As a **Site User** I can **access information on satellite imagery**
 
