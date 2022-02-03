@@ -1,6 +1,8 @@
 # Spaceport
 Spaceport is a full stack website which allows users to access satellite imagery of the Earth.  Users can create a tasking pipeline which will deliver images of the specified area when they are available.  The Skywatch API is used to access information about satellites, and set up the pipelines. The website was developed for Milestone 4 as part of the Code Institute Diploma in Software Developement. 
 
+![Responsive website](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643885662/Spaceport/amiresponsive_mk6ufl.jpg)
+
 # Table of contents
 - [Spaceport]
 - [Definitions]
@@ -45,12 +47,10 @@ The assesor can create their own account to test the functionality of the websit
 - Password: spaceport_test_password
 
 # Definitions
-This website is based on a technical concept of accessessing satellite imagery, therefore see below some useful definitions which may be used in this document.
-These definitions can also be found on the Discover website page.
+This website is based on a technical concept of accessessing satellite imagery, therefore see below some useful definitions which may be used in this document. These definitions and more can also be found on the Discover website page.
 - Pipeline: a pipeline refers to the timeline, or projected plan or schedule, of receiving satellite images. Each object in the 'List' model represents a pipeline.  Pipelines are active if they have not completed all intervals, and complete if all intervals have been completed
-- Interval:
-- 
-
+- Interval: the interval describes the time period in which to look for images.  An interval of 1 day will aim to deliver 1 image per day; an interval of bi-weekly will aim to deliver 1 image every 14 days.
+- AOI:  the Area of Interest is the area/coverage/footprint on Earth the user wants to search for images of
 
 # UX
 ## Strategy
@@ -138,6 +138,30 @@ There are three models in this project.  As the project uses an API for a lot of
 - The Result model contains information about results relating to the pipeline.  The number of results for a pipeline is directly linked to the number of intervals a pipeline has. Example: if a pipeline is 5 days in length, with an interval of 1 day, there will be 5 intervals (1 for each day), and thus 5 results.
 - It contains the List as the foreign key.
 - The model fields are: 
+
+## Style
+The styling is kept clean and minimal throughout the site.  As the content of the site may appear technically complex to new users, there are no distracting fonts, colours or images to confound the user. Attractive images are used where relevant to pique the interest of the user and indicate, alongside the text, the purpose of the website. 
+
+### Font
+The font style is the default Bootstrap 5 native sans-serif font stack for cross platform usability. The font remains consistent throughout the website, aside from being rendered in italic or font style for emphasis.
+
+### Colours
+- The colours of the website are kept to basic white, black and a light blue/grey background colour (rgb(177, 177, 177)).
+- The high definition photos provide splashes of colour against a simple background.  
+- A similar blue/grey hue is used in table headings (#5c6885). 
+- Form field validation is noticeable against these similar colours with a pink/orange hue to raise attention.  
+- The form progress panel uses an unremarkable turquoise (#04aa6d) to show the user's form progress.
+
+### Layout
+- The informative pages, such as the Homepage and Discover page, remain consistent with attractive images alongside short sections of text.
+- Bootstrap cards are used to display information in a clear and consise manner along with a complementary image.  
+- For several pages, the content is rendered in a section of white background with a box-shadow in front of the normal light blue background. 
+- Most pages offer a sub navigation list to easily jump to the relevant section of the page. 
+
+### Order
+
+
+### Continuity
 
 ## Scope
 
@@ -360,6 +384,13 @@ Users can select from six output image types, set to a default of True Colour ty
 Users can review all the parameters they set. They have the option to submit the pipeline, or go back and adjust parameters.  They are encouraged to review all the details before they submit. 
 
 ![Review form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884982/Spaceport/review_dynivc.jpg)
+
+### Submitting Page
+The last form page presents a loading screen to the user, to let the user know the pipeline has been submitted and is being set up.  There are no calls to action on this page.
+
+![Submitting form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643885204/Spaceport/submitting_dajpkl.jpg)
+
+
 
 # Limitations
 
