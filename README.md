@@ -108,17 +108,17 @@ There are three models in this project.  As the project uses an API for a lot of
 
 ##### List
 - The List model contains information about the pipeline the user set up
-- The model fields are: pipeline_name, pipeline_description, start_date, end_date, interval, output_image, aoi, cloud_cover, num_intervals, date_created, aoi_area, created_by, status, api_id, num_results, num_images, results_updated, featured_image, time_edited
+- The model fields are as below:
 
 | Field | Description | Created from | Field type|
 |-------|-------------|--------------|-----------|
 |id|the primary key for this model, used to cross reference Result objects|Django|Primary Key|
-|pipeline_name|the name the user gives to the pipeline|User| Charfield|
-|pipeline_des|the description the user inputs to identify the pipeline|User| Charfield|
-|start_date|what date the pipeline will start looking for images|User| Date|
-|end_date|what date the pipeline will stop looking for images|User| Date|
-|interval|the interval period set by the user (daily, biweekly, weekly, bimonthly, monthly)|User| Charfield|
-|aoi|the coordinates for the Area of Interest chosen by the user|User| JSON|
+|pipeline_name|the name the user gives to the pipeline|User|Charfield|
+|pipeline_des|the description the user inputs to identify the pipeline|User|Charfield|
+|start_date|what date the pipeline will start looking for images|User|Date|
+|end_date|what date the pipeline will stop looking for images|User|Date|
+|interval|the interval period set by the user|User|Charfield (choice of 5)|
+|aoi|the coordinates for the Area of Interest chosen by the user|User|JSON|
 |output_image|the type of images the pipeline should return|User|Charfield (choice of 6)|
 |cloud_cover|the maximum allowable cloud cover in returned images|User|Charfield|
 |num_intervals|the number of intervals between the start and end date|API|Charfield|
@@ -137,7 +137,37 @@ There are three models in this project.  As the project uses an API for a lot of
 ##### Result
 - The Result model contains information about results relating to the pipeline.  The number of results for a pipeline is directly linked to the number of intervals a pipeline has. Example: if a pipeline is 5 days in length, with an interval of 1 day, there will be 5 intervals (1 for each day), and thus 5 results.
 - It contains the List as the foreign key.
-- The model fields are: 
+- The model fields are as below: 
+
+| Field | Description | Created from | Field type|
+|-------|-------------|--------------|-----------|
+|id|the primary key for the results model0|Django|Primary Key|
+|pipeline_id|the id from the List model|Django|Foreign Key|
+|created_at|the time & date the result was created|API|Datetime|
+|updated_at|the time & date the result was updated from the API|Spaceport|Datetime|
+|api_pipeline_id|the unique API id of the pipeline|API|Charfield|
+|output_id|the id from the API given to reference each output type|API|Charfield|
+|status|the status of the result|Spaceport|Charfield|
+|message|the message from the API for the result|API|Charfield|
+|interval_start_date|the start date for this result|Spaceport|Date|
+|interval_end_date|the end date for this result|Spaceport|Date|
+|image_created_at|the time & date the image was captured by a satellite|API|Datetime|
+|image_updated_at|the time & date the image was last updated by the satellite|API|Datetime|
+|image_preview_url|the url for the preview of the image|API|Charfield|
+|image_visual_url|the url for the full size image|API|Charfield|
+|image_analytics_url|the url for for analytical image|API|Charfield|
+|image_metadata_url|the url for the metadata JSON associated with the image|API|Charfield|
+|image_size|the size of the image in megabytes|API|Charfield|
+|image_valid_pixels_per|the % of valid pixels in the image|API|Charfield|
+|image_source|the satellite the image was captured by|API|Charfield|
+|scene_height||API|Charfield|
+|scene_width||API|Charfield|
+|filled_area|area in km2 of the AOI which was able to be captured|API|Charfield|
+|aoi_area_per|% of the AOI which was captured|API|Charfield|
+|cloud_cover_per|cloud cover % of the image|API|Charfield|
+|aoi_cloud_cover_per|cloud cover % of the AOI|API|Charfield|
+|visible_area|visible area in the image|API|Charfield|
+|aoi_visible_area_per|visible area as a % of the AOI|API|Charfield|
 
 ## Style
 The styling is kept clean and minimal throughout the site.  As the content of the site may appear technically complex to new users, there are no distracting fonts, colours or images to confound the user. Attractive images are used where relevant to pique the interest of the user and indicate, alongside the text, the purpose of the website. 
@@ -157,11 +187,6 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 - Bootstrap cards are used to display information in a clear and consise manner along with a complementary image.  
 - For several pages, the content is rendered in a section of white background with a box-shadow in front of the normal light blue background. 
 - Most pages offer a sub navigation list to easily jump to the relevant section of the page. 
-
-### Order
-
-
-### Continuity
 
 ## Scope
 
