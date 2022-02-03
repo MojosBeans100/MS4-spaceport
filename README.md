@@ -175,18 +175,37 @@ The styling is kept clean and minimal throughout the site.  As the content of th
 ### Font
 The font style is the default Bootstrap 5 native sans-serif font stack for cross platform usability. The font remains consistent throughout the website, aside from being rendered in italic or font style for emphasis.
 
+![Bootstrap Native Font](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643901837/Spaceport/font_xbuoff.jpg)
+
 ### Colours
 - The colours of the website are kept to basic white, black and a light blue/grey background colour (rgb(177, 177, 177)).
+![Main background colour](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/177177177_tt8ngq.jpg)
+
 - The high definition photos provide splashes of colour against a simple background.  
+![Image next to text](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902011/Spaceport/images_yckrmm.jpg)
+
 - A similar blue/grey hue is used in table headings (#5c6885). 
-- Form field validation is noticeable against these similar colours with a pink/orange hue to raise attention.  
+![Table headings](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/92104133_v295zu.jpg)
+![Results table](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902229/Spaceport/tableheadings_gulfv8.jpg)
+
+- Form field validation is noticeable against these similar colours with a pink/orange hue to raise attention. 
+![Form field invalid](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/250209185_zrohcm.jpg) 
+![Form field not filled in](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902229/Spaceport/invalidform_wrirn0.jpg)
+
 - The form progress panel uses an unremarkable turquoise (#04aa6d) to show the user's form progress.
+![Progress indicator](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/4170109_euap9y.jpg)
+![Progress indicator](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902228/Spaceport/progressindicator_ty89po.jpg)
 
 ### Layout
 - The informative pages, such as the Homepage and Discover page, remain consistent with attractive images alongside short sections of text.
-- Bootstrap cards are used to display information in a clear and consise manner along with a complementary image.  
+
+- Bootstrap cards are used to display information in a clear and consise manner along with a complementary image. 
+![Discover Card](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900948/Spaceport/card2_ocaal8.jpg)
+
 - For several pages, the content is rendered in a section of white background with a box-shadow in front of the normal light blue background. 
-- Most pages offer a sub navigation list to easily jump to the relevant section of the page. 
+![Form with box shadow](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902342/Spaceport/boxshadow_owigi7.jpg)
+
+- Most pages offer a sub navigation list to easily jump to the relevant section of the page. ![Sub navigation on Pipelines page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643901899/Spaceport/nav1_nwz0ix.jpg)
 
 ## Scope
 
