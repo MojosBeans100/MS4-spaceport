@@ -95,7 +95,8 @@ Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 - Requirements.txt
 
 #### Database Model
-Insert schema here.
+
+![Schema](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643821929/Spaceport/SCHEMA_j2yy7r.jpg)
 
 #### Models
 There are three models in this project.  As the project uses an API for a lot of the information stored in the databases, see the associated tables to understand how the data is created (whether by the User, the Spaceport app, or from the API)
@@ -126,7 +127,7 @@ There are three models in this project.  As the project uses an API for a lot of
 |created_by|the user the pipeline was created by|Spaceport|Charfield|
 |status|whether the pipeline is active, complete, or pending|Spaceport|Charfield|
 |api_id|the unique id given to the pipeline by the API|API|Charfield|
-|num_results||||
+|num_results|the number of results associated with the pipeline (same as num_intervals)|Spaceport|Charfield|
 |num_images|the number of images successfully received by the pipeline|Spaceport|Charfield|
 |results_updated|when the pipeline was last refreshed from the API|API|Datetime|
 |featured_image|a url to display an image on My Pipelines page|API|Charfield|
@@ -255,10 +256,10 @@ The Discover page is named aptly to encourage users to explore more about satell
 As the Discover page is long, a sub navigation section is rendered to display the information the user can expect to find on this page, and to allow the user to jump to the page section of most interest.
 
 ### Applications
-The applications section of the Discover page convey to the user the industry uses of satellite imagery.  This section is intented to provide the user with more context to the site's purpose.  The section details three common uses of satellite imagery, with a relevant image and short description attached to each use. 
+The applications section of the Discover page convey to the user the industry uses of satellite imagery.  This section is intendted to provide the user with more context to the site's purpose.  The section details three common uses of satellite imagery, with a relevant image and short description attached to each use. 
 
 ### Examples
-The examples section is an extension of the applications section, explaining in more detail an example of how and why satellite imagery is collected.
+The examples section is an extension of the applications section, explaining in more detail an example of how and why satellite imagery is collected.  These 'real-life' examples provide context to the user about why they might want to use the site.
 
 ### News
 The news section further reinforces the importance of access to satellite imagery, providing a couple of topical examples which the user may have recently come across to provoke the user's interest.
@@ -290,7 +291,7 @@ The general section conveys the most important, identifying and summarising info
 ### Interval
 The interval section provides a table of all intervals in the pipeline, colour coded to represent the status of that interval (current, complete, future) and if they successful in collecting an image.  The overall start and end dates of the pipeline are also rendered, as well as the interval period (1d/daily, 7d/weekly etc) and number of intervals.
 
-If the pipeline is active, a timeline graph is shown to provide a visual representation of the interval table data.  This timeline is not displayed under a screen width of 1200px.
+If the pipeline is active, a timeline graph is shown to provide a visual representation of the interval table data.  This timeline is not displayed under a screen width of 1200px.  As this information is duplicated in the interval table, albeit in a less visually appealing way, the omitting of the timeline below certain screen sizes should not hamper the user's experience on the site and understanding of the progress of their pipeline. 
 
 ### Results
 The pipeline results are also displayed in a table.  The user can see:
@@ -309,7 +310,56 @@ The parameters the user selected are displayed towards the bottom of the detail 
 
 ### Edit/Delete
 
+## Create a Pipeline
+The 'Create a Pipeline' form is an interactive form divided into multiple tabs, so the user can progress and regress as they need.  Each tab represents different categories in the form, as well as a definition of the parameters being asked, restrictions, and visual aids if required.  The form concludes with a review section, for the user to review all the parameters they set.
 
+### Intro Page
+THe introduction page on the form describes the purpose of the form, as well as prompting the user to visit the 'Discover' page if they are new.  A short sub navigation is provided on this page for convenience to scroll through the sections.
+
+#### How it works
+The users are provided with a short and punchy three step process of creating a pipeline.
+
+#### Restrictions
+The restrictions in terms of setting up their pipeline are displayed here, so the user knows to expect these in the form.  These are repeated on the relevant form section. 
+
+#### Satellite Aquisition
+The user is provided with some advice on how to maximise their chance of receiving an image, as well as ensuring the user understands that not all pipelines deliver results, depending on if a suitable satellite was found for their pipeline. 
+
+#### AOI Selection
+A map is used to select the AOI, so a basic set of instructions of drawing an area are provided to the user with pictures.
+
+#### Getting Started
+Users are provided with some suggestions of what kind of pipeline to create.  This is to give new users especially a starting point for creating a pipeline.
+
+### General Page
+The general section requires the user to input a name for their pipeline and they can also provide a short description to further identify it if required.
+
+![General form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884237/Spaceport/general_go11c0.jpg)
+
+### AOI Page
+The AOI section requires the users to use the interactive map to select points to form a polygon.  The definition and restrictions of AOI are provided.  The user is given feedback on the size of AOI they chose.
+
+![AOI form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884237/Spaceport/aoi_huwk3g.jpg)
+
+### Interval Page
+The interval section asks the users to select their pipeline start and end date, and the interval in which to capture images.  The restrictions of the interval, and validation errors are also on this page.
+
+![Interval form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884434/Spaceport/interval_yxaofq.jpg)
+
+### Parameters Page
+Users can adjust the cloud cover settings if they wish.  Visual representations of low, medium and high cloud cover are provided for reference.  If the form field is left at the default value of 1%, they are allowing images to be delivered with any percentage of cloud cover.
+
+![Cloud cover form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884518/Spaceport/cloudcover_izmve7.jpg)
+
+### Output Page
+Users can select from six output image types, set to a default of True Colour type.  Users can hover over the image to see a description of what the image type is. 
+
+![Output form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884848/Spaceport/output_zhmmfz.jpg)
+
+### Review Page
+Users can review all the parameters they set. They have the option to submit the pipeline, or go back and adjust parameters.  They are encouraged to review all the details before they submit. 
+
+![Review form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884982/Spaceport/review_dynivc.jpg)
 
 # Limitations
 
