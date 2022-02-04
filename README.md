@@ -362,7 +362,7 @@ The Discover page is named aptly to encourage users to explore more about satell
 As the Discover page is long, a sub navigation section is rendered to display the information the user can expect to find on this page, and to allow the user to jump to the page section of most interest.
 
 ### Applications
-The applications section of the Discover page convey to the user the industry uses of satellite imagery.  This section is intendted to provide the user with more context to the site's purpose.  The section details three common uses of satellite imagery, with a relevant image and short description attached to each use. 
+The applications section of the Discover page convey to the user the industry uses of satellite imagery.  This section is intended to provide the user with more context to the site's purpose.  The section details three common uses of satellite imagery, with a relevant image and short description attached to each use. 
 
 ### Examples
 The examples section is an extension of the applications section, explaining in more detail an example of how and why satellite imagery is collected.  These 'real-life' examples provide context to the user about why they might want to use the site.

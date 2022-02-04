@@ -661,7 +661,7 @@
             today_data.push(todays_date_object)
         }
 
-
+        console.log(all_data)
         pointBackgroundColors = []
         pointRadii = []
 
@@ -725,8 +725,8 @@
                             unit: 'day',
                         },
                         ticks: {
+                            autoskip: true,
                             //maxTicksLimit: 10,
-                            autoSkip: true,
                             source: 'all_data',
                             maxRotation: 75,
                             minRotation: 75,
