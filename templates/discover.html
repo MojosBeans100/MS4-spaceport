@@ -268,7 +268,7 @@
     <hr>
 
     <div id="discover-news">
-        <div class="purpose-section">
+        <div class="purpose-section" id="carousel">
             <h3 id="discover-news-title">In the news</h3>
             <p>Read some interesting and topical articles about satellite imagery below.</p>
 
@@ -307,6 +307,14 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            <p>14th January 2022 | Hunga-Tonga-Hunga-Ha'apai, Tonga</p><br>
+            <p>The underwater volcano erupted in early 2022, causing a huge volcanic ash cloud and triggering a tsunami
+                so
+                powerful it reached New Zealand and Japan. Dramatic images were taken from space, capturing the moments
+                the volcano erupted, and the days and weeks afterwards.<br>
+                <a
+                    href="https://earthdata.nasa.gov/worldview/worldview-image-archive/explosive-eruption-of-hunga-tonga-hunga-ha-apai-volcano">Watch
+                    animation</a> | <a href="https://www.bbc.co.uk/news/world-asia-60106981">BBC Article</a> | <a href="https://edition.cnn.com/2022/01/17/asia/tonga-volcanic-eruption-tsunami-explainer-intl-hnk/index.html">CNN Article</a></p>
         </div>
 
     </div>
@@ -472,6 +480,11 @@
             <h3 id="discover-faq-title">FAQ</h3>
             <p>Here are some frequently asked questions about our platform.</p>
 
+            <h5>How can I receive images straight away?</h5>
+            <p>If you'd like to start collecting images immediately, you can set up your pipeline to look for archived
+                imagery - images from the past. The platform will deliver these as soon as they are gathered and
+                processed.</p>
+
             <h5>My pipeline starts and finishes in the past, why is it still 'active'?</h5>
             <p>Satellite imagery retrieval can take a few minutes. If your pipeline is still active, it is likely still
                 either retrieving, processing or formatting the images. You are recommended to allow a few minutes for
@@ -510,6 +523,17 @@
             <h5>Which satellites does the platform use to collect images?</h5>
             <p>Spaceport has access to the Sentinel-2 (ESA), PlanetScope (Planet), SPOT (Airbus), Skysat (Planet),
                 Kompsat-3 (SIIS), and Pleiades (Airbus) satellite data.</p>
+
+            <h5>Why are my images blurry when I zoom in?</h5>
+            <p>In order to offer free satellite imagery, Spaceport can only access 'low resolution' data, representing
+                an image resolution of 8 - 15 metres. A
+                resolution of 8 metres means that each pixel on the image represents an area on Earth of 8 metres
+                squared. If the image has captured an area of 5,000 km<sup>2</sup>, that is a very large area on Earth
+                to capture in an image which is a size that could be rendered on a computer screen, so we have to
+                sacrifice
+                some image quality. The images can still
+                be useful and interesting to look at, and higher resolution images can be purchased on other websites.
+            </p>
         </div>
     </div>
 
@@ -525,12 +549,12 @@
                             Pipeline</button></a>
                 </div>
                 {% else %}
-                
-                    <div class="col-md py-4">
-                        <a href="{% url 'account_signup' %}"><button class="btn btn-dark btn-lg"><i
-                                    class="far fa-user"></i>Sign Up</button></a>
-                    </div>
-                    {% endif %}
+
+                <div class="col-md py-4">
+                    <a href="{% url 'account_signup' %}"><button class="btn btn-dark btn-lg"><i
+                                class="far fa-user"></i>Sign Up</button></a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
