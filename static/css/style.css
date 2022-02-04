@@ -254,8 +254,9 @@ body {
     opacity: 0; */
 }
 
-#carouselExampleControls img {
-    height: 45vh;
+#carouselExampleControls img,
+#carouselExampleControls1 img{
+    height: 55vh;
 }
 
 /* CREATE PIPELINE STYLING */
@@ -311,8 +312,8 @@ body {
 }
 
 .input-sections {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 #id_aoi {
