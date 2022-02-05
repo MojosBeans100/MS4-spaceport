@@ -1,5 +1,7 @@
 from django.test import TestCase
 from .models import List, Result
+import datetime
+from django.utils import timezone
 
 class TestViews(TestCase):
 
@@ -7,8 +9,8 @@ class TestViews(TestCase):
         test_list = List.objects.create(
             pipeline_name='Test Pipeline',
             pipeline_des='Test description',
-            start_date='2022-01-23',
-            end_date='2022-01-28',
+            start_date=datetime.date.today(),
+            end_date=datetime.date.today(),
             output_image='1f0db8b2-b4d4-11e7-a775-a6fe70ce62b1',
             interval='1d',
             aoi={'json_field': 'json_object'},
@@ -19,14 +21,14 @@ class TestViews(TestCase):
 
         result = Result.objects.create(
             pipeline_id=test_list,
-            created_at='2022-01-23 16:15',
-            updated_at='2022-01-23 16:15',
+            created_at=timezone.now(),
+            updated_at=timezone.now(),
             api_pipeline_id='',
             output_id='',
             status='',
             message='',
-            interval_start_date='2022-01-23',
-            interval_end_date='2022-01-23'
+            interval_start_date=datetime.date.today(),
+            interval_end_date=datetime.date.today()
         )
 
     def test_get_homepage(self):
@@ -108,22 +110,19 @@ class TestViews(TestCase):
         test_list = List.objects.get()
         existing_result = Result.objects.filter(pipeline_id=test_list)
         response = self.client.get(f'/delete/{test_list.id}')
-      
+
         # renders delete confirmation with pipeline instance
         self.assertRedirects(response, f'/delete_conf/{test_list.id}')
 
-        # # all results for that instance are deleted
+        # all results for that instance are deleted
         self.assertEqual(len(existing_result), 0)
 
+    def test_delete_conf(self):
 
-    # def test_delete_conf(self):
+        test_list = List.objects.get()
 
-    #     test_list = List.objects.get()
-       
-    #     response = self.client.get(f'delete/{test_list.id}')
+        response = self.client.get(f'/delete_conf/{test_list.id}')
 
-    #     # renders the correct template
-    #     #self.assertTemplateUsed(response, 'delete_conf.html')
-    #     test_list = List.objects.get()
-    #     print(test_list)
+        existing_items = List.objects.filter(id=test_list.id)
         
+        self.assertEqual(len(existing_items), 0)
