@@ -74,15 +74,56 @@ class TestViews(TestCase):
         self.assertEquals(response.context['results'][0].pipeline_id, response.context['pipeline'])
         self.assertTemplateUsed(response, 'detail_view.html')
 
-    def test_delete_view(self):
+    def test_renders_delete_view(self):
+        """
+        renders the delete view
+        with pipeline instance
+        """
 
         test_list = List.objects.get()
+        existing_result = Result.objects.filter(pipeline_id=test_list)
         response = self.client.get(f'/delete_view/{test_list.id}')
 
-        self.assertIsInstance(response.context['pipeline'], List)
-        self.assertEqual(response.context['pipeline'].id, test_list.id)
-        self.assertTemplateUsed(response, 'delete_view.html')
-        self.assertEqual(response.status_code, 200)
-        
-    # def test_delete(self):
+        # current num results is 1
+        self.assertEqual(len(existing_result), 1)
 
+        # context renders that pipeline instance
+        self.assertIsInstance(response.context['pipeline'], List)
+
+        # context renders correct List object
+        self.assertEqual(response.context['pipeline'].id, test_list.id)
+
+        # renders the correct template
+        self.assertTemplateUsed(response, 'delete_view.html')
+
+        # no error codes associated with rendering the template
+        self.assertEqual(response.status_code, 200)
+
+    def test_delete(self):
+        """
+        deletes the results for that pipeline
+        instance and renders the detail conf
+        """
+
+        test_list = List.objects.get()
+        existing_result = Result.objects.filter(pipeline_id=test_list)
+        response = self.client.get(f'/delete/{test_list.id}')
+      
+        # renders delete confirmation with pipeline instance
+        self.assertRedirects(response, f'/delete_conf/{test_list.id}')
+
+        # # all results for that instance are deleted
+        self.assertEqual(len(existing_result), 0)
+
+
+    # def test_delete_conf(self):
+
+    #     test_list = List.objects.get()
+       
+    #     response = self.client.get(f'delete/{test_list.id}')
+
+    #     # renders the correct template
+    #     #self.assertTemplateUsed(response, 'delete_conf.html')
+    #     test_list = List.objects.get()
+    #     print(test_list)
+        
