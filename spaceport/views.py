@@ -405,8 +405,6 @@ def delete(request, id):
         }
     )
 
-    print(delete_pipeline)
-
     # get all related results
     results_to_delete = Result.objects.filter(pipeline_id=id)
 

@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import List, Result
+from .forms import CreateList, UpdateList
 import datetime
 from django.utils import timezone
 
@@ -118,11 +119,29 @@ class TestViews(TestCase):
         self.assertEqual(len(existing_result), 0)
 
     def test_delete_conf(self):
+        """
+        test that the delete confirmation page is
+        rendered then deletes the object in question
+        """
 
         test_list = List.objects.get()
 
         response = self.client.get(f'/delete_conf/{test_list.id}')
+        # self.assertRedirects(response, f'/delete_conf/{test_list.id}')
 
         existing_items = List.objects.filter(id=test_list.id)
-        
+
         self.assertEqual(len(existing_items), 0)
+
+    def test_can_edit_object(self):
+        """
+        test that the edit form is rendered
+        and users can edit details
+
+        """
+
+        test_list = List.objects.get()
+
+        response = self.client.get(f'/edit_pipeline/{test_list.id}')
+
+        self.assertTemplateUsed(response, 'edit_pipeline.html')
