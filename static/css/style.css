@@ -218,7 +218,7 @@ body {
 }
 
 #discover-applications img {
-    height: 30vh;
+    height: 40vh;
     border-radius: 5px;
     border: none;
 }
@@ -227,7 +227,7 @@ body {
     width: 100%;
     max-width: 300px;
     margin: auto;
-    height: 30vh;
+    height: 40vh;
     padding-top: 10px;
 
 }
@@ -235,6 +235,16 @@ body {
 #discover-glossary table td,
 #discover-examples p {
     text-align: justify;
+}
+
+.glossary-img {
+    text-align: center !important;
+}
+
+#discover-glossary img {
+    width: 50%;
+    margin-left: 25%;
+    padding: 10px;
 }
 
 #discover-examples h5 {
