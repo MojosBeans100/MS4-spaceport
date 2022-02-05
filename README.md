@@ -4,9 +4,10 @@ Spaceport is a full stack website which allows users to access satellite imagery
 ![Responsive website](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643885662/Spaceport/amiresponsive_mk6ufl.jpg)
 
 # Table of contents
-- [Spaceport]
-- [Definitions]
-- [Project Overview]
+- [Spaceport](#spaceport)
+- [Project Overview](#project-overview)
+- [Access](#access)
+- [Definitions](#definitions)
 - [UX]
     * Strategy
         + Site user
@@ -39,6 +40,17 @@ Spaceport is a full stack website which allows users to access satellite imagery
 - The website is deployed using the Heroku pages at the following url:
 - The repository on Github that contains the website source code and assets is available at the following url:
 - The website was built with a responsive look and feel, designed to be enjoyable to use on all screen sizes.
+
+## Technical Abstract
+This project has been designed to provide users with a platform to access satellite imagery through the Skywatch ‘Application Programming Interface’ (or ‘API’). The project idea was initially proposed by a company called Astrosat (Scotland) who specialise in data visualisation of satellite images to enhance our understanding of the challenges we face on Earth.
+
+Satellite imagery is becoming increasingly popular as a way of providing a different perspective on changing environments on the Earth's surface. For example, images taken by satellites can provide a more expansive view of rainforest deforestation in the Amazon, enabling more straightforward and accurate calculations of the proportion the total area that is felled, as well as the rate of destruction. Environmental organisations can thus utilise this technology to draw attention to decline in critical climactic environments.
+
+Satellite imagery is also becoming more accessible to the global citizenry, whose uses for it range from specific projects to simple curiosity. In recognition that there are many who are interested in, but hitherto unfamiliar with, satellite technology, the website attempts to provide a comprehensive and accessible guide through the process.
+
+The Skywatch ‘Application Programming Interface’ (or ‘API’) requires users to submit details of the satellite images they wish to access, defining within specific parameters. The API will then cross-reference these with the satellites available on its database, with the goal of straightforwardly delivering the desired images to the user.
+
+While Astrosat regularly use the Skywatch EarthCache console to retrieve images, the company has less experience in interacting with the API itself.  This project attempts to provide insight into the intricacies of the API and to provide a user-friendly, front-end platform to demonstrate its capabilities.  
 
 # Access
 The assesor can create their own account to test the functionality of the website, and/or can use the details below to sign in and view some example pipelines which have been created for convenience.
