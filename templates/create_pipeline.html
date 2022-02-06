@@ -649,23 +649,28 @@
 
 
 <script>
+    // highlight the 'Create' page in the nav bar
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
             document.getElementById('nav-active-page').removeAttribute('nav-active-page')
         }
         document.getElementsByClassName('nav-link')[2].setAttribute("id", "nav-active-page")
     });
-    // library - https://www.w3schools.com/howto/howto_js_form_steps.asp
-    // this step form uses code from the above link
-    // modified and enhanced to fit the purpose of this project
-    //document.getElementsByClassName("nav-link")[2].style.color = "red"
+
+    // set the default output image
     document.getElementById('id_output_1').checked = true;
+
+    // set the variables
     var currentTab = 0;
     var mapLoads = true
     showTab(currentTab)
     var interval;
     var mapbox_key = "{{ mapbox_key | safe}}";
 
+    /**
+    Parse dates into correct format and
+    ensure the interval dates are valid
+    */
     function validateDate() {
 
         // if feedback already exists, remove it
@@ -673,6 +678,7 @@
             document.getElementById('interval_feedback').remove()
         }
 
+        // what am I doing here, I have no idea
         if (document.getElementById('nextButton').disabled = true) {
             document.getElementById('nextButton').disabled = false;
         };
@@ -724,7 +730,7 @@
             pipeline_intervals = document.createElement('p');
             pipeline_intervals.id = 'pipeline_intervals';
             pipeline_intervals.innerHTML =
-                `Number of intervals: ${num_intervals_rounded}<br><small>This is an estimate but may change based on the layout of the intervals`;
+                `Number of intervals: ${num_intervals_rounded}<br><small>this may change based on the layout of the intervals`;
             interval_feedback.append(pipeline_intervals);
         }
 
@@ -780,6 +786,9 @@
 
     }
 
+    /**
+    Apply 'checked' style to selected output image
+    */
     function styleOutputImage() {
 
         parent_checked = document.getElementsByClassName('output-label')
@@ -796,6 +805,10 @@
         }
     }
 
+    /**
+    External library with adjustments
+    W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
+    */
     function showTab(num) {
         var tab = document.getElementsByClassName('tab');
         tab[num].style.display = 'block';
@@ -843,6 +856,10 @@
         fixStepIndicator(num)
     }
 
+    /**
+    External library with adjustments
+    W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
+    */
     function nextPrev(num) {
 
         console.log(currentTab)
@@ -863,6 +880,10 @@
         showTab(currentTab);
     }
 
+    /**
+    External library with adjustments
+    W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
+    */
     function fixStepIndicator(num) {
 
         var i, x = document.getElementsByClassName("step");
@@ -873,41 +894,46 @@
         x[num].className += " active";
     }
 
+    /**
+    External library with adjustments
+    W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
+    */
     function validateForm() {
 
-        // This function deals with validation of the form fields
         var x, y, i, valid = true;
         x = document.getElementsByClassName("tab");
         y = x[currentTab].getElementsByTagName("input");
-        // A loop that checks every input field in the current tab:
+
         for (i = 0; i < y.length; i++) {
 
-            // If a field is empty...
             if (y[i].value == "") {
-                // add an "invalid" class to the field:
                 y[i].className += " invalid";
-                // and set the current valid status to false:
                 valid = false;
             }
 
             if (y[i].checked) {
                 valid = true;
-                //y[i].className +- " invalid";
             }
-
         }
-        // If the valid status is true, mark the step as finished and valid:
+
         if (valid) {
             document.getElementsByClassName("step")[currentTab].className += " finish";
         }
-        return valid; // return the valid status
+        return valid;
     }
 
+    /**
+    Call the Mapbox API to display a map
+    which the user can draw onto
+    Validate the AOI area 
+    External library with adjustments
+    Mapbox https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
+    */
     function createMap() {
 
         input_validation = document.getElementById('id_aoi');
 
-        // external library - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
+        // create the map
         mapboxgl.accessToken = mapbox_key;
         const map = new mapboxgl.Map({
             container: 'create-map',
@@ -915,6 +941,7 @@
             zoom: 4,
         });
 
+        // create the draw function
         const draw = new MapboxDraw({
             displayControlsDefault: false,
             controls: {
@@ -925,6 +952,7 @@
         });
         map.addControl(draw);
 
+        // call function based on user actions on map
         map.on('draw.create', updateArea);
         map.on('draw.delete', deleteArea);
         map.on('draw.update', updateArea);
@@ -933,29 +961,34 @@
 
         function updateArea(e) {
 
-            rounded_km = ""
-
+            // remove this parameter to be replaced on re-draw
             if (document.getElementById('map-a')) {
                 (document.getElementById('map-a').remove())
             }
 
             input_validation = document.getElementById('id_aoi')
 
+            // set or reset the map area to 0km
             map_area = document.getElementById('map-area')
             map_area.innerHTML = "Area: 0 km<sup>2</sup>"
 
+            // get the drawn polygon data
             const data = draw.getAll();
 
+            // if feedback exists, delete it
             if (document.getElementById('area_validation_feedback')) {
                 document.getElementById('area_validation_feedback').remove();
             }
 
+            // if there is data drawn
             if (data.features.length > 0) {
 
+                // get the area of the data
                 const area = turf.area(data);
                 const rounded_area = Math.round(area * 100) / 100;
                 rounded_km = (rounded_area / 1000000).toFixed(2);
 
+                // create feedback to display to user
                 area_validation_feedback = document.createElement('p')
                 area_validation_feedback.id = "area_validation_feedback"
 
@@ -964,59 +997,66 @@
                 map_a.style.display = "none";
                 map_a.innerHTML = rounded_km;
                 aoi_section.append(map_a)
-                
 
+                // if area is too large
                 if (rounded_km > 10000) {
-
                     area_validation = "Area is too large: choose an area smaller than 10,000 km<sup>2</sup>";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
-               
 
+                    // if area is too small    
                 } else if (rounded_km < 25) {
-
                     area_validation = "Area is too small: choose an area larger than 25 km<sup>2</sup>";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
-                 
 
+                    // if area size is valid
                 } else {
-                  
+
+                    // input the geoJSON into the form field
                     area_validation = "";
                     text = JSON.stringify(data);
                     input_validation.value = text;
                     document.getElementById('nextButton').disabled = false
                 }
 
+                // apply validation feedback to webpage
                 map_area.innerHTML = `<p>Area: <strong>${rounded_km} km <sup>2</sup>`;
                 area_validation_feedback.innerHTML = `${area_validation}`;
                 aoi_section.append(area_validation_feedback);
 
             } else {
-                //answer.innerHTML = '';
                 if (e.type !== 'draw.delete')
                     alert('Click the map to draw a polygon.');
             }
         }
 
+        // if polygon has been deleted, remove form field value
         function deleteArea() {
-            
             input_validation.value = ""
         }
 
+        // remove the null value and set to blank
+        // to stop form progressing on default
         if (input_validation.value == 'null') {
             input_validation.value = "";
         }
     }
 
+    /**
+    Display a map to render the user's chosen AOI area
+    */
     function reviewMap() {
 
+        // get the geoJSON from the form and format it
         aoi_json = JSON.parse(document.getElementById('id_aoi').value);
         aoi_map = aoi_json['features'][0]['geometry'];
 
+        // create long and lat to set the map center 
         long = aoi_json['features'][0]['geometry']['coordinates'][0][0][0];
         lat = aoi_json['features'][0]['geometry']['coordinates'][0][0][1];
 
+        // MAPBOX code
         mapboxgl.accessToken =
             mapbox_key;
         const map = new mapboxgl.Map({
@@ -1060,6 +1100,10 @@
         });
     }
 
+    /**
+    Collect all user's form field values and
+    display back to them for review
+    */
     function createReview() {
 
         reviewMap();
@@ -1100,12 +1144,15 @@
             table_feedback[i].innerHTML = feedback[i];
         }
 
-
         document.getElementById('table-area').innerHTML = review_area;
         document.getElementById('table-geojson').innerHTML = review_aoi;
         document.getElementById('table-cloud').innerHTML = `${review_cloud}%`;
     }
 
+    /**
+    Validate that the cloud cover selected is
+    between 1 and 100
+    */
     function validateCloudCover() {
 
         cloud_input = document.getElementById('id_cloud').value

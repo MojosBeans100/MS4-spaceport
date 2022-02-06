@@ -352,9 +352,9 @@ body {
     padding-bottom: 15px;
 }
 
-/* #id_aoi {
+#id_aoi {
     display: none;
-} */
+}
 
 #create-map {
     width: 100%;
