@@ -81,17 +81,17 @@ The primary goals of the website user are as follows:
 ## Structure
 ### Pages
 The website has five main pages, with user authentication on three:
-- Homepage: to introduce users to the website and detail the purpose
-- Discover: to allow users to explore the uses of satellite imagery
-- My Pipelines: to list all pipelines created by the user
-- View of pipeline: to display all details of the pipeline instance
-- Create pipeline: to display an interactive form for creating a pipeline
+- Homepage (all): to introduce users to the website and detail the purpose
+- Discover (all): to allow users to explore the uses of satellite imagery
+- My Pipelines (user): to list all pipelines created by the user
+- View of pipeline (user): to display all details of the pipeline instance
+- Create pipeline (user): to display an interactive form for creating a pipeline
 
 The additional pages are as follows:
 - Edit pipeline
 - Delete pipeline
 - Confirmation of deleted pipeline
-- User authentication pages
+- Log in/log out/sign up pages
 
 The website was designed to be simple, clear and non-cluttered, basic in structure, with attractive images of satellites and images captured by satellites.
 Bootstrap was used to aid responsiveness, as well as media queries in CSS.
@@ -484,7 +484,57 @@ The last form page presents a loading screen to the user, to let the user know t
 
 ![Submitting form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643885204/Spaceport/submitting_dajpkl.jpg)
 
+# Languages
 
+## HTML/CSS
+## Javascript
+Javascript is included on most pages.  The main functions are:
+
+### Display a 'Back to Top' button
+On pages which have a lot of content, the user is provided with a button to allow them to scroll back to the top of the page for convenience.  This is [external library code](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp).
+
+### Highlight the website active page
+The three selectable pages in the navigation bar display different styling when the page is active.
+
+### Create a map to draw the AOI
+*function createMap()*
+
+In the Create a Pipeline form, JS code renders a Mapbox map of the world and allows users to select points to form a polygon for choosing their AOI.
+
+The code is derived from the 'draw' function in [Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/).
+
+### Render the map to review the AOI
+*function reviewMap() & function detailMap()*
+
+Reviewing the map requires a reverse function of the above, collecting the user's selected AOI in geoJSON format and drawing this on the map.
+
+The code is derived from the 'addSource' function in [Mapbox](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addsource).
+
+### Create a progressive form to create a pipeline
+For improved UX, the Create a Pipeline form is seperated into relevant tabs to allow the user to move forwards and back as desired.  The form provides additional form field validation.
+
+The code is derived from [W3S](https://www.w3schools.com/howto/howto_js_form_steps.asp), adapted and enhanced to fit the requirements of the project.
+
+### Perform form field validation
+*function validateCloudCover(), function validateDate()*
+
+Additional validation methods are required for the form, aside from the above and Django Forms validation. The user is provided with inline feedback for their parameters, so they are aware if and why they are valid/invalid.  The two main uses of this are to validate the interval dates and the AOI size.
+
+### Create form review
+*function createReview()*
+
+This function renders the pipeline parameters as a final step for the user to review before submitting.  
+
+### Create a chart to shown a timeline of the pipeline
+*function timelineChart()*
+
+This function creates a ChartJS graph, displaying relevant pipeline dates in a more visually appealing manner.
+
+The code is derived from a simple example from the ChartJS [documentation](https://www.chartjs.org/docs/latest/charts/line.html).
+
+
+## Python
+## Django
 
 # Limitations
 
@@ -492,46 +542,46 @@ The last form page presents a loading screen to the user, to let the user know t
 
 - The developer has a limited account with the Skywatch API.  During development, many pipelines were created for testing purposes under the accounts 'admin' and 'testing_account' and 'testing_account2'.  As the account is limited to 100 pipelines, all of these pipelines were deleted from the API before deployment.  The objects remain in the website database, but cannot be edited, updated or deleted as there is no longer a model in the API which represents these objects.
 
-## Additional Features
+# Additional Features
 This section details some additional features which could be added to further develop the website.
 
-### UX
+## UX
 - Map zoom
 Additional code could be added to the map renders, to create a short zoom animation towards their AOI
 
 - 
 
-### User Features
+## User Features
 
-- Save incomplete pipeline
+### Save incomplete pipeline
 A feature could be added within the code to allow users to save an incomplete pipeline form and return to it at a later date.  The developer feels this would be a useful feature, as the Create a Pipeline form is lengthy, and the user may want to refer back to the Discover page (Glossary, FAQs) during the completion of the form.
 
-- Edit pipeline
+### Edit pipeline
 The Edit form for changing parameters of the pipeline can be extended. 
 
 The API does allow to 'patch' the AOI, ie add or remove from the AOI.  This is a complex function, and was not explored during the development of the project. 
 
-The pipeline status can also be changed to allow the user to 'deactivate' the pipeline, ie when it is 'active', set it to 'inactive'.  This is a meaningless function for the project, as it is only practical for purchased imagery.
+The pipeline status can also be changed to allow the user to 'deactivate' the pipeline, ie when it is 'active', set it to 'inactive'.  This is an insignificant function for the project, as it is only practical for purchased imagery.
 
-- Pipelines update automatically
+### Pipelines update automatically
 The code could be improved by updating pipelines automatically, either via a timed request every few hours to update all pipelines in the database, or updating automatically when the pipeline detail view is selected.  In order to limit the number of API calls and maintain a responsive website, users can update individual pipelines manually.  Furthermore, the details of pipelines do not change dramatically on an hour to hour basis, therefore while an automatic update may be more convenient, it is not a necessity.
 
 Similarly, when the user has created a new pipeline, there is a short period while the API gathers the information before the pipeline can be created.  In order to avoid the user being 'stuck' on a loading screen for five minutes, user experience is greater when they are directed straight to the detail view and instructed to wait a few minutes then update themselves.
 
-- Upload AOI in different format
+### Upload AOI in different format
 In order to provide an accessible, user friendly selection of the AOI, a map feature is rendered to allow the user to select their AOI in a polygon shape.  There are instances whereby this is not the most effective selection technique. The user may wish to select a very specific area which is based on geographical features which are not rendered in detail on a map. 
 
 For example: if the user would like to pick an AOI based on a very specific section of forest area, the forestry commision or land owner can provide a digital file containing the coordinates of the area, as opposed to what may be a very fiddly process of selecting this area on the map.  In this instance, a preferred method may be to upload a .KML or .geoJSON file. 
 
 The form could be improved by giving the user the choice to either select from the map, or upload a file.  The AOI file would have to be read, verified and validated in terms of AOI size and the JSON format before proceeding (this could be done with a separate API, DjangoJSON, or via Skywatch itself.)  
 
-- Additional model to include API key
+### Additional model to include API key
 The API key used to create all pipelines references the developer's own account with Skywatch.  The Sign Up form could include a field to allow users to input their own API key.  This feature would be more practical for users who are already in the satellite imagery industry, and own an account with Skywatch.  For the purposes of this project, this feature did not seem necessary.
 
-### API
+## API
 The Skywatch API is very in-depth and there are many additional technical parameters which could be added to explore it further (dependent on the scope of the developer's account with Skywatch). See the [Skywatch API documentation](https://api-docs.skywatch.co/) for more information. 
 
-- Latency
+### Latency
 Latency describes the acceptable number of days between interval end date and delivery of the image.   The latency is currently set to the full interval period to increase the probability of image delivery. As an example: if the user chooses an interval of 1 week, and one of the interval start and end dates are 1st Jan 22 and 7th Jan 22 respectively,  images can be delivered in the week after that interval i.e. 8th Jan 22 to 15th Jan.  The images are still captured within the specified interval; the latency refers to the acceptable delivery dates. 
 
 Users may desire to change this, and only accept images if they can be delivered within the interval itself, but they would have to have specific reasons to do so, and this did not seem relevant for the purposes of the project.
@@ -540,18 +590,23 @@ The technical understanding behind why there is this latent period of delivery i
 
 A simplistic representation of this is shown [here](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644147808/latency2_rbelk3.png).
 
-- Resolution
+### Resolution
 The resolution for all images is set to 'low' (8 - 15 metres).  The Skywatch account of the developer is limited to this resolution so as to only allow delivery of free images.  A feature could be added to allow users to refine this (for example, to between 8 and 9 metres), but this did not seem advantageous or relevant for the website, and would further reduce the probability of receiving an image.
 
-- AOI Coverage
+### AOI Coverage
 For Spaceport users, the AOI coverage is set to a minimum of 50%, therefore only images which have covered at least 50% of the AOI selected will be delivered.  An additional tab on the Create a Pipeline form could allow for the user to control this parameter and accept images with lesser coverage, or only accept images with higher coverage.
 
-- Alternative Images
+### Alternative Images
 Taking into account the AOI Coverage parameter as above, a feature could allow users to view alternative images with an AOI coverage of below their selected percentage.  For example, if the AOI coverage is set to 50%, there may be 10 images found which captured less than 50% of the AOI.  This feature would allow users to still view these images as they may still be of use.
 
-- Moasicking
+### Moasicking
 Moasicking is a term which essentially means 'stitching' together images taken at different times or from different satellites.  If this feature was allowed, this would increase the probability of an interval delivering an image.  This parameter is not permitted to be changed under the developer's account.
 
 [Moasicking image from Skywatch EarthCache](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644146972/mosacking_gvily9.jpg)
 
-- Calculate Probability
+### Calculate Probability
+
+# Unfixed Bugs
+
+## Dates on pipeline timeline
+The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function of the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
