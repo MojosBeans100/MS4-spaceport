@@ -1,10 +1,19 @@
 # Testing
+This document details the testing procedures carried out to ensure expected functionality of the website.
 
 # Table of contents
 - [Testing Strategy](#testing-strategy)
 - [Manual Testing]()
     * [User Story 1](#user-story-1)
+        - [User Story](#user-story-1)
+        - [Acceptance Criteria](#acceptance-criteria)
+        - [Testing](#testing-1)
+        - [Acceptance Criteria Status](#acceptance-criteria-status)
     * [User Story 2](#user-story-2)
+        - [User Story](#user-story-2)
+        - [Acceptance Criteria](#acceptance-criteria-2)
+        - [Testing](#testing-2)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-1)
     * [User Story 3](#user-story-3)
     * [User Story 4](#user-story-4)
     * [User Story 5](#user-story-5)
@@ -21,7 +30,7 @@
 # Testing Strategy
 
 ## Overview of manual testing
-Comprehensive manual testing was undertaken for this website, to ensure functionality was as expected from the user's point of view.  Each user story is tested for large, medium and small screen sizes to ensure the website was responsive for all screen sizes.
+Comprehensive manual testing was undertaken for this website, to ensure functionality was as expected from the user's point of view.  Each user story is tested for large, medium and small screen sizes to ensure the website was responsive for all screen sizes. Acceptance criteria is defined for each user story and the test is considered 'passed' if the acceptance criteria has been met. 
 
 |Screen|Width|Rendered on|
 |------|----|---------|
@@ -29,7 +38,9 @@ Comprehensive manual testing was undertaken for this website, to ensure function
 |Tablets (iPad Air)|1180px|Chrome Devtools|
 |Mobile (iPhone SE)|375px|Chrome Devtools|
 
-Acceptance criteria is defined for each user story and the test is considered 'passed' if the acceptance criteria has been met.
+
+## Overview of automated testing
+Basic automated testing was undertaken for the main CRUD functions of the website.
 
 # Manual Testing
 ## User Story 1
@@ -75,6 +86,14 @@ As a **Site User** I can **create a pipeline**
 |1.13|After a few seconds on the loading screen, the user is redirected to the detail view of the pipeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643638899/Spaceport/Desktop/1.13_zh7gye.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643643401/Spaceport/Tablet/1.13_oi1mpu.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643643401/Spaceport/Tablet/1.13_oi1mpu.jpg)|Pass|
 |1.14|The user is informed that pipelines can take a few minutes to set up, and they can update them when required to view full details|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643638899/Spaceport/Desktop/1.14_2_kmt7nv.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643644247/Spaceport/Mobile/1.14_x7utkk.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643643402/Spaceport/Tablet/1.14_2_bum8ec.jpg)|Pass|
 
+### Acceptance Criteria Status
+- [x] User can navigate form without concern
+- [x] User is aware when parameters they select are outwith acceptable range
+- [x] User is aware of the progress of the form, how much they have completed and when it is submitted
+- [x] User can review form before submitting
+- [x] Users are redirected to the detail view of this pipeline
+
+[Back to top](#testing)
 
 ## User Story 2
 As a **Site User** I can **view a list of all my pipelines**
@@ -94,7 +113,6 @@ As a **Site User** I can **view a list of all my pipelines**
 - Pipelines are organized by status, and it is obvious how many pipelines are in each status category
 - Only user pipelines are listed (cannot see any other user's, testing, or admin pipelines)
 - Pipelines are clearly identified with name, description, date created
-
 
 ### Testing
 

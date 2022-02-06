@@ -446,6 +446,14 @@
                 </tr>
 
                 <tr>
+                    <td>Latency</td>
+                    <td>Latency defines the period after your interval in which you are happy to receive the images of
+                        that interval. Satellites do not have contact with ground stations all the time, therefore your
+                        image may be captured and ready, but the satellite has not made contact with a ground station
+                        to deliver it yet. Spaceport sets this value for you - see the <a href="#discover-faq">FAQ</a> section for further information on this.</td>
+                </tr>
+
+                <tr>
                     <td>Metadata</td>
                     <td>Metadata is considered 'data about data'; in this case, refers to the raw data about the
                         satellite
@@ -527,6 +535,20 @@
         <div class="purpose-section">
             <h3 id="discover-faq-title">FAQ</h3>
             <p>Here are some frequently asked questions about our platform.</p>
+
+            <h5>Why does my pipeline show images scheduled for outside my pipeline interval?</h5>
+            <p>This is known as <em>latency</em>. In order for your images to be delivered, satellites have to make
+                contact with
+                ground stations on Earth. When they have made contact, they can transmit the data they have
+                collected. Satellites often do not make contact on a daily, or even weekly basis, depending on their
+                orbit or position above Earth. Therefore it is possible for a satellite to have captured suitable images
+                for your pipeline, but cannot transmit them back to a ground station for a few days, when the interval
+                has completed.<br>
+                Latency defines the period between capturing the photo, and accepting the delivery of the image back to
+                a ground station. A latency period of 0 days means the image must be delivered within the specified
+                interval dates. A latency period of 1 week means the images can be delivered up to 1 week after the
+                interval has ended.  Your image will still be captured within the interval dates.<br> Spaceport sets the latency for all pipelines to the interval period. This allows
+                for a higher probability that you will receive an image - you may just have to wait longer for it.</p>
 
             <h5>How can I receive images straight away?</h5>
             <p>If you'd like to start collecting images immediately, you can set up your pipeline to look for archived
@@ -613,11 +635,11 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i>Top</button>
+    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i
+            class="fas fa-arrow-up"></i>Top</button>
 </div>
 
 <script>
-
     // External library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
     mybutton = document.getElementById("myBtn");
 
@@ -638,14 +660,13 @@
         document.documentElement.scrollTop = 0;
     }
     // External library ends
-    
+
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
             document.getElementById('nav-active-page').removeAttribute('nav-active-page')
         }
         document.getElementsByClassName('nav-link')[1].setAttribute("id", "nav-active-page")
     });
-
 </script>
 
 {% endblock content %}
