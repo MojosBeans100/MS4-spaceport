@@ -176,7 +176,8 @@
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <img style="width: 100%; height: 200px;"
                                         src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643201669/aoi8_one1cw.jpg">
-                                    <p>The first point selected must also be selected at the end to complete the polygon shape. You will receive feedback on the size of the area selected</p>
+                                    <p>The first point selected must also be selected at the end to complete the polygon
+                                        shape. You will receive feedback on the size of the area selected</p>
                                 </div>
                             </div>
 
@@ -237,7 +238,7 @@
                         <div class="form_title">
                             <h4>Area of Interest</h4>
                             <p>The Area of Interest (AOI) is the area on Earth of which you want to find images.</p>
-                           
+
                             <p>Tell us where to look for images. <span class="form_limits">Area must be between 25
                                     km<sup>2</sup> and 10,000 km<sup>2</sup></span></p>
                         </div>
@@ -648,9 +649,6 @@
 
 
 <script>
-    
-
-
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
             document.getElementById('nav-active-page').removeAttribute('nav-active-page')
@@ -928,12 +926,14 @@
         map.addControl(draw);
 
         map.on('draw.create', updateArea);
-        map.on('draw.delete', updateArea);
+        map.on('draw.delete', deleteArea);
         map.on('draw.update', updateArea);
 
         aoi_section = document.getElementById('map-feedback')
 
         function updateArea(e) {
+
+            rounded_km = ""
 
             if (document.getElementById('map-a')) {
                 (document.getElementById('map-a').remove())
@@ -964,24 +964,28 @@
                 map_a.style.display = "none";
                 map_a.innerHTML = rounded_km;
                 aoi_section.append(map_a)
+                
 
                 if (rounded_km > 10000) {
 
                     area_validation = "Area is too large: choose an area smaller than 10,000 km<sup>2</sup>";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
+               
 
                 } else if (rounded_km < 25) {
 
                     area_validation = "Area is too small: choose an area larger than 25 km<sup>2</sup>";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
+                 
 
                 } else {
-
+                  
                     area_validation = "";
                     text = JSON.stringify(data);
                     input_validation.value = text;
+                    document.getElementById('nextButton').disabled = false
                 }
 
                 map_area.innerHTML = `<p>Area: <strong>${rounded_km} km <sup>2</sup>`;
@@ -993,6 +997,11 @@
                 if (e.type !== 'draw.delete')
                     alert('Click the map to draw a polygon.');
             }
+        }
+
+        function deleteArea() {
+            
+            input_validation.value = ""
         }
 
         if (input_validation.value == 'null') {
@@ -1113,7 +1122,7 @@
     // for (i = 0; i < document.getElementsByClassName('tab').length - 1; i++) {
     //     document.getElementsByClassName('tab')[i].style.display = "none"
     // }
- 
+
     // document.getElementsByClassName('tab')[7].style.display = "inline-block"
 </script>
 
