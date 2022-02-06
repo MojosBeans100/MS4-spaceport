@@ -491,3 +491,36 @@ The last form page presents a loading screen to the user, to let the user know t
 ## API Limitations
 
 - The developer has a limited account with the Skywatch API.  During development, many pipelines were created for testing purposes under the accounts 'admin' and 'testing_account' and 'testing_account2'.  As the account is limited to 100 pipelines, all of these pipelines were deleted from the API before deployment.  The objects remain in the website database, but cannot be edited, updated or deleted as there is no longer a model in the API which represents these objects.
+
+## Additional Features
+This section details some additional features which could be added to further develop the website.
+
+### UX
+- Map zoom
+
+
+### API
+The Skywatch API is very in-depth and there are many additional technical parameters which could be added to explore it further (dependent on the scope of the developer's account with Skywatch).
+
+- Latency
+Latency describes the acceptable number of days between interval end date and delivery of the image.   The latency is currently set to the full interval period - as an example: if the user chooses an interval of 1 week, and one of the interval start and end dates are 1st Jan 22 and 7th Jan 22 respectively,  images can be delivered in the week after that interval i.e. 8th Jan 22 to 15th Jan.  The images are still captured within the specified interval; the latency refers to the acceptable delivery time. 
+
+Users may desire to change this, and only accept images if they can be delivered within the interval itself, but they would have to have specific reasons to do so, and this did not seem relevant for the purposes of the project.
+
+The technical understanding behind why there is this latent period of delivery is determined by how frequently satellites communicate with ground stations.  A satellite may capture an image of the AOI within the interval, but does not pass over a ground station for a few days afterwards.
+
+A simplistic representation of this is shown [here](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644147808/latency2_rbelk3.png)
+
+
+- AOI Coverage
+For Spaceport users, the AOI coverage is set to a minimum of 50%, therefore only images which have covered at least 50% of the AOI selected will be delivered.  An additional tab on the Create a Pipeline form could allow for the user to control this parameter and accept images with lesser coverage, or only accept images with higher coverage.
+
+- Alternative Images
+Taking into account the AOI Coverage parameter as above, a feature could allow users to view alternative images with an AOI coverage of below their selected percentage.  For example, if the AOI coverage is set to 50%, there may be 10 images found which captured less than 50% of the AOI.  This feature would allow users to still view these images as they may still be of use.
+
+- Moasicking
+Moasicking is a term which essentially means 'stitching' together images taken at different times or from different satellites.  If this feature was allowed, this would increase the probability of an interval delivering an image.  This parameter is not permitted to be changed under the developer's account.
+
+[Moasicking image from Skywatch EarthCache](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644146972/mosacking_gvily9.jpg)
+
+- Calculate Probability
