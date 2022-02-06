@@ -83,7 +83,7 @@ body {
     color: black;
 }
 
-/* .purpose-section button:hover, */
+.accounts-divs button:hover,
 #detail-links button:hover,
 .detail-view-section button:hover,
 #edit-container button:hover,
@@ -92,7 +92,8 @@ body {
 #create_container button:hover,
 .purpose-section button:hover,
 #delete_form button:hover,
-#delete_conf button:hover {
+#delete_conf button:hover,
+#myBtn:hover {
     background-color: rgb(255, 255, 255);
     border: solid 1px rgb(0, 0, 0);
     color: black;
@@ -103,6 +104,18 @@ body {
     border: none;
 }
 
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    
+  }
+  
+ 
 /* INDEX/HOMEPAGE STYLING */
 
 #index-container {
@@ -218,7 +231,7 @@ body {
 }
 
 #discover-applications img {
-    height: 40vh;
+    height: 35vh;
     border-radius: 5px;
     border: none;
 }
@@ -227,7 +240,7 @@ body {
     width: 100%;
     max-width: 300px;
     margin: auto;
-    height: 40vh;
+    height: 35vh;
     padding-top: 10px;
 
 }
@@ -242,8 +255,8 @@ body {
 }
 
 #discover-glossary img {
-    width: 50%;
-    margin-left: 25%;
+    width: 100%;
+    margin-left: 0;
     padding: 10px;
 }
 
@@ -739,6 +752,11 @@ input.invalid {
     }
 
     /* DISCOVER 768 */
+    #discover-glossary img {
+        width: 50%;
+        margin-left: 25%;
+    }
+
     /* CREATE PIPELINE 768 */
     #create_form {
         width: 80%;

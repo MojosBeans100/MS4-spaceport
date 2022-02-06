@@ -26,28 +26,28 @@
     </div>
 
     <div class="container">
-    <div class="row d-flex justify-content-evenly">
-        <div class="col-md p-1">
-            <a class="a-links" href="#discover-applications-title">Applications</a>
-        </div>
+        <div class="row d-flex justify-content-evenly px-5">
+            <div class="col-md p-1">
+                <a class="a-links" href="#discover-applications-title">Applications</a>
+            </div>
 
-        <div class="col-md p-1">
-            <a class="a-links" href="#discover-examples-title">Examples</a>
-        </div>
+            <div class="col-md p-1">
+                <a class="a-links" href="#discover-examples-title">Examples</a>
+            </div>
 
-        <div class="col-md p-1">
-            <a class="a-links" href="#discover-news-title">News</a>
-        </div>
+            <div class="col-md p-1">
+                <a class="a-links" href="#discover-news-title">News</a>
+            </div>
 
-        <div class="col-md p-1">
-            <a class="a-links" href="#discover-glossary-title">Glossary</a>
-        </div>
+            <div class="col-md p-1">
+                <a class="a-links" href="#discover-glossary-title">Glossary</a>
+            </div>
 
-        <div class="col-md p-1">
-            <a class="a-links" href="#discover-faq-title">FAQ</a>
+            <div class="col-md p-1">
+                <a class="a-links" href="#discover-faq-title">FAQ</a>
+            </div>
         </div>
     </div>
-</div>
 
     <div id="discover-applications">
         <div class="purpose-section">
@@ -211,7 +211,8 @@
     <div id="discover-examples">
         <div class="purpose-section">
             <h3 id="discover-examples-title">Examples</h3>
-            <p>Read some of our examples of previous clients who have used satellite imagery collected by this platform.
+            <p style="text-align: center;">Read some of our examples of previous clients who have used satellite imagery
+                collected by this platform.
             </p>
 
             <h5>Changes in forestry landscape</h5>
@@ -364,8 +365,10 @@
                     <td>AOI</td>
                     <td>The AOI, or Area of Interest, is the determined location on the surface of the Earth, of which
                         you
-                        hope to receive satellite images.<br><em><small>The below image shows an AOI in the Galapagos Islands off Ecuador</small></em><br><img
-                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644092639/gloassryaoi_v3o8dv.jpg"></td>
+                        hope to receive satellite images.<br><em><small>The below image shows an AOI in the Galapagos
+                                Islands off Ecuador</small></em><br><img
+                            src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644092639/gloassryaoi_v3o8dv.jpg">
+                    </td>
                 </tr>
 
                 <tr>
@@ -374,18 +377,21 @@
                         by
                         satellite imaging technology. If a satellite does not have 100% field of vision of the selected
                         AOI,
-                        only a portion of that AOI can be captured.<br>
+                        only a portion of that AOI can be captured.
                         All pipelines created on our platform gurantee that all images will have captured at least 50%
                         of
-                        the AOI selected. <em><small>The below image shows the AOI in blue, and an image which captured 60% of the AOI</small></em><br><img
-                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644092064/aoicoverage3_wrdnza.jpg"></td>
+                        the AOI selected. <em><small>The below image shows the AOI in blue, and an image which captured
+                                60% of the AOI</small></em><br><img
+                            src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644092064/aoicoverage3_wrdnza.jpg">
+                    </td>
                 </tr>
 
                 <tr>
                     <td>API</td>
                     <td>An API is an Application Programming Interface. It is a third-party set of functions which can
                         be
-                        'called' by another platform to provide data. Spaceport uses the Skywatch API to match up your
+                        'called' by another platform to provide data. Spaceport uses the <a
+                            href="https://www.skywatch.com/" target="_blank">Skywatch API</a> to match up your
                         parameters
                         to suitable satellites and create your pipelines.
                     </td>
@@ -402,23 +408,29 @@
                 <tr>
                     <td>Cloud cover percentage</td>
                     <td>This parameter refers to the allowable percentage of the delivered image which can be
-                        obscured by clouds.<br><em><small>The image below shows high cloud cover percentage</small></em><br><img
-                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644092775/80-per-cloud-cover_ojwe9s.jpg"></td>
+                        obscured by clouds.<br><em><small>The image below shows high cloud cover
+                                percentage</small></em><br><img
+                            src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644092775/80-per-cloud-cover_ojwe9s.jpg">
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Field of vision</td>
                     <td>The field of vision (FOV) or field of view is the area on Earth which the satellite has
-                        visibility of at a given time.<br><em><small>The red portion of the image below represents a satellite's FOV</small></em><br><img
-                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644093403/footprint_rtjls1.png"></td>
+                        visibility of at a given time.<br><em><small>The red portion of the image below represents a
+                                satellite's FOV</small></em><br><img
+                            src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644093403/footprint_rtjls1.png">
+                    </td>
                 </tr>
 
                 <tr>
                     <td>geoJSON</td>
                     <td>The AOI is represented in geoJSON format, which is a format for encoding a variety of geographic
                         data structures. Each point you choose on the map will have a longitude and latitude, and the
-                        geoJSON is compiled of all the coordinates in one array.<br><em><small>The standard geoJSON format for representing an area on Earth is shown below</small></em><br><img
-                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644093616/geojsonpics_jmobbl.png"></td>
+                        geoJSON is compiled of all the coordinates in one array.<br><em><small>The standard geoJSON
+                                format for representing an area on Earth is shown below</small></em><br><img
+                            src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644093616/geojsonpics_jmobbl.png">
+                    </td>
                 </tr>
 
                 <tr>
@@ -429,14 +441,16 @@
                         m
                         area on the ground. <br>Images available to the users on this platform will have a resolution
                         between 8 and 15 metres.<br><em><small>High to low image resolution</small></em><br><img
-                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644093933/imageresolution_wjqekz.png"></td>
+                            src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644093933/imageresolution_wjqekz.png">
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Metadata</td>
                     <td>Metadata is considered 'data about data'; in this case, refers to the raw data about the
                         satellite
-                        used to capture the image. This can be information about: geoemtric datum, projection, image orientation, pixel size.<br>
+                        used to capture the image. This can be information about: geoemtric datum, projection, image
+                        orientation, pixel size.<br>
                         Any images delivered to your pipeline will provide a relevant link with all the metadata for
                         that
                         image. This data is used when post processing the image for whatever the purpose may be.</td>
@@ -453,19 +467,21 @@
                         are
                         six output image
                         types to choose from.<br><em><small>Infrared satellite image of Singapore</small></em><br><img
-                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644094478/mdainformationSystemsciencePhoto_thhval.jpg"></td>
+                            src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644094478/mdainformationSystemsciencePhoto_thhval.jpg">
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Pipeline</td>
                     <td>A pipeline is a term used across many industries to describe an organised plan, with a start and
                         end
-                        date, involving a series of stages.<br>
+                        date, involving a series of stages. It is similar to a project timeline, with defined goals
+                        along the
+                        way
+                        to be met by specific dates.<br>
                         In this context, we are looking for satellite images between two dates, hopefully delivering
                         results
-                        within specified intervals.<br>It is similar to a project timeline, with defined goals along the
-                        way
-                        to be met by specific dates.</td>
+                        within specified intervals.<br></td>
                 </tr>
 
                 <tr>
@@ -576,6 +592,7 @@
             </p>
         </div>
     </div>
+    <hr>
 
     <div id="discover-cta">
         <div class="purpose-section">
@@ -604,7 +621,7 @@
             </div>
         </div>
     </div>
-
+    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i>Top</button>
 </div>
 
 <script>
@@ -614,6 +631,29 @@
         }
         document.getElementsByClassName('nav-link')[1].setAttribute("id", "nav-active-page")
     });
+
+
+    //Get the button:
+    mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
 </script>
 
 {% endblock content %}
