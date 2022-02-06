@@ -1,5 +1,5 @@
 # Spaceport
-Spaceport is a full stack website which allows users to access satellite imagery of the Earth.  Users can create a tasking pipeline which will deliver images of the specified area when they are available.  The Skywatch API is used to access information about satellites, and set up the pipelines. The website was developed for Milestone 4 as part of the Code Institute Diploma in Software Developement. 
+Spaceport is a full stack website which allows users to access satellite imagery of the Earth.  The website was developed for Milestone 4 as part of the Code Institute Diploma in Software Developement. 
 
 ![Responsive website](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643885662/Spaceport/amiresponsive_mk6ufl.jpg)
 
@@ -8,14 +8,15 @@ Spaceport is a full stack website which allows users to access satellite imagery
 - [Project Overview](#project-overview)
 - [Access](#access)
 - [Definitions](#definitions)
-- [UX]
-    * Strategy
-        + Site user
-        + Admin
-    * Structure
-        + Pages
-        + Database
-    * Scope
+- [UX](#ux)
+    * [Strategy](#strategy)
+        + [Site user](#site-user)
+        + [Admin](#admin)
+    * [Structure](#structure)
+        + [Pages](#pages)
+        + [Database](#database)
+    * [Style](#style)
+    * [Scope](#scope)
 - [Features]
     * Homepage
     * Discover
@@ -191,12 +192,11 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 
 ### Colours
 - The colours of the website are kept to basic white, black and a light blue/grey background colour (rgb(177, 177, 177)).
+
 ![Main background colour](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/177177177_tt8ngq.jpg)
 
-- The high definition photos provide splashes of colour against a simple background.  
-![Image next to text](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902011/Spaceport/images_yckrmm.jpg)
-
 - A similar blue/grey hue is used in table headings (#5c6885). 
+
 ![Table headings](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/92104133_v295zu.jpg)
 ![Results table](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902229/Spaceport/tableheadings_gulfv8.jpg)
 
@@ -208,16 +208,25 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 ![Progress indicator](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/4170109_euap9y.jpg)
 ![Progress indicator](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902228/Spaceport/progressindicator_ty89po.jpg)
 
+
+- The high definition photos provide splashes of colour against a simple background.
+
+![Image next to text](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902011/Spaceport/images_yckrmm.jpg)
+
 ### Layout
 - The informative pages, such as the Homepage and Discover page, remain consistent with attractive images alongside short sections of text.
 
 - Bootstrap cards are used to display information in a clear and consise manner along with a complementary image. 
+
 ![Discover Card](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900948/Spaceport/card2_ocaal8.jpg)
 
-- For several pages, the content is rendered in a section of white background with a box-shadow in front of the normal light blue background. 
+- For several pages, the content is rendered in a section of white background with a box-shadow in front of the normal light blue background.
+
 ![Form with box shadow](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902342/Spaceport/boxshadow_owigi7.jpg)
 
-- Most pages offer a sub navigation list to easily jump to the relevant section of the page. ![Sub navigation on Pipelines page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643901899/Spaceport/nav1_nwz0ix.jpg)
+- Most pages offer a sub navigation list to easily jump to the relevant section of the page.
+
+![Sub navigation on Pipelines page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643901899/Spaceport/nav1_nwz0ix.jpg)
 
 ## Scope
 
@@ -320,9 +329,9 @@ Fixed to the right is the link to login/signup/logout, for the user to change th
 
 The navigation bar links are underlined to show the active page and also display this style on mouse hover.  The navigation bar responds to smaller screens by removing all links aside from the homepage link and icon, placing these in a drop down bar.
 
-|![Spaceport logo](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905019/Spaceport/spaceport_lps0pr.jpg)|
-|:--:|
-|Title and icon for website|
+![Spaceport logo](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905019/Spaceport/spaceport_lps0pr.jpg)
+
+Title and icon for website
 
 #### Desktop
 |![Nav logged out](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_4_lj2eie.jpg)|
@@ -599,8 +608,8 @@ For Spaceport users, the AOI coverage is set to a minimum of 50%, therefore only
 ### Alternative Images
 Taking into account the AOI Coverage parameter as above, a feature could allow users to view alternative images with an AOI coverage of below their selected percentage.  For example, if the AOI coverage is set to 50%, there may be 10 images found which captured less than 50% of the AOI.  This feature would allow users to still view these images as they may still be of use.
 
-### Moasicking
-Moasicking is a term which essentially means 'stitching' together images taken at different times or from different satellites.  If this feature was allowed, this would increase the probability of an interval delivering an image.  This parameter is not permitted to be changed under the developer's account.
+### Mosaicking
+Mosaicking is a term which essentially means 'stitching' together images taken at different times or from different satellites.  If this feature was allowed, this would increase the probability of an interval delivering an image.  This parameter is not permitted to be changed under the developer's account.
 
 [Moasicking image from Skywatch EarthCache](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644146972/mosacking_gvily9.jpg)
 

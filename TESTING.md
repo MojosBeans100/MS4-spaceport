@@ -1,67 +1,38 @@
 # Testing
 
+# Table of contents
+- [Testing Strategy](#testing-strategy)
+- [Manual Testing]()
+    * [User Story 1](#user-story-1)
+    * [User Story 2](#user-story-2)
+    * [User Story 3](#user-story-3)
+    * [User Story 4](#user-story-4)
+    * [User Story 5](#user-story-5)
+    * [User Story 6](#user-story-6)
+    * [User Story 7](#user-story-7)
+    * [User Story 8](#user-story-8)
+    * [User Story 9](#user-story-9)
+    * [User Story 10](#user-story-10)
+    * [User Story 11](#user-story-11)
+    * [User Story 12](#user-story-12)
+    * [User Story 13](#user-story-13)
+- [Automated Testing]()
 
-# User Story 1
-As a **Site User** I can **navigate the site easily**
+# Testing Strategy
 
-## User Story 1.1
-- As a **New/returning Site User** I can **see the navigation bar displayed on all pages** so that **I can see all accessible pages wherever I am**
+## Overview of manual testing
+Comprehensive manual testing was undertaken for this website, to ensure functionality was as expected from the user's point of view.  Each user story is tested for large, medium and small screen sizes to ensure the website was responsive for all screen sizes.
 
-Steps:
-1. Open Spaceport at the following link:
-2. Open the Discover page
-3. Open the Create page
-4. Open the My Pipelines page
-5. Resize the browser to see the navigation bar adjust to the screen width
-6. Scroll down through longer pages
+|Screen|Width|Rendered on|
+|------|----|---------|
+|Desktop (large monitor)|1800px|Chrome Devtools|
+|Tablets (iPad Air)|1180px|Chrome Devtools|
+|Mobile (iPhone SE)|375px|Chrome Devtools|
 
-|Step|Result|Desktop|Tablet|Mobile|Status|
-|----|------|-------|------|------|------|
-|1|The homepage is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_1_lg.JPG)|[Tablet](readme_img/US1.1_1_lg.JPG)|[Mobile](readme_img/US1.1_1_sm.JPG)|Passed|
-|2|The Discover page is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_2_lg.JPG)|[Tablet](readme_img/US1.1_2_md.JPG)|[Mobile](readme_img/US1.1_2_sm.JPG)|FAIL|
-|3|The My Pipelines page is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_3_lg.JPG)|[Tablet](readme_img/US1.1_3_md.JPG)|[Mobile](readme_img/US1.1_3_sm.JPG)|Pass|
-|4|The Create pipeline form is displayed, with the nav bar fixed at the top|[Desktop](readme_img/US1.1_4_lg.JPG)|[Tablet](readme_img/US1.1_4_md.JPG)|[Mobile](readme_img/US1.1_4_sm.JPG)|Pass|
-|5|When scrolling through all pages, the nav bar remains fixed at the top|[Desktop](readme_img/US1.1_5_lg.JPG)|[Tablet](readme_img/US1.1_5_md.JPG)|[Mobile](readme_img/US1.1_5_sm.JPG)|Pass|
+Acceptance criteria is defined for each user story and the test is considered 'passed' if the acceptance criteria has been met.
 
-## User Story 1.2
-- As a **Returning Site User** I am **redicted to My Pipelines page when I log in** so that **the information relating to my account is immediately displayed**
-
-Steps:
-1. Click Login/Sign Up link on the nav bar to be redirected to the login/signup page
-2. Enter Log in details; username and password, and click Sign In
-
-|Step|Result|Desktop|Tablet|Mobile|Status|
-|----|------|-------|------|------|------|
-|1|The Login/Sign Up page is displayed|||||
-|2|The My Pipelines page opens, displaying previously created pipelines||||
-
-## User Story 1.3
-As a **New/returning Site User** I can **see the active page** so that **I know which page I am currently on**
-
-Steps:
-1. 
-2. 
-
-
-## User Story 1.4
-As a **New/returning Site User** I am **presented with relevant link buttons** so that **I can navigate the pages in a logical manner**
-
-Steps:
-1. Navigate to the homepage and scroll to the bottom to see prompts to explore the Discover page, or Sign Up
-2. 
-
-## User Story 1.5
-As a **New/returning Site User** I can **see my login status in the nav bar** so that **I am aware if I am logged in**
-
-|Step|Result|Desktop|Tablet|Mobile|Status|
-|----|------|-------|------|------|------|
-|-|In all pages, the user can see if they are logged in at the right of the navbar.|[Desktop](readme_img/US1.5 lg.JPG)|[Tablet](readme_img/US1.5_md.JPG)|[Mobile](readme_img/US1.5_sm.JPG)|
-
-
-
-
-
-# User Story 1
+# Manual Testing
+## User Story 1
 As a **Site User** I can **create a pipeline**
 
 - 1.1: As a **New/returning Site User** I can **see an introduction page to creating a pipeline** so that **I understand the restrictions**
@@ -79,14 +50,14 @@ As a **Site User** I can **create a pipeline**
 - 1.13: As a **New/returning Site User** I am **redirected to the detail view of the pipeline after submission** so that **I can view the details of the pipeline I submitted**
 - 1.14: As a **New/returning Site User** I am **encouraged to allow for the website to process the pipeline when first redirected** so that **I understand why the pipeline detail is initially sparse**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - User can navigate form without concern
 - User is aware when parameters they select are outwith acceptable range
 - User is aware of the progress of the form, how much they have completed and when it is submitted
 - User can review form before submitting
 - Users are redirected to the detail view of this pipeline
 
-## Testing
+### Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
 |1.1|Upon opening "Create" page, an introduction to creating a pipeline is displayed|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643625901/Spaceport/Desktop/1.1_aw58u0.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643644247/Spaceport/Mobile/1.1_sdwyje.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643643503/Spaceport/Tablet/1.1_ru8qq0.jpg)|Pass|
@@ -105,7 +76,7 @@ As a **Site User** I can **create a pipeline**
 |1.14|The user is informed that pipelines can take a few minutes to set up, and they can update them when required to view full details|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643638899/Spaceport/Desktop/1.14_2_kmt7nv.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643644247/Spaceport/Mobile/1.14_x7utkk.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643643402/Spaceport/Tablet/1.14_2_bum8ec.jpg)|Pass|
 
 
-# User Story 2
+## User Story 2
 As a **Site User** I can **view a list of all my pipelines**
 
 - 2.1: As a **Returning Site User** I can **see the My Pipelines link on the navbar when I am logged in** so that **I can easily refer back to this at all times**
@@ -118,14 +89,14 @@ As a **Site User** I can **view a list of all my pipelines**
 - 2.8: As a **Returning Site User** I can see **an interactive style change when I hover over a pipeline** so that **I know I can click on the pipeline card and view pipeline details**
 - 2.9: As a **New Site User** I am **shown a message at the top of My Pipelines, directing me to create a pipeline** so that **when first signing up, I am linked to the next logical step**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - All user pipelines are listed
 - Pipelines are organized by status, and it is obvious how many pipelines are in each status category
 - Only user pipelines are listed (cannot see any other user's, testing, or admin pipelines)
 - Pipelines are clearly identified with name, description, date created
 
 
-## Testing
+### Testing
 
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
@@ -139,13 +110,13 @@ As a **Site User** I can **view a list of all my pipelines**
 |2.8|The image opacity is changed when the user hovers over the pipeline card|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643648308/Spaceport/Desktop/2.8_inmtwv.png)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643654316/Spaceport/Tablet/2.8_pynk3r.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643653987/Spaceport/Mobile/2.8_wtlj8b.jpg)|Pass|
 |2.9|Users with no pipelines are shown a message prompting them to create a pipeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643648308/Spaceport/Desktop/2.9_ak1wzx.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643654316/Spaceport/Tablet/2.9_krhhch.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643653987/Spaceport/Mobile/2.9_sk6kmq.jpg)|Pass|
 
-## Acceptance Criteria Status
+### Acceptance Criteria Status
 - [x] All user pipelines are listed
 - [x] Pipelines are organized by status, and it is obvious how many pipelines are in each status category
 - [x] Only user pipelines are listed (cannot see any other user's, testing, or admin pipelines)
 - [x] Pipelines are clearly identified with name, description, date created
 
-# User Story 3
+## User Story 3
 As a **Site User** I can **view all details of a specific pipeline**
 
 - 3.1: As a **Returning Site User** I can **see that the detail view is separated into sections** so that **I can scroll to the section I am interested in**
@@ -162,13 +133,13 @@ As a **Site User** I can **view all details of a specific pipeline**
 - 3.12: As a **Returning Site User** I can **see buttons to edit/delete my pipeline** so that **I know how to access these functions**
 - 3.13: As a **Returning Site User** I am **told if I cannot edit/delete my pipeline** so that **I am aware why these functions are/are not available**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - User is clearly aware which pipeline details they are looking at
 - User is aware of the status and progress so far of the pipeline
 - User can access how to update, edit or delete this pipeline
 - User can see all relating results/images gathered by pipeline
 
-## Testing
+### Testing
 
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
@@ -186,13 +157,13 @@ As a **Site User** I can **view all details of a specific pipeline**
 |3.12|The Edit Pipeline & Delete Pipeline buttons are available to see at the bottom of the detail view of the pipeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643705920/Spaceport/Desktop/3.12_jikxfm.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643718161/Spaceport/Tablet/3.11_jftfk3.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643718336/Spaceport/Mobile/3.11_nyht92.jpg)|Pass|
 |3.13|The user cannot edit the pipeline if the status is complete.  The user cannot edit or delete the pipeline if it is pending.|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643705920/Spaceport/Desktop/3.11_jllchn.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643706124/Spaceport/Desktop/3.13_toljjs.jpg)|[Tablet 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643718161/Spaceport/Tablet/3.13_b0boiw.jpg) [Tablet 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643718236/Spaceport/Tablet/3.13_2_qv4luz.jpg)|[Mobile 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643718335/Spaceport/Mobile/3.13_o46sy6.jpg) [Mobile 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643718335/Spaceport/Mobile/3.13_2_sdxljs.jpg)|Pass|
 
-## Acceptance Criteria Status
+### Acceptance Criteria Status
 - [x] User is clearly aware which pipeline details they are looking at
 - [x] User is aware of the status and progress so far of the pipeline
 - [x] User can access how to update, edit or delete this pipeline
 - [x] User can see all relating results/images gathered by pipeline
 
-# User Story 4
+## User Story 4
 As a **Site User** I can **create an account** so that **I can log in to create pipelines, and view my pipelines**
 
 - 4.1: As a **New Site User** I can **sign up to Spaceport** so that **I can create pipelines**
@@ -201,7 +172,7 @@ As a **Site User** I can **create an account** so that **I can log in to create 
 - 4.4: As a **Site User** I am **redirected to my pipelines when I log in** so that **my account information is immediately visible to me**
 - 4.5: As a **Site User** I can **logout from my account on Spaceport** so that **my account information is kept safe and private**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - User can Sign Up to the website from the homepage
 - Users are aware of their current login/logout status
 - Users are redirected to the relevant page when signing up, logged in etc
@@ -214,12 +185,12 @@ As a **Site User** I can **create an account** so that **I can log in to create 
 |4.4|When the user has logged in, their My Pipelines page is visible|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.3_hsidlg.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817440/Spaceport/Tablet/4.3_c1m4op.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.4_cezgzh.jpg)||
 |4.5|The user can confirm they want to log out|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814152/Spaceport/Desktop/4.5_gwzjdv.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817439/Spaceport/Tablet/4.5_ldybbf.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.5_jzgdk0.jpg)||
 
-## Acceptance Criteria Status
+### Acceptance Criteria Status
 - [x] User can Sign Up to the website from the homepage
 - [x] Users are aware of their current login/logout status
 - [x] Users are redirected to the relevant page when signing up, logged in etc
 
-# User Story 5
+## User Story 5
 As a **Site User** I can **access information on satellite imagery**
 
 - 5.1: As a **New/returning Site User** I can **see at all times the Discover page link** so that **I can always refer to this page for more information**
@@ -232,7 +203,7 @@ As a **Site User** I can **access information on satellite imagery**
 - 5.8: As a **New/returning Site User** I can **click on links for futher information on how satellite imagery works** so that **I can further my understanding**
 - 5.9 As a **New/returning Site User** I can **read about common applications of satellite imagery** so that **I have more understanding of the real life applications of the website**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - Users are clearly and immediately aware of the purpose of the site
 - Users can explore further on 'discover' page to see applications of satellite imagery
 - Users can explore testimonials/examples to aid with their own pipeline creation
@@ -251,12 +222,12 @@ As a **Site User** I can **access information on satellite imagery**
 |5.8|The glossary provides several additional links for the user to explore more|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643722427/Spaceport/Desktop/5.8_sdu3iv.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643723639/Spaceport/Tablet/5.8_fly6mw.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643723198/Spaceport/Mobile/5.8_c4krit.jpg)|Pass|
 |5.9|The Discover page outlines several industries which rely on satellite imagery, and explains how|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643722531/Spaceport/Desktop/5.9_y4fach.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643723640/Spaceport/Tablet/5.9_qijcdx.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643723198/Spaceport/Mobile/5.9_e0miv5.jpg)|Pass|
 
-## Acceptance Criteria Status
+### Acceptance Criteria Status
 - [x] Users are clearly and immediately aware of the purpose of the site
 - [x] Users can explore further on 'discover' page to see applications of satellite imagery
 - [x] Users can explore testimonials/examples to aid with their own pipeline creation
 
-# User Story 9
+## User Story 9
 As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
 
 - 9.1: As a **Site User** I can **see a timeline spanning the full duration of my pipeline** so that **I can see when the pipeline starts and ends**
@@ -266,24 +237,24 @@ As a **Site User** I can **see a visual graph of the progress of the pipeline** 
 - 9.5: As a **Site User** I can **see today represented on the timeline** so that **I can gauge an understanding of how much of the pipeline has been completed, and how much is left**
 - 9.6: As a **Site User** I can **see when images were delivered** so that **I know which intervals were successful**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - Users can see a timeline graph of the entire pipeline, displaying start, end dates and all intervals
 - Users can see where the pipeline is in the timeline
 - Users can see which intervals are complete, incomplete, current
 - Users can see which intervals have been successful
 
-## Testing
+### Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
 |9|For active pipelines, the user can see interval detail, status, dates, image dates and a respresentation of today on the timeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643809183/Spaceport/Desktop/9_ekbquo.jpg)|N/A for tablet|N/A for mobile||
 
-## Acceptance Criteria Status
+### Acceptance Criteria Status
 - [x] Users can see a timeline graph of the entire pipeline, displaying start, end dates and all intervals
 - [x] Users can see where the pipeline is in the timeline
 - [x] Users can see which intervals are complete, incomplete, current
 - [x] Users can see which intervals have been successful
 
-# User Story 10
+## User Story 10
 As a **Site User** I can **select the AOI for my pipeline on a map feature** so that **there is a more accessible way of selection/viewing my chosen AOI**
 
 - 10.1: As a **Site User** I am **instructed to select an area of an interactive map** so that **my pipeline will retrieve satellite images of that area**
@@ -294,12 +265,12 @@ As a **Site User** I can **select the AOI for my pipeline on a map feature** so 
 - 10.6: As a **Site User** I am **given a review of the AOI I selected in the form review and my pipeline detail view** so that **I am reminded of the location of the AOI I selected**
 - 10.7: As a **Site User** I can **see the geoJSON data/coordinates of the area I selected** so that **I can use this information in post production**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - Users can select the Area of Interest (AOI) on a map feature, which inputs the selection into the form
 - Users can delete/edit a selection if they change their mind
 - Users can see what the area of their selection is, and if it is within an acceptable range
 
-## Testing
+### Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
 |10.1|The user can see a definition of what the AOI, and is instructed to select the map|[Desktop]|[Tablet]|[Mobile]||
@@ -310,7 +281,7 @@ As a **Site User** I can **select the AOI for my pipeline on a map feature** so 
 |10.6|The AOI is rendered |[Desktop]|[Tablet]|[Mobile]||
 |10.7||[Desktop]|[Tablet]|[Mobile]||
 
-# User Story 11
+## User Story 11
 As a **Site User** I can **view/download images and metadata of retrieved API results** so that **I can use this information in post production**
 
 - 11.1: As a **Site User** I can **view a preview of a delivered image** so that **I can determine if the image is of good quality**
@@ -319,11 +290,11 @@ As a **Site User** I can **view/download images and metadata of retrieved API re
 - 11.4: As a **Site User** I can **see technical data associated with any delivered images** so that **I can determine if the image is of use to me/meets the parameters I set**
 - 11.5: As a **Site User** I can **open a file containing the metadata associated with delivered images** so that **I can view further technical information about the image/satellite which took the image**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - Users can click on resulting images and view/download them
 - Users can click on a link to the image metadata and copy it
 
-## Testing
+### Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
 |11.1|The user can click on the Image Preview in the Results table, which will open a separate tab with a smaller resolution image preview|[Desktop 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739946/Spaceport/Desktop/11.1_quhbnl.jpg) [Desktop 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739951/Spaceport/Desktop/11.1_2_hzkcpq.jpg)|""|""||
@@ -332,7 +303,7 @@ As a **Site User** I can **view/download images and metadata of retrieved API re
 |11.4|The user can expand the Results table to review additional information about the image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739950/Spaceport/Desktop/11.4_wkuqjd.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740552/Spaceport/Tablet/11.4_xcxtrt.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740311/Spaceport/Mobile/11.4_hcgspb.jpg)||
 |11.5|The user can click on the Metadata tab in the Results table to open a seperate tab including further technical information about the image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739952/Spaceport/Desktop/11.5_ewxawt.jpg)|""|""||
 
-# User Story 12
+## User Story 12
 As a **Site User** I can **edit details of my pipelines**
 
 - 12.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I can edit the pipeline**
@@ -342,13 +313,13 @@ As a **Site User** I can **edit details of my pipelines**
 - 12.5: As a **New/returning Site User** I am **redirected back to the detail view of the pipeline** so that **I can see the changes I made reflected**
 - 12.6: As a **New/returning Site User** I am **shown a timestamp of when the pipeline was last edited** so that **I am aware if and when I last edited my pipeline**
 
-## Acceptance Criteria
+### Acceptance Criteria
 - User can edit specific parameters of their pipeline
 - User is aware by feedback that their pipeline has been edited
 - User is aware which features they can edit
 - User is aware when pipeline was last edited
 
-## Testing
+### Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
 |12.1|The Edit Pipeline button sits at the bottom of the pipeline instance page|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.1_a9ejp2.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643738531/Spaceport/Tablet/12.1_d7arfk.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728882/Spaceport/Mobile/12.1_ketqxn.jpg)||
@@ -358,13 +329,13 @@ As a **Site User** I can **edit details of my pipelines**
 |12.5|The changes the user made in the Edit Pipeline form are reflected when the user is redirected back to the pipeline instance|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728204/Spaceport/Desktop/12.5_lv7par.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729213/Spaceport/Tablet/12.5_rkpxle.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728883/Spaceport/Mobile/12.5_w3lsew.jpg)||
 |12.6|If the pipeline was edited, a timestamp of when is displayed|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728203/Spaceport/Desktop/12.6_cbki2o.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643729213/Spaceport/Tablet/12.6_dyhqfc.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643728883/Spaceport/Mobile/12.6_kr9x7q.jpg)||
 
-## Acceptance Criteria
+### Acceptance Criteria
 - [x] User can edit specific parameters of their pipeline
 - [x] User is aware by feedback that their pipeline has been edited
 - [x] User is aware which features they can edit
 - [x] User is aware when pipeline was last edited
 
-# User Story 13
+## User Story 13
 As a **Site User** I can **delete my pipeline** so that **I can remove pipelines I no longer need, or were incorrect**
 
 - 13.1: As a **Site User** I can **see the Delete Pipeline button on my pipeline view** so that **I can access the delete form**
@@ -374,14 +345,14 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 - 13.5: As a **Site User** I can **see an exit button when deleting my pipeline** so that **I can change my mind if I no longer want to delete this pipeline**
 - 13.6: As a **Site User** I am **given feedback that the pipeline was deleted** so that **I have confirmation that the pipeline was deleted**
 
-## Acceptance Critera
+### Acceptance Critera
 - User knows how to delete their pipeline
 - User is aware of the consequences of deleting their pipeline
 - User is clear which pipeline they are deleting
 - User is given an opportunity to change their mind about deleting
 - User is aware that pipeline has been deleted
 
-## Testing
+### Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
 |13.1|The Delete Pipeline button is displayed at the bottom of the pipeline instance detail page|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806374/Spaceport/Desktop/13.1_rpvbma.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806445/Spaceport/Tablet/13.1_rlpdik.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806522/Spaceport/Mobile/13.1_wqiw79.jpg)|Pass|
@@ -391,7 +362,7 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 |13.5|Users have an opportunity to back out from deleting the pipeline by returning back to the pipeline detail view|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806375/Spaceport/Desktop/13.5_pnz24h.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806445/Spaceport/Tablet/13.5_ozjygo.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806523/Spaceport/Mobile/13.5_c8d5x2.jpg)|Pass|
 |13.6|The user can see confirmation that the pipeline was deleted|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806375/Spaceport/Desktop/13.6_fjr0id.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806445/Spaceport/Tablet/13.6_hyo5sz.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643806523/Spaceport/Mobile/13.6_xlkl7l.jpg)|Pass|
 
-## Acceptance Critera Status
+### Acceptance Critera Status
 - [x] User knows how to delete their pipeline
 - [x] User is aware of the consequences of deleting their pipeline
 - [x] User is clear which pipeline they are deleting

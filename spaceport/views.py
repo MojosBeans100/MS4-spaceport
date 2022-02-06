@@ -177,7 +177,8 @@ def create(request):
                 'cloud_cover_percentage': form.cleaned_data['cloud_cover'],
                 'min_aoi_coverage_percentage': 50,
                 'result_delivery': {
-                    'max_latency': '0d',
+                    'max_latency': form.cleaned_data['interval'],
+                    #'max_latency': '0d',
                     'priorities': [
                         'latest',
                         'highest_resolution',
