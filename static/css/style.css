@@ -63,7 +63,8 @@ body {
 #my_pipelines_container a,
 #detail-view-div a,
 .accounts-divs a,
-#edit-container a {
+#edit-container a,
+#site-purpose-section a {
     color: black !important;
     font-weight: bold;
     text-decoration: none;
@@ -71,6 +72,7 @@ body {
 
 .nav-link:hover,
 .nav-item a:hover,
+#site-purpose-section a:hover,
 #discover-container a:hover,
 #start_form_section a:hover,
 #my_pipelines_container a:hover,

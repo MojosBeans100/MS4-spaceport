@@ -85,19 +85,19 @@
                 <div class="col-md">
                     <div id="purpose-img5" title="Progress timeline of pipeline">
                     </div>
-                    <p>A Delta Oasis in Southeastern Kazakhstan, NASA Earth Observatory</p>
+                    <p><small>A Delta Oasis in Southeastern Kazakhstan, NASA Earth Observatory</small></p>
                 </div>
 
                 <div class="col-md">
                     <div id="purpose-img6" title="Progress timeline of pipeline">
                     </div>
-                    <p>The Parched Paraná River, NASA Earth Observatory</p>
+                    <p><small>The Parched Paraná River, NASA Earth Observatory</small></p>
                 </div>
 
                 <div class="col-md">
                     <div id="purpose-img7" title="Progress timeline of pipeline">
                     </div>
-                    <p>Guinea-Bissau coastal waters, NASA Earth Observatory</p>
+                    <p><small>Guinea-Bissau coastal waters, NASA Earth Observatory</small></p>
                 </div>
             </div>
 
@@ -127,5 +127,29 @@
 
         </div>
     </div>
+    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i>Top</button>
 </div>
+
+<script>
+    // External library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+    mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    // External library ends
+</script>
 {% endblock content %}

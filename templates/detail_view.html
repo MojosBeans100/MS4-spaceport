@@ -475,9 +475,11 @@
             </div> -->
 
             <div class="row pt-2">
-                <div class="col-sm p-4 d-flex justify-content-center"><a href="{% url 'edit_pipeline' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
+                <div class="col-sm p-4 d-flex justify-content-center"><a
+                        href="{% url 'edit_pipeline' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
                                 class="fas fa-edit"></i>Edit pipeline</button></a></div>
-                <div class="col-sm p-4 d-flex justify-content-center"><a href="{% url 'delete_view' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
+                <div class="col-sm p-4 d-flex justify-content-center"><a
+                        href="{% url 'delete_view' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
                                 class="far fa-trash-alt"></i>Delete pipeline</button></a></div>
             </div>
             {% endif %}
@@ -488,7 +490,8 @@
     {% else %}
     <p>Ooops.. you have been directed to the wrong page. <a href="{% url 'homepage' %}">Return to home</a></p>
     {% endif %}
-
+    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i
+            class="fas fa-arrow-up"></i>Top</button>
 </div>
 
 {{ pipeline.aoi|json_script:"map_aoi" }}
@@ -501,6 +504,27 @@
 {{ pipeline.end_date|json_script:"end_date" }}
 
 <script>
+    // External library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+    mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    // External library ends
+
     detailMap();
     timelineChart();
 
