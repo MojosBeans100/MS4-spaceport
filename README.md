@@ -497,11 +497,14 @@ This section details some additional features which could be added to further de
 
 ### UX
 - Map zoom
+Additional code could be added to the map renders, to create a short zoom animation towards their AOI
+
+- 
 
 ### User Features
 
 - Save incomplete pipeline
-A feature could be added within the code to allow users to save an incomplete pipeline and return to it at a later date.  The developer feels this would be a useful feature, as the Create a Pipeline form is lengthy.
+A feature could be added within the code to allow users to save an incomplete pipeline form and return to it at a later date.  The developer feels this would be a useful feature, as the Create a Pipeline form is lengthy, and the user may want to refer back to the Discover page (Glossary, FAQs) during the completion of the form.
 
 - Edit pipeline
 The Edit form for changing parameters of the pipeline can be extended. 
@@ -515,12 +518,21 @@ The code could be improved by updating pipelines automatically, either via a tim
 
 Similarly, when the user has created a new pipeline, there is a short period while the API gathers the information before the pipeline can be created.  In order to avoid the user being 'stuck' on a loading screen for five minutes, user experience is greater when they are directed straight to the detail view and instructed to wait a few minutes then update themselves.
 
+- Upload AOI in different format
+In order to provide an accessible, user friendly selection of the AOI, a map feature is rendered to allow the user to select their AOI in a polygon shape.  There are instances whereby this is not the most effective selection technique. The user may wish to select a very specific area which is based on geographical features which are not rendered in detail on a map. 
+
+For example: if the user would like to pick an AOI based on a very specific section of forest area, the forestry commision or land owner can provide a digital file containing the coordinates of the area, as opposed to what may be a very fiddly process of selecting this area on the map.  In this instance, a preferred method may be to upload a .KML or .geoJSON file. 
+
+The form could be improved by giving the user the choice to either select from the map, or upload a file.  The AOI file would have to be read, verified and validated in terms of AOI size and the JSON format before proceeding (this could be done with a separate API, DjangoJSON, or via Skywatch itself.)  
+
+- Additional model to include API key
+The API key used to create all pipelines references the developer's own account with Skywatch.  The Sign Up form could include a field to allow users to input their own API key.  This feature would be more practical for users who are already in the satellite imagery industry, and own an account with Skywatch.  For the purposes of this project, this feature did not seem necessary.
 
 ### API
-The Skywatch API is very in-depth and there are many additional technical parameters which could be added to explore it further (dependent on the scope of the developer's account with Skywatch).
+The Skywatch API is very in-depth and there are many additional technical parameters which could be added to explore it further (dependent on the scope of the developer's account with Skywatch). See the [Skywatch API documentation](https://api-docs.skywatch.co/) for more information. 
 
 - Latency
-Latency describes the acceptable number of days between interval end date and delivery of the image.   The latency is currently set to the full interval period - as an example: if the user chooses an interval of 1 week, and one of the interval start and end dates are 1st Jan 22 and 7th Jan 22 respectively,  images can be delivered in the week after that interval i.e. 8th Jan 22 to 15th Jan.  The images are still captured within the specified interval; the latency refers to the acceptable delivery time. 
+Latency describes the acceptable number of days between interval end date and delivery of the image.   The latency is currently set to the full interval period to increase the probability of image delivery. As an example: if the user chooses an interval of 1 week, and one of the interval start and end dates are 1st Jan 22 and 7th Jan 22 respectively,  images can be delivered in the week after that interval i.e. 8th Jan 22 to 15th Jan.  The images are still captured within the specified interval; the latency refers to the acceptable delivery dates. 
 
 Users may desire to change this, and only accept images if they can be delivered within the interval itself, but they would have to have specific reasons to do so, and this did not seem relevant for the purposes of the project.
 
