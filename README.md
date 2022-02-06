@@ -498,6 +498,23 @@ This section details some additional features which could be added to further de
 ### UX
 - Map zoom
 
+### User Features
+
+- Save incomplete pipeline
+A feature could be added within the code to allow users to save an incomplete pipeline and return to it at a later date.  The developer feels this would be a useful feature, as the Create a Pipeline form is lengthy.
+
+- Edit pipeline
+The Edit form for changing parameters of the pipeline can be extended. 
+
+The API does allow to 'patch' the AOI, ie add or remove from the AOI.  This is a complex function, and was not explored during the development of the project. 
+
+The pipeline status can also be changed to allow the user to 'deactivate' the pipeline, ie when it is 'active', set it to 'inactive'.  This is a meaningless function for the project, as it is only practical for purchased imagery.
+
+- Pipelines update automatically
+The code could be improved by updating pipelines automatically, either via a timed request every few hours to update all pipelines in the database, or updating automatically when the pipeline detail view is selected.  In order to limit the number of API calls and maintain a responsive website, users can update individual pipelines manually.  Furthermore, the details of pipelines do not change dramatically on an hour to hour basis, therefore while an automatic update may be more convenient, it is not a necessity.
+
+Similarly, when the user has created a new pipeline, there is a short period while the API gathers the information before the pipeline can be created.  In order to avoid the user being 'stuck' on a loading screen for five minutes, user experience is greater when they are directed straight to the detail view and instructed to wait a few minutes then update themselves.
+
 
 ### API
 The Skywatch API is very in-depth and there are many additional technical parameters which could be added to explore it further (dependent on the scope of the developer's account with Skywatch).
@@ -509,8 +526,10 @@ Users may desire to change this, and only accept images if they can be delivered
 
 The technical understanding behind why there is this latent period of delivery is determined by how frequently satellites communicate with ground stations.  A satellite may capture an image of the AOI within the interval, but does not pass over a ground station for a few days afterwards.
 
-A simplistic representation of this is shown [here](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644147808/latency2_rbelk3.png)
+A simplistic representation of this is shown [here](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644147808/latency2_rbelk3.png).
 
+- Resolution
+The resolution for all images is set to 'low' (8 - 15 metres).  The Skywatch account of the developer is limited to this resolution so as to only allow delivery of free images.  A feature could be added to allow users to refine this (for example, to between 8 and 9 metres), but this did not seem advantageous or relevant for the website, and would further reduce the probability of receiving an image.
 
 - AOI Coverage
 For Spaceport users, the AOI coverage is set to a minimum of 50%, therefore only images which have covered at least 50% of the AOI selected will be delivered.  An additional tab on the Create a Pipeline form could allow for the user to control this parameter and accept images with lesser coverage, or only accept images with higher coverage.
