@@ -4,6 +4,7 @@ from .forms import CreateList, UpdateList
 import datetime
 from django.utils import timezone
 
+
 class TestViews(TestCase):
 
     def setUp(self):
@@ -145,3 +146,5 @@ class TestViews(TestCase):
         response = self.client.get(f'/edit_pipeline/{test_list.id}')
 
         self.assertTemplateUsed(response, 'edit_pipeline.html')
+
+    

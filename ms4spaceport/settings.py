@@ -56,6 +56,8 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = 'my_pipelines'
 LOGOUT_REDIRECT_URL = '/'
 # SIGNUP_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -91,16 +93,16 @@ WSGI_APPLICATION = 'ms4spaceport.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
+
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 
 # Password validation

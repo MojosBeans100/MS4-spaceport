@@ -30,12 +30,12 @@ This document details the testing procedures carried out to ensure expected func
 # Testing Strategy
 
 ## API Restrictions
-The Skywatch API has strict limits, restrictions and formatting to return data.  Therefore the form fields in particular were tested extensively in order to ensure it is not possible for the user to submit invalid data.
+The Skywatch API has strict limits, restrictions and formatting to return data.  The API documentation was read in detail to understand these restrictions.  Therefore the form fields (AOI and interval dates and period in particular) were tested extensively in order to ensure it is not possible for the user to submit invalid data.
 
 ### AOI
 
 #### AOI format
-The AOI must be delivered to the API in a specific format.  The Mapbox map provides the data in geoJSON format; this can be indexed as required to create the correct format.
+The AOI must be delivered to the API in a specific format.  The Mapbox map provides the data in geoJSON format upon completion of a polygon.  
 
 #### Area size
 The API requires an AOI between 25 and 10,000 km2.  The *createMap()* function tests that the AOI is between these values, and feeds back to the user that there is an AOI size error and does not allow form progression.
@@ -59,6 +59,9 @@ Another example of common sense: if the total pipeline length is only 1 week, th
 
 #### Archived imagery after 2020
 The developer of the project was uncertain how far in the past the API has stored archived imagery.  To prevent the user attempting to look for images from the 1700s (!), dates cannot be chosen before 2020.  This allows for 3 years of archived imagery.
+
+### Other Parameters
+Simple field validation is undertaken for other parameters, such as cloud cover, to ensure they are valid for the API.
 
 ## Overview of manual testing
 Comprehensive manual testing was undertaken for this website, to ensure functionality was as expected from the user's point of view.  Each user story is tested for large, medium and small screen sizes to ensure the website was responsive for all screen sizes. Acceptance criteria is defined for each user story and the test is considered 'passed' if the acceptance criteria has been met. 
