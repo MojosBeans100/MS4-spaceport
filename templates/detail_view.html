@@ -369,7 +369,7 @@
                     {% else %}
                     <tr>
                         <td></td>
-                        <td>{{result.message}}</td>
+                        <td>{{result.message|lower}}</td>
                         <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
                         </td>
 
@@ -380,7 +380,7 @@
 
                         <!-- but if the interval is complete -->
                         {% else %}
-                        <td><em>No image found</em></td>
+                        <td><em>no image found</em></td>
                         {% endif %}
                         <td style="text-align: center;">-</td>
                         <td style="text-align: center;">-</td>
@@ -533,8 +533,10 @@
         var mapbox_key = "{{ mapbox_key | safe}}";
         var aoi = JSON.parse(document.getElementById('map_aoi').textContent);
         var map_aoi = aoi["features"][0]['geometry'];
-        var lat = aoi['features'][0]['geometry']['coordinates'][0][0][1];
-        var long = aoi['features'][0]['geometry']['coordinates'][0][0][0];
+        //var lat = aoi['features'][0]['geometry']['coordinates'][0][0][1];
+        //var long = aoi['features'][0]['geometry']['coordinates'][0][0][0];
+        long = turf.centerOfMass(aoi)['geometry']['coordinates'][0]
+        lat = turf.centerOfMass(aoi)['geometry']['coordinates'][1]
 
         displayAOI();
 
