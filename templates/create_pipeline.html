@@ -975,10 +975,6 @@
                 // get the area of the data
                 const area = turf.area(data);
 
-                // find center of the area
-                const center = turf.centerOfMass(data);
-                console.log(center);
-
                 // determine if there are an intersecting points
                 const poly = turf.polygon(data['features'][0]['geometry']['coordinates'])
                 const kinks = turf.kinks(poly)
@@ -1041,6 +1037,10 @@
             input_validation.value = ""
             document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].disabled = false
             document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].style.backgroundColor = "white"
+            area_validation = ""
+            area_validation_feedback.innerHTML = `${area_validation}`;
+            map_area.innerHTML = "Area: 0 km<sup>2</sup>"
+            
         }
 
         // remove the null value and set to blank
@@ -1060,8 +1060,8 @@
         aoi_map = aoi_json['features'][0]['geometry'];
 
         // create long and lat to set the map center 
-        long = aoi_json['features'][0]['geometry']['coordinates'][0][0][0];
-        lat = aoi_json['features'][0]['geometry']['coordinates'][0][0][1];
+        long = turf.centerOfMass(aoi_map)['geometry']['coordinates'][0]
+        lat = turf.centerOfMass(aoi_map)['geometry']['coordinates'][1]
 
         // MAPBOX code
         mapboxgl.accessToken =
