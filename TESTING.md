@@ -29,6 +29,34 @@ This document details the testing procedures carried out to ensure expected func
 
 # Testing Strategy
 
+## API Restrictions
+The Skywatch API has strict limits, restrictions and formatting to return data.  Therefore the form fields in particular were tested extensively in order to ensure it is not possible for the user to submit invalid data.
+
+### AOI
+
+#### Area size
+The API requires an AOI between 25 and 10,000 km2.  The *createMap()* function tests that the AOI is between these values, and feeds back to the user that there is an AOI size error and does not allow form progression.
+
+#### Polygon shape
+The API will not accept an [irregular polygon shape](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644231184/irregularaoi_nhdeop.jpg), only [complete polygon shapes](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644231184/regularaoi_ukud6g.jpg).  Although it is unlikely the user would choose an irregular shape, the [*turf.kinks*](http://turfjs.org/docs/#area) plugin for Mapbox calculates if there are any intersections between lines, and provides feedback to the user that the AOI is not valid.
+
+#### Number of polygons
+If a user selects 2 seperate polygon areas on the map, only the first one will be sent to the API for pipeline creation.  No error will be returned, but to prevent the user from attempting this in the first place, the 'draw' function on the map is disabled if a polygon has been drawn.  The user can only draw a new polygon upon deletion of the previous polygon.
+
+### Interval
+
+#### Start date < end date
+Common sense dictates that the start date must come before the end date.  User will receive feedback if this is not the case.
+
+#### No more than 10 intervals
+An API restriction is that pipelines can only have 10 or fewer intervals.  The rough number of intervals is calculated and returns an error if there are more than 10 intervals.
+
+#### Interval is not larger than pipeline length
+Another example of common sense: if the total pipeline length is only 1 week, the interval period cannot be bi-monthly (2 weeks).  This would result in the number of intervals being a decimal less than 1.
+
+#### Archived imagery after 2020
+The developer of the project was uncertain how far in the past the API has stored archived imagery.  To prevent the user attempting to look for images from the 1700s (!), dates cannot be chosen before 2020.  This allows for 3 years of archived imagery.
+
 ## Overview of manual testing
 Comprehensive manual testing was undertaken for this website, to ensure functionality was as expected from the user's point of view.  Each user story is tested for large, medium and small screen sizes to ensure the website was responsive for all screen sizes. Acceptance criteria is defined for each user story and the test is considered 'passed' if the acceptance criteria has been met. 
 
@@ -41,6 +69,8 @@ Comprehensive manual testing was undertaken for this website, to ensure function
 
 ## Overview of automated testing
 Basic automated testing was undertaken for the main CRUD functions of the website.
+
+
 
 # Manual Testing
 ## User Story 1
