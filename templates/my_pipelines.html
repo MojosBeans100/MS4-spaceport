@@ -12,7 +12,7 @@
     <div id="my_pipelines_blurb">
         <h3>MY PIPELINES</h3>
         
-
+        <!-- if the user has no pipelines, direct them to create pipeline form -->
         {% if active.count == 0 and complete.count == 0 and pending.count == 0 %}
         <div id="pipelines-no-pipelines">
             <h4>You currently have no pipelines</h4>
@@ -20,10 +20,13 @@
             <h6>Learn more about creating a pipeline <a href="{% url 'discover' %}">here</a></h6>
             <h6>Create a new pipeline <a href="{% url 'create' %}">here</a></h6>
         </div>
+
+        <!-- otherwise, display their pipelines -->
         {% else %}
         <p>See a list below of all your current pipelines, ordered by status</p>
+
+        <!-- my pipelines sub navigation -->
         <div class="row py-4">
-            
             <div class="col px-3">
                 <div><a class="pipelines_links" href="#active_pipelines" class="status_buttons">ACTIVE
                         ({{active.count}})</a></div>
@@ -48,31 +51,39 @@
                 </div>
                 <p><small>saved 'Create Pipeline' forms not yet submitted</small></p>
             </div> -->
-        </div>
-        
-        
+        </div>  
     </div>
 
+    <!-- main pipeline list section -->
     <div id="pipeline_list_div">
 
+        <!-- active pipelines -->
         <div id="active_pipelines">
             <h1>ACTIVE ({{active.count}})</h1>
             <hr>
             <div class="row">
                 {% for pipeline in active %}
                 <div class="col-sm-6 col-lg-4 col-xxl-3">
+
+                    <!-- each pipeline is represented by a card -->
                     <div class="card my-3" id="pipeline_card">
+
+                        <!-- if an image has been found, display this in the card -->
                         {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img"
                             src="{{pipeline.featured_image}}"
                                 alt="pipeline image"></a>
+
+                        <!-- if no images have been found, display a placeholder image -->
                         {% else %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img"
                                 src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643471374/rawscienceinteractivemap_xsziiy.jpg"
                                 alt="pipeline image"></a>
                         {% endif %}
+
+                        <!-- display general details about the pipeline -->
                         <div class="card-body">
                             <p>{{pipeline.start_date|date:'d M'}} - {{pipeline.end_date|date:'d M'}}</p>
                             <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
@@ -82,15 +93,14 @@
                                 <i class="far fa-images"></i>{{pipeline.num_images}}</p>
                                 {% endif %}
                             <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
-                            
                         </div>
                     </div>
-                </div>
-                
+                </div>  
                 {% endfor %}
             </div>
         </div>
 
+        <!-- complete pipelines -->
         <div id="complete_pipelines">
             <h1>COMPLETE ({{complete.count}})</h1>
             <hr>
@@ -147,36 +157,17 @@
                 {% endfor %}
             </div>
         </div>
-
-        <!-- <div id="saved_pipelines">
-            <h1>SAVED ({{saved.count}})</h1>
-            <hr>
-
-            <div class="row">
-                {% for pipeline in saved %}
-                <div class="col-sm-6 col-md-4 col-xxl-3">
-                    <div class="card my-3" id="pipeline_card">
-                        <a href="{% url 'detail_view' pipeline.id %}">
-                            <i class="fas fa-tasks"></i></a>
-                        <div class="card-body">
-                            <p>{{pipeline.date_created}}</p>
-                            <h3 class="card-title">{{pipeline.pipeline_name}}</h3>
-                            <p class="card-text">{{pipeline.pipeline_des}}</p>
-                            <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div> -->
     </div>
     {% endif %}
+
+    <!-- direct unauthenticated users back to homepage -->
     {% else %}
     <p style="margin-top: 150px;">Ooops you have been redirected to the wrong. Please return home.</p>
     {% endif %}
+
+    <!-- back to top button -->
     <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i>Top</button>
 </div>
-
 
 <script>
 
