@@ -5,19 +5,17 @@
 <title>Discover</title>
 {% endblock title %}
 
-
 {% block content %}
 
+<!-- banner image for page -->
 <div id="discover-banner" class="row justify-content-center">
-    <!-- <div class="col-4 align-self-center">
-        <h1>Discover</h1>
-    </div> -->
 </div>
 
+<!-- container of main page content -->
 <div class="container" id="discover-container">
 
+    <!-- title/intro to page -->
     <h1>Discover</h1>
-
     <div class="row d-flex justify-content-evenly p-3">
         <div class="col-md-6 p-2">
             <h5>Use this page to explore the applications of satellite imagery, how it works,
@@ -25,6 +23,7 @@
         </div>
     </div>
 
+    <!-- discover sub navigation to jump to specific section -->
     <div class="container">
         <div class="row d-flex justify-content-evenly px-5">
             <div class="col-md p-1">
@@ -49,6 +48,7 @@
         </div>
     </div>
 
+    <!-- outlining some applications for satellite imagery -->
     <div id="discover-applications">
         <div class="purpose-section">
             <h3 id="discover-applications-title">Applications</h3>
@@ -208,6 +208,7 @@
     </div>
     <hr>
 
+    <!-- detailing some specific examples to provide more context to the user -->
     <div id="discover-examples">
         <div class="purpose-section">
             <h3 id="discover-examples-title">Examples</h3>
@@ -270,6 +271,7 @@
     </div>
     <hr>
 
+    <!-- section to detail some topical events regarding satellite imagery -->
     <div id="discover-news">
         <div class="purpose-section" id="carousel">
             <h3 id="discover-news-title">In the news</h3>
@@ -354,6 +356,7 @@
     </div>
     <hr>
 
+    <!-- table of terms the user may find interesting/useful during their experience on the website -->
     <div id="discover-glossary">
         <div class="purpose-section">
             <h3 id="discover-glossary-title">Glossary</h3>
@@ -532,6 +535,7 @@
     </div>
     <hr>
 
+    <!-- section to outline some frequently asked questions the user may have -->
     <div id="discover-faq">
         <div class="purpose-section">
             <h3 id="discover-faq-title">FAQ</h3>
@@ -589,8 +593,13 @@
                         and hue, to determine if you can enhance the image</li>
                     <li>- satellite imagery is cool - share them with your friends!</li>
                 </ul>
-
             </p>
+
+            <h5>What can I do with my image metadata?</h5>
+            <p>The metadata delivered for each image contains highly technical, satellite specific information relating
+                to that image. It is of more use to those collecting satellite imagery for a specific purpose. We
+                have extracted information which may be of interest to you and printed it in your Results table. Feel
+                free to peruse the metadata if you want to investigate further.</p>
 
             <h5>Which satellites does the platform use to collect images?</h5>
             <p>Spaceport has access to the Sentinel-2 (ESA), PlanetScope (Planet), SPOT (Airbus), Skysat (Planet),
@@ -604,7 +613,8 @@
 
             <h5>My image data says there is 0% cloud cover, but some of my image is obscured by clouds - why?</h5>
             <p>Satellites do not always provide information about the cloud cover. It is possible that the satellite did
-                not provide data in this instance, or the thickness of the clouds was thickness was too low to be recognised.</p>
+                not provide data in this instance, or the thickness of the clouds was too low to be
+                recognised.</p>
 
             <h5>Why are my images blurry when I zoom in?</h5>
             <p>In order to offer free satellite imagery, Spaceport can only access 'low resolution' data, representing
@@ -620,6 +630,7 @@
     </div>
     <hr>
 
+    <!-- displays the buttons for the user to navigate to next relevant pages -->
     <div id="discover-cta">
         <div class="purpose-section">
 
@@ -673,6 +684,7 @@
     }
     // External library ends
 
+    // style active page
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
             document.getElementById('nav-active-page').removeAttribute('nav-active-page')

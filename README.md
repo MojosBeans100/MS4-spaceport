@@ -428,7 +428,7 @@ The pipeline results are also displayed in a table.  The user can see:
 - an selectable image which opens a separate tab showing a preview of the image
 - the time the image was captured by the satellite
 - the satellite the image was captured by
-- a link to the metadata which opens a separate tab displaying technical data of the image in JSON format
+- a link to the metadata which opens a separate tab displaying technical data of the image in JSON format 
 
 The user can expand the table by clicking the drop down, which will open all rows to display further technical data about the image, as well as a link which downloads the full size image.
 
@@ -561,6 +561,13 @@ Additional code could be added to the map renders, to create a short zoom animat
 - 
 
 ## User Features
+
+### Default pipelines
+Several 'public' pipelines could be added which all users would have access to when they initially create an account  with Spaceport.  The developer feels it would be beneficial to see some 'live' examples of one active, complete, and pending pipeline, as well as an successful and unsuccessful pipeline.  
+
+This would allow them to peruse these pipelines in order to understand the concept better, before they create their own.  
+
+In reality this may be tricky to manage in terms of what access they have in terms of editing, updating and deleting, moreover there would be complexities with the API model being accessible by more than one person.  
 
 ### Save incomplete pipeline
 A feature could be added within the code to allow users to save an incomplete pipeline form and return to it at a later date.  The developer feels this would be a useful feature, as the Create a Pipeline form is lengthy, and the user may want to refer back to the Discover page (Glossary, FAQs) during the completion of the form.
