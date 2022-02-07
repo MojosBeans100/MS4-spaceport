@@ -957,6 +957,7 @@
 
             // get the drawn polygon data
             const data = draw.getAll();
+            console.log(data['features'][0]['geometry']['coordinates'])
 
             // if feedback exists, delete it
             if (document.getElementById('area_validation_feedback')) {
@@ -966,8 +967,23 @@
             // if there is data drawn
             if (data.features.length > 0) {
 
+                // disable the draw polygon to disallow 
+                // more than 1 polygon
+                document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].disabled = true
+                document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].style.backgroundColor = "grey"
+
                 // get the area of the data
                 const area = turf.area(data);
+
+                // find center of the area
+                const center = turf.centerOfMass(data);
+                console.log(center);
+
+                // determine if there are an intersecting points
+                const poly = turf.polygon(data['features'][0]['geometry']['coordinates'])
+                const kinks = turf.kinks(poly)
+                console.log(kinks['features'].length)
+
                 const rounded_area = Math.round(area * 100) / 100;
                 rounded_km = (rounded_area / 1000000).toFixed(2);
 
@@ -987,13 +1003,19 @@
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
 
-                    // if area is too small    
+                // if area is too small    
                 } else if (rounded_km < 25) {
                     area_validation = "Area is too small: choose an area larger than 25 km<sup>2</sup>";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
 
-                    // if area size is valid
+                // if there are intersecting lines
+                } else if (kinks['features'].length > 0) {    
+                    area_validation = "AOI selection is not valid: choose a complete area with no intersecting lines";
+                    area_validation_feedback.style.fontWeight = 'bold';
+                    input_validation.value = "";
+
+                // if area size is valid
                 } else {
 
                     // input the geoJSON into the form field
@@ -1017,6 +1039,8 @@
         // if polygon has been deleted, remove form field value
         function deleteArea() {
             input_validation.value = ""
+            document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].disabled = false
+            document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].style.backgroundColor = "white"
         }
 
         // remove the null value and set to blank
