@@ -11,6 +11,7 @@
 
     {% if user.is_authenticated %}
 
+    <!-- detail view sub navigation -->
     <div class="container" id="detail-links">
         <div class="row d-flex justify-content-evenly">
             {% if pipeline.status == 'complete' %}
@@ -51,6 +52,7 @@
         </div>
     </div>
 
+    <!-- detail view main content -->
     <div id="detail-view-div">
 
         <!-- pipeline general info section -->
@@ -126,7 +128,6 @@
 
             </div>
         </div>
-
         <hr>
 
         <!-- pipeline interval section -->
@@ -227,7 +228,6 @@
             </div>
 
         </div>
-
         <hr>
 
         <!-- pipeline results section -->
@@ -240,7 +240,8 @@
                 <table class="table" id="result-table">
                     <tr data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
-                        <th style="text-align: center;"><i style="padding: 0; margin: 0" class="fas fa-angle-down"></i></th>
+                        <th style="text-align: center;"><i style="padding: 0; margin: 0" class="fas fa-angle-down"></i>
+                        </th>
                         <th>Status</th>
                         <th>Interval dates</th>
                         <th>Image Preview</th>
@@ -392,7 +393,6 @@
             </div>
             {% endif %}
         </div>
-
         <hr>
 
         <!-- pipeline parameters section -->
@@ -443,7 +443,6 @@
             {% endif %}
 
         </div>
-
         <hr>
 
         <!-- pipeline edit/update/delete section -->
@@ -487,13 +486,18 @@
         </div>
 
     </div>
+
+    <!-- if user is not authenticated but navigates to this page -->
     {% else %}
     <p>Ooops.. you have been directed to the wrong page. <a href="{% url 'homepage' %}">Return to home</a></p>
     {% endif %}
+
+    <!-- back to top button -->
     <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i
             class="fas fa-arrow-up"></i>Top</button>
 </div>
 
+<!-- get information from view -->
 {{ pipeline.aoi|json_script:"map_aoi" }}
 {{ complete|json_script:"complete" }}
 {{ current|json_script:"current" }}
@@ -504,7 +508,8 @@
 {{ pipeline.end_date|json_script:"end_date" }}
 
 <script>
-    // External library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+    // External library
+    // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
     mybutton = document.getElementById("myBtn");
 
     window.onscroll = function () {
@@ -528,8 +533,14 @@
     detailMap();
     timelineChart();
 
+    /**
+    Render map of user's selected AOI
+    Code derived from Mapbox
+    https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addsource
+    */
     function detailMap() {
 
+        // get AOI and find center point
         var mapbox_key = "{{ mapbox_key | safe}}";
         var aoi = JSON.parse(document.getElementById('map_aoi').textContent);
         var map_aoi = aoi["features"][0]['geometry'];
@@ -538,11 +549,10 @@
 
         displayAOI();
 
-        /* external library - Mapbox */
         function displayAOI() {
             mapboxgl.accessToken =
                 mapbox_key;
-            
+
             const map = new mapboxgl.Map({
                 container: 'detail_map',
                 style: 'mapbox://styles/mapbox/light-v10',
@@ -551,16 +561,13 @@
             });
 
             map.on('load', () => {
-
                 map.addSource('display_aoi', {
                     'type': 'geojson',
                     'data': {
                         'type': 'Feature',
                         'geometry': map_aoi,
-
                     }
                 });
-
 
                 map.addLayer({
                     'id': 'display_aoi',
@@ -586,10 +593,14 @@
             });
         }
     }
-    /* external library end  */
-
+   
+    /**
+    Creates a timeline using ChartJS
+    to render interval dates
+    */
     function timelineChart() {
 
+        // parse info from view into valid format
         var complete = JSON.parse(document.getElementById('complete').textContent)
         var current = JSON.parse(document.getElementById('current').textContent)
         var future = JSON.parse(document.getElementById('future').textContent)
@@ -598,6 +609,7 @@
         var start_date = JSON.parse(document.getElementById('start_date').textContent)
         var end_date = JSON.parse(document.getElementById('end_date').textContent)
 
+        // define pipeline start and end dates
         pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)), parseFloat(start_date.slice(5, 7) - 1),
             parseFloat(start_date.slice(8, 10)))
         pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)), parseFloat(end_date.slice(5, 7) - 1), parseFloat(
@@ -612,6 +624,8 @@
         var images_data = []
         var all_data = []
         var dates_string = []
+        pointBackgroundColors = []
+        pointRadii = []
         var date_object = {}
 
         // push all timeline dates into array
@@ -686,16 +700,14 @@
             today_data.push(todays_date_object)
         }
 
-        //console.log(all_data)
-        pointBackgroundColors = []
-        pointRadii = []
-
+        // create icons to use in the chart
         var todayImage = new Image()
         todayImage.src = "{%  static 'images/saticon.png' %}"
 
         var picImage = new Image()
         picImage.src = "{%  static 'images/picture.png' %}"
 
+        // draw the chart
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'line',
@@ -705,24 +717,19 @@
                         label: "    Current interval",
                         backgroundColor: "#5c6885",
                         pointRadius: 6,
-
-                    }, {
+                    },{
                         data: all_data,
                         label: "    Completed intervals",
                         backgroundColor: pointBackgroundColors,
                         pointRadius: pointRadii,
-
-                    },
-                    {
+                    },{
                         data: today_data,
                         label: "    Today",
                         pointStyle: todayImage,
                         backgroundColor: "white",
                         pointRadius: [0, 15],
-                        //borderWidth: 1,
                         borderColor: "#e3d8d8",
-                    },
-                    {
+                    },{
                         data: images_data,
                         label: "    Image taken",
                         pointStyle: picImage,
@@ -783,11 +790,11 @@
             },
         }, );
 
+        // change style of data point if interval is before or after today
         for (i = 0; i < myChart.data.datasets[1].data.length; i++) {
             if (myChart.data.datasets[1].data[i]['x'] > todaysDate) {
                 pointBackgroundColors.push("white");
                 pointRadii.push('4')
-
             } else {
                 pointBackgroundColors.push("#ebf0fc");
                 pointRadii.push('5')
