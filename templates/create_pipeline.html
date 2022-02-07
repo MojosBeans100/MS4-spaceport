@@ -34,6 +34,7 @@
                 <p style="text-align: center; text-decoration: none; color: black;">If this is your first pipeline, we
                     recommend exploring our <a href="discover.html"><strong>'Discover'</strong></a> page first</p>
 
+                <!-- create pipeline form sub navigation -->
                 <div class="input-sections">
                     <div class="row">
                         <div class="col-12 py-1 text-center">
@@ -57,6 +58,7 @@
                     </div>
                 </div>
 
+                <!-- simple demonstration of process -->
                 <div class="d-flex justify-content-center">
                     <div id="start-form-div" class="col col-lg-9 col-xxl-9">
 
@@ -202,8 +204,9 @@
 
             <!-- general form section -->
             <div id="general_form_section" class="tab">
+                
+                <!-- section heading and intro -->
                 <div class="row">
-
                     <div class="col">
                         <div class="form_title">
                             <h4>General</h4>
@@ -211,12 +214,9 @@
                             <p>Provide some general details to identify your pipeline</p>
                         </div>
                     </div>
-
-                    <!-- <div class="col  d-flex justify-content-end" style="border: solid red;">
-                        <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div> -->
                 </div>
 
+                <!-- form fields -->
                 <div class="section_div">
                     <div class="input-sections" id="form_name_div">
                         <label for="pipeline_name" class="form-label">Name</label>
@@ -232,24 +232,28 @@
 
             <!-- aoi form section -->
             <div id="aoi_form_section" class="tab">
+                
+                <!-- section heading and intro -->
                 <div class="row">
                     <div class="col">
                         <div class="form_title">
                             <h4>Area of Interest</h4>
                             <p>The Area of Interest (AOI) is the area on Earth of which you want to find images.</p>
-
                             <p>Tell us where to look for images. <span class="form_limits">Area must be between 25
                                     km<sup>2</sup> and 10,000 km<sup>2</sup></span></p>
                         </div>
                     </div>
                 </div>
 
+                <!-- AOI size and validation feedback -->
                 <div id="map-feedback">
                     <p id="map-area">Area: 0 km<sup>2</sup></p>
                 </div>
 
+                <!-- mapbox map -->
                 <div id="create-map"></div>
 
+                <!-- hidden form field -->
                 <div class="input-sections">
                     {{form.aoi}}
                 </div>
@@ -257,6 +261,8 @@
 
             <!-- interval form section -->
             <div id="interval_form_section" class="tab">
+
+                <!-- section heading and intro -->
                 <div class="row">
                     <div class="col">
                         <div class="form_title">
@@ -278,6 +284,7 @@
                     </div> -->
                 </div>
 
+                <!-- form fields -->
                 <div class="row">
                     <div class="col-md-4" id="s_date">
                         <label for="start_date" class="form-label">from</label>
@@ -298,18 +305,17 @@
 
             <!-- parameters form section -->
             <div id="parameters_form_section" class="tab">
+
+                <!-- section heading and intro -->
                 <div class="row">
                     <div class="col">
                         <div class="form_title">
                             <h4>Parameters</h4>
                         </div>
                     </div>
-
-                    <!-- <div class="col d-flex justify-content-end">
-                        <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div> -->
                 </div>
 
+                <!-- form field and description -->
                 <div class="input-sections">
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
                     <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have.<br>
@@ -321,6 +327,7 @@
                     {{form.cloud_cover}}
                 </div>
 
+                <!-- images to represent cloud cover -->
                 <div class="input-sections" id="cloud-cover">
                     <div class="row">
                         <div class="col-sm-4 p-3">
@@ -356,6 +363,8 @@
 
             <!-- output image form section -->
             <div id="output_form_section" class="tab">
+
+                <!-- section heading and intro -->
                 <div class="row">
                     <div class="col">
                         <div class="form_title">
@@ -373,6 +382,7 @@
                     </div> -->
                 </div>
 
+                <!-- 1st row: render output fields as selectable pictures/radio buttons -->
                 <!-- the image description (class="image-des") are taken from the Skywatch EarthCache concole -->
                 <div class="row">
                     <div class="col-sm-4 py-1">
@@ -423,6 +433,7 @@
                     </div>
                 </div>
 
+                <!-- 2nd row: render output fields as selectable pictures/radio buttons -->
                 <div class="row">
                     <div class="col-sm-4 py-1">
                         <label class="output-label">
@@ -473,8 +484,9 @@
 
             <!-- review form section -->
             <div id="review_form_section" style="height: auto;" class="tab">
+               
+                <!-- section heading and intro -->
                 <div class="row">
-
                     <div class="col">
                         <div class="form_title">
                             <h4>Review</h4>
@@ -484,10 +496,6 @@
                             <p class="form_limits">*parameters which can be changed after pipeline is committed</p>
                         </div>
                     </div>
-
-                    <!-- <div class="col d-flex justify-content-end">
-                        <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div> -->
                 </div>
 
                 <!-- feedback information from user's form -->
@@ -495,82 +503,67 @@
                     <tr>
                         <td class="table-section" colspan="2">General Information</td>
                     </tr>
-
                     <tr>
                         <td class="table-left">*Pipeline name:</td>
                         <td id="table-name" class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-left">*Description:</td>
                         <td id="table-des" class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Status:</td>
-
-                        <!-- change this -->
                         <td class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-section" colspan="2">Interval</td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Starts:</td>
                         <td id="table-sdate" class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Ends:</td>
                         <td id="table-edate" class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Length:</td>
                         <td id="table-length" class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Interval:</td>
                         <td id="table-interval" class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Number of intervals:</td>
                         <td id="table-num-interval" class="table-right"></td>
                     </tr>
-
                     <tr>
                         <td class="table-section" colspan="2">Output</td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Output:</td>
                         <td id="table-output" class="table-right"></td>
                     </tr>
-
                 </table>
 
+                <!-- mapbox map -->
                 <div id="review-aoi"></div>
 
+                <!-- AOI info feedback -->
                 <table id="feedback-aoi">
                     <tr>
                         <td class="table-section" colspan="2">Area of Interest</td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Area:</td>
                         <td class="table-right" id="table-area"></td>
                     </tr>
-
                     <tr>
                         <td class="table-left">geoJSON:</td>
                         <td class="table-right"><textarea id="table-geojson" rows="8" cols="15" disabled></textarea>
                         </td>
                     </tr>
-
                     <tr>
                         <td class="table-left">Minimum cloud free area:</td>
                         <td class="table-right" id="table-cloud"></td>
@@ -578,6 +571,7 @@
                 </table>
                 <hr>
 
+                <!-- prompt about submitting -->
                 <div style="text-align:center; margin-top: 60px; margin-bottom: 60px;">
                     <h4>Ready to submit?</h4><br>
                     <h5>Once submitted, you will be redirected to your new pipeline.</h5>
@@ -585,10 +579,9 @@
                         after a few minutes
                     </h5>
                 </div>
-
-
             </div>
 
+            <!-- pipeline submitted section -->
             <div id="submitting_pipeline" class="tab">
                 <h2>Thank you for submitting your pipeline.</h2>
                 <h5 id="submitting_name"></h5>
@@ -621,8 +614,9 @@
                     </div>
                 </div>
             </div>
-
         </form>
+
+        <!-- ensure only authenticated users can access this page -->
         {% else %}
         <p style="margin-top: 150px;">You are not permitted to create a pipeline without being logged in.
             Sign up <a href="{% url 'account_login' %}">here</a>
