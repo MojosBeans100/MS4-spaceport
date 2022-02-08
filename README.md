@@ -498,20 +498,32 @@ Discover banner
 ### Discover links
 As the Discover page is long, a sub navigation section is rendered to display the information the user can expect to find on this page, and to allow the user to jump to the page section of most interest.
 
+![Discover links](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352074/discover_fcnifx.jpg)
+
 ### Applications
 The applications section of the Discover page convey to the user the industry uses of satellite imagery.  This section is intended to provide the user with more context to the site's purpose.  The section details three common uses of satellite imagery, with a relevant image and short description attached to each use. 
+
+![Discover applications](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352074/discoerapplications_oseaq0.jpg)
 
 ### Examples
 The examples section is an extension of the applications section, explaining in more detail an example of how and why satellite imagery is collected.  These 'real-life' examples provide context to the user about why they might want to use the site.
 
+![Discover examples](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352073/discoverexamples_yfpc52.jpg)
+
 ### News
 The news section further reinforces the importance of access to satellite imagery, providing a couple of topical examples which the user may have recently come across to provoke the user's interest.
 
+![Discover news](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352074/discovernews_kjzkto.jpg)
+
 ### Glossary
-The glossary section defines any technical or unfamiliar terms the user may come across on the site.
+The glossary section defines any technical or unfamiliar terms the user may come across on the site, with images where applicable.
+
+![Discover glossary](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352073/discoverglossary_pcax4x.jpg)
 
 ### FAQ
 The frequently asked questions section provides access to some questions the user may ask when using the site, and attempts to provide a clear answer.
+
+![Discover FAQ](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352074/discoverfaq_criutz.jpg)
 
 ## Pipelines
 The Pipelines/My Pipelines page lists all the pipelines the user has created.  This page can be used to review the status of current pipelines, and click on each to see the detailed view.

@@ -67,7 +67,7 @@ This document details the testing procedures carried out to ensure expected func
 # Testing Strategy
 
 ## User Testing
-An approach was undertaken to obtain feedback from other users (aside from the developer) in order to understand from an external perspective the functionality of the website and general experience when using it.  The deployed link was sent out to several acquaintances of the developer.
+An approach was undertaken to obtain feedback from other users (aside from the developer) in order to understand from an external perspective the functionality of the website and general experience when using it.  This was especially important as the website was based on a specific, technical concept which would most likely be unfamiliar to most users.  The [deployed link](https://ms4spaceport.herokuapp.com/) was sent out to several acquaintances of the developer.
 
 The developer was looking for feedback on the following:
 - Were there any errors encountered?
@@ -90,6 +90,9 @@ Some examples of feedback, and actions taken to rectify them, are provided below
 
 - A user who did not have a scroll wheel on their mouse found it difficult to select their desired AOI on the map: navigation controls were added to the Mapbox map to allow users to click zoom in, zoom out and rotate.
 
+- Users who created an [irregular AOI shape](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644231184/irregularaoi_nhdeop.jpg) returned an error in creating a pipeline: the *turf.kinks* Mapbox function was implemented to determine if the AOI shape was not acceptable, users would be notified (see [API testing](#polygon-shape))
+
+- Technical terms could be portrayed more comprehensively with images: where applicable, images were added to the Glossary
 
 ## API Restrictions
 The Skywatch API has strict limits, restrictions and formatting to return data.  The API documentation was read in detail to understand these restrictions.  Therefore the form fields (AOI and interval dates and period in particular) were tested extensively in order to ensure it is not possible for the user to submit invalid data.
