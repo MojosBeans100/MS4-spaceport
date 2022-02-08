@@ -561,6 +561,8 @@
                 zoom: 6,
             });
 
+            map.addControl(new mapboxgl.NavigationControl());
+
             map.on('load', () => {
                 map.addSource('display_aoi', {
                     'type': 'geojson',

@@ -921,6 +921,8 @@
             zoom: 4,
         });
 
+        map.addControl(new mapboxgl.NavigationControl());
+
         // create the draw function
         const draw = new MapboxDraw({
             displayControlsDefault: false,
@@ -1069,6 +1071,8 @@
             center: [long, lat],
             zoom: 5,
         });
+
+        map.addControl(new mapboxgl.NavigationControl());
 
         map.on('load', () => {
 
