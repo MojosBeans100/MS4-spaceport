@@ -484,6 +484,8 @@ def update(request, id):
 
     list_response = updated_list.json()
 
+    print(list_response)
+
     if updated_list.status_code == 200 or updated_list.status_code == 201:
 
         # get object to update
