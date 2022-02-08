@@ -310,12 +310,27 @@ As a **Site User** I can **calculate the probability of my pipeline** so that **
 - 6.3: As a **Site User** I can **return back to previous form tabs and adjust my parameters** so that **I can attempt to increase the chance of probability**
 - 6.4: As a **Site User** I can **re-calculate the probability percentage** so that **I can understand how my form changes have changed the probability percentage**
 
-User story 7: As a **Site User** I can **edit, update and delete pipelines**
-- 7.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I edit the pipeline**
-- 7.2: As a **New/returning Site User** I can **see which parameters I can change for my pipeline** so that **I am aware of the limitations once my pipeline has been submitted**
-- 7.3: As a **New/returning Site User** I can **change the name and description of my pipeline** so that **I can correct if needed, or add details about results in the description**
-- 7.4: As a **New/returning Site User** I can **update/refresh the pipeline** so that **I can see if any new images have been delivered/update interval statuses**
-- 7.5: As a **New/returning Site User** I know **that I have to update the pipeline myself** so that **I am not confused why the status/interval/results have not changed**
+User Story 6 was not implemented in the final deployed project, and was therefore not tested.
+
+The Skywatch API allows users to [calculate the probability](https://api-docs.skywatch.co/#tag/pipelinePost) (%) that each interval will return an image.  This is based on the API's algorithm which will match up the AOI with a suitable satellite, as well as meteorology reports.  For example, an interval may only have a 40% chance of returning an image because there is excessive cloud cover forecast that day.  The user can then adjust their interval settings or cloud cover parameters to attempt to increase this percentage.
+
+In a testing environment this feature was set up with a Javascript async *fetch* function to call the API with the user's chosen parameters, and the resulting probability numbers displayed on the Review page of the Create a Pipeline form.  The user could scroll back through the form tabs to adjust their form field values, and the probability would then re-calculate for the new parameters.  These probability percentage figures would not be stored in a model.
+
+While the function worked as expected in the testing environment, the feature was not included in the final deployed project due to time restraints.  The User Story was a 'could-have' issue, and omitting this feature does not hamper the user's experience on the website.
+
+
+## User Story 7
+## User Story 8
+
+## User Story 9
+As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
+
+- 9.1: As a **Site User** I can **see a timeline spanning the full duration of my pipeline** so that **I can see when the pipeline starts and ends**
+- 9.2: As a **Site User** I can **see a legend on the timeline** so that **I know what all icons and colours represent**
+- 9.3: As a **Site User** I can **see all intervals in my pipeline** so that **I know when the intervals start, end, and the duration**
+- 9.4: As a **Site User** I can **see the status of all pipelines colour-coded** so that **I can see which intervals have been completed, and which are still to be completed**
+- 9.5: As a **Site User** I can **see today represented on the timeline** so that **I can gauge an understanding of how much of the pipeline has been completed, and how much is left**
+- 9.6: As a **Site User** I can **see when images were delivered** so that **I know which intervals were successful**
 
 User Story 12: As a **Site User** I can **edit details of my pipelines**
 - 12.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I edit the pipeline**
