@@ -337,13 +337,7 @@ As a **Site User** I can **calculate the probability of my pipeline** so that **
 - 6.3: As a **Site User** I can **return back to previous form tabs and adjust my parameters** so that **I can attempt to increase the chance of probability**
 - 6.4: As a **Site User** I can **re-calculate the probability percentage** so that **I can understand how my form changes have changed the probability percentage**
 
-User Story 6 was not implemented in the final deployed project, and was therefore not tested.
 
-The Skywatch API allows users to [calculate the probability](https://api-docs.skywatch.co/#tag/pipelinePost) (%) that each interval will return an image.  This is based on the API's algorithm which will match up the AOI with a suitable satellite, as well as meteorology reports.  For example, an interval may only have a 40% chance of returning an image because there is excessive cloud cover forecast that day.  The user can then adjust their interval settings or cloud cover parameters to attempt to increase this percentage.
-
-In a testing environment this feature was set up with a Javascript async *fetch* function to call the API with the user's chosen parameters, and the resulting probability numbers displayed on the Review page of the Create a Pipeline form.  The user could scroll back through the form tabs to adjust their form field values, and the probability would then re-calculate for the new parameters.  These probability percentage figures would not be stored in a model.
-
-While the function worked as expected in the testing environment, the feature was not included in the final deployed project due to time restraints.  The User Story was a 'could-have' issue, and omitting this feature does not hamper the user's experience on the website.
 
 ## User Story 7
 As a **Site User** I can **save an incomplete form** so that **I can return to the form in the future for committing**

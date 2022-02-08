@@ -232,6 +232,11 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 
 ### Site User Stories
 
+## User Stories Strategy
+Epics were defined based on the main functions the website was expected to have, which mostly revolved around the main CRUD functions of the database.  These Epics were refined into smaller User Stories, which could then be broken down into manageable tasks for the developer to complete within the current project iteration.  See all [project iterations/boards](https://github.com/MojosBeans100/ms4-spaceport/projects).
+
+The User Stories were designated a priority label to complete within the iteration.  The main CRUD functions were assigned a 'should-have' label.  Any User Stories which were not completed had a 'could-have' label assigned to them, as they were additional features which did not affect the main functionality of the website. These User Stories could be completed if there was an opportunity for another iteration for this project.
+
 ## User Story 1
 As a **Site User** I can **create a pipeline**
 
@@ -352,6 +357,15 @@ As a **Site User** I can **view/download images and metadata of retrieved API re
 - 11.4: As a **Site User** I can **see technical data associated with any delivered images** so that **I can determine if the image is of use to me/meets the parameters I set**
 - 11.5: As a **Site User** I can **open a file containing the metadata associated with delivered images** so that **I can view further technical information about the image/satellite which took the image**
 
+## User Story 12
+As a **Site User** I can **edit details of my pipelines**
+
+- 12.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I can edit the pipeline**
+- 12.2: As a **New/returning Site User** I can **see which parameters I can change for my pipeline** so that **I am aware of the limitations once my pipeline has been submitted**
+- 12.3: As a **New/returning Site User** I can **change the name and description of my pipeline** so that **I can correct if needed, or add details about results in the description**
+- 12.4: As a **New/returning Site User** I can **see if my pipeline is able to be edited** so that **I am aware if I can edit the pipeline and, if not, the reason why**
+- 12.5: As a **New/returning Site User** I am **redirected back to the detail view of the pipeline** so that **I can see the changes I made reflected**
+- 12.6: As a **New/returning Site User** I am **shown a timestamp of when the pipeline was last edited** so that **I am aware if and when I last edited my pipeline**
 
 # Features
 
