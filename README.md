@@ -235,7 +235,10 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 ## User Stories Strategy
 Epics were defined based on the main functions the website was expected to have, which mostly revolved around the main CRUD functions of the database.  These Epics were refined into smaller User Stories, which could then be broken down into manageable tasks for the developer to complete within the current project iteration.  See all [project iterations/boards](https://github.com/MojosBeans100/ms4-spaceport/projects).
 
-The User Stories were designated a priority label to complete within the iteration.  The main CRUD functions were assigned a 'should-have' label.  Any User Stories which were not completed had a 'could-have' label assigned to them, as they were additional features which did not affect the main functionality of the website. These User Stories could be completed if there was an opportunity for another iteration for this project.
+The User Stories were designated a priority label to complete within the iteration.  The main CRUD functions were assigned a 'must-have' label.  Any User Stories which were not completed had a 'could-have' label assigned to them, as they were additional features which did not affect the main functionality of the website. These User Stories could be completed if there was an opportunity for another iteration for this project.
+
+## User Story Testing
+All User Stories were tested for functionality.  This is detailed in [this file](TESTING.md).
 
 ## User Story 1
 As a **Site User** I can **create a pipeline**
@@ -366,6 +369,20 @@ As a **Site User** I can **edit details of my pipelines**
 - 12.4: As a **New/returning Site User** I can **see if my pipeline is able to be edited** so that **I am aware if I can edit the pipeline and, if not, the reason why**
 - 12.5: As a **New/returning Site User** I am **redirected back to the detail view of the pipeline** so that **I can see the changes I made reflected**
 - 12.6: As a **New/returning Site User** I am **shown a timestamp of when the pipeline was last edited** so that **I am aware if and when I last edited my pipeline**
+
+## User Story 13
+As a **Site User** I can **delete my pipeline** so that **I can remove pipelines I no longer need, or were incorrect**
+
+- 13.1: As a **Site User** I can **see the Delete Pipeline button on my pipeline view** so that **I can access the delete form**
+- 13.2: As a **Site User** I am **provided with an intermediate view of deleting the pipeline** so that **I do not delete my pipeline immediately by pressing the Delete Pipeline button**
+- 13.3: As a **Site User** I am **aware which pipeline I am about to delete** so that **I am certain which pipeline I am about to delete**
+- 13.4: As a **Site User** I can **see a list of results of deleting the pipeline** so that **I am aware of the consequences of deleting a pipeline**
+- 13.5: As a **Site User** I can **see an exit button when deleting my pipeline** so that **I can change my mind if I no longer want to delete this pipeline**
+- 13.6: As a **Site User** I am **given feedback that the pipeline was deleted** so that **I have confirmation that the pipeline was deleted**
+
+
+
+
 
 # Features
 
