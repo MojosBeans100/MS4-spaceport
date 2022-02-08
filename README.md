@@ -250,13 +250,19 @@ As a **Site User** I can **create a pipeline**
 - 1.13: As a **New/returning Site User** I am **redirected to the detail view of the pipeline after submission** so that **I can view the details of the pipeline I submitted**
 - 1.14: As a **New/returning Site User** I am **encouraged to allow for the website to process the pipeline when first redirected** so that **I understand why the pipeline detail is initially sparse**
 
+## User Story 2
+As a **Site User** I can **view a list of all my pipelines**
 
+- 2.1: As a **Returning Site User** I can **see the My Pipelines link on the navbar when I am logged in** so that **I can easily refer back to this at all times**
+- 2.2: As a **Returning Site User** I can **see all my pipelines ordered by active status** so that **I am aware which pipelines are still active**
+- 2.3: As a **Returning Site User** I can **see all my pipelines ordered by completed status** so that **I am aware which pipelines have completed all intervals**
+- 2.4: As a **Returning Site User** I can **see all my pipelines ordered by pending status** so that **I am aware which pipelines I should update**
+- 2.5: As a **Returning Site User** I can **see a status link section at the top of My Pipelines** so that **I can see how many pipelines are in each category, and navigate to each list separately**
+- 2.6: As a **Returning Site User** I can see **a card displaying important information about each pipeline** so that **I can identify which pipeline it refers to**
+- 2.7: As a **Returning Site User** I can see **a featured image on the pipeline card** so that **I know if that pipeline has found any images**
+- 2.8: As a **Returning Site User** I can see **an interactive style change when I hover over a pipeline** so that **I know I can click on the pipeline card and view pipeline details**
+- 2.9: As a **New Site User** I am **shown a message at the top of My Pipelines, directing me to create a pipeline** so that **when first signing up, I am linked to the next logical step**
 
-User story 2: As a **Site User** I can **create and use an account on the site**
-- 2.1: As a **New User** I see **create an account using a username and password** so that **I can access pipeline functionality**
-- 2.2: As a **New User** I am **redirected to the Discover page when I signup** so that **I can view more information about pipelines/satellite imagery**
-- 2.3: As a **Returning User** I am **redirected to My Pipelines when I log in** so that **I can view a list of my pipelines**
-- 2.4: As a **New/returning User** I can **see the status of my login on navbar** so that **I am aware if I am logged in**
 
 User story 3: As a **Site User** I can **access information on satellite imagery**
 - 3.1: As a **New/returning Site User** I can **see at all times the Discover page link** so that **I can always refer to this page for more information**
