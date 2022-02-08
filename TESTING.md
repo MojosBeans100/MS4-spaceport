@@ -277,11 +277,11 @@ As a **Site User** I can **create an account** so that **I can log in to create 
 ### Testing 4
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
-|4.1|The user can click on the navigation bar to see the login page, and create an account with a username and password (no email required)|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.1_yfgqm7.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817438/Spaceport/Tablet/4.1_omdbgm.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817245/Spaceport/Mobile/4.1_owben4.jpg)||
-|4.2|If the user clicks Login/Signup, they are directed to the login page|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.2_qlzy3g.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817439/Spaceport/Tablet/4.2_fkptee.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817244/Spaceport/Mobile/4.2_srsunr.jpg)||
-|4.3|If logged in, the user can see their username in the navigation bar so they are aware of their log in status|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.3_hsidlg.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817440/Spaceport/Tablet/4.3_c1m4op.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817244/Spaceport/Mobile/4.3_j4palf.jpg)||
-|4.4|When the user has logged in, their My Pipelines page is visible|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.3_hsidlg.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817440/Spaceport/Tablet/4.3_c1m4op.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.4_cezgzh.jpg)||
-|4.5|The user can confirm they want to log out|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814152/Spaceport/Desktop/4.5_gwzjdv.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817439/Spaceport/Tablet/4.5_ldybbf.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.5_jzgdk0.jpg)||
+|4.1|The user can click on the navigation bar to see the login page, and create an account with a username and password (no email required)|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.1_yfgqm7.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817438/Spaceport/Tablet/4.1_omdbgm.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817245/Spaceport/Mobile/4.1_owben4.jpg)|Pass|
+|4.2|If the user clicks Login/Signup, they are directed to the login page|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.2_qlzy3g.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817439/Spaceport/Tablet/4.2_fkptee.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817244/Spaceport/Mobile/4.2_srsunr.jpg)|Pass|
+|4.3|If logged in, the user can see their username in the navigation bar so they are aware of their log in status|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.3_hsidlg.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817440/Spaceport/Tablet/4.3_c1m4op.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817244/Spaceport/Mobile/4.3_j4palf.jpg)|Pass|
+|4.4|When the user has logged in, their My Pipelines page is visible|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814151/Spaceport/Desktop/4.3_hsidlg.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817440/Spaceport/Tablet/4.3_c1m4op.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.4_cezgzh.jpg)|Pass|
+|4.5|The user can confirm they want to log out|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643814152/Spaceport/Desktop/4.5_gwzjdv.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817439/Spaceport/Tablet/4.5_ldybbf.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643817349/Spaceport/Mobile/4.5_jzgdk0.jpg)|Pass|
 
 ### Acceptance Criteria Status 4
 - [x] User can Sign Up to the website from the homepage
@@ -330,14 +330,25 @@ As a **Site User** I can **access information on satellite imagery**
 [Back to top](#testing)
 
 ## User Story 6
-### Acceptance Criteria 6
-### Testing 6
-### Acceptance Criteria Status 6
+As a **Site User** I can **calculate the probability of my pipeline** so that **I can see what the chances are of successful results, and change my parameters if required**
+
+- 6.1: As a **Site User** I can **view the probability of each interval returning an image** so that **I can see the percentage chance of receiving an image**
+- 6.2: As a **Site User** I can **view the reason as to why the probability percentage is low** so that **I know which parameters I could change to attempt to increase the probability percentage**
+- 6.3: As a **Site User** I can **return back to previous form tabs and adjust my parameters** so that **I can attempt to increase the chance of probability**
+- 6.4: As a **Site User** I can **re-calculate the probability percentage** so that **I can understand how my form changes have changed the probability percentage**
+
+User Story 6 was not implemented in the final deployed project, and was therefore not tested.
+
+The Skywatch API allows users to [calculate the probability](https://api-docs.skywatch.co/#tag/pipelinePost) (%) that each interval will return an image.  This is based on the API's algorithm which will match up the AOI with a suitable satellite, as well as meteorology reports.  For example, an interval may only have a 40% chance of returning an image because there is excessive cloud cover forecast that day.  The user can then adjust their interval settings or cloud cover parameters to attempt to increase this percentage.
+
+In a testing environment this feature was set up with a Javascript async *fetch* function to call the API with the user's chosen parameters, and the resulting probability numbers displayed on the Review page of the Create a Pipeline form.  The user could scroll back through the form tabs to adjust their form field values, and the probability would then re-calculate for the new parameters.  These probability percentage figures would not be stored in a model.
+
+While the function worked as expected in the testing environment, the feature was not included in the final deployed project due to time restraints.  The User Story was a 'could-have' issue, and omitting this feature does not hamper the user's experience on the website.
 
 ## User Story 7
-### Acceptance Criteria 6
-### Testing 6
-### Acceptance Criteria Status 6
+As a **Site User** I can **save an incomplete form** so that **I can return to the form in the future for committing**
+
+
 
 ## User Story 8
 ### Acceptance Criteria 8
@@ -363,7 +374,7 @@ As a **Site User** I can **see a visual graph of the progress of the pipeline** 
 ### Testing 9
 |User story|Result|Desktop|Tablet|Mobile|Status|
 |----|------|-------|------|------|------|
-|9|For active pipelines, the user can see interval detail, status, dates, image dates and a respresentation of today on the timeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643809183/Spaceport/Desktop/9_ekbquo.jpg)|N/A for tablet|N/A for mobile||
+|9|For active pipelines, the user can see interval detail, status, dates, image dates and a respresentation of today on the timeline|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643809183/Spaceport/Desktop/9_ekbquo.jpg)|N/A for tablet|N/A for mobile|Pass|
 
 ### Acceptance Criteria Status 9
 - [x] Users can see a timeline graph of the entire pipeline, displaying start, end dates and all intervals
