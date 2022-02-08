@@ -342,6 +342,11 @@ An additional button could be added to the form on all tabs which would save the
 This feature could be implemented easily on another iteration of the project. While this feature may be beneficial, especially as the form is relatively long, it is not a feature which affects the overall functionality of the website.
 
 ## User Story 8
+As a **Website Owner/Admin** I can **lock/restrict specific parameters in the admin panel** so that **for certain users I can control the details of the pipelines they submit**
+
+User Story 8 was not implemented in the final deployed project, and was therefore not tested. 
+
+The purpose of this feature was to allow the admin panel to restrict certain parameters for users.  For example, the admin could determine that one user could only access AOIs of 5,000 km2 as opposed to 10,000 km2.  It became more evident throughout the development of the project that this feature would only be beneficial for purchased imagery, and adding restrictions for free data would further reduce the probability of the user receiving images for their pipelines. The developer felt it was more beneficial to allow users full scope of the free API data.
 
 ## User Story 9
 As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
