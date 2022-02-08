@@ -17,15 +17,15 @@ Spaceport is a full stack website which allows users to access satellite imagery
         + [Database](#database)
     * [Style](#style)
     * [Scope](#scope)
-- [Features]
-    * Homepage
-    * Discover
-    * My Pipelines
-    * Create Pipeline
-    * Detail view
-    * Edit
-    * Delete
-    * Account authentication
+- [Features](#features)
+    * [Homepage](#homepage)
+    * [Discover](#discover)
+    * [My Pipelines](#pipelines)
+    * [Create Pipeline](#create-a-pipeline)
+    * [Detail view](#detail)
+    * [Edit](#edit-pipeline)
+    * [Delete]
+    * [Account authentication]()
 - [Technologies used]
 - [Testing]
 - [APIs]
@@ -38,8 +38,8 @@ Spaceport is a full stack website which allows users to access satellite imagery
 
 # Project Overview
 - This website was developed for submission as the Milestone 4 project of the Code Institute Diploma in Software Developement.
-- The website is deployed using the Heroku pages at the following url:
-- The repository on Github that contains the website source code and assets is available at the following url:
+- The website is deployed using the Heroku pages at the following url: https://ms4spaceport.herokuapp.com/
+- The repository on Github that contains the website source code and assets is available at the following url: https://github.com/MojosBeans100/ms4-spaceport
 - The website was built with a responsive look and feel, designed to be enjoyable to use on all screen sizes.
 
 ## Technical Abstract
@@ -54,16 +54,16 @@ The Skywatch ‘Application Programming Interface’ (or ‘API’) requires use
 While Astrosat regularly use the Skywatch EarthCache console to retrieve images, the company has less experience in interacting with the API itself.  This project attempts to provide insight into the intricacies of the API and to provide a user-friendly, front-end platform to demonstrate its capabilities.  
 
 # Access
-The assesor can create their own account to test the functionality of the website, and/or can use the details below to sign in and view some example pipelines which have been created for convenience.
-
-- Username: ms4_test
-- Password: spaceport_test_password
+The assesor can create their own account to test the functionality of the website, and/or can use the details provided in the submission form to view some example pipelines which have been created for convenience.
 
 # Definitions
 This website is based on a technical concept of accessessing satellite imagery, therefore see below some useful definitions which may be used in this document. These definitions and more can also be found on the Discover website page.
+
 - Pipeline: a pipeline refers to the timeline, or projected plan or schedule, of receiving satellite images. Each object in the 'List' model represents a pipeline.  Pipelines are active if they have not completed all intervals, and complete if all intervals have been completed
+
 - Interval: the interval describes the time period in which to look for images.  An interval of 1 day will aim to deliver 1 image per day; an interval of bi-weekly will aim to deliver 1 image every 14 days.
-- AOI:  the Area of Interest is the area/coverage/footprint on Earth the user wants to search for images of
+
+- AOI:  the Area of Interest, or AOI, is the area/coverage/footprint on Earth of which the user wishes to collect images
 
 # UX
 ## Strategy
@@ -77,7 +77,10 @@ The primary goals of the website user are as follows:
 - To understand the applications and purposes of satellite imagery
 
 ### Admin User
-
+The primary goals of the website owner or admin are as follows:
+- To view a list of all pipelines created
+- To view a list of all results created
+- To delete pipelines (API restriction does not allow > 100 pipelines under the developer's account, therefore 'complete' pipelines would have to be deleted if the number of total pipelines was approaching 100)
 
 ## Structure
 ### Pages
@@ -89,10 +92,10 @@ The website has five main pages, with user authentication on three:
 - Create pipeline (user): to display an interactive form for creating a pipeline
 
 The additional pages are as follows:
-- Edit pipeline
-- Delete pipeline
-- Confirmation of deleted pipeline
-- Log in/log out/sign up pages
+- Edit pipeline: for users to edit pipeline details
+- Delete pipeline: for users to delete pipelines
+- Confirmation of deleted pipeline: to confirm the deletion of a pipeline
+- Log in/log out/sign up pages: for user to be able to sign in/up/out
 
 The website was designed to be simple, clear and non-cluttered, basic in structure, with attractive images of satellites and images captured by satellites.
 Bootstrap was used to aid responsiveness, as well as media queries in CSS.
@@ -183,7 +186,15 @@ There are three models in this project.  As the project uses an API for a lot of
 |aoi_visible_area_per|visible area as a % of the AOI|API|Charfield|
 
 ## Style
-The styling is kept clean and minimal throughout the site.  As the content of the site may appear technically complex to new users, there are no distracting fonts, colours or images to confound the user. Attractive images are used where relevant to pique the interest of the user and indicate, alongside the text, the purpose of the website. 
+The styling is kept clean and minimal throughout the site.  As the content of the site may appear technically complex to new users, there are no distracting fonts, colours or images to confound the user. Attractive images are used where relevant to pique the interest of the user and indicate, alongside the text, the purpose of the website.
+
+### Wireframes
+Initial wireframes were designed during the project proposal stage.
+
+Homepage
+My Pipelines
+Create Account
+Create Pipeline
 
 ### Font
 The font style is the default Bootstrap 5 native sans-serif font stack for cross platform usability. The font remains consistent throughout the website, aside from being rendered in italic or font style for emphasis.
@@ -228,6 +239,10 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 
 ![Sub navigation on Pipelines page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643901899/Spaceport/nav1_nwz0ix.jpg)
 
+- For longer pages, a 'Back to Top' type button is fixed in the bottom right corner to allow users to scroll up to the top of the page.
+
+![Back to top]()
+
 ## Scope
 
 ### Site User Stories
@@ -235,7 +250,9 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 ## User Stories Strategy
 Epics were defined based on the main functions the website was expected to have, which mostly revolved around the main CRUD functions of the database.  These Epics were refined into smaller User Stories, which could then be broken down into manageable tasks for the developer to complete within the current project iteration.  See all [project iterations/boards](https://github.com/MojosBeans100/ms4-spaceport/projects).
 
-The User Stories were designated a priority label to complete within the iteration.  The main CRUD functions were assigned a 'must-have' label.  Any User Stories which were not completed had a 'could-have' label assigned to them, as they were additional features which did not affect the main functionality of the website. These User Stories could be completed if there was an opportunity for another iteration for this project.
+The User Stories were designated a priority label to complete within the iteration.  The main CRUD functions were assigned a 'must-have' label.  User Stories which were deemed beneficial but not a priority were assigned a 'should-have' label.
+
+All User Stories which were not completed had a 'could-have' label assigned to them, as they were additional features which did not affect the main functionality of the website. These User Stories could be completed if there was an opportunity for another iteration for this project.
 
 ## User Story Testing
 All User Stories were tested for functionality.  This is detailed in [this file](TESTING.md).
@@ -730,7 +747,9 @@ Users can sign up to the website using a username and password.  During deployme
 
 The details about setting this up were not included in the course materials for the current project, nor was the email field specified in the user authentication project requirements, therefore the username input alone was deemed acceptable for the purposes of the project. 
 
-Users are encouraged to note their sign-in details, as without email there is no password recovery available without email. 
+Users are strongly encouraged to note their sign-in details, as without email there is no password recovery available. 
+
+[Sign Up page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644339726/Spaceport/Mobile/signup_qkurpp.jpg)
 
 ## Dates on pipeline timeline
 The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
