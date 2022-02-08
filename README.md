@@ -346,7 +346,9 @@ As a **Website Owner/Admin** I can **lock/restrict specific parameters in the ad
 
 User Story 8 was not implemented in the final deployed project, and was therefore not tested. 
 
-The purpose of this feature was to allow the admin panel to restrict certain parameters for users.  For example, the admin could determine that one user could only access AOIs of 5,000 km2 as opposed to 10,000 km2.  It became more evident throughout the development of the project that this feature would only be beneficial for purchased imagery, and adding restrictions for free data would further reduce the probability of the user receiving images for their pipelines. The developer felt it was more beneficial to allow users full scope of the free API data.
+The purpose of this feature was to allow the admin panel to restrict certain parameters for users.  For example, the admin could determine that one user could only access AOIs of 5,000 km2 as opposed to 10,000 km2.  
+
+It became more evident throughout the development of the project that this feature would only be beneficial for purchased imagery, and adding restrictions for free data would further reduce the probability of the user receiving images for their pipelines. The developer felt it was more beneficial to allow users full scope of the free API data.
 
 ## User Story 9
 As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
@@ -397,6 +399,10 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 - 13.4: As a **Site User** I can **see a list of results of deleting the pipeline** so that **I am aware of the consequences of deleting a pipeline**
 - 13.5: As a **Site User** I can **see an exit button when deleting my pipeline** so that **I can change my mind if I no longer want to delete this pipeline**
 - 13.6: As a **Site User** I am **given feedback that the pipeline was deleted** so that **I have confirmation that the pipeline was deleted**
+
+
+## User Story 14
+As a **Website owner/Admin** I can **view a list of all pipelines and results with identifying fields** so that **I am aware of how many pipelines/results exist in the database**
 
 
 
@@ -645,7 +651,11 @@ This section details some additional features which could be added to further de
 - Map zoom
 Additional code could be added to the map renders, to create a short zoom animation towards their AOI
 
-- 
+- Map layers
+Users could select which kind of terrain would be most useful to display on the map - ie street map, geographical, topology.
+
+- Map search
+Mapbox has features which would allow users to add into a search box a location (eg New York) and the map would zoom to that location.  Additionally, once the AOI has been selected, reverse Geocoding can find an approximate location.  This could be added as a field into the pipeline (List) object.
 
 ## User Features
 
@@ -658,6 +668,9 @@ In reality this may be tricky to manage in terms of what access they have in ter
 
 ### Save incomplete pipeline
 A feature could be added within the code to allow users to save an incomplete pipeline form and return to it at a later date.  The developer feels this would be a useful feature, as the Create a Pipeline form is lengthy, and the user may want to refer back to the Discover page (Glossary, FAQs) during the completion of the form.
+
+### Copy pipeline
+This feature would allow users to copy an 'active' or 'complete' pipeline and render these details into a new form which could be submitted as a new object.  This may be useful for users whose pipeline was unsuccessful and they'd like to modify a few parameters, or if they want to create more than 10 intervals for that pipeline. 
 
 ### Edit pipeline
 The Edit form for changing parameters of the pipeline can be extended. 
@@ -708,8 +721,9 @@ Mosaicking is a term which essentially means 'stitching' together images taken a
 [Moasicking image from Skywatch EarthCache](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644146972/mosacking_gvily9.jpg)
 
 ### Calculate Probability
+See User Story 6.
 
 # Unfixed Bugs
 
 ## Dates on pipeline timeline
-The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function of the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
+The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
