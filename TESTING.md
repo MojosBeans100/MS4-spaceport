@@ -66,6 +66,31 @@ This document details the testing procedures carried out to ensure expected func
 
 # Testing Strategy
 
+## User Testing
+An approach was undertaken to obtain feedback from other users (aside from the developer) in order to understand from an external perspective the functionality of the website and general experience when using it.  The deployed link was sent out to several acquaintances of the developer.
+
+The developer was looking for feedback on the following:
+- Were there any errors encountered?
+- Is the site easy to navigate?
+- Were technical terms explained clearly, and in relevant sections/pages?
+- Was redirection of pages logical?
+- Was feedback on user actions given where appropriate?
+- Were calls to action (buttons, links, dropdowns) clear?
+- Was image content visible and clear?
+
+Some examples of feedback, and actions taken to rectify them, are provided below:
+
+- It was not obvious that the Results table could be expanded: a CSS animation was added to the dropdown arrow to signify expanding the table, and a prompt beneath the 'Results' sub-title was added
+
+- Users were directed to an error page when signing in with an email address: the email address field was removed from the Sign Up page, as it was not deemed to be necessary for the scope of the project
+
+- There was confusion around why some images were scheduled outwith the interval: information about latency was added to the Glossary and FAQs
+
+- When the user had created a pipeline and were thus directed to the detail view, they could hit the web browser 'back' button and would see the "Your pipeline has been submitted" loading page: an event listener was added to the 'Create Pipeline' page to always load the first tab of the form when navigating to that page
+
+- A user who did not have a scroll wheel on their mouse found it difficult to select their desired AOI on the map: navigation controls were added to the Mapbox map to allow users to click zoom in, zoom out and rotate.
+
+
 ## API Restrictions
 The Skywatch API has strict limits, restrictions and formatting to return data.  The API documentation was read in detail to understand these restrictions.  Therefore the form fields (AOI and interval dates and period in particular) were tested extensively in order to ensure it is not possible for the user to submit invalid data.
 
@@ -103,7 +128,9 @@ Simple field validation is undertaken for other parameters, such as cloud cover,
 [Back to top](#testing)
 
 ## Overview of manual testing
-Comprehensive manual testing was undertaken for this website, to ensure functionality was as expected from the user's point of view.  Each user story is tested for large, medium and small screen sizes to ensure the website was responsive for all screen sizes. Acceptance criteria is defined for each user story and the test is considered 'passed' if the acceptance criteria has been met. 
+Comprehensive manual testing was undertaken for this website, to ensure functionality was as expected from the user's point of view.  This testing encompasses the Javascript functions in the front-end of the website, to ensure functions are working as expected and outputting the correct HTML content to the user, as well as the back-end Python code in the Django views and the resulting Postgres database. 
+
+Each user story is tested for large, medium and small screen sizes to ensure the website was responsive for all screen sizes. Acceptance criteria is defined for each user story and the test is considered 'passed' if the acceptance criteria has been met. 
 
 |Screen|Width|Rendered on|
 |------|----|---------|
@@ -113,9 +140,11 @@ Comprehensive manual testing was undertaken for this website, to ensure function
 
 
 ## Overview of automated testing
-Basic automated testing was undertaken for the main CRUD functions of the website.
+Basic automated testing was undertaken for the main CRUD functions of the website.  The Skywatch API requests added complexity to this (the create pipeline and delete pipeline both make a request to the API).  
 
-
+### Test Forms
+### Test Models
+### Test Views
 
 # Manual Testing
 ## User Story 1

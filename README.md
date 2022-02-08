@@ -56,6 +56,8 @@ While Astrosat regularly use the Skywatch EarthCache console to retrieve images,
 # Access
 The assesor can create their own account to test the functionality of the website, and/or can use the details provided in the submission form to view some example pipelines which have been created for convenience.
 
+[Back to top](#spaceport)
+
 # Definitions
 This website is based on a technical concept of accessessing satellite imagery, therefore see below some useful definitions which may be used in this document. These definitions and more can also be found on the Discover website page.
 
@@ -81,6 +83,8 @@ The primary goals of the website owner or admin are as follows:
 - To view a list of all pipelines created
 - To view a list of all results created
 - To delete pipelines (API restriction does not allow > 100 pipelines under the developer's account, therefore 'complete' pipelines would have to be deleted if the number of total pipelines was approaching 100)
+
+[Back to top](#spaceport)
 
 ## Structure
 ### Pages
@@ -185,6 +189,8 @@ There are three models in this project.  As the project uses an API for a lot of
 |visible_area|visible area in the image|API|Charfield|
 |aoi_visible_area_per|visible area as a % of the AOI|API|Charfield|
 
+[Back to top](#spaceport)
+
 ## Style
 The styling is kept clean and minimal throughout the site.  As the content of the site may appear technically complex to new users, there are no distracting fonts, colours or images to confound the user. Attractive images are used where relevant to pique the interest of the user and indicate, alongside the text, the purpose of the website.
 
@@ -241,7 +247,7 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 
 - For longer pages, a 'Back to Top' type button is fixed in the bottom right corner to allow users to scroll up to the top of the page.
 
-![Back to top]()
+[Back to top](#spaceport)
 
 ## Scope
 
@@ -252,9 +258,11 @@ Epics were defined based on the main functions the website was expected to have,
 
 The User Stories were designated a priority label to complete within the iteration.  The main CRUD functions were assigned a 'must-have' label.  User Stories which were deemed beneficial but not a priority were assigned a 'should-have' label.
 
-All User Stories which were not completed had a 'could-have' label assigned to them, as they were additional features which did not affect the main functionality of the website. These User Stories could be completed if there was an opportunity for another iteration for this project.
+All User Stories which were not completed had a 'could-have' label assigned to them, updated to 'won't-have' at final deployment, as they were additional features which did not affect the main functionality of the website. These User Stories could be completed if there was an opportunity for another iteration for this project.
 
-## User Story Testing
+[Back to top](#spaceport)
+
+## User Stories
 All User Stories were tested for functionality.  This is detailed in [this file](TESTING.md).
 
 ## User Story 1
@@ -274,6 +282,10 @@ As a **Site User** I can **create a pipeline**
 - 1.12: As a **New/returning Site User** I have **feedback on submission** so that **I have confirmation that the pipeline was submitted**
 - 1.13: As a **New/returning Site User** I am **redirected to the detail view of the pipeline after submission** so that **I can view the details of the pipeline I submitted**
 - 1.14: As a **New/returning Site User** I am **encouraged to allow for the website to process the pipeline when first redirected** so that **I understand why the pipeline detail is initially sparse**
+
+
+
+
 
 ## User Story 2
 As a **Site User** I can **view a list of all my pipelines**
@@ -421,7 +433,7 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 ## User Story 14
 As a **Website owner/Admin** I can **view a list of all pipelines and results with identifying fields** so that **I am aware of how many pipelines/results exist in the database**
 
-
+[Back to top](#spaceport)
 
 
 
@@ -444,50 +456,44 @@ The navigation bar links are underlined to show the active page and also display
 Title and icon for website
 
 #### Desktop
-|![Nav logged out](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_4_lj2eie.jpg)|
-|:--:|
-|Navigation bar when not logged in|
+![Nav logged out](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_4_lj2eie.jpg)
+Navigation bar when not logged in
 
-|![Nav logged in](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_qtdp1g.jpg)|
-|:--:|
-|Navigation bar when logged in|
+![Nav logged in](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_qtdp1g.jpg)|
+Navigation bar when logged in
 
 #### Mobile & tablets
-|![Nav collapsed](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_2_vl8gcb.jpg)|
-|:--:|
-|Navigation bar collapsed|
+![Nav collapsed](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_2_vl8gcb.jpg)
+Navigation bar collapsed
 
-|![Nav expanded](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_3_jpnzxi.jpg)|
-|:--:|
-|Navigation bar expanded|
+![Nav expanded](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643904778/Spaceport/nav_3_jpnzxi.jpg)
+Navigation bar expanded
 
 ### Banner image
 The homepage image is chosen specifically because of the attractive colours and content.  It displays an imaging satellite and in the background is a high resolution render of Earth taken from space, both of which are of most relevance to the purpose of the website.  Alongside this image is a concise website description - "Access satellite imagery in minutes" - to further reinforce the purpose of the website, and demonstrate the simplicity of the process of creating a pipeline.
 
-|![Website banner](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902011/Spaceport/images_yckrmm.jpg)|
-|:--:|
-|Website banner image|
+![Website banner](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902011/Spaceport/images_yckrmm.jpg)
+Website banner image
 
 ### Introduction to website
 The rest of the homepage attempts to capture the concept of the website in a concise and understandable way, by explaining in four simple steps what their experience using the website will be - simply put, to choose an area on Earth, allow the platform to set up their pipeline and await results, continually track the progress, and ultimately view and use the collected images.
 
-|![Website introduction](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905166/Spaceport/introtowebsite_ae4xtz.jpg)|
-|:--:|
-|One of the four steps|
+![Website introduction](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905166/Spaceport/introtowebsite_ae4xtz.jpg)
+One of the four steps
 
 ### Calls to action
 After reading the website introduction, the user is directed to either the Discover page or (if logged in) to create a pipeline, or (if not logged in) create an account.  This section is designed to encourage the user to either learn more about satellite imagery and pipelines, namely for new users, or if they are returning they can move directly to creating a pipeline. 
 
-|![Homepage CTAs](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905214/Spaceport/ctas-homepage_hybuby.jpg)|
-|:--:|
-|Homepage calls to action|
+![Homepage CTAs](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905214/Spaceport/ctas-homepage_hybuby.jpg)
+Homepage calls to action
+
+[Back to top](#spaceport)
 
 ## Discover
 The Discover page is named aptly to encourage users to explore more about satellite imagery before jumping in to creating their own pipelines.  The purpose of the page is to provide more technical information and context about the site's purpose.  This information is kept separate from the homepage as it holds a lot of information, and the user is directed to this page at several places on other pages, as the developer feels it is beneficiery to explore this page before using the site.  In short, as the website is based on a very specific, technical concept, the developer wants the user to have a comprehensive understanding of the purpose of the site. 
 
-|![Discover banner](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905293/Spaceport/discover_fzkqjq.jpg)|
-|:--:|
-|Discover banner|
+![Discover banner](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905293/Spaceport/discover_fzkqjq.jpg)
+Discover banner
 
 ### Discover links
 As the Discover page is long, a sub navigation section is rendered to display the information the user can expect to find on this page, and to allow the user to jump to the page section of most interest.
@@ -515,6 +521,8 @@ There is sub navigation section which categorises the pipelines by their status.
 
 ### Pipelines cards
 Each pipeline is represented by a Bootstrap card, identified by the name of the pipeline.  The description, start and end dates, number of images collected, and a link to view the pipeline detail are also displayed.  The latest image the pipeline has collected is displayed in the card, or a placeholder image if there are none. 
+
+[Back to top](#spaceport)
 
 ## Detail
 The detail view of the pipeline displays all information about the pipeline object.  The user can view not only the parameters they set, but information the platform gathers about intervals, and any results created.  The information is ordered specifically to render the identifying information first, then the information of most interest to the user (intervals/results), then the information the user already knows (the parameters selected by the user).
@@ -546,6 +554,8 @@ The user can expand the table by clicking the drop down, which will open all row
 The parameters the user selected are displayed towards the bottom of the detail page for the user to review.
 
 ### Edit/Delete
+
+[Back to top](#spaceport)
 
 ## Create a Pipeline
 The 'Create a Pipeline' form is an interactive form divided into multiple tabs, so the user can progress and regress as they need.  Each tab represents different categories in the form, as well as a definition of the parameters being asked, restrictions, and visual aids if required.  The form concludes with a review section, for the user to review all the parameters they set.
@@ -603,6 +613,8 @@ The last form page presents a loading screen to the user, to let the user know t
 
 ![Submitting form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643885204/Spaceport/submitting_dajpkl.jpg)
 
+[Back to top](#spaceport)
+
 # Languages
 
 ## HTML/CSS
@@ -655,11 +667,15 @@ The code is derived from a simple example from the ChartJS [documentation](https
 ## Python
 ## Django
 
+[Back to top](#spaceport)
+
 # Limitations
 
 ## API Limitations
 
 - The developer has a limited account with the Skywatch API.  During development, many pipelines were created for testing purposes under the accounts 'admin' and 'testing_account' and 'testing_account2'.  As the account is limited to 100 pipelines, all of these pipelines were deleted from the API before deployment.  The objects remain in the website database, but cannot be edited, updated or deleted as there is no longer a model in the API which represents these objects.
+
+[Back to top](#spaceport)
 
 # Additional Features
 This section details some additional features which could be added to further develop the website.
@@ -740,6 +756,8 @@ Mosaicking is a term which essentially means 'stitching' together images taken a
 ### Calculate Probability
 See User Story 6.
 
+[Back to top](#spaceport)
+
 # Unfixed Bugs
 
 ## Remove email address from Sign Up Form
@@ -753,3 +771,5 @@ Users are strongly encouraged to note their sign-in details, as without email th
 
 ## Dates on pipeline timeline
 The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
+
+[Back to top](#spaceport)
