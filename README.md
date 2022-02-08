@@ -117,7 +117,7 @@ There are three models in this project.  As the project uses an API for a lot of
 ##### User
 - The User model contains information about the user, as part of the Django allauth library
 - No additional features are added to this model, as a basic username and password satisfy the requirements of the project
-- The model fields are: 
+- The 'email address' field was deemed not necessary for this project and was thus removed from the Sign Up form. See [Unfixed Bugs](#unfixed-bugs).
 
 ##### List
 - The List model contains information about the pipeline the user set up
@@ -724,6 +724,13 @@ Mosaicking is a term which essentially means 'stitching' together images taken a
 See User Story 6.
 
 # Unfixed Bugs
+
+## Remove email address from Sign Up Form
+Users can sign up to the website using a username and password.  During deployment there was an error related to the email address field as this required some back-end settings to work properly.  
+
+The details about setting this up were not included in the course materials for the current project, nor was the email field specified in the user authentication project requirements, therefore the username input alone was deemed acceptable for the purposes of the project. 
+
+Users are encouraged to note their sign-in details, as without email there is no password recovery available without email. 
 
 ## Dates on pipeline timeline
 The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
