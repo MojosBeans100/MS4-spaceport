@@ -18,16 +18,50 @@ This document details the testing procedures carried out to ensure expected func
         - [Testing](#testing-2)
         - [Acceptance Criteria Status](#acceptance-criteria-status-1)
     * [User Story 3](#user-story-3)
+        - [User Story](#user-story-3)
+        - [Acceptance Criteria](#acceptance-criteria-2)
+        - [Testing](#testing-3)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-2)
     * [User Story 4](#user-story-4)
+        - [User Story](#user-story-4)
+        - [Acceptance Criteria](#acceptance-criteria-3)
+        - [Testing](#testing-4)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-3)
     * [User Story 5](#user-story-5)
+        - [User Story](#user-story-5)
+        - [Acceptance Criteria](#acceptance-criteria-4)
+        - [Testing](#testing-5)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-4)
+
     * [User Story 6](#user-story-6)
     * [User Story 7](#user-story-7)
     * [User Story 8](#user-story-8)
+
     * [User Story 9](#user-story-9)
+        - [User Story](#user-story-9)
+        - [Acceptance Criteria](#acceptance-criteria-8)
+        - [Testing](#testing-9)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-8)
     * [User Story 10](#user-story-10)
+        - [User Story](#user-story-10)
+        - [Acceptance Criteria](#acceptance-criteria-9)
+        - [Testing](#testing-10)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-9)
     * [User Story 11](#user-story-11)
+        - [User Story](#user-story-11)
+        - [Acceptance Criteria](#acceptance-criteria-10)
+        - [Testing](#testing-11)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-10)
     * [User Story 12](#user-story-12)
+        - [User Story](#user-story-12)
+        - [Acceptance Criteria](#acceptance-criteria-11)
+        - [Testing](#testing-12)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-11)
     * [User Story 13](#user-story-13)
+        - [User Story](#user-story-13)
+        - [Acceptance Criteria](#acceptance-criteria-12)
+        - [Testing](#testing-13)
+        - [Acceptance Criteria Status](#acceptance-criteria-status-12)
 - [Automated Testing]()
 
 # Testing Strategy
@@ -175,6 +209,8 @@ As a **Site User** I can **view a list of all my pipelines**
 - [x] Only user pipelines are listed (cannot see any other user's, testing, or admin pipelines)
 - [x] Pipelines are clearly identified with name, description, date created
 
+[Back to top](#testing)
+
 ## User Story 3
 As a **Site User** I can **view all details of a specific pipeline**
 
@@ -222,6 +258,8 @@ As a **Site User** I can **view all details of a specific pipeline**
 - [x] User can access how to update, edit or delete this pipeline
 - [x] User can see all relating results/images gathered by pipeline
 
+[Back to top](#testing)
+
 ## User Story 4
 As a **Site User** I can **create an account** so that **I can log in to create pipelines, and view my pipelines**
 
@@ -248,6 +286,8 @@ As a **Site User** I can **create an account** so that **I can log in to create 
 - [x] User can Sign Up to the website from the homepage
 - [x] Users are aware of their current login/logout status
 - [x] Users are redirected to the relevant page when signing up, logged in etc
+
+[Back to top](#testing)
 
 ## User Story 5
 As a **Site User** I can **access information on satellite imagery**
@@ -286,6 +326,8 @@ As a **Site User** I can **access information on satellite imagery**
 - [x] Users can explore further on 'discover' page to see applications of satellite imagery
 - [x] Users can explore testimonials/examples to aid with their own pipeline creation
 
+[Back to top](#testing)
+
 ## User Story 9
 As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
 
@@ -312,6 +354,8 @@ As a **Site User** I can **see a visual graph of the progress of the pipeline** 
 - [x] Users can see where the pipeline is in the timeline
 - [x] Users can see which intervals are complete, incomplete, current
 - [x] Users can see which intervals have been successful
+
+[Back to top](#testing)
 
 ## User Story 10
 As a **Site User** I can **select the AOI for my pipeline on a map feature** so that **there is a more accessible way of selection/viewing my chosen AOI**
@@ -345,6 +389,8 @@ As a **Site User** I can **select the AOI for my pipeline on a map feature** so 
 - [x] Users can delete/edit a selection if they change their mind
 - [x] Users can see what the area of their selection is, and if it is within an acceptable range
 
+[Back to top](#testing)
+
 ## User Story 11
 As a **Site User** I can **view/download images and metadata of retrieved API results** so that **I can use this information in post production**
 
@@ -357,6 +403,7 @@ As a **Site User** I can **view/download images and metadata of retrieved API re
 ### Acceptance Criteria
 - Users can click on resulting images and view/download them
 - Users can click on a link to the image metadata and copy it
+- Users can view general information related to their image
 
 ### Testing
 |User story|Result|Desktop|Tablet|Mobile|Status|
@@ -366,6 +413,13 @@ As a **Site User** I can **view/download images and metadata of retrieved API re
 |11.3|The user can see the size in megabytes of the full-size image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739946/Spaceport/Desktop/11.3_grhxhj.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740551/Spaceport/Tablet/11.3_yhrcds.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740310/Spaceport/Mobile/11.3_xzwdhv.jpg)|Pass|
 |11.4|The user can expand the Results table to review additional information about the image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739950/Spaceport/Desktop/11.4_wkuqjd.jpg)|[Tablet](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740552/Spaceport/Tablet/11.4_xcxtrt.jpg)|[Mobile](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643740311/Spaceport/Mobile/11.4_hcgspb.jpg)|Pass|
 |11.5|The user can click on the Metadata tab in the Results table to open a seperate tab including further technical information about the image|[Desktop](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643739952/Spaceport/Desktop/11.5_ewxawt.jpg)|""|""|Pass|
+
+### Acceptance Criteria Status
+- [x] Users can click on resulting images and view/download them
+- [x] Users can click on a link to the image metadata and copy it
+- [x] Users can view general information related to their image
+
+[Back to top](#testing)
 
 ## User Story 12
 As a **Site User** I can **edit details of my pipelines**
@@ -398,6 +452,8 @@ As a **Site User** I can **edit details of my pipelines**
 - [x] User is aware by feedback that their pipeline has been edited
 - [x] User is aware which features they can edit
 - [x] User is aware when pipeline was last edited
+
+[Back to top](#testing)
 
 ## User Story 13
 As a **Site User** I can **delete my pipeline** so that **I can remove pipelines I no longer need, or were incorrect**
@@ -432,3 +488,5 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 - [x] User is clear which pipeline they are deleting
 - [x] User is given an opportunity to change their mind about deleting
 - [x] User is aware that pipeline has been deleted
+
+[Back to top](#testing)
