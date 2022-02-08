@@ -236,11 +236,12 @@
             {% if pipeline.status == 'pending' or results.count == 0 %}
             <p>Update the pipeline to see results information</p>
             {% else %}
+            <p>Expand the table to see information about delivered images</p>
             <div class="table-responsive">
                 <table class="table" id="result-table">
                     <tr data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
-                        <th style="text-align: center;"><i style="padding: 0; margin: 0" class="fas fa-angle-down"></i>
+                        <th style="text-align: center;"><i style="padding: 0; margin: 0; font-size: 20px;" class="fas fa-angle-down" id="pulse"></i>
                         </th>
                         <th>Status</th>
                         <th>Interval dates</th>

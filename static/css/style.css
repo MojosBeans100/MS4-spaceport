@@ -1159,6 +1159,19 @@ i {
     font-weight: bold;
 }
 
+#pulse {
+    animation: pulse-animation 1s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
 /* EDIT VIEW STYLING */
 
 #edit-container,
