@@ -531,8 +531,12 @@ The Pipelines/My Pipelines page lists all the pipelines the user has created.  T
 ### Pipelines links
 There is sub navigation section which categorises the pipelines by their status.  There is also a brief description beneath each link to convey what each status means in the context of satellite imagery pipelines.
 
+![Pipeline links](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352269/pipelineslinks_zqm1wm.jpg)
+
 ### Pipelines cards
-Each pipeline is represented by a Bootstrap card, identified by the name of the pipeline.  The description, start and end dates, number of images collected, and a link to view the pipeline detail are also displayed.  The latest image the pipeline has collected is displayed in the card, or a placeholder image if there are none. 
+Each pipeline is represented by a Bootstrap card, identified by the name of the pipeline.  The description, start and end dates, number of images collected, and a link to view the pipeline detail are also displayed.  The latest image the pipeline has collected is displayed in the card, or a placeholder image if there are none.
+
+![Pipeline cards](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352269/pipelinecards_uquq6c.jpg)
 
 [Back to top](#spaceport)
 
@@ -542,13 +546,19 @@ The detail view of the pipeline displays all information about the pipeline obje
 ### Calls to action
 There are two calls to action at the top of the page.  One to navigate back to the user's list of all pipelines.  The second calls the 'Update' function, which is placed at the top of the page in the immediate view of the user as it is an important function.  User's must update their pipelines manually, reasons for which are outlined in the 'Limitations' section of this document.  The time of the last update is rendered beneath this button.
 
+![Detail CTAs](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352504/detailctas_hejxin.jpg)
+
 ### General
 The general section conveys the most important, identifying and summarising information about the pipeline - the name, status, AOI, date created and number of images collected.  The AOI is displayed in a map, which automatically locates to the area and renders the user's drawn area.
+
+![Detail general](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352506/detailgeneral_hk8rch.jpg)
 
 ### Interval
 The interval section provides a table of all intervals in the pipeline, colour coded to represent the status of that interval (current, complete, future) and if they successful in collecting an image.  The overall start and end dates of the pipeline are also rendered, as well as the interval period (1d/daily, 7d/weekly etc) and number of intervals.
 
 If the pipeline is active, a timeline graph is shown to provide a visual representation of the interval table data.  This timeline is not displayed under a screen width of 1200px.  As this information is duplicated in the interval table, albeit in a less visually appealing way, the omitting of the timeline below certain screen sizes should not hamper the user's experience on the site and understanding of the progress of their pipeline. 
+
+![Detail intervals](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352505/detailinterval_wcxhi7.jpg)
 
 ### Results
 The pipeline results are also displayed in a table.  The user can see:
@@ -562,10 +572,17 @@ The pipeline results are also displayed in a table.  The user can see:
 
 The user can expand the table by clicking the drop down, which will open all rows to display further technical data about the image, as well as a link which downloads the full size image.
 
+![Detail results](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352506/detailresult_vkk012.jpg)
+
 ### Parameters
 The parameters the user selected are displayed towards the bottom of the detail page for the user to review.
 
+![Detail parameters](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352504/detialparameters_y0nmxu.jpg)
+
 ### Edit/Delete
+The edit/delete functions are display in buttons, as well as information about when the pipeline was last update, and if it cannot be updated.
+
+![Detail edit/delete](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352504/detailedit_s7cimj.jpg)
 
 [Back to top](#spaceport)
 
