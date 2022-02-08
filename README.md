@@ -590,22 +590,32 @@ The edit/delete functions are display in buttons, as well as information about w
 The 'Create a Pipeline' form is an interactive form divided into multiple tabs, so the user can progress and regress as they need.  Each tab represents different categories in the form, as well as a definition of the parameters being asked, restrictions, and visual aids if required.  The form concludes with a review section, for the user to review all the parameters they set.
 
 ### Intro Page
-THe introduction page on the form describes the purpose of the form, as well as prompting the user to visit the 'Discover' page if they are new.  A short sub navigation is provided on this page for convenience to scroll through the sections.
+The introduction page on the form describes the purpose of the form, as well as prompting the user to visit the 'Discover' page if they are new.  A short sub navigation is provided on this page for convenience to scroll through the sections.
 
 #### How it works
 The users are provided with a short and punchy three step process of creating a pipeline.
 
+![How it works](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352867/createintrohow_n5poww.jpg)
+
 #### Restrictions
 The restrictions in terms of setting up their pipeline are displayed here, so the user knows to expect these in the form.  These are repeated on the relevant form section. 
+
+![Restrictions](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352867/createintrotres_ceetxc.jpg)
 
 #### Satellite Aquisition
 The user is provided with some advice on how to maximise their chance of receiving an image, as well as ensuring the user understands that not all pipelines deliver results, depending on if a suitable satellite was found for their pipeline. 
 
+![Satellite aquisition](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352867/createintrosate_fjdfm4.jpg)
+
 #### AOI Selection
 A map is used to select the AOI, so a basic set of instructions of drawing an area are provided to the user with pictures.
 
+![AOI selection](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352867/createaoiselection_aw2vvs.jpg)
+
 #### Getting Started
 Users are provided with some suggestions of what kind of pipeline to create.  This is to give new users especially a starting point for creating a pipeline.
+
+![Pipeline ideas](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352867/createintrogetting_stetcq.jpg)
 
 ### General Page
 The general section requires the user to input a name for their pipeline and they can also provide a short description to further identify it if required.
