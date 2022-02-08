@@ -328,6 +328,19 @@ While the function worked as expected in the testing environment, the feature wa
 
 
 ## User Story 7
+As a **Site User** I can **save an incomplete form** so that **I can return to the form in the future for committing**
+
+- 7.1: As a **Site User** I can **save an incomplete form** so that **I can keep the parameters saved without having to commit**
+- 7.2: As a **Site User** I can **see my saved pipelines on my My Pipelines page** so that **I know how many forms I have part-completed and are still to be completed**
+- 7.3: As a **Site User** I can **click on one of my saved pipelines** so that **I can return to the incomplete form and continue working on it**
+- 7.4: As a **Site User** I see **my saved pipeline parameters filled in on the Create a Pipeline form** so that **I don't have to input these again**
+
+User Story 7 was not implemented in the final deployed project, and was therefore not tested.
+
+An additional button could be added to the form on all tabs which would save the object, but not submit the pipeline parameters to the API.  The object would appear on the My Pipelines page under a new status category 'Saved Pipelines'.  When opened, the form would open with form fields filled in with any information the user had already input.
+
+This feature could be implemented easily on another iteration of the project. While this feature may be beneficial, especially as the form is relatively long, it is not a feature which affects the overall functionality of the website.
+
 ## User Story 8
 
 ## User Story 9
