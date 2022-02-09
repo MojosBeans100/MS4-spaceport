@@ -52,7 +52,7 @@ Spaceport is a full stack website which allows users to access satellite imagery
 - [Technologies used](#technologies-used)
 - [Testing]
 - [Additional Features](#additional-features)
-    * [UX](#ux)
+    * [UX](#ux-1)
     * [User Features](#user-features)
     * [API](#api)
 - [Unfixed Bugs](#unfixed-bugs)
@@ -79,7 +79,7 @@ The Skywatch ‘Application Programming Interface’ (or ‘API’) requires use
 While Astrosat regularly use the Skywatch EarthCache console to retrieve images, the company has less experience in interacting with the API itself.  This project attempts to provide insight into the intricacies of the API and to provide a user-friendly, front-end platform to demonstrate its capabilities.  
 
 # Access
-The assesor can create their own account to test the functionality of the website, and/or can use the details provided in the submission form to view some example pipelines which have been created for convenience.
+The assesor can create their own account to test the functionality of the website, and/or can use the details provided in the project milestone submission form to view some example pipelines which have been created for convenience.
 
 [Back to top](#spaceport)
 
@@ -682,6 +682,9 @@ The last form page presents a loading screen to the user, to let the user know t
 # Technologies Used
 
 ## HTML/CSS
+The project uses HTML language to build the website pages.
+CSS is used to style the pages.
+
 ## Javascript
 Javascript is included on most pages.  The main functions are:
 
@@ -729,6 +732,8 @@ The code is derived from a simple example from the ChartJS [documentation](https
 
 
 ## Python
+
+
 ## Django
 
 [Back to top](#spaceport)
@@ -828,4 +833,42 @@ Users are strongly encouraged to note their sign-in details, as without email th
 ## Dates on pipeline timeline
 The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
 
+
 [Back to top](#spaceport)
+
+# Deployment
+
+# Media
+Images used on the site were sourced from the following sources.
+
+- Pexels
+    - SpaceX
+    - Pixabay
+- GettyImages
+- Spectator Earth
+- Nasa Earth Observatory
+- NOAA GOES Geostationary Satellite
+- Science Friday
+- Discover Magazine
+- https://www.nknews.org
+- Axios
+- Mapbox
+- Terraprints
+- Maxar
+- ABC
+- New York Latest
+- BBC News
+- Working on Cruise Ships
+- Skywatch
+- Fine Art America
+- Farmonaut
+
+# Credits
+# Acknowledgements
+I'd like to thank my mentor, Mo Shami, for providing me support throughout the development of this project.
+
+I'd like to thank tutor support at Code Institute for many hours of technical help.
+
+I'd like to thank Astrosat Ltd, who proposed the project idea and worked with Skywatch to get me access to their API.
+
+I'd like to thank my family for taking time to use my project website and providing me helpful feedback. 
