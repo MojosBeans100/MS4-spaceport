@@ -64,7 +64,8 @@ body {
 #detail-view-div a,
 .accounts-divs a,
 #edit-container a,
-#site-purpose-section a {
+#site-purpose-section a,
+.user-error a {
     color: black !important;
     font-weight: bold;
     text-decoration: none;
@@ -78,7 +79,8 @@ body {
 #my_pipelines_container a:hover,
 #detail-view-div a:hover,
 .accounts-divs a:hover,
-#edit-container a:hover {
+#edit-container a:hover,
+.user-error a:hover {
     text-decoration: underline double black;
     text-underline-position: under;
     text-underline-offset: 3px;
@@ -1261,6 +1263,10 @@ i {
 
 /* ACCOUNTS */
 
+.user-error {
+    margin-top: 130px;
+    text-align: center;
+}
 
 
 .accounts-divs {

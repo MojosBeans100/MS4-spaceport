@@ -323,6 +323,9 @@ def detail_view(request, id):
     Detailed view of pipeline and relating results
     """
 
+    user = str(request.user)
+    users_pipelines = List.objects.filter(created_by=user)
+
     all_dates = []
     complete_intervals = []
     current_interval = []
@@ -380,6 +383,7 @@ def detail_view(request, id):
         'images': image_dates,
         'all_dates': all_dates,
         'message': message,
+        'users_pipelines': users_pipelines,
     }
 
     return render(request, 'detail_view.html', context)

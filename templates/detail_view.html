@@ -10,6 +10,7 @@
 <div id="detail-view-container" class="container-fluid" style="overflow:hidden;">
 
     {% if user.is_authenticated %}
+    {% if pipeline in users_pipelines %}
 
     <!-- detail view sub navigation -->
     <div class="container" id="detail-links">
@@ -492,9 +493,20 @@
 
     </div>
 
+    {% else %}
+
+    <div class="user-error">
+    <h2>Ooops.. you have been directed to the wrong page.</h2><br><br>
+    <a href="{% url 'homepage' %}">Return to home</a>
+    </div>
+    {% endif %}
+
     <!-- if user is not authenticated but navigates to this page -->
     {% else %}
-    <p>Ooops.. you have been directed to the wrong page. <a href="{% url 'homepage' %}">Return to home</a></p>
+    <div class="user-error">
+        <h2>Ooops.. you have been directed to the wrong page.</h2><br><br>
+        <a href="{% url 'homepage' %}">Return to home</a>
+    </div>
     {% endif %}
 
     <!-- back to top button -->
