@@ -1,5 +1,5 @@
 # Spaceport
-Spaceport is a full stack website which allows users to access satellite imagery of the Earth.  The website was developed for Milestone 4 as part of the Code Institute Diploma in Software Developement. 
+Spaceport is a full stack website which allows users to access satellite imagery of the Earth.  The website was developed for Milestone 4 as part of the Code Institute Diploma in Software Development. 
 
 ![Responsive website](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643885662/Spaceport/amiresponsive_mk6ufl.jpg)
 
@@ -62,7 +62,7 @@ Spaceport is a full stack website which allows users to access satellite imagery
 - [Acknowledgements]
 
 # Project Overview
-- This website was developed for submission as the Milestone 4 project of the Code Institute Diploma in Software Developement.
+- This website was developed for submission as the Milestone 4 project of the Code Institute Diploma in Software Development.
 - The website is deployed using the Heroku pages at the following url: https://ms4spaceport.herokuapp.com/
 - The repository on Github that contains the website source code and assets is available at the following url: https://github.com/MojosBeans100/ms4-spaceport
 - The website was built with a responsive look and feel, designed to be enjoyable to use on all screen sizes.
@@ -72,21 +72,24 @@ This project has been designed to provide users with a platform to access satell
 
 Satellite imagery is becoming increasingly popular as a way of providing a different perspective on changing environments on the Earth's surface. For example, images taken by satellites can provide a more expansive view of rainforest deforestation in the Amazon, enabling more straightforward and accurate calculations of the proportion the total area that is felled, as well as the rate of destruction. Environmental organisations can thus utilise this technology to draw attention to decline in critical climactic environments.
 
+Landsat 9 satellite image of the Coronation Islands of Western Australia
+[NASA Image](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644412755/10-landsat_hf01dz.jpg)
+
 Satellite imagery is also becoming more accessible to the global citizenry, whose uses for it range from specific projects to simple curiosity. In recognition that there are many who are interested in, but hitherto unfamiliar with, satellite technology, the website attempts to provide a comprehensive and accessible guide through the process.
 
-The Skywatch ‘Application Programming Interface’ (or ‘API’) requires users to submit details of the satellite images they wish to access, defining within specific parameters. The API will then cross-reference these with the satellites available on its database, with the goal of straightforwardly delivering the desired images to the user.
+The [Skywatch](https://www.skywatch.com/) ‘Application Programming Interface’ (or ‘API’) requires users to submit details of the satellite images they wish to access, defining within specific parameters. The API will then cross-reference these with the satellites available on its database, with the goal of straightforwardly delivering the desired images to the user.
 
 While Astrosat regularly use the Skywatch EarthCache console to retrieve images, the company has less experience in interacting with the API itself.  This project attempts to provide insight into the intricacies of the API and to provide a user-friendly, front-end platform to demonstrate its capabilities.  
 
 # Access
-The assesor can create their own account to test the functionality of the website, and/or can use the details provided in the project milestone submission form to view some example pipelines which have been created for convenience.
+The assessor can create their own account to test the functionality of the website, and/or can use the details provided in the project milestone submission form to view some example pipelines which have been created for convenience.
 
 [Back to top](#spaceport)
 
 # Definitions
 This website is based on a technical concept of accessessing satellite imagery, therefore see below some useful definitions which may be used in this document. These definitions and more can also be found on the Discover website page.
 
-- Pipeline: a pipeline refers to the timeline, or projected plan or schedule, of receiving satellite images. Each object in the 'List' model represents a pipeline.  Pipelines are active if they have not completed all intervals, and complete if all intervals have been completed
+- Pipeline: a pipeline refers to the timeline, or projected plan or schedule, of receiving satellite images. Each object in the 'List' model represents a pipeline.  Pipelines are 'active' if they have not completed all intervals, and 'complete' if all intervals have been completed
 
 - Interval: the interval describes the time period in which to look for images.  An interval of 1 day will aim to deliver 1 image per day; an interval of bi-weekly will aim to deliver 1 image every 14 days.
 
@@ -126,7 +129,7 @@ The additional pages are as follows:
 - Confirmation of deleted pipeline: to confirm the deletion of a pipeline
 - Log in/log out/sign up pages: for user to be able to sign in/up/out
 
-The website was designed to be simple, clear and non-cluttered, basic in structure, with attractive images of satellites and images captured by satellites.
+The website was designed to be simple, clear and uncluttered, basic in structure, with attractive images of satellites and images captured by satellites.
 Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 
 ### Database
@@ -258,7 +261,7 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 ### Layout
 - The informative pages, such as the Homepage and Discover page, remain consistent with attractive images alongside short sections of text.
 
-- Bootstrap cards are used to display information in a clear and consise manner along with a complementary image. 
+- Bootstrap cards are used to display information in a clear and concise manner along with a complementary image. 
 
 ![Discover Card](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900948/Spaceport/card2_ocaal8.jpg)
 
@@ -361,7 +364,7 @@ As a **Site User** I can **access information on satellite imagery**
 - 5.5: As a **Site User** I am **provided with links to all image metadata** so that **I can use the images in post production**
 - 5.6: As a **New/returning Site User** I can **read examples of pipelines created by current/previous clients** so that **I have a context as to what I can use satellite imagery for**
 - 5.7: As a **New/returning Site User** I can **read topical events involving satellite imagery** so that **I am aware of the importance of being able to access satellite imagery**
-- 5.8: As a **New/returning Site User** I can **click on links for futher information on how satellite imagery works** so that **I can further my understanding**
+- 5.8: As a **New/returning Site User** I can **click on links for further information on how satellite imagery works** so that **I can further my understanding**
 - 5.9 As a **New/returning Site User** I can **read about common applications of satellite imagery** so that **I have more understanding of the real life applications of the website**
 
 ## User Story 6
@@ -515,7 +518,7 @@ Homepage calls to action
 [Back to top](#spaceport)
 
 ## Discover
-The Discover page is named aptly to encourage users to explore more about satellite imagery before jumping in to creating their own pipelines.  The purpose of the page is to provide more technical information and context about the site's purpose.  This information is kept separate from the homepage as it holds a lot of information, and the user is directed to this page at several places on other pages, as the developer feels it is beneficiery to explore this page before using the site.  In short, as the website is based on a very specific, technical concept, the developer wants the user to have a comprehensive understanding of the purpose of the site. 
+The Discover page is named aptly to encourage users to explore more about satellite imagery before jumping in to creating their own pipelines.  The purpose of the page is to provide more technical information and context about the site's purpose.  This information is kept separate from the homepage as it holds a lot of information, and the user is directed to this page at several places on other pages, as the developer feels it is beneficiary to explore this page before using the site.  In short, as the website is based on a very specific, technical concept, the developer wants the user to have a comprehensive understanding of the purpose of the site. 
 
 ![Discover banner](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905293/Spaceport/discover_fzkqjq.jpg)
 Discover banner
@@ -554,7 +557,7 @@ The frequently asked questions section provides access to some questions the use
 The Pipelines/My Pipelines page lists all the pipelines the user has created.  This page can be used to review the status of current pipelines, and click on each to see the detailed view.
 
 ### Pipelines links
-There is sub navigation section which categorises the pipelines by their status.  There is also a brief description beneath each link to convey what each status means in the context of satellite imagery pipelines.
+There is a sub navigation section which categorises the pipelines by their status.  There is also a brief description beneath each link to convey what each status means in the context of satellite imagery pipelines.
 
 ![Pipeline links](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352269/pipelineslinks_zqm1wm.jpg)
 
@@ -627,7 +630,7 @@ The restrictions in terms of setting up their pipeline are displayed here, so th
 
 ![Restrictions](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352867/createintrotres_ceetxc.jpg)
 
-#### Satellite Aquisition
+#### Satellite Acquisition
 The user is provided with some advice on how to maximise their chance of receiving an image, as well as ensuring the user understands that not all pipelines deliver results, depending on if a suitable satellite was found for their pipeline. 
 
 ![Satellite aquisition](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352867/createintrosate_fjdfm4.jpg)
@@ -815,7 +818,7 @@ Mosaicking is a term which essentially means 'stitching' together images taken a
 [Moasicking image from Skywatch EarthCache](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644146972/mosacking_gvily9.jpg)
 
 ### Calculate Probability
-See User Story 6.
+See [User Story 6](#user-story-6).
 
 [Back to top](#spaceport)
 
