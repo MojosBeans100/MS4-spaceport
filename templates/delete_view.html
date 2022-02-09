@@ -11,6 +11,9 @@
     <div class="container">
         <div id="delete_form">
 
+            <!-- ensure users can only edit their own pipelines -->
+            {% if pipeline in users_pipelines %}
+
             {% if pipeline.status == 'pending' %}
             <h3>You cannot delete this pipeline unless the status is Pending.</h3>
             <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
@@ -26,18 +29,18 @@
 
             <p>When deleted:</p>
             <ul>
-                <li>-  The pipeline will not show up in your list of pipelines</li>
-                <li>-  This pipeline and all related data
+                <li>- The pipeline will not show up in your list of pipelines</li>
+                <li>- This pipeline and all related data
                     (intervals, results, images) will be deleted</li>
-                <li>-  You will no longer
+                <li>- You will no longer
                     have access to the pipeline details or results</li>
-                <li>-  If you would like to maintain access to any images delivered from this pipeline, we recommend you
+                <li>- If you would like to maintain access to any images delivered from this pipeline, we recommend you
                     download them to your computer first</li>
             </ul>
 
 
             <p style="text-align: center;">You will be redirected to 'My Pipelines'.</p>
-<br>
+            <br>
 
             <div class="row bottom-0">
                 <div class="col-sm p-4 d-flex justify-content-center">
@@ -57,6 +60,11 @@
                             class="far fa-trash-alt"></i>Delete</button></a>
             </div> -->
         </div>
+        {% endif %}
+
+        {% else %}
+        <h1 class="text-center m-3 py-5">404: Page not found</h1>
+        <h3 class="text-center m-3">Users can only delete their own pipelines.</h3>
         {% endif %}
     </div>
 </div>

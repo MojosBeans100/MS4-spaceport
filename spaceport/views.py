@@ -439,11 +439,17 @@ def delete_view(request, id):
     Confirmation of deleted pipeline (delete_conf)
     """
 
+    user = str(request.user)
+
+    # get the users pipelines
+    users_pipelines = List.objects.filter(created_by=user)
+
     # get pipeline to delete
     pipeline = List.objects.get(id=id)
 
     context = {
         'pipeline': pipeline,
+        'users_pipelines': users_pipelines,
     }
 
     return render(request, 'delete_view.html', context)

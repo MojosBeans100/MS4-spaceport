@@ -687,11 +687,11 @@ The last form page presents a loading screen to the user, to let the user know t
 # Technologies Used
 
 ## HTML/CSS
-The project uses HTML language to build the website pages.
-CSS is used to style the pages.
+The project uses [HTML](https://en.wikipedia.org/wiki/HTML) language to build the website pages.
+[CSS](https://en.wikipedia.org/wiki/CSS) is used to style the pages.
 
 ## Javascript
-Javascript is included on most pages.  The main functions are:
+[Javascript](https://www.javascript.com/) is included on most pages.  The main functions are:
 
 ### Display a 'Back to Top' button
 On pages which have a lot of content, the user is provided with a button to allow them to scroll back to the top of the page for convenience.  This is [external library code](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp).
@@ -740,6 +740,26 @@ The code is derived from a simple example from the ChartJS [documentation](https
 
 
 ## Django
+- [Django](https://www.djangoproject.com/) is the framework used in this project
+- The Django templating language was used to render pages
+- The Django [unit test library](https://docs.djangoproject.com/en/3.2/topics/testing/overview/) was used for unit tests
+
+## APIs
+Two APIs were implemented into the project.
+
+### Skywatch
+The Skywatch API provides access to satellite data.  The full scope of the API can be found [here](https://api-docs.skywatch.co/). 
+
+A secret key was required to access the API.  This secret key is found in the eny.py file, and therefore is never committed to Github.   The secret key was also input to the Confiv Vars in Heroku for the deployed site.  The same secret key is used for each user on the site. 
+
+The account was limited to a developer's account, and therefore only free data is accessible. This limits the parameters of the API to only return free images.  The form fields in the Create a Pipeline form validate the values strenuously to ensure users cannot access purchased imagery. 
+
+The API is very in-depth and there are many [additional features](#additional-features) which the developer could add to the project on another iteration.
+
+### Mapbox
+The Mapbox API was used to render the selectable map for the user to draw an AOI.  This uses a public key, as it is only the 'free' version.  This public key is also set in the env.py file and input to the Confiv Vars in Heroku. 
+
+There are also many [additional features](#additional-features) which could be added to this map feature.
 
 [Back to top](#spaceport)
 
@@ -838,7 +858,6 @@ Users are strongly encouraged to note their sign-in details, as without email th
 ## Dates on pipeline timeline
 The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
 
-
 [Back to top](#spaceport)
 
 # Deployment
@@ -871,17 +890,20 @@ Images used on the site were sourced from the following sources.
 # Credits
 
 Images as acknowledged above
-[Font Awesome](https://fontawesome.com/) for us of icons
-[Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) documentation for information about how to style the HTML 
-[W3 Schools](https://www.w3schools.com/) for use of tabbed form and jump to top button
-[Mapbox](https://www.mapbox.com/) for use of the map feature in Create Pipeline form and detail view
-[ChartJS 3.7.0](https://www.chartjs.org/docs/latest/) for creation of pipeline timeline
-[Skywatch](https://www.skywatch.com/) for use of their API
-[Django](https://docs.djangoproject.com/en/4.0/) documentation for information about the framework and template syntax
-[Stack Overflow](https://stackoverflow.com/) for help on a number of programming issues
-[geoJSON.io](http://geojson.io/#map=2/20.0/0.0) for selecting an AOI and getting a geoJSON output before the map feature was introduced
+- [Font Awesome](https://fontawesome.com/) for us of icons
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) documentation for information about how to style the HTML 
+- [W3 Schools](https://www.w3schools.com/) for use of tabbed form and jump to top button
+- [Mapbox](https://www.mapbox.com/) for use of the map feature in Create Pipeline form and detail view
+- [ChartJS 3.7.0](https://www.chartjs.org/docs/latest/) for creation of pipeline timeline
+- [Skywatch](https://www.skywatch.com/) for use of their API
+- [Django 4.0](https://docs.djangoproject.com/en/4.0/) documentation for information about the framework and template syntax
+- [Stack Overflow](https://stackoverflow.com/) for help on a number of programming issues
+- [geoJSON.io](http://geojson.io/#map=2/20.0/0.0) for selecting an AOI and getting a geoJSON output before the map feature was introduced
+- [Patch Plants](https://www.patchplants.com/gb/en/) for website inspiration
+- [Am I Responsive](http://ami.responsivedesign.is/) to create the banner image for this ReadMe
 
 # Acknowledgements
+
 I'd like to thank my mentor, Mo Shami, for providing me support throughout the development of this project.
 
 I'd like to thank tutor support at Code Institute for many hours of technical help.
