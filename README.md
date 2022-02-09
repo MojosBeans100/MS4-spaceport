@@ -72,9 +72,8 @@ This project has been designed to provide users with a platform to access satell
 
 Satellite imagery is becoming increasingly popular as a way of providing a different perspective on changing environments on the Earth's surface. For example, images taken by satellites can provide a more expansive view of rainforest deforestation in the Amazon, enabling more straightforward and accurate calculations of the proportion the total area that is felled, as well as the rate of destruction. Environmental organisations can thus utilise this technology to draw attention to decline in critical climactic environments.
 
-Landsat 9 satellite image of the Coronation Islands of Western Australia
-
 ![NASA Image](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644412755/10-landsat_hf01dz.jpg)
+*Landsat 9 satellite image of the Coronation Islands of Western Australia*
 
 Satellite imagery is also becoming more accessible to the global citizenry, whose uses for it range from specific projects to simple curiosity. In recognition that there are many who are interested in, but hitherto unfamiliar with, satellite technology, the website attempts to provide a comprehensive and accessible guide through the process.
 
@@ -146,6 +145,8 @@ Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 #### Database Model
 
 ![Schema](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643821929/Spaceport/SCHEMA_j2yy7r.jpg)
+
+*Database schema*
 
 #### Models
 There are three models in this project.  As the project uses an API for a lot of the information stored in the databases, see the associated tables to understand how the data is created (whether by the User, the Spaceport app, or from the API)
@@ -868,6 +869,18 @@ Images used on the site were sourced from the following sources.
 - Farmonaut
 
 # Credits
+
+Images as acknowledged above
+[Font Awesome](https://fontawesome.com/) for us of icons
+[Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) documentation for information about how to style the HTML 
+[W3 Schools](https://www.w3schools.com/) for use of tabbed form and jump to top button
+[Mapbox](https://www.mapbox.com/) for use of the map feature in Create Pipeline form and detail view
+[ChartJS 3.7.0](https://www.chartjs.org/docs/latest/) for creation of pipeline timeline
+[Skywatch](https://www.skywatch.com/) for use of their API
+[Django](https://docs.djangoproject.com/en/4.0/) documentation for information about the framework and template syntax
+[Stack Overflow](https://stackoverflow.com/) for help on a number of programming issues
+[geoJSON.io](http://geojson.io/#map=2/20.0/0.0) for selecting an AOI and getting a geoJSON output before the map feature was introduced
+
 # Acknowledgements
 I'd like to thank my mentor, Mo Shami, for providing me support throughout the development of this project.
 

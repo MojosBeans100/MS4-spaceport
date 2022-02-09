@@ -69,7 +69,11 @@ def edit(request, id):
         Redirect to detailed view of pipeline instance
     """
 
+    user = str(request.user)
     edit_time = timezone.now()
+
+    # get the users pipelines
+    users_pipelines = List.objects.filter(created_by=user)
 
     # get the object to update
     this_pipeline = List.objects.get(id=id)
@@ -98,6 +102,7 @@ def edit(request, id):
     context = {
         'form': form,
         'pipeline': this_pipeline,
+        'users_pipelines': users_pipelines,
     }
 
     return render(request, 'edit_pipeline.html', context)

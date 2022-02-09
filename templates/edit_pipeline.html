@@ -12,12 +12,21 @@
 
         <form action="" method="POST" id="edit_form">
             {% csrf_token%}
+
+            <!-- ensure users can only edit their own pipelines -->
+            {% if pipeline.pipeline_name in users_pipelines %}
+
+            <!-- ensure users can only edit active pipelines -->
             {% if pipeline.status == 'complete' or pipeline.status == 'pending' or pipeline.status == 'saved' %}
-            <h3>You cannot edit this pipeline unless the status is Active.</h3>
-            <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
-                        class="fas fa-arrow-left"></i>Back</button></a>
+            <h3 class="text-center m-3">You cannot edit <strong>"{{pipeline.pipeline_name}}"</strong> unless the status
+                is Active.</h3>
+            <div class="d-flex justify-content-center p-5">
+                <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg"><i
+                            class="fas fa-arrow-left"></i>Back</button></a>
+            </div>
             {% else %}
 
+            <!-- edit form -->
             <h2>Edit &nbsp; <strong>"{{pipeline.pipeline_name}}"</strong></h2>
             <p>Use this form to edit the following details for your pipeline.</p>
             <p><small>As pipelines have very specific technical parameters, only the following fields can be edited.<br>
@@ -39,16 +48,20 @@
                     <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
                                 class="fas fa-arrow-left"></i>Back</button></a></div>
                 <div class="col-sm p-4 d-flex justify-content-center">
-                    <a><button type="submit" class="btn btn-dark btn-lg mx-auto"><i class="far fa-save"></i>Save</button></a>
+                    <a><button type="submit" class="btn btn-dark btn-lg mx-auto"><i
+                                class="far fa-save"></i>Save</button></a>
                 </div>
             </div>
+            {% endif %}
 
     </div>
 
-
+    {% else %}
+    <h3 class="text-center m-3">Users can only edit their own pipelines.</h3>
+    {% endif %}
 
     </form>
-    {% endif %}
+
 </div>
 
 

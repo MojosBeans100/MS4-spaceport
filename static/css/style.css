@@ -1190,10 +1190,14 @@ i {
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     padding: 20px;
-
+    margin-top: 90px;
     margin-bottom: 30px;
 
     min-height: 60vh;
+}
+
+#edit_form h2 {
+    text-align: center;
 }
 
 #edit_form button,
