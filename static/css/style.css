@@ -183,7 +183,8 @@ body {
 }
 
 #purpose-img4 {
-    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642682186/7141cdc97a17b5a5da4da31e994b17d2_igxqw9.jpg');
+    background-image: url('https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644402281/timeline2_hq2s2b.jpg');
+    background-size: contain;
 }
 
 #purpose-img5 {

@@ -259,7 +259,7 @@
 
                     <tr>
                         <td></td>
-                        <td>{{result.status}}</td>
+                        <td>{{result.message|lower}}</td>
                         <td>{{result.interval_start_date|date:'d M'}} <br>to {{result.interval_end_date|date:'d M'}}
                         </td>
                         <td>
@@ -382,11 +382,15 @@
 
                         <!-- but if the interval is complete -->
                         {% else %}
+                        {% if result.status == 'complete' %}
                         <td><em>no image found</em></td>
+                        {% else %}
+                        <td><em>pending</em></td>
                         {% endif %}
-                        <td style="text-align: center;">-</td>
-                        <td style="text-align: center;">-</td>
-                        <td style="text-align: center;">-</td>
+                        {% endif %}
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
                     </tr>
                     {% endif %}
                     {% endfor %}

@@ -6,6 +6,7 @@ Spaceport is a full stack website which allows users to access satellite imagery
 # Table of contents
 - [Spaceport](#spaceport)
 - [Project Overview](#project-overview)
+- [Technical Abstract](#technical-abstract)
 - [Access](#access)
 - [Definitions](#definitions)
 - [UX](#ux)
@@ -15,22 +16,46 @@ Spaceport is a full stack website which allows users to access satellite imagery
     * [Structure](#structure)
         + [Pages](#pages)
         + [Database](#database)
+            - [Models]
     * [Style](#style)
+        + [Wireframes](#wireframes)
+        + [Font](#font)
+        + [Colours](#colours)
+        + [Layout](#layout)
     * [Scope](#scope)
+        + [User Stories](#user-stories)
+            - [Strategy](#user-stories-strategy)
+            - [User Stories](#user-stories)
+                * [User Story 1](#user-story-1)
+                * [User Story 2](#user-story-2)
+                * [User Story 3](#user-story-3)
+                * [User Story 4](#user-story-4)
+                * [User Story 5](#user-story-5)
+                * [User Story 6](#user-story-6)
+                * [User Story 7](#user-story-7)
+                * [User Story 8](#user-story-8)
+                * [User Story 9](#user-story-9)
+                * [User Story 10](#user-story-10)
+                * [User Story 11](#user-story-11)
+                * [User Story 12](#user-story-12)
+                * [User Story 13](#user-story-13)
 - [Features](#features)
     * [Homepage](#homepage)
     * [Discover](#discover)
     * [My Pipelines](#pipelines)
-    * [Create Pipeline](#create-a-pipeline)
     * [Detail view](#detail)
+    * [Create Pipeline](#create-a-pipeline)
+    
     * [Edit](#edit-pipeline)
     * [Delete]
     * [Account authentication]()
-- [Technologies used]
+- [Technologies used](#technologies-used)
 - [Testing]
-- [APIs]
-    * Skywatch
-    * Mapbox
+- [Additional Features](#additional-features)
+    * [UX](#ux)
+    * [User Features](#user-features)
+    * [API](#api)
+- [Unfixed Bugs](#unfixed-bugs)
 - [Deployment]
 - [Media]
 - [Credits]
@@ -654,7 +679,7 @@ The last form page presents a loading screen to the user, to let the user know t
 
 [Back to top](#spaceport)
 
-# Languages
+# Technologies Used
 
 ## HTML/CSS
 ## Javascript
@@ -705,14 +730,6 @@ The code is derived from a simple example from the ChartJS [documentation](https
 
 ## Python
 ## Django
-
-[Back to top](#spaceport)
-
-# Limitations
-
-## API Limitations
-
-- The developer has a limited account with the Skywatch API.  During development, many pipelines were created for testing purposes under the accounts 'admin' and 'testing_account' and 'testing_account2'.  As the account is limited to 100 pipelines, all of these pipelines were deleted from the API before deployment.  The objects remain in the website database, but cannot be edited, updated or deleted as there is no longer a model in the API which represents these objects.
 
 [Back to top](#spaceport)
 
