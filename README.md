@@ -45,11 +45,15 @@ Spaceport is a full stack website which allows users to access satellite imagery
     * [My Pipelines](#pipelines)
     * [Detail view](#detail)
     * [Create Pipeline](#create-a-pipeline)
-    
     * [Edit](#edit-pipeline)
-    * [Delete]
+    * [Delete](#delete-pipeline)
     * [Account authentication]()
 - [Technologies used](#technologies-used)
+    * [HTML/CSS](#htmlcss)
+    * [Javascript](#javascript)
+    * [Python](#python)
+    * [Django](#django)
+    * [APIs](#apis)
 - [Testing]
 - [Additional Features](#additional-features)
     * [UX](#ux-1)
@@ -692,13 +696,32 @@ The name and parameters* of pipelines can be edited if the pipeline is active.  
 *this is an API restriction, only allowing these two parameters to be changed once committed, aside from the parameters documented [here](#edit-pipeline-1)
 
 ## Delete Pipeline
-Users can also delete their pipelines via the 'Delete' button the detail view of the pipeline.
+Users can also delete their pipelines via the 'Delete' button in the detail view of the pipeline.
 
 ![Delete pipeline](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438181/delete_en0mhy.jpg)
 
-Users see confirmation that their pipeline has been deleted.
+Users can see confirmation that their pipeline has been deleted.
 
 ![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438205/pipelinedeleted_dn6r1f.jpg)
+
+## Account Authentication
+
+### Sign Up
+Users can sign up to use Spaceport by choosing a username and password.
+
+![Sign Up](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438844/signup_xwzc1v.jpg)
+
+### Sign In
+Users can use their log in details to access their pipeline information; they are redirected to My Pipelines displaying their list of pipelines.
+
+![Sign In](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438844/signin_neccns.jpg)
+
+### Log Out
+Users can log out of their account.
+
+![Log out](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438844/signout_dxeiqv.jpg)
+
+[Back to top](#spaceport)
 
 # Technologies Used
 
@@ -778,6 +801,9 @@ The Mapbox API was used to render the selectable map for the user to draw an AOI
 There are also many [additional features](#additional-features) which could be added to this map feature.
 
 [Back to top](#spaceport)
+
+# Testing
+The testing strategy is detailed in [this document](TESTING.md).
 
 # Additional Features
 This section details some additional features which could be added to further develop the website.
