@@ -73,7 +73,8 @@ This project has been designed to provide users with a platform to access satell
 Satellite imagery is becoming increasingly popular as a way of providing a different perspective on changing environments on the Earth's surface. For example, images taken by satellites can provide a more expansive view of rainforest deforestation in the Amazon, enabling more straightforward and accurate calculations of the proportion the total area that is felled, as well as the rate of destruction. Environmental organisations can thus utilise this technology to draw attention to decline in critical climactic environments.
 
 Landsat 9 satellite image of the Coronation Islands of Western Australia
-[NASA Image](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644412755/10-landsat_hf01dz.jpg)
+
+![NASA Image](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644412755/10-landsat_hf01dz.jpg)
 
 Satellite imagery is also becoming more accessible to the global citizenry, whose uses for it range from specific projects to simple curiosity. In recognition that there are many who are interested in, but hitherto unfamiliar with, satellite technology, the website attempts to provide a comprehensive and accessible guide through the process.
 
