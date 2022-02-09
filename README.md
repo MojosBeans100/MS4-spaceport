@@ -684,6 +684,22 @@ The last form page presents a loading screen to the user, to let the user know t
 
 [Back to top](#spaceport)
 
+## Edit Pipeline
+The name and parameters* of pipelines can be edited if the pipeline is active.  At the very end of the detail view of the pipeline, there is an 'Edit' section.
+
+![Edit pipeline form](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438014/editform_byhf16.jpg)
+
+*this is an API restriction, only allowing these two parameters to be changed once committed, aside from the parameters documented [here](#edit-pipeline-1)
+
+## Delete Pipeline
+Users can also delete their pipelines via the 'Delete' button the detail view of the pipeline.
+
+![Delete pipeline](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438181/delete_en0mhy.jpg)
+
+Users see confirmation that their pipeline has been deleted.
+
+![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438205/pipelinedeleted_dn6r1f.jpg)
+
 # Technologies Used
 
 ## HTML/CSS
