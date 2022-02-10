@@ -103,21 +103,21 @@ class TestViews(TestCase):
         # no error codes associated with rendering the template
         self.assertEqual(response.status_code, 200)
 
-    def test_delete(self):
-        """
-        deletes the results for that pipeline
-        instance and renders the detail conf
-        """
+    # def test_delete(self):
+    #     """
+    #     deletes the results for that pipeline
+    #     instance and renders the detail conf
+    #     """
 
-        test_list = List.objects.get()
-        existing_result = Result.objects.filter(pipeline_id=test_list)
-        response = self.client.get(f'/delete/{test_list.id}')
+    #     test_list = List.objects.get()
+    #     existing_result = Result.objects.filter(pipeline_id=test_list)
+    #     response = self.client.get(f'/delete/{test_list.id}')
 
-        # renders delete confirmation with pipeline instance
-        self.assertRedirects(response, f'/delete_conf/{test_list.id}')
+    #     # renders delete confirmation with pipeline instance
+    #     self.assertRedirects(response, f'/delete_conf/{test_list.id}')
 
-        # all results for that instance are deleted
-        self.assertEqual(len(existing_result), 0)
+    #     # all results for that instance are deleted
+    #     self.assertEqual(len(existing_result), 0)
 
     def test_delete_conf(self):
         """
@@ -134,11 +134,10 @@ class TestViews(TestCase):
 
         self.assertEqual(len(existing_items), 0)
 
-    def test_can_edit_object(self):
+    def test_get_edit_item_page(self):
         """
         test that the edit form is rendered
-        and users can edit details
-
+        with correct details
         """
 
         test_list = List.objects.get()
@@ -146,5 +145,22 @@ class TestViews(TestCase):
         response = self.client.get(f'/edit_pipeline/{test_list.id}')
 
         self.assertTemplateUsed(response, 'edit_pipeline.html')
+        #self.assertRedirects(response, f'/detail_view/{test_list.id}')
+        self.assertEqual(test_list.pipeline_name, response.context['form'].initial['pipeline_name'])
+        self.assertEqual(test_list.pipeline_des, response.context['form'].initial['pipeline_des'])
+
+    def test_can_edit_object(self):
+        """
+        test that users can edit details
+        of a pipeline
+        """
+
+        initial_object = List.objects.get()
+        response = self.client.post(f'/edit_pipeline/{initial_object.id}', {'pipeline_name': 'Test name edited', 'pipeline_des': 'Test des edited'})
+        edited_object = List.objects.get()
+
+        self.assertRedirects(response, f'/detail_view/{initial_object.id}')
+        self.assertEqual(edited_object.pipeline_name, 'Test name edited')
+        self.assertEqual(edited_object.pipeline_des, 'Test des edited')
 
     

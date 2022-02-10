@@ -61,9 +61,9 @@ Spaceport is a full stack website which allows users to access satellite imagery
     * [API](#api)
 - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment]
-- [Media]
-- [Credits]
-- [Acknowledgements]
+- [Media](#media)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
 
 # Project Overview
 - This website was developed for submission as the Milestone 4 project of the Code Institute Diploma in Software Development.
