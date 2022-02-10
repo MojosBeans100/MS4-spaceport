@@ -470,7 +470,6 @@ As a **Website owner/Admin** I can **view a list of all pipelines and results wi
 [Back to top](#spaceport)
 
 
-
 # Features
 
 ## Homepage
@@ -903,7 +902,6 @@ The developer feels the timeline of the interval dates in the pipeline detail vi
 [Back to top](#spaceport)
 
 # Deployment
-
 ### Local Deployment
 To run this project locally, you will need to clone the repository.  You will also need a Skywatch API key, and a Mapbox Access Token. 
 
@@ -916,7 +914,7 @@ To run this project locally, you will need to clone the repository.  You will al
 ![Mapbox public key](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644512336/mapboxaccesstoken_jefps0.jpg)
 
 #### Skywatch API Key
-Creating an API key with Skywatch will require navigating to the [Request Access](https://www.skywatch.com/earthcache/get-access) webpage and then awaiting approval.
+Create an API key with Skywatch will require navigating to the [Request Access](https://www.skywatch.com/earthcache/get-access) webpage and then awaiting approval.
 
 #### Cloning Workspace
 1. Log in to [Github](https://github.com/)
@@ -944,6 +942,38 @@ os.environ.setdefault('MAPBOX_KEY', TO BE ADDED BY USER')</code>
 11. Run "python3 manage.py createsuperuser" to create a super/admin user
 12. Start the application by running python3 manage.py runserver
 13. Open the application in a web browser, for example: http://127.0.0.1:8000/
+
+### Heroku Deployment
+To deploy this application to Heroku, run the following steps.
+
+1. Create an account at [heroku.com](https://id.heroku.com/)
+2. Create an app, give it a name - for example ms4spaceport - and select a region
+3. Under resources search for postgres, and add a Postgres database to the app
+4. Note the DATABASE_URL, this can be set as an environment variable in Heroku and your local deployment(env.py)
+5. Install the plugins dj-database-url and psycopg2-binary.
+6. Run pip3 freeze > requirements.txt so both are added to the requirements.txt file
+7. Create a Procfile with the text: web: gunicorn ms4spaceport.wsgi:application for example
+8. In the settings.py ensure the connection is to the Heroku postgres database
+9. Ensure debug is set to false in the settings.py file
+10. Add localhost/127.0.0.1, and ms4spaceport.herokuapp.com to the ALLOWED_HOSTS variable in settings.py
+11. Run "python3 manage.py showmigrations" to check the status of the migrations
+12. Run "python3 manage.py migrate" to migrate the database
+13. Run "python3 manage.py createsuperuser" to create a super/admin user
+14. Install gunicorn and add it to the requirements.tx file using the command pip3 freeze > requirements.txt
+15. From the CLI login to Heroku using the command heroku git:remote -a ms4spaceport
+16. Disable collectstatic in Heroku before any code is pushed using the command heroku config:set DISABLE_COLLECTSTATIC=1 -a ms4spaceport
+17. Push the code to Heroku using the command git push heroku master
+18. Ensure the following environment variables are set in Heroku
+
+![Heroku Config Vars](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644513398/herokuconfigvars_vfhl5s.jpg)
+
+19. Connect the app to GitHub, and in Manual Deploy, click deploy branch.
+
+![Heroku Deploy Branch](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644513541/heokudeploy_eaqdqh.jpg)
+
+20. Click on the link provided to access the application
+21. If you encounter any issues accessing the build logs is a good way to troubleshoot the issue
+
 
 # Media
 Images used on the site were sourced from the following sources.
