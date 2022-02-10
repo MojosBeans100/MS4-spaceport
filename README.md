@@ -904,6 +904,47 @@ The developer feels the timeline of the interval dates in the pipeline detail vi
 
 # Deployment
 
+### Local Deployment
+To run this project locally, you will need to clone the repository.  You will also need a Skywatch API key, and a Mapbox Access Token. 
+
+#### Mapbox Access Token
+1. Navigate to [Mapbox](https://www.mapbox.com/)
+2. Create an account with Mapbox.
+3. Navigate to your account page and click 'Create a Token' and create a Public Token
+
+![Mapbox create token](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644512336/mapboxacces_rgirat.jpg)
+![Mapbox public key](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644512336/mapboxaccesstoken_jefps0.jpg)
+
+#### Skywatch API Key
+Creating an API key with Skywatch will require navigating to the [Request Access](https://www.skywatch.com/earthcache/get-access) webpage and then awaiting approval.
+
+#### Cloning Workspace
+1. Log in to [Github](https://github.com/)
+2. Select the repository MojosBeans100/ms4-spaceport
+3. Click the Code button and copy the HTTPS url, for example: https://github.com/MojosBeans100/ms4-spaceport.git
+4. In your IDE, open a terminal and run the git clone command, for example
+
+<code>git clone https://github.com/MojosBeans100/ms4-spaceport.git</code>
+
+The repository will now be cloned to your workspace.
+
+5. Create an env.py file(do not commit this file to source control) in the root folder in your project, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values
+
+<code>import os
+
+os.environ.setdefault('SKYWATCH_KEY', TO BE ADDED BY USER)
+
+os.environ.setdefault('MAPBOX_KEY', TO BE ADDED BY USER')</code>
+
+6. Install the relevant packages as per the requirements.txt file
+7. In the settings.py ensure the connection is set to either the Heroku postgres database or the local sqllite database
+8. Add localhost/127.0.0.1 to the ALLOWED_HOSTS variable in settings.py
+9. Run "python3 manage.py showmigrations" to check the status of the migrations
+10. Run "python3 manage.py migrate" to migrate the database
+11. Run "python3 manage.py createsuperuser" to create a super/admin user
+12. Start the application by running python3 manage.py runserver
+13. Open the application in a web browser, for example: http://127.0.0.1:8000/
+
 # Media
 Images used on the site were sourced from the following sources.
 

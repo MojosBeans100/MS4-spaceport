@@ -1,8 +1,11 @@
 from django.test import TestCase
 from .models import List, Result
 from .forms import CreateList, UpdateList
+#from .views import create
 import datetime
 from django.utils import timezone
+import unittest
+from unittest import mock
 
 
 class TestViews(TestCase):
@@ -145,14 +148,14 @@ class TestViews(TestCase):
         response = self.client.get(f'/edit_pipeline/{test_list.id}')
 
         self.assertTemplateUsed(response, 'edit_pipeline.html')
-        #self.assertRedirects(response, f'/detail_view/{test_list.id}')
         self.assertEqual(test_list.pipeline_name, response.context['form'].initial['pipeline_name'])
         self.assertEqual(test_list.pipeline_des, response.context['form'].initial['pipeline_des'])
 
     def test_can_edit_object(self):
         """
         test that users can edit details
-        of a pipeline
+        of a pipeline, and redirects back
+        to the detail view
         """
 
         initial_object = List.objects.get()
@@ -163,4 +166,12 @@ class TestViews(TestCase):
         self.assertEqual(edited_object.pipeline_name, 'Test name edited')
         self.assertEqual(edited_object.pipeline_des, 'Test des edited')
 
-    
+    #@mock.patch('spaceport.views.create', return_value="pipeline_response")
+    # def test_can_create_object(self):
+
+    #     response = self.client.get('/create_pipeline.html')
+
+    #     print(response.context)
+        
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'create_pipeline.html')
