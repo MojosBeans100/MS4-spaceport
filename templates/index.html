@@ -6,8 +6,8 @@
 <div class="container-fluid" id="index-container">
     
     {% if error %}
-    <div style="margin-top: 100px; width: 50%; margin-left: 25%;">
-        <h2 style="text-align: center">{{error}} <br>
+    <div id="api_error">
+        <h2>{{error}} <br>
             Your pipeline was not created.</h2>
     </div>
     {% else %}
@@ -29,8 +29,7 @@
             </div>
 
             <!-- banner image -->
-            <div class="col-md" id="index-banner" title="Space X Satellite">
-            </div>
+            <div class="col-md" id="index-banner" title="Space X Satellite"></div>
         </div>
     </div>
 
@@ -46,13 +45,11 @@
             </div>
 
             <div class="row">
-
                 <div class="col-sm" id="purpose-img1" title="San Francisco on Google Maps">
                 </div>
 
                 <div class="col-sm" id="purpose-img2" title="San Francisco satellite image">
                 </div>
-
             </div>
             <p>Google Maps view of San Francisco Bay | Satellite image of San Francisco Bay</p>
 
@@ -127,9 +124,9 @@
                     {% endif %}
                 </div>
             </div>
-
         </div>
     </div>
+
     <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i
             class="fas fa-arrow-up"></i>Top</button>
 </div>
