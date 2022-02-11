@@ -1,6 +1,11 @@
-from django.contrib.auth.models import User
+# Import 3rd party
+
+# Import django
 from django.test import TestCase
+
+# Import local
 from .models import List
+
 
 class TestListModel(TestCase):
     """
@@ -8,11 +13,6 @@ class TestListModel(TestCase):
     """
 
     def setUp(self):
-
-        test_user = User.objects.create_user(
-            username='test_user',
-            password='test_password'
-        )
 
         test_list = List.objects.create(
             pipeline_name='Test Pipeline',

@@ -276,7 +276,6 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 ![Progress indicator](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643900779/Spaceport/4170109_euap9y.jpg)
 ![Progress indicator](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902228/Spaceport/progressindicator_ty89po.jpg)
 
-
 - The high definition photos provide splashes of colour against a simple background.
 
 ![Image next to text](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643902011/Spaceport/images_yckrmm.jpg)
@@ -298,10 +297,11 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 
 - For longer pages, a 'Back to Top' type button is fixed in the bottom right corner to allow users to scroll up to the top of the page.
 
+![Back to top button](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644618033/backtotop_molnpl.jpg)
+
 [Back to top](#spaceport)
 
 ## Scope
-
 ### Site User Stories
 
 ## User Stories Strategy
@@ -686,12 +686,12 @@ The interval section asks the users to select their pipeline start and end date,
 ### Parameters Page
 Users can adjust the cloud cover settings if they wish.  Visual representations of low, medium and high cloud cover are provided for reference.  If the form field is left at the default value of 1%, they are allowing images to be delivered with any percentage of cloud cover.
 
-![Cloud cover form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884518/Spaceport/cloudcover_izmve7.jpg)
+![Cloud cover form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644618247/cloudupdated_onkra6.jpg)
 
 ### Output Page
 Users can select from six output image types, set to a default of True Colour type.  Users can hover over the image to see a description of what the image type is. 
 
-![Output form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643884848/Spaceport/output_zhmmfz.jpg)
+![Output form page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644618248/outputupdated_yryg1s.jpg)
 
 ### Review Page
 Users can review all the parameters they set. They have the option to submit the pipeline, or go back and adjust parameters.  They are encouraged to review all the details before they submit. 
@@ -920,7 +920,7 @@ Users are strongly encouraged to note their sign-in details, as without email th
 [Sign Up page](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644339726/Spaceport/Mobile/signup_qkurpp.jpg)
 
 ## Dates on pipeline timeline
-The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
+The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed and a max number of ticks is rendered instead, since although the timeline was a bit clunky, it did not show incorrect information.
 
 ## Incomplete satellite images
 During development and testing of the project, several satellite images were delivered with 'blind spots' and/or squares with different colouration.  The developer is not certain of the cause of this (although blind spots could be attributed to 'secret' locations, such as naval bases).  As the image is delivered directly from Skywatch and stored in AWS, this is not a bug of the project itself.

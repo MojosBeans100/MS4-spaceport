@@ -1,11 +1,15 @@
-from django.test import TestCase
-from .models import List, Result
-from .forms import CreateList, UpdateList
-#from .views import create
+# Import 3rd party
 import datetime
+
+# Import django
+from django.test import TestCase
 from django.utils import timezone
 import unittest
 from unittest import mock
+
+# Import local
+from .models import List, Result
+from .forms import CreateList, UpdateList
 
 
 class TestViews(TestCase):
@@ -52,14 +56,6 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'discover.html')
 
-    def test_get_api_page(self):
-        """
-        views.api_error renders api_error.html
-        """
-        response = self.client.get('/api_error.html')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'api_error.html')
-
     def test_get_user_models_page(self):
         """
         views.my_pipelines renders my_pipelines.html
@@ -105,22 +101,6 @@ class TestViews(TestCase):
 
         # no error codes associated with rendering the template
         self.assertEqual(response.status_code, 200)
-
-    # def test_delete(self):
-    #     """
-    #     deletes the results for that pipeline
-    #     instance and renders the detail conf
-    #     """
-
-    #     test_list = List.objects.get()
-    #     existing_result = Result.objects.filter(pipeline_id=test_list)
-    #     response = self.client.get(f'/delete/{test_list.id}')
-
-    #     # renders delete confirmation with pipeline instance
-    #     self.assertRedirects(response, f'/delete_conf/{test_list.id}')
-
-    #     # all results for that instance are deleted
-    #     self.assertEqual(len(existing_result), 0)
 
     def test_delete_conf(self):
         """
