@@ -16,7 +16,7 @@ Spaceport is a full stack website which allows users to access satellite imagery
     * [Structure](#structure)
         + [Pages](#pages)
         + [Database](#database)
-            - [Models]
+            - [Models](#models)
     * [Style](#style)
         + [Wireframes](#wireframes)
         + [Font](#font)
@@ -54,13 +54,13 @@ Spaceport is a full stack website which allows users to access satellite imagery
     * [Python](#python)
     * [Django](#django)
     * [APIs](#apis)
-- [Testing]
+- [Testing](#testing)
 - [Additional Features](#additional-features)
     * [UX](#ux-1)
     * [User Features](#user-features)
     * [API](#api)
 - [Unfixed Bugs](#unfixed-bugs)
-- [Deployment]
+- [Deployment](#deployment)
 - [Media](#media)
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
@@ -148,9 +148,8 @@ Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 
 #### Database Model
 
-![Schema](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643821929/Spaceport/SCHEMA_j2yy7r.jpg)
-
 *Database schema*
+![Schema](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643821929/Spaceport/SCHEMA_j2yy7r.jpg)
 
 #### Models
 There are three models in this project.  As the project uses an API for a lot of the information stored in the databases, see the associated tables to understand how the data is created (whether by the User, the Spaceport app, or from the API)
@@ -186,7 +185,6 @@ There are three models in this project.  As the project uses an API for a lot of
 |results_updated|when the pipeline was last refreshed from the API|API|Datetime|
 |featured_image|a url to display an image on My Pipelines page|API|Charfield|
 |time_edited|when the pipeline was last edited|Spaceport|Datetime|
-
 
 ##### Result
 - The Result model contains information about results relating to the pipeline.  The number of results for a pipeline is directly linked to the number of intervals a pipeline has. Example: if a pipeline is 5 days in length, with an interval of 1 day, there will be 5 intervals (1 for each day), and thus 5 results.
@@ -229,12 +227,32 @@ There are three models in this project.  As the project uses an API for a lot of
 The styling is kept clean and minimal throughout the site.  As the content of the site may appear technically complex to new users, there are no distracting fonts, colours or images to confound the user. Attractive images are used where relevant to pique the interest of the user and indicate, alongside the text, the purpose of the website.
 
 ### Wireframes
-Initial wireframes were designed during the project proposal stage.
+Initial wireframes were designed during the project proposal stage.  During development, when more was learned about the API and it's capabilities and restrictions, the designs evolved to include more information. 
 
-Homepage
-My Pipelines
-Create Account
-Create Pipeline
+#### Homepage
+[Landing page wireframe](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/Landing_page_ja2w79.png)
+
+#### My Pipelines
+[My pipelines wireframe](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/Account_landing_page_ucl4cj.png)
+
+#### Create Account
+[Create an account](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617073/Create_account_eyw7lv.png)
+
+#### Log In
+[Log in](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/Log_in_peayob.png)
+
+#### Create Pipeline
+[Create pipeline 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617074/New_pipeline_1_i8yggk.png)
+
+[Create pipeline 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/New_pipeline_2_tlza0j.png)
+
+[Create pipeline 3](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617073/New_pipeline_3_apy4bx.png)
+
+[Create pipeline 4](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/New_pipeline_3_copy_f5ioqw.png)
+
+#### Pipeline Detail
+[Detail view](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/Pipeline_detail_l3v95d.png)
+
 
 ### Font
 The font style is the default Bootstrap 5 native sans-serif font stack for cross platform usability. The font remains consistent throughout the website, aside from being rendered in italic or font style for emphasis.
