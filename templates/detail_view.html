@@ -242,7 +242,8 @@
                 <table class="table align-middle" id="result-table">
                     <tr data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
-                        <th style="text-align: center;"><i style="padding: 0; margin: 0; font-size: 20px;" class="fas fa-angle-down" id="pulse"></i>
+                        <th style="text-align: center;"><i style="padding: 0; margin: 0; font-size: 20px;"
+                                class="fas fa-angle-down" id="pulse"></i>
                         </th>
                         <th>Status</th>
                         <th>Interval dates</th>
@@ -496,8 +497,8 @@
     {% else %}
 
     <div class="user-error">
-    <h2>Ooops.. you have been directed to the wrong page.</h2><br><br>
-    <a href="{% url 'homepage' %}">Return to home</a>
+        <h2>Ooops.. you have been directed to the wrong page.</h2><br><br>
+        <a href="{% url 'homepage' %}">Return to home</a>
     </div>
     {% endif %}
 
@@ -525,7 +526,9 @@
 {{ pipeline.end_date|json_script:"end_date" }}
 
 <script>
-    // External library
+    /*jshint esversion: 6 */
+
+    // external library
     // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
     var mybutton = document.getElementById("myBtn");
 
@@ -545,7 +548,7 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
-    // External library ends
+    // external library ends
 
     /**
     Render map of user's selected AOI
@@ -567,7 +570,7 @@
             mapboxgl.accessToken =
                 mapbox_key;
 
-            const map = new mapboxgl.Map({
+            var map = new mapboxgl.Map({
                 container: 'detail_map',
                 style: 'mapbox://styles/mapbox/light-v10',
                 center: [long, lat],
@@ -609,7 +612,7 @@
             });
         }
     }
-   
+
     /**
     Creates a timeline using ChartJS
     to render interval dates
@@ -637,14 +640,14 @@
         var today_data = [];
         var images_data = [];
         var all_data = [];
-        var dates_string = [];
         var pointBackgroundColors = [];
         var pointRadii = [];
         var date_object = {};
         var todays_date_object = {};
+        var i;
 
         // push all timeline dates into array
-        for (var i in all_dates) {
+        for (i = 0; i < all_dates.length; i++) {
             day = parseFloat(all_dates[i].slice(0, 2));
             month = parseFloat(all_dates[i].slice(3, 5) - 1);
             year = parseFloat(all_dates[i].slice(6, 10));
@@ -661,7 +664,7 @@
         }
 
         // push the current interval dates into array
-        for (i in current) {
+        for (i = 0; i < current.length; i++) {
             day = parseFloat(current[i].slice(0, 2));
             month = parseFloat(current[i].slice(3, 5) - 1);
             year = parseFloat(current[i].slice(6, 10));
@@ -678,7 +681,7 @@
         }
 
         // push any dates images were captured into array
-        for (i in images) {
+        for (i = 0; i < images.length; i++) {
             day = parseFloat(images[i].slice(0, 2));
             month = parseFloat(images[i].slice(3, 5) - 1);
             year = parseFloat(images[i].slice(6, 10));
@@ -703,7 +706,7 @@
                 'y': 0
             };
 
-            pipeline_start_date = {
+            var pipeline_start_date = {
                 'x': pipeline_starts,
                 'y': 0
             };
@@ -713,7 +716,7 @@
         } else {
             todays_date_object = {};
             today_data.push(todays_date_object);
-        };
+        }
 
         // create icons to use in the chart
         var todayImage = new Image();
@@ -723,36 +726,35 @@
         picImage.src = "{%  static 'images/picture.png' %}";
 
         // draw the chart
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [{
-                        data: curr_data,
-                        label: "    Current interval",
-                        backgroundColor: "#5c6885",
-                        pointRadius: 6,
-                    },{
-                        data: all_data,
-                        label: "    Completed intervals",
-                        backgroundColor: pointBackgroundColors,
-                        pointRadius: pointRadii,
-                    },{
-                        data: today_data,
-                        label: "    Today",
-                        pointStyle: todayImage,
-                        backgroundColor: "white",
-                        pointRadius: [0, 15],
-                        borderColor: "#e3d8d8",
-                    },{
-                        data: images_data,
-                        label: "    Image taken",
-                        pointStyle: picImage,
-                        backgroundColor: "white",
-                        pointRadius: 15,
-                        borderColor: "transparent",
-                    },
-                ]
+                    data: curr_data,
+                    label: "    Current interval",
+                    backgroundColor: "#5c6885",
+                    pointRadius: 6,
+                }, {
+                    data: all_data,
+                    label: "    Completed intervals",
+                    backgroundColor: pointBackgroundColors,
+                    pointRadius: pointRadii,
+                }, {
+                    data: today_data,
+                    label: "    Today",
+                    pointStyle: todayImage,
+                    backgroundColor: "white",
+                    pointRadius: [0, 15],
+                    borderColor: "#e3d8d8",
+                }, {
+                    data: images_data,
+                    label: "    Image taken",
+                    pointStyle: picImage,
+                    backgroundColor: "white",
+                    pointRadius: 15,
+                    borderColor: "transparent",
+                }, ]
             },
             options: {
                 events: [],
@@ -780,14 +782,6 @@
                             padding: 25,
                             autoskip: true,
                             maxTicksLimit: 15,
-                            // callback: function(value, index, values) {
-                            //     // for (i=0; i<all_data.length;i++){
-                            //     //     if (values.includes(all_data[i])){
-                            //     //         return value
-                            //     //     }
-                            //     // }  
-                            //     return value
-                            // },
                         },
                         grid: {
                             display: false,
@@ -803,11 +797,11 @@
                     },
                 },
             },
-        }, );
+        });
 
         // change style of data point if interval is before or after today
         for (i = 0; i < myChart.data.datasets[1].data.length; i++) {
-            if (myChart.data.datasets[1].data[i]['x'] > todaysDate) {
+            if (myChart.data.datasets[1].data[i].x > todaysDate) {
                 pointBackgroundColors.push("white");
                 pointRadii.push('4');
             } else {
