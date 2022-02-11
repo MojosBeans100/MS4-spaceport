@@ -170,7 +170,7 @@ def create(request):
                     context = {
                         'form': form,
                         'error': "Response 400:"
-                        "there was an error when submitting the form"
+                        " there was an error when submitting the form"
                     }
 
                 else:
@@ -179,8 +179,8 @@ def create(request):
                     context = {
                         'form': form,
                         'error': "Response 500:"
-                        "we could not reach the API just now."
-                        "Please try again later."
+                        " we could not reach the API just now."
+                        " Please try again later."
                     }
 
                 return render(request, 'index.html', context)
@@ -547,9 +547,15 @@ def update(request, id):
     else:
 
         if updated_list.status_code == 404:
-            error = "Error 404:  unfortunately we could not find your pipeline to update."
-        elif updated_list.status_code == 400 or updated_list.status_code == 401 or updated_list.status_code == 413 or updated_list.status_code == 415:
-            error = "Error 400:  some of your pipeline details were not correct.  We can not update your pipeline."
+            error = "Error 404:  unfortunately we could not find"
+            "your pipeline to update."
+        elif (updated_list.status_code == 400 or
+              updated_list.status_code == 401 or
+              updated_list.status_code == 413 or
+              updated_list.status_code == 415):
+            error = "Error 400:  some of your pipeline details"
+            " were not correct."
+            " We can not update your pipeline."
         else:
             error = "Error 504: the server timed out.  Please try again later."
 
