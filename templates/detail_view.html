@@ -527,10 +527,10 @@
 <script>
     // External library
     // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-    mybutton = document.getElementById("myBtn");
+    var mybutton = document.getElementById("myBtn");
 
     window.onscroll = function () {
-        scrollFunction()
+        scrollFunction();
     };
 
     function scrollFunction() {
@@ -547,9 +547,6 @@
     }
     // External library ends
 
-    detailMap();
-    timelineChart();
-
     /**
     Render map of user's selected AOI
     Code derived from Mapbox
@@ -560,9 +557,9 @@
         // get AOI and find center point
         var mapbox_key = "{{ mapbox_key | safe}}";
         var aoi = JSON.parse(document.getElementById('map_aoi').textContent);
-        var map_aoi = aoi["features"][0]['geometry'];
-        long = turf.centerOfMass(aoi)['geometry']['coordinates'][0]
-        lat = turf.centerOfMass(aoi)['geometry']['coordinates'][1]
+        var map_aoi = aoi.features[0].geometry;
+        var long = turf.centerOfMass(aoi).geometry.coordinates[0];
+        var lat = turf.centerOfMass(aoi).geometry.coordinates[1];
 
         displayAOI();
 
@@ -620,111 +617,110 @@
     function timelineChart() {
 
         // parse info from view into valid format
-        var complete = JSON.parse(document.getElementById('complete').textContent)
-        var current = JSON.parse(document.getElementById('current').textContent)
-        var future = JSON.parse(document.getElementById('future').textContent)
-        var images = JSON.parse(document.getElementById('images').textContent)
-        var all_dates = JSON.parse(document.getElementById('all_dates').textContent)
-        var start_date = JSON.parse(document.getElementById('start_date').textContent)
-        var end_date = JSON.parse(document.getElementById('end_date').textContent)
+        var current = JSON.parse(document.getElementById('current').textContent);
+        var images = JSON.parse(document.getElementById('images').textContent);
+        var all_dates = JSON.parse(document.getElementById('all_dates').textContent);
+        var start_date = JSON.parse(document.getElementById('start_date').textContent);
+        var end_date = JSON.parse(document.getElementById('end_date').textContent);
 
         // define pipeline start and end dates
-        pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)), parseFloat(start_date.slice(5, 7) - 1),
-            parseFloat(start_date.slice(8, 10)))
-        pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)), parseFloat(end_date.slice(5, 7) - 1), parseFloat(
-            end_date.slice(8, 10)))
+        var pipeline_starts = new Date(parseFloat(start_date.slice(0, 4)), parseFloat(start_date.slice(5, 7) - 1),
+            parseFloat(start_date.slice(8, 10)));
+        var pipeline_ends = new Date(parseFloat(end_date.slice(0, 4)), parseFloat(end_date.slice(5, 7) - 1), parseFloat(
+            end_date.slice(8, 10)));
 
-        var day, month, year
-        var days = []
-        var months = []
-        var years = []
-        var curr_data = []
-        var today_data = []
-        var images_data = []
-        var all_data = []
-        var dates_string = []
-        pointBackgroundColors = []
-        pointRadii = []
-        var date_object = {}
+        var day, month, year;
+        var days = [];
+        var months = [];
+        var years = [];
+        var curr_data = [];
+        var today_data = [];
+        var images_data = [];
+        var all_data = [];
+        var dates_string = [];
+        var pointBackgroundColors = [];
+        var pointRadii = [];
+        var date_object = {};
+        var todays_date_object = {};
 
         // push all timeline dates into array
-        for (i in all_dates) {
-            day = parseFloat(all_dates[i].slice(0, 2))
-            month = parseFloat(all_dates[i].slice(3, 5) - 1)
-            year = parseFloat(all_dates[i].slice(6, 10))
+        for (var i in all_dates) {
+            day = parseFloat(all_dates[i].slice(0, 2));
+            month = parseFloat(all_dates[i].slice(3, 5) - 1);
+            year = parseFloat(all_dates[i].slice(6, 10));
 
-            days.push(day)
-            months.push(month)
-            years.push(year)
+            days.push(day);
+            months.push(month);
+            years.push(year);
 
             date_object = {
                 'x': new Date(year, month, day),
                 'y': 0
-            }
-            all_data.push(date_object)
+            };
+            all_data.push(date_object);
         }
 
         // push the current interval dates into array
         for (i in current) {
-            day = parseFloat(current[i].slice(0, 2))
-            month = parseFloat(current[i].slice(3, 5) - 1)
-            year = parseFloat(current[i].slice(6, 10))
+            day = parseFloat(current[i].slice(0, 2));
+            month = parseFloat(current[i].slice(3, 5) - 1);
+            year = parseFloat(current[i].slice(6, 10));
 
-            days.push(day)
-            months.push(month)
-            years.push(year)
+            days.push(day);
+            months.push(month);
+            years.push(year);
 
             date_object = {
                 'x': new Date(year, month, day),
                 'y': 0
-            }
-            curr_data.push(date_object)
+            };
+            curr_data.push(date_object);
         }
 
         // push any dates images were captured into array
         for (i in images) {
-            day = parseFloat(images[i].slice(0, 2))
-            month = parseFloat(images[i].slice(3, 5) - 1)
-            year = parseFloat(images[i].slice(6, 10))
+            day = parseFloat(images[i].slice(0, 2));
+            month = parseFloat(images[i].slice(3, 5) - 1);
+            year = parseFloat(images[i].slice(6, 10));
 
-            days.push(day)
-            months.push(month)
-            years.push(year)
+            days.push(day);
+            months.push(month);
+            years.push(year);
 
             date_object = {
                 'x': new Date(year, month, day),
                 'y': 0.2
-            }
-            images_data.push(date_object)
+            };
+            images_data.push(date_object);
         }
 
-        todaysDate = new Date(Date.now())
+        var todaysDate = new Date(Date.now());
 
         // if pipeline is complete
         if (pipeline_ends > todaysDate && pipeline_starts < todaysDate) {
             todays_date_object = {
                 'x': todaysDate,
                 'y': 0
-            }
+            };
 
             pipeline_start_date = {
                 'x': pipeline_starts,
                 'y': 0
-            }
-            today_data.push(pipeline_start_date)
-            today_data.push(todays_date_object)
+            };
+            today_data.push(pipeline_start_date);
+            today_data.push(todays_date_object);
 
         } else {
-            todays_date_object = {}
-            today_data.push(todays_date_object)
-        }
+            todays_date_object = {};
+            today_data.push(todays_date_object);
+        };
 
         // create icons to use in the chart
-        var todayImage = new Image()
-        todayImage.src = "{%  static 'images/saticon.png' %}"
+        var todayImage = new Image();
+        todayImage.src = "{%  static 'images/saticon.png' %}";
 
-        var picImage = new Image()
-        picImage.src = "{%  static 'images/picture.png' %}"
+        var picImage = new Image();
+        picImage.src = "{%  static 'images/picture.png' %}";
 
         // draw the chart
         const ctx = document.getElementById('myChart').getContext('2d');
@@ -813,15 +809,18 @@
         for (i = 0; i < myChart.data.datasets[1].data.length; i++) {
             if (myChart.data.datasets[1].data[i]['x'] > todaysDate) {
                 pointBackgroundColors.push("white");
-                pointRadii.push('4')
+                pointRadii.push('4');
             } else {
                 pointBackgroundColors.push("#ebf0fc");
-                pointRadii.push('5')
+                pointRadii.push('5');
             }
         }
 
         myChart.update();
     }
+
+    detailMap();
+    timelineChart();
 </script>
 
 {% endblock content %}
