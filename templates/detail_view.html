@@ -59,7 +59,6 @@
         <!-- pipeline general info section -->
         <div class="detail-view-section">
 
-
             {% if pipeline.status == 'pending' %}
             <div class="d-flex justify-content-center">
                 <div class="col col-md-6 col-xl-9" id="pending-section"
@@ -136,9 +135,7 @@
 
             <div>
                 <h3>Intervals</h3>
-
                 <p>From {{pipeline.start_date|date:'d M Y'}} to {{pipeline.end_date|date:'d M Y'}}</p>
-
 
                 {% if pipeline.status == 'pending' or results.count == 0 %}
                 <p>Update the pipeline to see interval information</p>
@@ -378,7 +375,7 @@
                         </td>
 
                         <!-- if the result status is future, there may be a result in the future
-                    so set to pending -->
+                        so set to pending -->
                         {% if result.status == 'future' or result.status == 'current' %}
                         <td><em>pending</em></td>
 

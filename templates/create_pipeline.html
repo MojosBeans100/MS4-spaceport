@@ -8,17 +8,17 @@
 {% block content %}
 
 <div id="create_container">
-    <div class="container-fluid" style="padding-bottom: 50px;">
+    <div class="container-fluid" id="create_padding">
         {% if user.is_authenticated %}
         <form action="" method="POST" id="create_form">
             {% csrf_token%}
 
             <!-- start of form section -->
-            <div id="start_form_section" style="margin-top: 50px; height: auto;" class="tab">
+            <div id="start_form_section" class="tab">
 
                 {% if error %}
-                <div style="padding-top: 100px; border: solid black; width: 50%; margin-left: 25%;">
-                    <h2 style="text-align: center">{{error}}</h2>
+                <div id="form_error">
+                    <h2>{{error}}</h2>
                 </div>
                 {% else %}
                 {% endif %}
@@ -26,10 +26,10 @@
                 <h2>Create a Pipeline</h2>
                 <br>
 
-                <p style="text-align: center; text-decoration: none; color: black;">Use this form to create your
+                <p>Use this form to create your
                     pipeline and start collecting satellite imagery</p>
 
-                <p style="text-align: center; text-decoration: none; color: black;">If this is your first pipeline, we
+                <p>If this is your first pipeline, we
                     recommend exploring our <a href="discover.html"><strong>'Discover'</strong></a> page first</p>
 
                 <!-- create pipeline form sub navigation -->
@@ -63,22 +63,17 @@
 
                                 <div class="col-md-4 py-2 text-center ">
                                     <p>Choose your parameters</p>
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643132328/tokyo1_jyg3wc.jpg" alt="Drawing polygon">
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643132328/tokyo1_jyg3wc.jpg" alt="Drawing polygon">
                                 </div>
 
                                 <div class="col-md-4 py-2 text-center">
                                     <p>Submit your pipeline</p>
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643351357/tokyo2_xggix2.jpg" alt="AOI in detail view">
-
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643351357/tokyo2_xggix2.jpg" alt="AOI in detail view">
                                 </div>
 
                                 <div class="col-md-4 py-2 text-center">
                                     <p>View your images</p>
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643132650/tokyp3_k82g82.jpg" alt="Satellite image of AOI">
-
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643132650/tokyp3_k82g82.jpg" alt="Satellite image of AOI">
                                 </div>
                             </div>
                         </div>
@@ -128,42 +123,36 @@
 
                             <div class="row">
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114686/aoi1_bjsn9n.jpg" alt="Select AOI 1">
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114686/aoi1_bjsn9n.jpg" alt="Select AOI 1">
                                     <p>Click on the map to start drawing points to form a polygon. Use the toolbar to
                                         toggle between Selecting and Deleting</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114687/aoi3_nzuvlp.jpg" alt="Select AOI 2">
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114687/aoi3_nzuvlp.jpg" alt="Select AOI 2">
                                     <p>Double click on an individual point to delete it, by clicking the trash icon or
                                         delete
                                         on the keyboard</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114686/aoi4_g3syt0.jpg" alt="Select AOI 3">
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114686/aoi4_g3syt0.jpg" alt="Select AOI 3">
                                     <p>Any of the points can be dragged to change the shape of the polygon</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114686/aoi6_vk2qdp.jpg" alt="Select AOI 4">
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114686/aoi6_vk2qdp.jpg" alt="Select AOI 4">
                                     <p>The polygon can be picked up and moved</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643201669/aoi8_one1cw.jpg" alt="Select AOI 5">
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643201669/aoi8_one1cw.jpg" alt="Select AOI 5">
                                     <p>The first point selected must also be selected at the end to complete the polygon
                                         shape</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <img style="width: 100%; height: 200px;"
-                                        src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644180206/aiintersection_o3r50y.jpg" alt="Select AOI 6">
+                                    <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644180206/aiintersection_o3r50y.jpg" alt="Select AOI 6">
                                     <p>Maintain a complete shape, with no intersecting lines. The above AOI would result
                                         in an error</p>
                                 </div>
@@ -210,7 +199,7 @@
                     </div>
 
                     <div class="input-sections" id="form-des-div">
-                        <label for="pipeline_des" class="form-label">Description</label>
+                        <label for="pipeline_des" class="form-label">Description (optional)</label>
                         {{form.pipeline_des}}
                     </div>
                 </div>
@@ -634,7 +623,7 @@
             document.getElementById('interval_feedback').remove();
         }
 
-        // what am I doing here, I have no idea
+        // disable/enable buttons as required
         if (document.getElementById('nextButton').disabled == true) {
             document.getElementById('nextButton').disabled = false;
         }
@@ -654,7 +643,7 @@
         var end_date = document.getElementById('end_date').value;
 
         // get user's interval choice
-        var interval = document.getElementById('interval').value;
+        interval = document.getElementById('interval').value;
         var interval_num = interval.slice(0, interval.length - 1);
 
         // parse into JS date format
@@ -828,6 +817,8 @@
 
         if (x.length - currentTab == 1) {
             document.getElementById('submitting_pipeline').style.display = 'block';
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
             document.getElementById('buttons-div').style.display = "none";
             document.getElementById('submitting_name').innerHTML =
                 `We are setting up "${document.getElementById('pipeline_name').value}"..`;

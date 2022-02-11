@@ -86,7 +86,7 @@ The [Skywatch](https://www.skywatch.com/) â€˜Application Programming Interfaceâ€
 While Astrosat regularly use the Skywatch EarthCache console to retrieve images, the company has less experience in interacting with the API itself.  This project attempts to provide insight into the intricacies of the API and to provide a user-friendly, front-end platform to demonstrate its capabilities.  
 
 # Access
-The assessor can create their own account to test the functionality of the website, and/or can use the details provided in the project milestone submission form to view some example pipelines which have been created for convenience.
+The assessor can create their own account to test the functionality of the website, and/or can use the details provided in the project milestone submission form to view some example pipelines which have been created for convenience. 
 
 [Back to top](#spaceport)
 
@@ -904,6 +904,11 @@ Users are strongly encouraged to note their sign-in details, as without email th
 
 ## Dates on pipeline timeline
 The developer feels the timeline of the interval dates in the pipeline detail view would be improved only showing dates on the x axis where there is a data point, ie an interval start or end date, or image captured date.  This would appear cleaner and clearer to the user.  The 'autoskip' function on the ChartJS timeline should perform this function - to only render data points on the axis - but could not be displayed the way the developer desired.  After some tutor support, this bug was left unfixed since although the timeline was a bit clunky, it did not show incorrect information.
+
+## Incomplete satellite images
+During development and testing of the project, several satellite images were delivered with 'blind spots' and/or squares with different colouration.  The developer is not certain of the cause of this (although blind spots could be attributed to 'secret' locations, such as naval bases).  As the image is delivered directly from Skywatch and stored in AWS, this is not a bug of the project itself.
+
+[Blind spot/discolouration on image](https://s3-us-west-2.amazonaws.com/aoi-processed-images-prod/f1bf1d28-8b6c-11ec-98ed-3a58c107bc02/8b4f58ca-c7fc-4801-a8bf-972bfc4aab8c/preview/SKYWATCH_S2_MS_20210218T0230_TC_Tile_0_0_fqhF_preview.png)
 
 [Back to top](#spaceport)
 

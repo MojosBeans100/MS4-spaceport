@@ -235,6 +235,10 @@ body {
     border: none;
 }
 
+#examplesp {
+    text-align: center !important;
+}
+
 #discover-examples img {
     width: 100%;
     max-width: 300px;
@@ -292,12 +296,16 @@ body {
     padding-bottom: 40px;
 }
 
+#create_padding {
+    padding-bottom: 30px;
+}
+
 #create_form {
     position: relative;
     background-color: white;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     height: auto;
-    margin-top: 120px;
+    margin-top: 85px;
     padding: 25px;
     margin-bottom: 30px !important;
     padding-bottom: 30px;
@@ -308,12 +316,30 @@ body {
 }
 
 #start_form_section {
-    margin-top: 0;
+    margin-top: 50px;
+    height: auto;
+}
+
+#form_error {
+    padding-top: 100px;
+    border: solid black;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#form_error h2 {
+    text-align: center;
 }
 
 #start_form_section h2,
 #start_form_section h4 {
     text-align: center;
+}
+
+#start_form_section p {
+    text-align: center;
+    text-decoration: none;
+    color: black;
 }
 
 #start_form_section ul {
@@ -324,6 +350,11 @@ body {
 #start_form_section li {
     list-style-type: none;
     padding-top: 10px;
+}
+
+#start-form-div img {
+    width: 100%;
+    height: 200px;
 }
 
 .input-sections {
@@ -734,6 +765,7 @@ input.invalid {
     #create_form {
         width: 80%;
         margin-left: 10%;
+        margin-top: 120px;
     }
 
     #create-map {
