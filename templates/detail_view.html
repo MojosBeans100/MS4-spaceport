@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div id="detail-view-container" class="container-fluid" style="overflow:hidden;">
+<div id="detail-view-container" class="container-fluid">
 
     {% if user.is_authenticated %}
     {% if pipeline in users_pipelines %}
@@ -25,6 +25,8 @@
                             class="fas fa-arrow-left"></i>My pipelines</button></a>
             </div>
             <div class="col-sm-6 col-lg-4 py-2">
+
+                <!-- if the pipeline is complete, disable Update button -->
                 {% if pipeline.status == 'complete' %}
                 <a href="#"><button disabled type="button" class="btn btn-dark"><i
                             class="fas fa-sync"></i>Update</button></a>
@@ -46,10 +48,6 @@
                 {% endif %}
                 {% endif %}
             </div>
-            <!-- <div class="col-md-4 py-2">
-                <a href="{% url 'edit_pipeline' pipeline.id %}"><button type="button" class="btn btn-dark"><i
-                            class="fas fa-edit"></i>Edit</button></a>
-            </div> -->
         </div>
     </div>
 
@@ -61,8 +59,7 @@
 
             {% if pipeline.status == 'pending' %}
             <div class="d-flex justify-content-center">
-                <div class="col col-md-6 col-xl-9" id="pending-section"
-                    style="text-align: center; color: orange; padding: 30px 40px;">
+                <div class="col col-md-6 col-xl-9" id="pending-section">
                     <h4>Pipelines can take a few minutes to set up. We recommend to allow 5 minutes for us to
                         search our database for your results.<br><br>
                         Click the Update button at the top of the page to see if we have finished updating your
@@ -71,7 +68,7 @@
             </div>
             {% elif pipeline.status == 'complete' %}
             <div class="d-flex justify-content-center">
-                <div class="col col-md-6 col-xl-9" id="pending-section" style="text-align: center; padding: 30px 40px;">
+                <div class="col col-md-6 col-xl-9" id="complete-section">
                     <h4><span class="detail-pipeline-complete">This pipeline is complete.</span></h4>
                     <p>Read our <a href="{% url 'discover' %}">FAQ</a> if your pipeline was unsuccessful and find out
                         how to use your images, or <a href="{% url 'create' %}">create another pipeline</a>.</p>
@@ -81,7 +78,7 @@
             {% else %}
             {% if message == "not started" %}
             <div class="d-flex justify-content-center">
-                <div class="col col-md-6 col-xl-9" id="pending-section" style="text-align: center; padding: 30px 40px;">
+                <div class="col col-md-6 col-xl-9" id="not-started-section">
                     <h4>This pipeline has not started.</h4>
                 </div>
             </div>
@@ -124,8 +121,6 @@
                     </tr>
                     {% endif %}
                 </table>
-
-
             </div>
         </div>
         <hr>

@@ -1022,6 +1022,22 @@ input.invalid {
     padding: 10px;
 }
 
+#pending-section {
+    text-align: center;
+    color: orange;
+    padding: 30px 40px;
+}
+
+#complete-section {
+    text-align: center;
+    padding: 30px 40px;
+}
+
+#not-started-section {
+    text-align: center;
+    padding: 30px 40px;
+}
+
 .detail-pipeline-complete {
     color: rgb(10, 124, 10);
 }
