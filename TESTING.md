@@ -571,10 +571,11 @@ The validator used to check validity of Javascript code was [JSHINT](http://pep8
 
 |File|Result|Status|
 |----|------|------|
-|my_pipelines.html|||
-|create_pipeline.html|||
-|detail_view.html||||
-
+|index.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591727/jshint_index_kbnpjl.jpg)|Pass|
+|my_pipelines.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644595165/jshint_mypipelines_sgydve.jpg)|Pass|
+|create_pipeline.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591728/jshint_create_bphgvk.jpg)|Pass|
+|detail_view.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591728/jshint_detail_mbvl2c.jpg)|Pass|
+|discover.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644595256/jshint_discover_ahohra.jpg)|Pass|
 
 ## Python
 The validator used to check validity of Python code was [PEP8](http://pep8online.com/checkresult)
