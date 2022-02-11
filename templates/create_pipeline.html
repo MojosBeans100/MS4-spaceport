@@ -276,10 +276,6 @@
                                 but depending on the layout of dates, our system may deliver more than 10 results</p>
                         </div>
                     </div>
-
-                    <!-- <div class="col d-flex justify-content-end">
-                        <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div> -->
                 </div>
 
                 <!-- form fields -->
@@ -369,15 +365,8 @@
                             <h4>Output Type</h4>
                             <br>
                             <p>Select the desired output image type</p>
-                            <!-- <p class="form_limits">Only choosing a <em>True Color</em> image will allow for calculation
-                                of
-                                aquisition probability</p> -->
                         </div>
                     </div>
-
-                    <!-- <div class="col d-flex justify-content-end">
-                        <a><button class="btn btn-secondary">Save Progress</button></a>
-                    </div> -->
                 </div>
 
                 <!-- 1st row: render output fields as selectable pictures/radio buttons -->
@@ -624,13 +613,14 @@
 </body>
 
 <script>
+    /*jshint esversion: 6 */
 
     // highlight the 'Create' page in the nav bar
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
-            document.getElementById('nav-active-page').removeAttribute('nav-active-page')
+            document.getElementById('nav-active-page').removeAttribute('nav-active-page');
         }
-        document.getElementsByClassName('nav-link')[2].setAttribute("id", "nav-active-page")
+        document.getElementsByClassName('nav-link')[2].setAttribute("id", "nav-active-page");
 
         currentTab = 0;
     });
@@ -640,10 +630,12 @@
 
     // set the variables
     var currentTab = 0;
-    var mapLoads = true
-    showTab(currentTab)
+    var mapLoads = true;
+    showTab(currentTab);
     var interval;
     var mapbox_key = "{{ mapbox_key | safe}}";
+    var days_difference;
+    var num_intervals_rounded;
 
     /**
     Parse dates into correct format and
@@ -653,59 +645,59 @@
 
         // if feedback already exists, remove it
         if (document.getElementById('interval_feedback')) {
-            document.getElementById('interval_feedback').remove()
+            document.getElementById('interval_feedback').remove();
         }
 
         // what am I doing here, I have no idea
-        if (document.getElementById('nextButton').disabled = true) {
+        if (document.getElementById('nextButton').disabled == true) {
             document.getElementById('nextButton').disabled = false;
-        };
+        }
 
-        if (document.getElementById('prevButton').disabled = true) {
+        if (document.getElementById('prevButton').disabled == true) {
             document.getElementById('prevButton').disabled = false;
-        };
+        }
 
         // create new div to display interval feedback/validation
-        interval_append = document.getElementById('interval_form_section');
-        interval_feedback = document.createElement('div');
+        var interval_append = document.getElementById('interval_form_section');
+        var interval_feedback = document.createElement('div');
         interval_append.append(interval_feedback);
         interval_feedback.id = 'interval_feedback';
 
         // get user's dates input
-        start_date = document.getElementById('start_date').value;
-        end_date = document.getElementById('end_date').value;
+        var start_date = document.getElementById('start_date').value;
+        var end_date = document.getElementById('end_date').value;
 
         // get user's interval choice
-        interval = document.getElementById('interval').value;
-        interval_num = interval.slice(0, interval.length - 1);
+        var interval = document.getElementById('interval').value;
+        var interval_num = interval.slice(0, interval.length - 1);
 
         // parse into JS date format
-        day1 = parseInt(start_date.slice(8, 10));
-        day2 = parseInt(end_date.slice(8, 10));
-        month1 = parseInt(start_date.slice(5, 7));
-        month2 = parseInt(end_date.slice(5, 7));
-        year1 = parseInt(start_date.slice(0, 4));
-        year2 = parseInt(end_date.slice(0, 4));
-        s_date = (month1 + '/' + day1 + '/' + year1);
-        e_date = (month2 + '/' + day2 + '/' + year2);
+        var day1 = parseInt(start_date.slice(8, 10));
+        var day2 = parseInt(end_date.slice(8, 10));
+        var month1 = parseInt(start_date.slice(5, 7));
+        var month2 = parseInt(end_date.slice(5, 7));
+        var year1 = parseInt(start_date.slice(0, 4));
+        var year2 = parseInt(end_date.slice(0, 4));
+        var s_date = (month1 + '/' + day1 + '/' + year1);
+        var e_date = (month2 + '/' + day2 + '/' + year2);
 
-        date1 = new Date(s_date);
-        date2 = new Date(e_date);
+        var date1 = new Date(s_date);
+        var date2 = new Date(e_date);
 
         // calculate day difference
         var time_difference = date2.getTime() - date1.getTime();
         days_difference = Math.round(time_difference / (1000 * 60 * 60 * 24));
-        num_intervals = days_difference / interval_num;
-        num_intervals_rounded = Math.round(num_intervals)
+        var num_intervals = days_difference / interval_num;
+        num_intervals_rounded = Math.round(num_intervals);
 
         // display how many days the pipeline length is
         if (end_date && start_date && interval) {
-            pipeline_length = document.createElement('p');
+            var pipeline_length = document.createElement('p');
             pipeline_length.id = 'pipeline_length';
             pipeline_length.innerHTML = `Pipeline length: ${days_difference} days`;
             interval_feedback.append(pipeline_length);
 
-            pipeline_intervals = document.createElement('p');
+            var pipeline_intervals = document.createElement('p');
             pipeline_intervals.id = 'pipeline_intervals';
             pipeline_intervals.innerHTML =
                 `Number of intervals: ${num_intervals_rounded}<br><small>this may change based on the layout of the intervals`;
@@ -714,17 +706,18 @@
 
         // date error if start date is after end date
         if (end_date <= start_date && end_date) {
-            date_error = document.createElement('p');
+            var date_error = document.createElement('p');
             date_error.innerHTML =
                 "<small>The end date cannot be before the start date: <br> select a date after start date </small>";
             date_error.style.fontWeight = 'bold';
             interval_feedback.append(date_error);
             document.getElementById('nextButton').disabled = true;
             document.getElementById('prevButton').disabled = true;
-            document.getElementById('pipeline_intervals').innerHTML = ""
-            document.getElementById('pipeline_length').innerHTML = ""
+            document.getElementById('pipeline_intervals').innerHTML = "";
+            document.getElementById('pipeline_length').innerHTML = "";
         }
 
+        var interval_error;
         // if num of intervals is more than 10 (API restriction for free data)
         if (num_intervals > 10 && end_date && start_date && interval) {
             interval_error = document.createElement('p');
@@ -734,7 +727,7 @@
             interval_feedback.append(interval_error);
             document.getElementById('nextButton').disabled = true;
             document.getElementById('prevButton').disabled = true;
-            document.getElementById('pipeline_length').innerHTML = ""
+            document.getElementById('pipeline_length').innerHTML = "";
         }
 
         // if interval is larger than pipeline
@@ -746,7 +739,7 @@
             interval_feedback.append(interval_error);
             document.getElementById('nextButton').disabled = true;
             document.getElementById('prevButton').disabled = true;
-            document.getElementById('pipeline_length').innerHTML = ""
+            document.getElementById('pipeline_length').innerHTML = "";
         }
 
         // if date is too far in the past
@@ -758,8 +751,8 @@
             interval_feedback.append(interval_error);
             document.getElementById('nextButton').disabled = true;
             document.getElementById('prevButton').disabled = true;
-            document.getElementById('pipeline_intervals').innerHTML = ""
-            document.getElementById('pipeline_length').innerHTML = ""
+            document.getElementById('pipeline_intervals').innerHTML = "";
+            document.getElementById('pipeline_length').innerHTML = "";
         }
 
     }
@@ -769,7 +762,8 @@
     */
     function styleOutputImage() {
 
-        parent_checked = document.getElementsByClassName('output-label')
+        var parent_checked = document.getElementsByClassName('output-label');
+        var i;
 
         for (i = 0; i < parent_checked.length; i++) {
 
@@ -784,7 +778,7 @@
     }
 
     /**
-    External library with adjustments
+    external library with adjustments
     W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
     */
     function showTab(num) {
@@ -831,16 +825,15 @@
             document.getElementById('nextButton').innerHTML = "Next";
         }
 
-        fixStepIndicator(num)
+        fixStepIndicator(num);
     }
 
     /**
-    External library with adjustments
+    external library with adjustments
     W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
     */
     function nextPrev(num) {
 
-        console.log(currentTab)
         var x = document.getElementsByClassName('tab');
         if (num == 1 && !validateForm()) return false;
         x[currentTab].style.display = 'none';
@@ -850,7 +843,7 @@
             document.getElementById('submitting_pipeline').style.display = 'block';
             document.getElementById('buttons-div').style.display = "none";
             document.getElementById('submitting_name').innerHTML =
-                `We are setting up "${document.getElementById('pipeline_name').value}"..`
+                `We are setting up "${document.getElementById('pipeline_name').value}"..`;
             document.getElementById('create_form').submit();
             return false;
         }
@@ -859,7 +852,7 @@
     }
 
     /**
-    External library with adjustments
+    external library with adjustments
     W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
     */
     function fixStepIndicator(num) {
@@ -873,7 +866,7 @@
     }
 
     /**
-    External library with adjustments
+    external library with adjustments
     W3S https://www.w3schools.com/howto/howto_js_form_steps.asp 
     */
     function validateForm() {
@@ -904,16 +897,16 @@
     Call the Mapbox API to display a map
     which the user can draw onto
     Validate the AOI area 
-    External library with adjustments
+    external library with adjustments
     Mapbox https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/
     */
     function createMap() {
 
-        input_validation = document.getElementById('id_aoi');
+        var input_validation = document.getElementById('id_aoi');
 
         // create the map
         mapboxgl.accessToken = mapbox_key;
-        const map = new mapboxgl.Map({
+        var map = new mapboxgl.Map({
             container: 'create-map',
             style: 'mapbox://styles/mapbox/streets-v11',
             zoom: 4,
@@ -922,7 +915,7 @@
         map.addControl(new mapboxgl.NavigationControl());
 
         // create the draw function
-        const draw = new MapboxDraw({
+        var draw = new MapboxDraw({
             displayControlsDefault: false,
             controls: {
                 polygon: true,
@@ -937,24 +930,26 @@
         map.on('draw.delete', deleteArea);
         map.on('draw.update', updateArea);
 
-        aoi_section = document.getElementById('map-feedback')
+        var aoi_section = document.getElementById('map-feedback');
+        var area_validation;
+        var area_validation_feedback;
+        var map_area;
 
         function updateArea(e) {
 
             // remove this parameter to be replaced on re-draw
             if (document.getElementById('map-a')) {
-                (document.getElementById('map-a').remove())
+                (document.getElementById('map-a').remove());
             }
 
-            input_validation = document.getElementById('id_aoi')
+            input_validation = document.getElementById('id_aoi');
 
             // set or reset the map area to 0km
-            map_area = document.getElementById('map-area')
-            map_area.innerHTML = "Area: 0 km<sup>2</sup>"
+            map_area = document.getElementById('map-area');
+            map_area.innerHTML = "Area: 0 km<sup>2</sup>";
 
             // get the drawn polygon data
-            const data = draw.getAll();
-            console.log(data['features'][0]['geometry']['coordinates'])
+            var data = draw.getAll();
 
             // if feedback exists, delete it
             if (document.getElementById('area_validation_feedback')) {
@@ -966,29 +961,28 @@
 
                 // disable the draw polygon to disallow 
                 // more than 1 polygon
-                document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].disabled = true
-                document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].style.backgroundColor = "grey"
+                document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].disabled = true;
+                document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].style.backgroundColor = "grey";
 
                 // get the area of the data
-                const area = turf.area(data);
+                var area = turf.area(data);
 
                 // determine if there are an intersecting points
-                const poly = turf.polygon(data['features'][0]['geometry']['coordinates'])
-                const kinks = turf.kinks(poly)
-                console.log(kinks['features'].length)
+                var poly = turf.polygon(data.features[0].geometry.coordinates);
+                var kinks = turf.kinks(poly);
 
-                const rounded_area = Math.round(area * 100) / 100;
-                rounded_km = (rounded_area / 1000000).toFixed(2);
+                var rounded_area = Math.round(area * 100) / 100;
+                var rounded_km = (rounded_area / 1000000).toFixed(2);
 
                 // create feedback to display to user
-                area_validation_feedback = document.createElement('p')
-                area_validation_feedback.id = "area_validation_feedback"
+                area_validation_feedback = document.createElement('p');
+                area_validation_feedback.id = "area_validation_feedback";
 
-                map_a = document.createElement('p');
+                var map_a = document.createElement('p');
                 map_a.id = 'map-a';
                 map_a.style.display = "none";
                 map_a.innerHTML = rounded_km;
-                aoi_section.append(map_a)
+                aoi_section.append(map_a);
 
                 // if area is too large
                 if (rounded_km > 10000) {
@@ -1003,7 +997,7 @@
                     input_validation.value = "";
 
                 // if there are intersecting lines
-                } else if (kinks['features'].length > 0) {    
+                } else if (kinks.features.length > 0) {    
                     area_validation = "AOI selection is not valid: choose a complete area with no intersecting lines";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
@@ -1013,9 +1007,9 @@
 
                     // input the geoJSON into the form field
                     area_validation = "";
-                    text = JSON.stringify(data);
+                    var text = JSON.stringify(data);
                     input_validation.value = text;
-                    document.getElementById('nextButton').disabled = false
+                    document.getElementById('nextButton').disabled = false;
                 }
 
                 // apply validation feedback to webpage
@@ -1031,12 +1025,12 @@
 
         // if polygon has been deleted, remove form field value
         function deleteArea() {
-            input_validation.value = ""
-            document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].disabled = false
-            document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].style.backgroundColor = "white"
-            area_validation = ""
+            input_validation.value = "";
+            document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].disabled = false;
+            document.getElementsByClassName('mapbox-gl-draw_ctrl-draw-btn')[0].style.backgroundColor = "white";
+            area_validation = "";
             area_validation_feedback.innerHTML = `${area_validation}`;
-            map_area.innerHTML = "Area: 0 km<sup>2</sup>"
+            map_area.innerHTML = "Area: 0 km<sup>2</sup>";
             
         }
 
@@ -1053,17 +1047,17 @@
     function reviewMap() {
 
         // get the geoJSON from the form and format it
-        aoi_json = JSON.parse(document.getElementById('id_aoi').value);
-        aoi_map = aoi_json['features'][0]['geometry'];
+        var aoi_json = JSON.parse(document.getElementById('id_aoi').value);
+        var aoi_map = aoi_json.features[0].geometry;
 
         // create long and lat to set the map center 
-        long = turf.centerOfMass(aoi_map)['geometry']['coordinates'][0]
-        lat = turf.centerOfMass(aoi_map)['geometry']['coordinates'][1]
+        var long = turf.centerOfMass(aoi_map).geometry.coordinates[0];
+        var lat = turf.centerOfMass(aoi_map).geometry.coordinates[1];
 
         // MAPBOX code
         mapboxgl.accessToken =
             mapbox_key;
-        const map = new mapboxgl.Map({
+        var map = new mapboxgl.Map({
             container: 'review-aoi',
             style: 'mapbox://styles/mapbox/light-v10',
             center: [long, lat],
@@ -1115,34 +1109,35 @@
         reviewMap();
 
         // get table cells to fill in 
-        table_feedback = document.getElementsByClassName('table-right');
+        var table_feedback = document.getElementsByClassName('table-right');
 
         // get user's form inputs
-        review_name = document.getElementById('pipeline_name').value;
-        review_des = document.getElementById('pipeline_des').value;
-        review_status = "Not yet committed";
-        review_aoi = document.getElementById('id_aoi').value;
-        review_sdate = document.getElementById('start_date').value;
-        review_edate = document.getElementById('end_date').value;
-        review_length = `${days_difference} days`;
-        review_interval = interval;
-        review_num_intervals = num_intervals_rounded;
-        review_area = `${document.getElementById('map-a').innerHTML} km<sup>2</sup>`;
-        review_cloud = document.getElementById('id_cloud').value
-
-        radios = document.getElementsByName('output_image');
-        radios_labels = document.getElementsByClassName('image-label');
+        var review_name = document.getElementById('pipeline_name').value;
+        var review_des = document.getElementById('pipeline_des').value;
+        var review_status = "Not yet committed";
+        var review_aoi = document.getElementById('id_aoi').value;
+        var review_sdate = document.getElementById('start_date').value;
+        var review_edate = document.getElementById('end_date').value;
+        var review_length = `${days_difference} days`;
+        var review_interval = interval;
+        var review_num_intervals = num_intervals_rounded;
+        var review_area = `${document.getElementById('map-a').innerHTML} km<sup>2</sup>`;
+        var review_cloud = document.getElementById('id_cloud').value;
+        var radios = document.getElementsByName('output_image');
+        var radios_labels = document.getElementsByClassName('image-label');
+        var i;
+        var review_output;
 
         // determine which output image has been selected
         for (i = 0; i < radios.length; i++) {
             if (radios[i].checked) {
                 review_output = radios_labels[i].innerText.trim();
-                api_output = radios[i].value
+                //var api_output = radios[i].value;
             }
         }
 
         // render user's form inputs into the review table
-        feedback = [review_name, review_des, review_status, review_sdate, review_edate, review_length, review_interval,
+        var feedback = [review_name, review_des, review_status, review_sdate, review_edate, review_length, review_interval,
             review_num_intervals, review_output
         ];
 
@@ -1161,7 +1156,7 @@
     */
     function validateCloudCover() {
 
-        cloud_input = document.getElementById('id_cloud').value
+        var cloud_input = document.getElementById('id_cloud').value;
 
         if (cloud_input > 100 || cloud_input < 1) {
             document.getElementById('nextButton').disabled = true;
@@ -1172,11 +1167,6 @@
         }
     }
 
-    // for (i = 0; i < document.getElementsByClassName('tab').length - 1; i++) {
-    //     document.getElementsByClassName('tab')[i].style.display = "none"
-    // }
-
-    // document.getElementsByClassName('tab')[7].style.display = "inline-block"
 </script>
 
 {% endblock content %}
