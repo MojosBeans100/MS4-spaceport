@@ -39,7 +39,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg py-2">
         <div class="container-fluid">
-            <a id="nav-icon" href="{% url 'homepage' %}"><img src="{%  static 'images/planet.png' %}"></a>
+            <a id="nav-icon" href="{% url 'homepage' %}"><img src="{%  static 'images/planet.png' %}" alt="Spaceport website icon"></a>
             <a class="nav-link" href="{% url 'homepage' %}" id="nav-title">SPACEPORT</a>
 
             <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
@@ -72,10 +72,11 @@
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout <i class="fa fa-sign-in"
                                 aria-hidden="true"></i></a>
                         <p>Logged in as <strong>{{user}}</strong></p>
-                        {% else %}
                     </li>
+                    {% else %}
+                    <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_login' %}">Login/Sign Up <i class="fa fa-sign-in"
-                            aria-hidden="true"></i></a>
+                            aria-hidden="true"></i></a></li>
                     {% endif %}
                 </ul>
 

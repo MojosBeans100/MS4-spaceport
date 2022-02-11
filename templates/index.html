@@ -2,12 +2,13 @@
 
 {% load static %}
 
+{% block content %}
 <div class="container-fluid" id="index-container">
-    {% block content %}
+    
     {% if error %}
     <div style="margin-top: 100px; width: 50%; margin-left: 25%;">
         <h2 style="text-align: center">{{error}} <br>
-        Your pipeline was not created.</h2>
+            Your pipeline was not created.</h2>
     </div>
     {% else %}
     {% endif %}
@@ -38,7 +39,6 @@
 
         <!-- what to do -->
         <div>
-
             <div class="purpose-section">
                 <h3>Images of where you want, when you want</h3>
                 <p>Tell us where to look for images, and on which dates you'd like them taken - this setup is called a
@@ -65,7 +65,9 @@
 
             <div id="purpose-img3" title="Trajectory of satellites from Spectator.earth">
             </div>
-            <p><a href="https://app.spectator.earth/acquisition-plan?@31.473648203965688,24.412073223271108,2z">Spectator Earth Aquisition Plan View</a>&nbsp;&nbsp red dots - satellites | dotted curves - satellite trajectories/orbits | shaded bands: satellite field of view</p>
+            <p><a href="https://app.spectator.earth/acquisition-plan?@31.473648203965688,24.412073223271108,2z">Spectator
+                    Earth Aquisition Plan View</a>&nbsp;&nbsp; red dots - satellites | dotted curves - satellite
+                trajectories/orbits | shaded bands: satellite field of view</p>
 
             <div class="purpose-section">
                 <h3>Follow the progress of your pipeline</h3>
@@ -109,34 +111,35 @@
 
                 <div class="row py-5">
                     <div class="col-md py-2">
-                        <a href="{% url 'discover' %}"><button class="btn btn-dark btn-lg"><i
+                        <button onClick="location.href='{% url 'discover' %}'" class="btn btn-dark btn-lg"><i
                                     class="fas fa-search"></i>Discover
-                                More</button></a>
+                                More</button>
                     </div>
                     {% if user.is_authenticated %}
-                    <div class="col-md py-2"><a href="{% url 'create' %}"><button class="btn btn-dark btn-lg"><i
+                    <div class="col-md py-2"><button onClick="location.href='{% url 'create' %}'" class="btn btn-dark btn-lg"><i
                                     class="far fa-images"></i>Create
                                 a
-                                Pipeline</button></a></div>
+                                Pipeline</button></div>
                     {% else %}
-                    <div class="col-md py-2"><a href="{% url 'account_login' %}"><button class="btn btn-dark btn-lg"><i
+                    <div class="col-md py-2"><button onClick="location.href='{% url 'account_login' %}'" class="btn btn-dark btn-lg"><i
                                     class="fa fa-sign-in"></i>Sign
-                                Up</button></a></div>
+                                Up</button></div>
                     {% endif %}
                 </div>
             </div>
 
         </div>
     </div>
-    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i>Top</button>
+    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i
+            class="fas fa-arrow-up"></i>Top</button>
 </div>
 
 <script>
-    // External library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-    mybutton = document.getElementById("myBtn");
+    // external library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+    var mybutton = document.getElementById("myBtn");
 
     window.onscroll = function () {
-        scrollFunction()
+        scrollFunction();
     };
 
     function scrollFunction() {
@@ -151,6 +154,6 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
-    // External library ends
+    // external library ends
 </script>
 {% endblock content %}

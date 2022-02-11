@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<body id="create_container">
+<div id="create_container">
     <div class="container-fluid" style="padding-bottom: 50px;">
         {% if user.is_authenticated %}
         <form action="" method="POST" id="create_form">
@@ -44,9 +44,6 @@
                         <div class="col-12 py-1 text-center">
                             <a href="#satellite-aquisition">Satellite Aquisition</a>
                         </div>
-                        <!-- <div class="col-12 py-1 text-center">
-                            <a href="#calc-probability">Probability</a>
-                        </div> -->
                         <div class="col-12 py-1 text-center">
                             <a href="#aoi-selection">AOI Selection</a>
                         </div>
@@ -124,17 +121,6 @@
                             </ul>
                         </div>
                         <hr>
-
-                        <!-- <div class="input-sections" id="calc-probability">
-                            <h5>Calculate Probability</h5>
-                            <h6>We can calculate the probability of return of images on the pipeline parameters you
-                                choose.
-                            </h6>
-                            <p>If the percentage probability is low, we will give you advice on how to increase it
-                                before you commit your pipeline.</p>
-                            <p>Probability calculation is only available for <strong>True Colour</strong> images.</p>
-                        </div>
-                        <hr> -->
 
                         <div class="input-sections" id="aoi-selection">
                             <h5>Selecting the AOI</h5>
@@ -610,7 +596,7 @@
         </p>
         {% endif %}
     </div>
-</body>
+</div>
 
 <script>
     /*jshint esversion: 6 */
