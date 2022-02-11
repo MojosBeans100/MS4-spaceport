@@ -1019,6 +1019,8 @@ Images as acknowledged above
 
 I'd like to thank my mentor, Mo Shami, for providing me support throughout the development of this project.
 
+I'd like to thank Paul (Github 'pmeeny'), for the inspiration for a good Readme format to follow.
+
 I'd like to thank tutor support at Code Institute for many hours of technical help.
 
 I'd like to thank Astrosat Ltd, who proposed the project idea and worked with Skywatch to get me access to their API.

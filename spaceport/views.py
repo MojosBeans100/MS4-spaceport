@@ -5,16 +5,14 @@ from django.shortcuts import render, redirect, reverse
 import requests
 from django.conf import settings
 from django.contrib.auth.models import User
-import os
 import datetime
 from django.utils import timezone
+import pytz
 
 # Import local
 from .models import List, Result
 from .forms import CreateList, UpdateList
-#import pytz
-
-
+import os
 mapbox_key = os.environ.get('MAPBOX_KEY', '')
 skywatch_key = os.environ.get('SKYWATCH_KEY', '')
 
@@ -41,21 +39,6 @@ def discover(request):
         Render of discover page
     """
     return render(request, 'discover.html')
-
-
-# def api_error(request):
-#     """
-#     A view to display the API error page, for any views
-#     which required callingt the Skywatch API but it is not
-#     available.
-
-#     Args:
-#         request (object): HTTP request object.
-#     Returns:
-#         Render of api error page
-#     """
-
-#     return render(request, 'api_error.html')
 
 
 def edit(request, id):
@@ -90,7 +73,7 @@ def edit(request, id):
 
         if form.is_valid():
 
-            form.save()      
+            form.save()
 
         # else
 
@@ -104,29 +87,6 @@ def edit(request, id):
 
     return render(request, 'edit_pipeline.html', context)
 
-
-# def save(request):
-
-#     form = CreateList(request.POST)
-
-#     # if the form is valid, save it
-#     if form.is_valid():
-        
-#         print("is valid")
-
-#     # if it's not valid, return to form
-#     else:
-
-#         context = {
-#             'form': form,
-#             'validation': 'Form not valid',
-#         }
-
-#         return render(request, 'create_pipeline.html', context)
-
-    
-
-#    return render(request, 'save.html')
 
 def create(request):
     """
@@ -196,7 +156,8 @@ def create(request):
                 current_list.created_by = user
                 current_list.status = 'pending'
                 current_list.api_id = api_id
-                current_list.aoi_area = round(float((post_response['data']['area_km2'])), 2)
+                area = round(float((post_response['data']['area_km2'])), 2)
+                current_list.aoi_area = area
                 current_list.save()
 
                 return redirect(reverse('detail_view', args=[id]))
@@ -209,7 +170,8 @@ def create(request):
 
                     context = {
                         'form': form,
-                        'error': "Response 400:  there was an error when submitting the form"
+                        'error': "Response 400:"
+                        "there was an error when submitting the form"
                     }
 
                 else:
@@ -259,14 +221,15 @@ def my_pipelines(request):
 
     user = str(request.user)
 
-    active_pipelines = List.objects.filter(status='active',
-        created_by=user).order_by('date_created')
+    active_pipelines = List.objects.filter(status='active', created_by=user)
+    active_pipelines.order_by('date_created')
 
     complete_pipelines = List.objects.filter(status='complete',
-        created_by=user).order_by('date_created')
+                                             created_by=user)
+    complete_pipelines.order_by('date_created')
 
-    pending_pipelines = List.objects.filter(status='pending',
-        created_by=user).order_by('date_created')
+    pending_pipelines = List.objects.filter(status='pending', created_by=user)
+    pending_pipelines.order_by('date_created')
 
     context = {
         'active': active_pipelines,
@@ -323,7 +286,7 @@ def detail_view(request, id):
         else:
             all_dates.append(start_date)
             all_dates.append(end_date)
-            
+
         if s_date > today and e_date > today:
             future_intervals.append(start_date)
             future_intervals.append(end_date)
@@ -340,9 +303,12 @@ def detail_view(request, id):
     else:
         message = ""
 
+    results = Result.objects.filter(pipeline_id=id)
+    result = results.order_by('interval_start_date')
+
     context = {
         'pipeline': List.objects.get(id=id),
-        'results': Result.objects.filter(pipeline_id=id).order_by('interval_start_date'),
+        'results': result,
         'mapbox_key': mapbox_key,
         'current': current_interval,
         'complete': complete_intervals,
@@ -369,10 +335,8 @@ def delete(request, id):
     Confirmation of deleted pipeline (delete_conf)
     """
 
-    # get object to delete api id to post to api
     pipeline_id = List.objects.get(id=id).api_id
 
-    # delete from api
     url = (f'https://api.skywatch.co/earthcache/pipelines/{pipeline_id}')
 
     delete_pipeline = requests.delete(
@@ -382,10 +346,8 @@ def delete(request, id):
         }
     )
 
-    # get all related results
     results_to_delete = Result.objects.filter(pipeline_id=id)
 
-    # delete all results
     for result in results_to_delete:
         result.delete()
 
@@ -408,10 +370,8 @@ def delete_view(request, id):
 
     user = str(request.user)
 
-    # get the users pipelines
     users_pipelines = List.objects.filter(created_by=user)
 
-    # get pipeline to delete
     pipeline = List.objects.get(id=id)
 
     context = {
@@ -451,12 +411,10 @@ def update(request, id):
     time_now = timezone.now()
     time = datetime.date.today()
 
-    # get the api id of this object to post to api
     api_id = List.objects.get(id=id).api_id
 
-    # api url to update the pipeline status
     url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}')
-    
+
     updated_list = requests.get(
         url,
         headers={
@@ -466,20 +424,11 @@ def update(request, id):
 
     list_response = updated_list.json()
 
-    print(list_response)
-
     if updated_list.status_code == 200 or updated_list.status_code == 201:
 
-        # get object to update
         update_list = List.objects.get(id=id)
-
-        # update fields in List object  & save
         update_list.results_updated = time_now
         update_list.status = list_response['data']['status']
-
-        # if update_list.status == "active" and update_list.start_date > time:
-        #     update_list.status = "not started"
-
         update_list.save()
 
         url = (f'https://api.skywatch.co/earthcache/pipelines/{api_id}/interval_results')
@@ -491,12 +440,8 @@ def update(request, id):
             }
         ).json()
 
-        print(results_response)
-
-        # update fields in List object & save
         update_list.num_results = len(results_response['data'])
 
-        # count how many images have been found for this pipeline
         num_images = 0
         for i in results_response['data']:
             if len(i['results']) == 1:
@@ -505,17 +450,12 @@ def update(request, id):
         update_list.num_images = num_images
         update_list.save()
 
-        # if there are no results created yet for this List object
-        # create them
         if len(Result.objects.filter(pipeline_id=id)) == 0:
 
             for i in results_response['data']:
-
-                # create new result object
                 new_result = Result(
                     pipeline_id=update_list,
                     created_at=time_now,
-                    #created_at=i['created_at'],
                     updated_at=i['updated_at'],
                     api_pipeline_id=i['pipeline_id'],
                     status=i['status'],
@@ -525,10 +465,8 @@ def update(request, id):
                     interval_end_date=i['interval']['end_date'],
                 )
 
-                # save the newly created result
                 new_result.save()
 
-                # if an image is found for each interval
                 if len(i['results']) > 0:
                     new_result_1 = i['results'][0]['capture_time']
                     new_result.image_created_at = new_result_1
@@ -549,22 +487,15 @@ def update(request, id):
                     new_result.visible_area = i['overall_metadata']['visible_area_km2']
                     new_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
 
-                    # save latest image as featured image on my_pipelines.html
                     update_list.featured_image = i['results'][0]['preview_url']
                     update_list.save()
 
-                # save the newly created result
                 new_result.save()
 
-        # if there are already results created for this List object
-        # update them
         else:
 
             for i in results_response['data']:
 
-                # get the object to update
-                # use unique pipeline id, and interval dates
-                # to get the correct result object
                 update_result = Result.objects.get(
                     pipeline_id=id,
                     interval_start_date=i['interval']['start_date'],
@@ -574,8 +505,6 @@ def update(request, id):
                 update_result.status = i['status']
                 update_result.message = i['message']
 
-                # if there are now images
-                # add images & data to result object
                 if len(i['results']) > 0:
 
                     update_result.image_created_at = i['results'][0]['capture_time']
@@ -596,14 +525,11 @@ def update(request, id):
                     update_result.visible_area = i['overall_metadata']['visible_area_km2']
                     update_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
 
-                    # save latest image as featured image on my_pipelines.html
                     update_list.featured_image = i['results'][0]['preview_url']
                     update_list.save()
 
-                # save the updated result
                 update_result.save()
 
-    # if api returns error code
     else:
 
         if updated_list.status_code == 404:
