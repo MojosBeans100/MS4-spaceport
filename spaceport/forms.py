@@ -1,6 +1,7 @@
 from .models import List, output, status_choice
 from django.forms import ModelForm, DateInput, TextInput, Textarea, RadioSelect, Select, NumberInput
 
+
 class CreateList(ModelForm):
     class Meta:
         model = List
@@ -66,7 +67,6 @@ class CreateList(ModelForm):
                 'oninput': "this.className = ''",
             }),
             'output_image': RadioSelect(choices='output_image', attrs={
-                #'class': 'form-control',
                 'id': 'id_output',
                 'onchange': 'styleOutputImage()',
                 'oninput': "this.className = ''",
@@ -96,11 +96,4 @@ class UpdateList(ModelForm):
                 'rows': 3,
                 'id': 'pipeline_des',
             }),
-            # 'status': RadioSelect(choices='status_choice', attrs={
-            #     #'class': 'form-control',
-                
-            # }),
         }
-
-
-

@@ -2,9 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from cloudinary.models import CloudinaryField
-from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.core.validators import MaxValueValidator, MinValueValidator
 
-# api interval options
+
 interval = (
     ('1d', 'Daily'),
     ('7d', 'Weekly'),
@@ -13,7 +13,6 @@ interval = (
     ('60d', 'Bi-monthly'),
 )
 
-# api output image identifiers
 output = (
     ('a8fc3dde-a3e8-11e7-9793-ae4260ee3b4b', 'True Colour'),
     ('1f0db8b2-b4d4-11e7-a775-a6fe70ce62b1', 'False Colour Urban'),
@@ -23,7 +22,6 @@ output = (
     ('ga23d8a2-8f3d-481c-b7ef-9fa02839aab0', 'Near-infrared'),
 )
 
-# status of pipeline
 status_choice = (
     ('active', 'active'),
     ('pending', 'pending'),
@@ -37,7 +35,6 @@ class List(models.Model):
     A class for pipelines model
     """
 
-    # user parameters
     pipeline_name = models.CharField(
         max_length=30
     )
@@ -63,13 +60,6 @@ class List(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(100)],
     )
 
-    # auto generated parameters
-    # accept null as many of these parameters are input after
-    # form is submitted
-    # slug = models.SlugField(
-    #     max_length=200,
-    #     null=True
-    # )
     num_intervals = models.PositiveIntegerField(
         default=0,
         null=True
@@ -112,16 +102,13 @@ class List(models.Model):
         null=True
     )
 
-    # list pipelines by latest created
     class Meta:
         ordering = ['-date_created']
 
-    # list pipelines by their name
     def __str__(self):
         return self.pipeline_name
 
 
-# list of all results created for all pipelines
 class Result(models.Model):
     """
     A class for pipeline results model
@@ -147,9 +134,6 @@ class Result(models.Model):
     )
     interval_start_date = models.DateField()
     interval_end_date = models.DateField()
-
-    # if an image is available for this result
-    # null = True to allow for if no images are returned
     image_created_at = models.DateTimeField(
         null=True
     )
@@ -184,8 +168,6 @@ class Result(models.Model):
         max_length=60,
         null=True
     )
-
-    # image metadata
     scene_height = models.CharField(
         max_length=40,
         null=True

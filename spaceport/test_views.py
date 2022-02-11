@@ -166,12 +166,3 @@ class TestViews(TestCase):
         self.assertEqual(edited_object.pipeline_name, 'Test name edited')
         self.assertEqual(edited_object.pipeline_des, 'Test des edited')
 
-    #@mock.patch('spaceport.views.create', return_value="pipeline_response")
-    # def test_can_create_object(self):
-
-    #     response = self.client.get('/create_pipeline.html')
-
-    #     print(response.context)
-        
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'create_pipeline.html')

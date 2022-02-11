@@ -25,18 +25,15 @@ class TestListModel(TestCase):
             cloud_cover='10',
         )
 
-
     def tearDown(self):
         """
         Delete list
         """
         List.objects.all().delete()
 
-    
     def test_list_str_method(self):
         """
         Test the List str method
         """
         list = List.objects.get()
         self.assertEqual((list.__str__()), "Test Pipeline")
-

@@ -1,14 +1,18 @@
+# Import 3rd party
+
+# Import django
 from django.shortcuts import render, redirect, reverse
 import requests
 from django.conf import settings
 from django.contrib.auth.models import User
-from .models import List, Result
 import os
-from .forms import CreateList, UpdateList
-from slugify import slugify
 import datetime
 from django.utils import timezone
-import pytz
+
+# Import local
+from .models import List, Result
+from .forms import CreateList, UpdateList
+#import pytz
 
 
 mapbox_key = os.environ.get('MAPBOX_KEY', '')
@@ -39,19 +43,19 @@ def discover(request):
     return render(request, 'discover.html')
 
 
-def api_error(request):
-    """
-    A view to display the API error page, for any views
-    which required callingt the Skywatch API but it is not
-    available.
+# def api_error(request):
+#     """
+#     A view to display the API error page, for any views
+#     which required callingt the Skywatch API but it is not
+#     available.
 
-    Args:
-        request (object): HTTP request object.
-    Returns:
-        Render of api error page
-    """
+#     Args:
+#         request (object): HTTP request object.
+#     Returns:
+#         Render of api error page
+#     """
 
-    return render(request, 'api_error.html')
+#     return render(request, 'api_error.html')
 
 
 def edit(request, id):
@@ -72,28 +76,21 @@ def edit(request, id):
     user = str(request.user)
     edit_time = timezone.now()
 
-    # get the users pipelines
     users_pipelines = List.objects.filter(created_by=user)
 
-    # get the object to update
     this_pipeline = List.objects.get(id=id)
     this_pipeline.time_edited = edit_time
     this_pipeline.save()
 
-    # fill in the form with that object
     form = UpdateList(instance=this_pipeline)
 
-    # if the form has been submitted
     if request.method == 'POST':
 
-        # get user's new values
         form = UpdateList(request.POST, instance=this_pipeline)
 
-        # if the inputs are valid, save the updated object
         if form.is_valid():
 
-            form.save()
-            # reach pipeline and update it
+            form.save()      
 
         # else
 
@@ -108,33 +105,32 @@ def edit(request, id):
     return render(request, 'edit_pipeline.html', context)
 
 
-def save(request):
+# def save(request):
 
-    form = CreateList(request.POST)
+#     form = CreateList(request.POST)
 
-    # if the form is valid, save it
-    if form.is_valid():
+#     # if the form is valid, save it
+#     if form.is_valid():
         
-        print("is valid")
+#         print("is valid")
 
-    # if it's not valid, return to form
-    else:
+#     # if it's not valid, return to form
+#     else:
 
-        context = {
-            'form': form,
-            'validation': 'Form not valid',
-        }
+#         context = {
+#             'form': form,
+#             'validation': 'Form not valid',
+#         }
 
-        return render(request, 'create_pipeline.html', context)
+#         return render(request, 'create_pipeline.html', context)
 
     
 
-    return render(request, 'save.html')
-
+#    return render(request, 'save.html')
 
 def create(request):
     """
-    A view to submit the user's form to the API 
+    A view to submit the user's form to the API
     and if valid, save the pipeline/List object.
 
     Parameters:
@@ -145,27 +141,18 @@ def create(request):
     Redirects to Detail View of List object.
     """
 
-    # current logged in user
     user = str(request.user)
 
-    # if user posts the form
     if request.method == 'POST':
 
-        # fill in form details with users values
         form = CreateList(request.POST)
 
-        # if form is valid, save as object and call the pipeline
-        # fill in other fields of object
-        # redirect to detail view of object
         if form.is_valid():
 
-            # put aoi into correct format
             format_aoi = form.cleaned_data['aoi']['features'][0]['geometry']
 
-            # api url
             url = 'https://api.skywatch.co/earthcache/pipelines'
 
-            # api parameters required
             params = {
                 'name': form.cleaned_data['pipeline_name'],
                 'interval': form.cleaned_data['interval'],
@@ -177,13 +164,12 @@ def create(request):
                 },
                 'end_date': str(form.cleaned_data['end_date']),
                 'aoi': format_aoi,
-                # max cost must be kept to 0!!
+                # very important - max cost must be kept to 0!!
                 'max_cost': 0,
                 'cloud_cover_percentage': form.cleaned_data['cloud_cover'],
                 'min_aoi_coverage_percentage': 50,
                 'result_delivery': {
                     'max_latency': form.cleaned_data['interval'],
-                    #'max_latency': '0d',
                     'priorities': [
                         'latest',
                         'highest_resolution',
@@ -195,28 +181,17 @@ def create(request):
                 'tags': []
             }
 
-            print(params)
-
-            # post the pipeline to the api
             post_pipeline = requests.post(
                 url,
                 headers={'x-api-key': skywatch_key},
                 json=params)
             post_response = post_pipeline.json()
 
-            print(post_pipeline)
-            print(post_response)
-
-            # if no errors in api response,
-            # save form as object and fill in other fields
             if post_pipeline.status_code == 201:
 
                 form.save()
-
-                # get the object id
                 current_list = List.objects.latest('id')
                 id = current_list.id
-
                 api_id = post_response['data']['id']
                 current_list.created_by = user
                 current_list.status = 'pending'
@@ -224,11 +199,8 @@ def create(request):
                 current_list.aoi_area = round(float((post_response['data']['area_km2'])), 2)
                 current_list.save()
 
-                # direct user to detail view of this model
                 return redirect(reverse('detail_view', args=[id]))
 
-            # if api cannot be reached
-            # return user to homepage with error message
             else:
 
                 if post_pipeline.status_code == 400:
@@ -246,16 +218,15 @@ def create(request):
 
                     context = {
                         'form': form,
-                        'error': "Response 500:  we could not reach the API just now.  Please try again later."
+                        'error': "Response 500:"
+                        "we could not reach the API just now."
+                        "Please try again later."
                     }
 
                 return render(request, 'index.html', context)
 
-        # if form is not valid
-        # return to form
         else:
-            
-            # fill in form details with users values
+
             context = {
                 'form': form,
                 'mapbox_key': mapbox_key,
@@ -297,14 +268,10 @@ def my_pipelines(request):
     pending_pipelines = List.objects.filter(status='pending',
         created_by=user).order_by('date_created')
 
-    # not_started_pipelines = List.objects.filter(status='not started',
-    #     created_by=user).order_by('date_created')
-
     context = {
         'active': active_pipelines,
         'complete': complete_pipelines,
         'pending': pending_pipelines,
-        #'not_started': not_started_pipelines,
     }
 
     return render(request, 'my_pipelines.html', context)
@@ -563,8 +530,8 @@ def update(request, id):
 
                 # if an image is found for each interval
                 if len(i['results']) > 0:
-
-                    new_result.image_created_at = i['results'][0]['capture_time']
+                    new_result_1 = i['results'][0]['capture_time']
+                    new_result.image_created_at = new_result_1
                     new_result.image_updated_at = i['results'][0]['updated_at']
                     new_result.image_preview_url = i['results'][0]['preview_url']
                     new_result.image_visual_url = i['results'][0]['visual_url']
@@ -651,6 +618,5 @@ def update(request, id):
         }
 
         return redirect(reverse('detail_view', args=[id]), context)
-
 
     return redirect(reverse('detail_view', args=[id]))

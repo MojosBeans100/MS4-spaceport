@@ -22,10 +22,6 @@ class ListAdmin(admin.ModelAdmin):
 
     search_fields = ['pipeline_name']
 
-    # class Meta:
-    #     order_by('-created_at')
-
-
 
 @admin.register(Result)
 class ResultAdmin(admin.ModelAdmin):
