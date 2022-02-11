@@ -63,7 +63,8 @@ body {
 .accounts-divs a,
 #edit-container a,
 #site-purpose-section a,
-.user-error a {
+.user-error a,
+#form-not-signed-in a {
     color: black !important;
     font-weight: bold;
     text-decoration: none;
@@ -78,7 +79,8 @@ body {
 #detail-view-div a:hover,
 .accounts-divs a:hover,
 #edit-container a:hover,
-.user-error a:hover {
+.user-error a:hover,
+#form-not-signed-in a:hover {
     text-decoration: underline double black;
     text-underline-position: under;
     text-underline-offset: 3px;
@@ -115,9 +117,7 @@ body {
     padding: 15px;
 }
 
-
 /* INDEX/HOMEPAGE STYLING */
-
 #api_error {
     margin-top: 100px;
     width: 50%;
@@ -207,8 +207,6 @@ body {
 .purpose-section button {
     width: 230px;
 }
-
-
 
 /* DISCOVER STYLING */
 
@@ -444,7 +442,7 @@ input.invalid {
     overflow: hidden;
 }
 
-.output-label img {
+.output-label img  {
     width: 100%;
     height: 100%;
     margin-left: 0;
@@ -567,6 +565,8 @@ input.invalid {
 #form-not-signed-in,
 #pipelines-not-signed-in {
     margin-top: 150px;
+    text-align: center;
+    font-size: 18px;
 }
 
 .loader {
