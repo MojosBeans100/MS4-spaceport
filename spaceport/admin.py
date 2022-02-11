@@ -1,4 +1,9 @@
+# Import 3rd party
+
+# Import django
 from django.contrib import admin
+
+# Import local
 from .models import List, Result
 
 

@@ -3,11 +3,8 @@
 # Import django
 from django.shortcuts import render, redirect, reverse
 import requests
-#from django.conf import settings
-#from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
-#import pytz
 
 # Import local
 from .models import List, Result
@@ -190,7 +187,8 @@ def create(request):
             context = {
                 'form': form,
                 'mapbox_key': mapbox_key,
-                'error': "Error: some parameters were not valid.  Please check all parameters meet requirements.",
+                'error': "Error: some parameters were not valid."
+                " Please check all parameters meet requirements.",
             }
 
             return render(request, 'create_pipeline.html', context)
@@ -407,7 +405,6 @@ def update(request, id):
     """
 
     time_now = timezone.now()
-    #time = datetime.date.today()
 
     api_id = List.objects.get(id=id).api_id
 

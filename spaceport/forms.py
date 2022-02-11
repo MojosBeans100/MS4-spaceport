@@ -1,5 +1,11 @@
-from .models import List, output, status_choice
-from django.forms import ModelForm, DateInput, TextInput, Textarea, RadioSelect, Select, NumberInput
+# Import 3rd party
+
+# Import django
+from django.forms import (ModelForm, DateInput, TextInput,
+                          Textarea, RadioSelect, Select, NumberInput)
+
+# Import local
+from .models import List
 
 
 class CreateList(ModelForm):
@@ -32,7 +38,8 @@ class CreateList(ModelForm):
             'pipeline_des': Textarea(attrs={
                 'class': 'form-control',
                 'rows': 3,
-                'placeholder': 'Give your pipeline a unique description to identify it',
+                'placeholder': 'Give your pipeline'
+                ' a unique description to identify it',
                 'id': 'pipeline_des',
                 'oninput': "this.className = ''",
             }),
@@ -43,7 +50,6 @@ class CreateList(ModelForm):
                 'oninput': "this.className = ''",
             }),
             'start_date': DateInput(attrs={
-                'type': 'date',
                 'class': 'form-control',
                 'id': 'start_date',
                 'placeholder': 'Start date', 'type': 'text',
@@ -52,7 +58,6 @@ class CreateList(ModelForm):
                 'oninput': "this.className = ''",
             }),
             'end_date': DateInput(attrs={
-                'type': 'date',
                 'class': 'form-control',
                 'id': 'end_date',
                 'placeholder': 'End date', 'type': 'text',

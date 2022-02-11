@@ -1,9 +1,11 @@
+# Import 3rd party
+
+# Import django
 from django.db import models
 from django.utils import timezone
-from django.utils.safestring import mark_safe
-from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+# Import local
 
 interval = (
     ('1d', 'Daily'),
