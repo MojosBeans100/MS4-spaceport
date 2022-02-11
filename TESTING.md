@@ -551,12 +551,30 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 All files were checked for format validation.
 
 ## HTML
+The validator used to check validity of Javascript code was [W3 validator](https://validator.w3.org/nu/)
 
+|File|Result|Status|
+|----|------|------|
+|index.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591728/html_index_pl97ot.jpg)|Pass|
+|my_pipelines.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591727/html_mypipelines_s1817c.jpg)|Pass|
+|create_pipeline.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591727/html_create_tbnalc.jpg)|Pass|
+|detail_view.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591727/html_detailview_znbcyl.jpg)|Pass|
+|discover.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644592670/html_discover_tc7czj.jpg)|Pass|
+|delete_view.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644594717/html_deleteview_smx4pn.jpg)|Pass|
+|edit_pipeline.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644594732/html_edit_nfd3dd.jpg)|Pass|
 
 ## CSS
 
 
 ## Javascript
+The validator used to check validity of Javascript code was [JSHINT](http://pep8online.com/checkresult)
+
+|File|Result|Status|
+|----|------|------|
+|my_pipelines.html|||
+|create_pipeline.html|||
+|detail_view.html||||
+
 
 ## Python
 The validator used to check validity of Python code was [PEP8](http://pep8online.com/checkresult)

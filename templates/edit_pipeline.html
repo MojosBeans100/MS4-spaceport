@@ -6,11 +6,10 @@
 {% endblock title %}
 
 {% block content %}
-
 <div class="container-fluid" id="edit-container">
     <div class="container">
 
-        <form action="" method="POST" id="edit_form">
+        <form action="{% url 'edit_pipeline' pipeline.id %}" method="POST" id="edit_form">
             {% csrf_token%}
 
             <!-- ensure users can only edit their own pipelines -->
@@ -54,17 +53,11 @@
                 </div>
             </div>
             {% endif %}
-
+            {% else %}
+            <h1 class="text-center m-3 py-5">404: Page not found</h1>
+            <h3 class="text-center m-3">Users can only edit their own pipelines.</h3>
+            {% endif %}
+        </form>
     </div>
-
-    {% else %}
-    <h1 class="text-center m-3 py-5">404: Page not found</h1>
-    <h3 class="text-center m-3">Users can only edit their own pipelines.</h3>
-    {% endif %}
-
-    </form>
-
 </div>
-
-
 {% endblock content %}

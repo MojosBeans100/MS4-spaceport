@@ -130,7 +130,8 @@
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <img style="width: 100%; height: 200px;"
                                         src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643114686/aoi1_bjsn9n.jpg">
-                                    <p>Click on the map to start drawing points to form a polygon. Use the toolbar to toggle between Selecting and Deleting</p>
+                                    <p>Click on the map to start drawing points to form a polygon. Use the toolbar to
+                                        toggle between Selecting and Deleting</p>
                                 </div>
 
                                 <div class="col-12 col-md-6 col-lg-4">
@@ -163,7 +164,8 @@
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <img style="width: 100%; height: 200px;"
                                         src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644180206/aiintersection_o3r50y.jpg">
-                                    <p>Maintain a complete shape, with no intersecting lines. The above AOI would result in an error</p>
+                                    <p>Maintain a complete shape, with no intersecting lines. The above AOI would result
+                                        in an error</p>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +190,7 @@
 
             <!-- general form section -->
             <div id="general_form_section" class="tab">
-                
+
                 <!-- section heading and intro -->
                 <div class="row">
                     <div class="col">
@@ -216,7 +218,7 @@
 
             <!-- aoi form section -->
             <div id="aoi_form_section" class="tab">
-                
+
                 <!-- section heading and intro -->
                 <div class="row">
                     <div class="col">
@@ -298,12 +300,12 @@
                 <!-- form field and description -->
                 <div class="input-sections">
                     <label for="cloud_cover" class="form-label">Cloud cover</label>
-                    <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have.<br>
-                        <p>If this is set to 100%, you want your pipeline to have 100% cloud free area (100% AOI
-                            visible).<br> The higher this parameter, the lower chance of receiving images as the
-                            platform
-                            will reject images below this number.</p>
-                    </p>
+                    <p><strong>Minimum</strong> cloud free area (% of your AOI) your image results must have.</p><br>
+                    <p>If this is set to 100%, you want your pipeline to have 100% cloud free area (100% AOI
+                        visible).<br> The higher this parameter, the lower chance of receiving images as the
+                        platform
+                        will reject images below this number.</p>
+
                     {{form.cloud_cover}}
                 </div>
 
@@ -457,7 +459,7 @@
 
             <!-- review form section -->
             <div id="review_form_section" style="height: auto;" class="tab">
-               
+
                 <!-- section heading and intro -->
                 <div class="row">
                     <div class="col">
@@ -976,19 +978,19 @@
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
 
-                // if area is too small    
+                    // if area is too small    
                 } else if (rounded_km < 25) {
                     area_validation = "Area is too small: choose an area larger than 25 km<sup>2</sup>";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
 
-                // if there are intersecting lines
-                } else if (kinks.features.length > 0) {    
+                    // if there are intersecting lines
+                } else if (kinks.features.length > 0) {
                     area_validation = "AOI selection is not valid: choose a complete area with no intersecting lines";
                     area_validation_feedback.style.fontWeight = 'bold';
                     input_validation.value = "";
 
-                // if area size is valid
+                    // if area size is valid
                 } else {
 
                     // input the geoJSON into the form field
@@ -1017,7 +1019,7 @@
             area_validation = "";
             area_validation_feedback.innerHTML = `${area_validation}`;
             map_area.innerHTML = "Area: 0 km<sup>2</sup>";
-            
+
         }
 
         // remove the null value and set to blank
@@ -1123,7 +1125,8 @@
         }
 
         // render user's form inputs into the review table
-        var feedback = [review_name, review_des, review_status, review_sdate, review_edate, review_length, review_interval,
+        var feedback = [review_name, review_des, review_status, review_sdate, review_edate, review_length,
+            review_interval,
             review_num_intervals, review_output
         ];
 
@@ -1152,7 +1155,6 @@
             document.getElementById('prevButton').disabled = false;
         }
     }
-
 </script>
 
 {% endblock content %}
