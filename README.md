@@ -230,29 +230,28 @@ The styling is kept clean and minimal throughout the site.  As the content of th
 Initial wireframes were designed during the project proposal stage.  During development, when more was learned about the API and it's capabilities and restrictions, the designs evolved to include more information. 
 
 #### Homepage
-[Landing page wireframe](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/Landing_page_ja2w79.png)
+![Landing page wireframe](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/Landing_page_ja2w79.png)
 
 #### My Pipelines
-[My pipelines wireframe](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/Account_landing_page_ucl4cj.png)
+![My pipelines wireframe](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/Account_landing_page_ucl4cj.png)
 
 #### Create Account
-[Create an account](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617073/Create_account_eyw7lv.png)
+![Create an account](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617073/Create_account_eyw7lv.png)
 
 #### Log In
-[Log in](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/Log_in_peayob.png)
+![Log in](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/Log_in_peayob.png)
 
 #### Create Pipeline
-[Create pipeline 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617074/New_pipeline_1_i8yggk.png)
+![Create pipeline 1](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617074/New_pipeline_1_i8yggk.png)
 
-[Create pipeline 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/New_pipeline_2_tlza0j.png)
+![Create pipeline 2](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617072/New_pipeline_2_tlza0j.png)
 
-[Create pipeline 3](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617073/New_pipeline_3_apy4bx.png)
+![Create pipeline 3](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617073/New_pipeline_3_apy4bx.png)
 
-[Create pipeline 4](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/New_pipeline_3_copy_f5ioqw.png)
+![Create pipeline 4](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/New_pipeline_3_copy_f5ioqw.png)
 
 #### Pipeline Detail
-[Detail view](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/Pipeline_detail_l3v95d.png)
-
+![Detail view](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644617075/Pipeline_detail_l3v95d.png)
 
 ### Font
 The font style is the default Bootstrap 5 native sans-serif font stack for cross platform usability. The font remains consistent throughout the website, aside from being rendered in italic or font style for emphasis.
