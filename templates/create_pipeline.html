@@ -302,8 +302,7 @@
                 <div class="input-sections" id="cloud-cover">
                     <div class="row">
                         <div class="col-sm-4 p-3">
-                            <img
-                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/30-per-cloud-cover_vfgigm.jpg" alt="Low cloud cover">
+                            <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/30-per-cloud-cover_vfgigm.jpg" alt="Low cloud cover">
                             <br>
                             <p><strong>Low cloud cover (high cloud free area)</strong></p>
                             <p>High AOI coverage</p>
@@ -311,8 +310,7 @@
                         </div>
 
                         <div class="col-sm-4 p-3">
-                            <img
-                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782570/65-per-cloud-cover_ufppk0.jpg" alt="Medium cloud cover">
+                            <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782570/65-per-cloud-cover_ufppk0.jpg" alt="Medium cloud cover">
                             <br>
                             <p><strong>Medium cloud cover (medium cloud free area)</strong></p>
                             <p>Medium AOI coverage</p>
@@ -320,8 +318,7 @@
                         </div>
 
                         <div class="col-sm-4 p-3">
-                            <img
-                                src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/80-per-cloud-cover_j3wok7.jpg" alt="High cloud cover">
+                            <img src="https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1642782571/80-per-cloud-cover_j3wok7.jpg" alt="High cloud cover">
                             <br>
                             <p><strong>High cloud cover (low cloud free area)</strong></p>
                             <p>Low AOI coverage</p>
@@ -442,11 +439,10 @@
                         </label>
                     </div>
                 </div>
-
             </div>
 
             <!-- review form section -->
-            <div id="review_form_section" style="height: auto;" class="tab">
+            <div id="review_form_section" class="tab">
 
                 <!-- section heading and intro -->
                 <div class="row">
@@ -535,7 +531,7 @@
                 <hr>
 
                 <!-- prompt about submitting -->
-                <div style="text-align:center; margin-top: 60px; margin-bottom: 60px;">
+                <div id="submitting-form">
                     <h4>Ready to submit?</h4><br>
                     <h5>Once submitted, you will be redirected to your new pipeline.</h5>
                     <h5>Processing pipelines can take a few minutes, so you will be encouraged to update the pipeline
@@ -581,7 +577,7 @@
 
         <!-- ensure only authenticated users can access this page -->
         {% else %}
-        <p style="margin-top: 150px;">You are not permitted to create a pipeline without being logged in.
+        <p id="form-not-signed-in">You are not permitted to create a pipeline without being logged in.
             Sign up <a href="{% url 'account_login' %}">here</a>
         </p>
         {% endif %}

@@ -426,6 +426,10 @@ input.invalid {
     background-color: #04aa6d;
 }
 
+#review_form_section {
+    height: auto;
+}
+
 .output-label {
     text-align: center;
     width: 80%;
@@ -537,6 +541,12 @@ input.invalid {
     width: 60%;
 }
 
+#submitting-form {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
 #submitting_pipeline {
     width: 100%;
     text-align: center;
@@ -545,6 +555,10 @@ input.invalid {
 #submitting_pipeline h2 {
     padding-top: 100px;
     padding-bottom: 30px;
+}
+
+#form-not-signed-in {
+    margin-top: 150px;
 }
 
 .loader {
