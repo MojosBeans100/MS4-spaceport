@@ -32,11 +32,9 @@ This document details the testing procedures carried out to ensure expected func
         - [Acceptance Criteria](#acceptance-criteria-5)
         - [Testing](#testing-5)
         - [Acceptance Criteria Status](#acceptance-criteria-status-5)
-
     * [User Story 6](#user-story-6)
     * [User Story 7](#user-story-7)
     * [User Story 8](#user-story-8)
-
     * [User Story 9](#user-story-9)
         - [User Story](#user-story-9)
         - [Acceptance Criteria](#acceptance-criteria-9)
@@ -63,7 +61,11 @@ This document details the testing procedures carried out to ensure expected func
         - [Testing](#testing-13)
         - [Acceptance Criteria Status](#acceptance-critera-status-13)
 - [Automated Testing]()
-- [Validators]()
+- [Validators](#validators)
+    * [HTML](#html)
+    * [CSS](#css)
+    * [Javascript](#javascript)
+    * [Python](#python)
 
 # Testing Strategy
 
@@ -144,11 +146,9 @@ Each user story is tested for large, medium and small screen sizes to ensure the
 
 
 ## Overview of automated testing
-Basic automated testing was undertaken for the main CRUD functions of the website.  The Skywatch API requests added complexity to this (the create pipeline and delete pipeline both make a request to the API).  
+Basic automated testing was undertaken for the some of the main CRUD functions of the website.  The Skywatch API requests added complexity to this.  Some research into the Mock/Patch function was undertaken, but the developer felt it was beyond their technical level to implement these functions at this point in the diploma. 
 
-### Test Forms
-### Test Models
-### Test Views
+Functions which did not make a request to the API were tested.
 
 # Manual Testing
 ## User Story 1
@@ -363,24 +363,13 @@ As a **Site User** I can **access information on satellite imagery**
 [Back to top](#testing)
 
 ## User Story 6
-As a **Site User** I can **calculate the probability of my pipeline** so that **I can see what the chances are of successful results, and change my parameters if required**
-
-- 6.1: As a **Site User** I can **view the probability of each interval returning an image** so that **I can see the percentage chance of receiving an image**
-- 6.2: As a **Site User** I can **view the reason as to why the probability percentage is low** so that **I know which parameters I could change to attempt to increase the probability percentage**
-- 6.3: As a **Site User** I can **return back to previous form tabs and adjust my parameters** so that **I can attempt to increase the chance of probability**
-- 6.4: As a **Site User** I can **re-calculate the probability percentage** so that **I can understand how my form changes have changed the probability percentage**
-
-
+As User Story 6 was not completed, it was not tested.
 
 ## User Story 7
-As a **Site User** I can **save an incomplete form** so that **I can return to the form in the future for committing**
-
-
+As User Story 7 was not completed, it was not tested.
 
 ## User Story 8
-### Acceptance Criteria 8
-### Testing 8
-### Acceptance Criteria Status 8
+As User Story 8 was not completed, it was not tested.
 
 ## User Story 9
 As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
@@ -564,7 +553,11 @@ The validator used to check validity of Javascript code was [W3 validator](https
 |edit_pipeline.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644594732/html_edit_nfd3dd.jpg)|Pass|
 
 ## CSS
+The validator used to check validity of CSS code was [W3 Jigsaw](https://jigsaw.w3.org/css-validator/)
 
+|File|Result|Status|
+|----|------|------|
+|style.css|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644595907/jigsaw_stylecss_esyvzg.jpg)|Pass|
 
 ## Javascript
 The validator used to check validity of Javascript code was [JSHINT](http://pep8online.com/checkresult)
@@ -576,6 +569,11 @@ The validator used to check validity of Javascript code was [JSHINT](http://pep8
 |create_pipeline.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591728/jshint_create_bphgvk.jpg)|Pass|
 |detail_view.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644591728/jshint_detail_mbvl2c.jpg)|Pass|
 |discover.html|[Validation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644595256/jshint_discover_ahohra.jpg)|Pass|
+
+Warnings:
+1. The same 'unused' variable was brought to the attention of the developer for all pages which included the scroll to top button.  This function was called using the button in the HTML code.
+
+2. Some undefined variables were brought to the attention of the developer, which were defined in the base.html <code><head></code> tag, using a CDN link.   
 
 ## Python
 The validator used to check validity of Python code was [PEP8](http://pep8online.com/checkresult)

@@ -288,7 +288,7 @@ The font style is the default Bootstrap 5 native sans-serif font stack for cross
 ### Site User Stories
 
 ## User Stories Strategy
-Epics were defined based on the main functions the website was expected to have, which mostly revolved around the main CRUD functions of the database.  These Epics were refined into smaller User Stories, which could then be broken down into manageable tasks for the developer to complete within the current project iteration.  See all [project iterations/boards](https://github.com/MojosBeans100/ms4-spaceport/projects).
+Epics were defined based on the main functions the website was expected to have, which mostly revolved around the main CRUD functions of the database.  These Epics were refined into smaller User Stories, which could then be broken down into manageable tasks for the developer to complete within the current project iteration.  User acceptance criteria was determined for each Epic/User Story. See all [project iterations/boards](https://github.com/MojosBeans100/ms4-spaceport/projects).
 
 The User Stories were designated a priority label to complete within the iteration.  The main CRUD functions were assigned a 'must-have' label.  User Stories which were deemed beneficial but not a priority were assigned a 'should-have' label.
 
@@ -299,7 +299,7 @@ All User Stories which were not completed had a 'could-have' label assigned to t
 ## User Stories
 All User Stories were tested for functionality.  This is detailed in [this file](TESTING.md).
 
-## User Story 1
+### User Story 1
 As a **Site User** I can **create a pipeline**
 
 - 1.1: As a **New/returning Site User** I can **see an introduction page to creating a pipeline** so that **I understand the restrictions**
@@ -317,11 +317,7 @@ As a **Site User** I can **create a pipeline**
 - 1.13: As a **New/returning Site User** I am **redirected to the detail view of the pipeline after submission** so that **I can view the details of the pipeline I submitted**
 - 1.14: As a **New/returning Site User** I am **encouraged to allow for the website to process the pipeline when first redirected** so that **I understand why the pipeline detail is initially sparse**
 
-
-
-
-
-## User Story 2
+### User Story 2
 As a **Site User** I can **view a list of all my pipelines**
 
 - 2.1: As a **Returning Site User** I can **see the My Pipelines link on the navbar when I am logged in** so that **I can easily refer back to this at all times**
@@ -334,7 +330,7 @@ As a **Site User** I can **view a list of all my pipelines**
 - 2.8: As a **Returning Site User** I can see **an interactive style change when I hover over a pipeline** so that **I know I can click on the pipeline card and view pipeline details**
 - 2.9: As a **New Site User** I am **shown a message at the top of My Pipelines, directing me to create a pipeline** so that **when first signing up, I am linked to the next logical step**
 
-## User Story 3
+### User Story 3
 As a **Site User** I can **view all details of a specific pipeline**
 
 - 3.1: As a **Returning Site User** I can **see that the detail view is separated into sections** so that **I can scroll to the section I am interested in**
@@ -351,7 +347,7 @@ As a **Site User** I can **view all details of a specific pipeline**
 - 3.12: As a **Returning Site User** I can **see buttons to edit/delete my pipeline** so that **I know how to access these functions**
 - 3.13: As a **Returning Site User** I am **told if I cannot edit/delete my pipeline** so that **I am aware why these functions are/are not available**
 
-## User Story 4
+### User Story 4
 As a **Site User** I can **create an account** so that **I can log in to create pipelines, and view my pipelines**
 
 - 4.1: As a **New Site User** I can **sign up to Spaceport** so that **I can create pipelines**
@@ -360,7 +356,7 @@ As a **Site User** I can **create an account** so that **I can log in to create 
 - 4.4: As a **Site User** I am **redirected to my pipelines when I log in** so that **my account information is immediately visible to me**
 - 4.5: As a **Site User** I can **logout from my account on Spaceport** so that **my account information is kept safe and private**
 
-## User Story 5
+### User Story 5
 As a **Site User** I can **access information on satellite imagery**
 
 - 5.1: As a **New/returning Site User** I can **see at all times the Discover page link** so that **I can always refer to this page for more information**
@@ -373,7 +369,7 @@ As a **Site User** I can **access information on satellite imagery**
 - 5.8: As a **New/returning Site User** I can **click on links for further information on how satellite imagery works** so that **I can further my understanding**
 - 5.9 As a **New/returning Site User** I can **read about common applications of satellite imagery** so that **I have more understanding of the real life applications of the website**
 
-## User Story 6
+### User Story 6
 As a **Site User** I can **calculate the probability of my pipeline** so that **I can see what the chances are of successful results, and change my parameters if required**
 
 - 6.1: As a **Site User** I can **view the probability of each interval returning an image** so that **I can see the percentage chance of receiving an image**
@@ -390,7 +386,7 @@ In a testing environment this feature was set up with a Javascript async *fetch*
 While the function worked as expected in the testing environment, the feature was not included in the final deployed project due to time restraints.  The User Story was a 'could-have' issue, and omitting this feature does not hamper the user's experience on the website.
 
 
-## User Story 7
+### User Story 7
 As a **Site User** I can **save an incomplete form** so that **I can return to the form in the future for committing**
 
 - 7.1: As a **Site User** I can **save an incomplete form** so that **I can keep the parameters saved without having to commit**
@@ -404,7 +400,7 @@ An additional button could be added to the form on all tabs which would save the
 
 This feature could be implemented easily on another iteration of the project. While this feature may be beneficial, especially as the form is relatively long, it is not a feature which affects the overall functionality of the website.
 
-## User Story 8
+### User Story 8
 As a **Website Owner/Admin** I can **lock/restrict specific parameters in the admin panel** so that **for certain users I can control the details of the pipelines they submit**
 
 User Story 8 was not implemented in the final deployed project, and was therefore not tested. 
@@ -413,7 +409,7 @@ The purpose of this feature was to allow the admin panel to restrict certain par
 
 It became more evident throughout the development of the project that this feature would only be beneficial for purchased imagery, and adding restrictions for free data would further reduce the probability of the user receiving images for their pipelines. The developer felt it was more beneficial to allow users full scope of the free API data.
 
-## User Story 9
+### User Story 9
 As a **Site User** I can **see a visual graph of the progress of the pipeline** so that **I have a more visually pleasing understanding of the pipeline progress** (active pipelines only)
 
 - 9.1: As a **Site User** I can **see a timeline spanning the full duration of my pipeline** so that **I can see when the pipeline starts and ends**
@@ -423,7 +419,7 @@ As a **Site User** I can **see a visual graph of the progress of the pipeline** 
 - 9.5: As a **Site User** I can **see today represented on the timeline** so that **I can gauge an understanding of how much of the pipeline has been completed, and how much is left**
 - 9.6: As a **Site User** I can **see when images were delivered** so that **I know which intervals were successful**
 
-## User Story 10
+### User Story 10
 As a **Site User** I can **select the AOI for my pipeline on a map feature** so that **there is a more accessible way of selection/viewing my chosen AOI**
 
 - 10.1: As a **Site User** I am **instructed to select an area of an interactive map** so that **my pipeline will retrieve satellite images of that area**
@@ -434,7 +430,7 @@ As a **Site User** I can **select the AOI for my pipeline on a map feature** so 
 - 10.6: As a **Site User** I am **given a review of the AOI I selected in the form review and my pipeline detail view** so that **I am reminded of the location of the AOI I selected**
 - 10.7: As a **Site User** I can **see the geoJSON data/coordinates of the area I selected** so that **I can use this information in post production**
 
-## User Story 11
+### User Story 11
 As a **Site User** I can **view/download images and metadata of retrieved API results** so that **I can use this information in post production**
 
 - 11.1: As a **Site User** I can **view a preview of a delivered image** so that **I can determine if the image is of good quality**
@@ -443,7 +439,7 @@ As a **Site User** I can **view/download images and metadata of retrieved API re
 - 11.4: As a **Site User** I can **see technical data associated with any delivered images** so that **I can determine if the image is of use to me/meets the parameters I set**
 - 11.5: As a **Site User** I can **open a file containing the metadata associated with delivered images** so that **I can view further technical information about the image/satellite which took the image**
 
-## User Story 12
+### User Story 12
 As a **Site User** I can **edit details of my pipelines**
 
 - 12.1: As a **New/returning Site User** I can **access the edit form on the pipeline detail page** so that **I can edit the pipeline**
@@ -453,7 +449,7 @@ As a **Site User** I can **edit details of my pipelines**
 - 12.5: As a **New/returning Site User** I am **redirected back to the detail view of the pipeline** so that **I can see the changes I made reflected**
 - 12.6: As a **New/returning Site User** I am **shown a timestamp of when the pipeline was last edited** so that **I am aware if and when I last edited my pipeline**
 
-## User Story 13
+### User Story 13
 As a **Site User** I can **delete my pipeline** so that **I can remove pipelines I no longer need, or were incorrect**
 
 - 13.1: As a **Site User** I can **see the Delete Pipeline button on my pipeline view** so that **I can access the delete form**
@@ -463,16 +459,13 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 - 13.5: As a **Site User** I can **see an exit button when deleting my pipeline** so that **I can change my mind if I no longer want to delete this pipeline**
 - 13.6: As a **Site User** I am **given feedback that the pipeline was deleted** so that **I have confirmation that the pipeline was deleted**
 
-
-## User Story 14
-As a **Website owner/Admin** I can **view a list of all pipelines and results with identifying fields** so that **I am aware of how many pipelines/results exist in the database**
-
 [Back to top](#spaceport)
-
 
 # Features
 
 ## Homepage
+(User stories 2, 4, 5)
+
 The Spaceport homepage presents the purpose of the website to the user in a clear and concise manner, with attractive images and minimalist design.
 
 ### Navbar
@@ -523,6 +516,8 @@ Homepage calls to action
 [Back to top](#spaceport)
 
 ## Discover
+(User story 5)
+
 The Discover page is named aptly to encourage users to explore more about satellite imagery before jumping in to creating their own pipelines.  The purpose of the page is to provide more technical information and context about the site's purpose.  This information is kept separate from the homepage as it holds a lot of information, and the user is directed to this page at several places on other pages, as the developer feels it is beneficiary to explore this page before using the site.  In short, as the website is based on a very specific, technical concept, the developer wants the user to have a comprehensive understanding of the purpose of the site. 
 
 ![Discover banner](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643905293/Spaceport/discover_fzkqjq.jpg)
@@ -559,6 +554,8 @@ The frequently asked questions section provides access to some questions the use
 ![Discover FAQ](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644352074/discoverfaq_criutz.jpg)
 
 ## Pipelines
+(User story 2)
+
 The Pipelines/My Pipelines page lists all the pipelines the user has created.  This page can be used to review the status of current pipelines, and click on each to see the detailed view.
 
 ### Pipelines links
@@ -574,6 +571,8 @@ Each pipeline is represented by a Bootstrap card, identified by the name of the 
 [Back to top](#spaceport)
 
 ## Detail
+(User story 3)
+
 The detail view of the pipeline displays all information about the pipeline object.  The user can view not only the parameters they set, but information the platform gathers about intervals, and any results created.  The information is ordered specifically to render the identifying information first, then the information of most interest to the user (intervals/results), then the information the user already knows (the parameters selected by the user).
 
 ### Calls to action
@@ -620,6 +619,8 @@ The edit/delete functions are display in buttons, as well as information about w
 [Back to top](#spaceport)
 
 ## Create a Pipeline
+(User story 1)
+
 The 'Create a Pipeline' form is an interactive form divided into multiple tabs, so the user can progress and regress as they need.  Each tab represents different categories in the form, as well as a definition of the parameters being asked, restrictions, and visual aids if required.  The form concludes with a review section, for the user to review all the parameters they set.
 
 ### Intro Page
@@ -688,6 +689,8 @@ The last form page presents a loading screen to the user, to let the user know t
 [Back to top](#spaceport)
 
 ## Edit Pipeline
+(User story 12)
+
 The name and parameters* of pipelines can be edited if the pipeline is active.  At the very end of the detail view of the pipeline, there is an 'Edit' section.
 
 ![Edit pipeline form](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438014/editform_byhf16.jpg)
@@ -695,6 +698,8 @@ The name and parameters* of pipelines can be edited if the pipeline is active.  
 *this is an API restriction, only allowing these two parameters to be changed once committed, aside from the parameters documented [here](#edit-pipeline-1)
 
 ## Delete Pipeline
+(User story 13)
+
 Users can also delete their pipelines via the 'Delete' button in the detail view of the pipeline.
 
 ![Delete pipeline](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438181/delete_en0mhy.jpg)
@@ -704,6 +709,7 @@ Users can see confirmation that their pipeline has been deleted.
 ![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438205/pipelinedeleted_dn6r1f.jpg)
 
 ## Account Authentication
+(User story 4)
 
 ### Sign Up
 Users can sign up to use Spaceport by choosing a username and password.
@@ -1019,7 +1025,7 @@ Images as acknowledged above
 
 I'd like to thank my mentor, Mo Shami, for providing me support throughout the development of this project.
 
-I'd like to thank Paul (Github 'pmeeny'), for the inspiration for a good Readme format to follow.
+I'd like to thank Paul (Github 'pmeeny'), for the inspiration for a great (although somewhat intimidating!) Readme format to follow.
 
 I'd like to thank tutor support at Code Institute for many hours of technical help.
 

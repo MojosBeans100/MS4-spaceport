@@ -170,12 +170,12 @@
 </div>
 
 <script>
-
-    // External library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-    mybutton = document.getElementById("myBtn");
+    /*jshint esversion: 6 */
+    // external library - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+    var mybutton = document.getElementById("myBtn");
 
     window.onscroll = function () {
-        scrollFunction()
+        scrollFunction();
     };
 
     function scrollFunction() {
@@ -190,13 +190,13 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
-    // External library ends
+    // external library ends
     
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
-            document.getElementById('nav-active-page').removeAttribute('nav-active-page')
+            document.getElementById('nav-active-page').removeAttribute('nav-active-page');
         }
-        document.getElementsByClassName('nav-link')[3].setAttribute("id", "nav-active-page")
+        document.getElementsByClassName('nav-link')[3].setAttribute("id", "nav-active-page");
     });
 </script>
 

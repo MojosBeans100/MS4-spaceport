@@ -360,7 +360,7 @@ body {
 
 #create-map {
     width: 100%;
-    height: 40vh;
+    height: 38vh;
     box-shadow: 0 0 3px rgb(177, 177, 177);
     /* margin-bottom: 20px; */
 }
@@ -896,7 +896,7 @@ input.invalid {
     }
 
     .image-parent {
-        height: 250px;
+        height: 230px;
     }
 
     /* MY PIPELINES 1200 */
