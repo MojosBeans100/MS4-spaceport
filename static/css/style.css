@@ -557,7 +557,8 @@ input.invalid {
     padding-bottom: 30px;
 }
 
-#form-not-signed-in {
+#form-not-signed-in,
+#pipelines-not-signed-in {
     margin-top: 150px;
 }
 
@@ -1225,6 +1226,10 @@ i {
     margin-top: 80px;
 }
 
+#delete-title {
+    text-align: center;
+}
+
 #delete_form ul {
     list-style-type: none;
     padding: 0;
@@ -1232,6 +1237,10 @@ i {
 
 #delete_form li {
     padding-top: 10px;
+}
+
+#delete-redirect {
+    text-align: center;
 }
 
 #delete_conf {

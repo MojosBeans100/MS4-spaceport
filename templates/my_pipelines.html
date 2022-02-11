@@ -44,13 +44,6 @@
                         ({{pending.count}})</a></div>
                 <p><small>recently created pipelines still gathering information</small></p>
             </div>
-
-            <!-- <div class="col px-3">
-                <div><a class="pipelines_links" href="#saved_pipelines" class="status_buttons">Saved
-                        ({{saved.count}})</a>
-                </div>
-                <p><small>saved 'Create Pipeline' forms not yet submitted</small></p>
-            </div> -->
         </div>  
     </div>
 
@@ -135,6 +128,7 @@
             </div>
         </div>
 
+        <!-- pending pipelines -->
         <div id="pending_pipelines">
             <h1>PENDING ({{pending.count}})</h1>
             <hr>
@@ -162,7 +156,7 @@
 
     <!-- direct unauthenticated users back to homepage -->
     {% else %}
-    <p style="margin-top: 150px;">Ooops you have been redirected to the wrong. Please return home.</p>
+    <p id="pipelines-not-signed-in">Ooops you have been redirected to the wrong. Please return home.</p>
     {% endif %}
 
     <!-- back to top button -->
