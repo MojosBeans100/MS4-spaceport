@@ -467,29 +467,31 @@ def update(request, id):
                 new_result.save()
 
                 if len(i['results']) > 0:
-                    i_results = i['results'][0]
-                    i_metadata = i['overall_metadata']
-                    print(i_results)
-                    print(i_metadata)
 
-                    new_result_1 = i['results'][0]['capture_time']
-                    new_result.image_created_at = new_result_1
-                    new_result.image_updated_at = i['results'][0]['updated_at']
-                    new_result.image_preview_url = i['results'][0]['preview_url']
-                    new_result.image_visual_url = i['results'][0]['visual_url']
-                    new_result.image_analytics_url = i['results'][0]['analytics_url']
-                    new_result.image_metadata_url = i['results'][0]['metadata_url']
-                    new_result.image_size = i['results'][0]['metadata']['size_in_mb']
-                    new_result.image_valid_pixels_per = i['results'][0]['metadata']['valid_pixels_percentage']
-                    new_result.image_source = i['results'][0]['metadata']['source']
-                    new_result.scene_height = i['overall_metadata']['scene_height']
-                    new_result.scene_width = i['overall_metadata']['scene_width']
-                    new_result.filled_area = i['overall_metadata']['filled_area_km2']
-                    new_result.aoi_area_per = i['overall_metadata']['filled_area_percentage_of_aoi']
-                    new_result.cloud_cover_per = i['overall_metadata']['cloud_cover_percentage']
-                    new_result.aoi_cloud_cover_per = i['overall_metadata']['cloud_cover_percentage_of_aoi']
-                    new_result.visible_area = i['overall_metadata']['visible_area_km2']
-                    new_result.aoi_visible_area_per = i['overall_metadata']['visible_area_percentage_of_aoi']
+                    ires = i['results'][0]
+                    imet = i['overall_metadata']
+
+                    new_result.image_created_at = ires['capture_time']
+                    new_result.image_updated_at = ires['updated_at']
+                    new_result.image_preview_url = ires['preview_url']
+                    new_result.image_visual_url = ires['visual_url']
+                    new_result.image_analytics_url = ires['analytics_url']
+                    new_result.image_metadata_url = ires['metadata_url']
+                    new_result.image_size = ires['metadata']['size_in_mb']
+                    ires_valid = ires['metadata']['valid_pixels_percentage']
+                    new_result.image_valid_pixels_per = ires_valid
+                    new_result.image_source = ires['metadata']['source']
+                    new_result.scene_height = imet['scene_height']
+                    new_result.scene_width = imet['scene_width']
+                    new_result.filled_area = imet['filled_area_km2']
+                    imet_filled = imet['filled_area_percentage_of_aoi']
+                    new_result.aoi_area_per = imet_filled
+                    new_result.cloud_cover_per = imet['cloud_cover_percentage']
+                    imet_cl_per = imet['cloud_cover_percentage_of_aoi']
+                    new_result.aoi_cloud_cover_per = imet_cl_per
+                    new_result.visible_area = imet['visible_area_km2']
+                    imet_vis = imet['visible_area_percentage_of_aoi']
+                    new_result.aoi_visible_area_per = imet_vis
 
                     update_list.featured_image = i['results'][0]['preview_url']
                     update_list.save()
