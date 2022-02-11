@@ -192,6 +192,7 @@
                         {% endfor %}
                     </table>
                     <br>
+
                     <!-- interval status table -->
                     <div>
                         <table id="detail-table">
@@ -216,10 +217,7 @@
                     </div>
                 </div>
                 {% endif %}
-
-
             </div>
-
         </div>
         <hr>
 
@@ -234,8 +232,7 @@
                 <table class="table align-middle" id="result-table">
                     <tr data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
-                        <th style="text-align: center;"><i style="padding: 0; margin: 0; font-size: 20px;"
-                                class="fas fa-angle-down" id="pulse"></i>
+                        <th style="text-align: center;"><i class="fas fa-angle-down" id="pulse"></i>
                         </th>
                         <th>Status</th>
                         <th>Interval dates</th>
@@ -246,7 +243,6 @@
                     </tr>
 
                     {% for result in results %}
-
                     <!-- if an image has been found for the result object -->
                     <!-- display the image preview and image data -->
                     {% if result.image_visual_url %}
@@ -340,7 +336,6 @@
                                             <td>{{result.filled_area}} km <sup>2</sup></td>
                                             {% endif %}
                                         </tr>
-
                                     </table>
                                 </div>
 
@@ -354,7 +349,6 @@
                                         <tr>
                                             <td>Image size: {{result.image_size}} (MB)</td>
                                         </tr>
-
                                     </table>
                                 </div>
                             </div>
@@ -463,15 +457,6 @@
             {% else %}
             <p>Pipelines can be edited and deleted using the links below.</p>
 
-            <!-- <div class="row pt-2 ">
-                <div class="col-sm p-4 d-flex justify-content-center">
-                    <a href="{% url 'detail_view' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
-                                class="fas fa-arrow-left"></i>Back</button></a></div>
-                <div class="col-sm p-4 d-flex justify-content-center">
-                    <a><button type="submit" class="btn btn-dark btn-lg mx-auto"><i class="far fa-save"></i>Save</button></a>
-                </div>
-            </div> -->
-
             <div class="row pt-2">
                 <div class="col-sm p-4 d-flex justify-content-center"><a
                         href="{% url 'edit_pipeline' pipeline.id %}"><button class="btn btn-dark btn-lg mx-auto"><i
@@ -481,13 +466,10 @@
                                 class="far fa-trash-alt"></i>Delete pipeline</button></a></div>
             </div>
             {% endif %}
-
         </div>
-
     </div>
 
     {% else %}
-
     <div class="user-error">
         <h2>Ooops.. you have been directed to the wrong page.</h2><br><br>
         <a href="{% url 'homepage' %}">Return to home</a>
