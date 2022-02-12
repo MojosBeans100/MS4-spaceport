@@ -116,6 +116,7 @@ The primary goals of the website owner or admin are as follows:
 - To view a list of all pipelines created
 - To view a list of all results created
 - To delete pipelines (API restriction does not allow > 100 pipelines under the developer's account, therefore 'complete' pipelines would have to be deleted if the number of total pipelines was approaching 100)
+- No functionality is required to change user's values
 
 [Back to top](#spaceport)
 
@@ -216,8 +217,8 @@ There are three models in this project.  As the project uses an API for a lot of
 |image_size|the size of the image in megabytes|API|Charfield|
 |image_valid_pixels_per|the % of valid pixels in the image|API|Charfield|
 |image_source|the satellite the image was captured by|API|Charfield|
-|scene_height||API|Charfield|
-|scene_width||API|Charfield|
+|scene_height|the height the image was taken from|API|Charfield|
+|scene_width|the ground width of the image|API|Charfield|
 |filled_area|area in km2 of the AOI which was able to be captured|API|Charfield|
 |aoi_area_per|% of the AOI which was captured|API|Charfield|
 |cloud_cover_per|cloud cover % of the image|API|Charfield|
@@ -480,6 +481,15 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 - 13.5: As a **Site User** I can **see an exit button when deleting my pipeline** so that **I can change my mind if I no longer want to delete this pipeline**
 - 13.6: As a **Site User** I am **given feedback that the pipeline was deleted** so that **I have confirmation that the pipeline was deleted**
 
+### Admin Goals
+The Django admin panel can be used to view all pipelines and respective results, and pipelines can also be deleted from here. 
+
+![Admin panel](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644657234/adminlist_cifest.jpg)
+
+![Admin list view](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644657234/admindetail_n3izek.jpg)
+
+![Admin result view](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644657234/adminresult_y31nze.jpg)
+
 [Back to top](#spaceport)
 
 # Features
@@ -723,11 +733,11 @@ The name and parameters* of pipelines can be edited if the pipeline is active.  
 
 Users can also delete their pipelines via the 'Delete' button in the detail view of the pipeline.
 
-![Delete pipeline](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438181/delete_en0mhy.jpg)
+![Delete pipeline](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644618247/deletedupdated_mr2tfk.jpg)
 
 Users can see confirmation that their pipeline has been deleted.
 
-![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644618247/deletedupdated_mr2tfk.jpg)
+![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438205/pipelinedeleted_dn6r1f.jpg)
 
 ## Error Pages
 An error message will be displayed to the user if:
@@ -993,7 +1003,7 @@ To run this project locally, you will need to clone the repository.  You will al
 ![Mapbox public key](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644512336/mapboxaccesstoken_jefps0.jpg)
 
 #### Skywatch API Key
-Create an API key with Skywatch will require navigating to the [Request Access](https://www.skywatch.com/earthcache/get-access) webpage and then awaiting approval.
+Create an API key with Skywatch will require navigating to the [Request Access](https://www.skywatch.com/earthcache/get-access) webpage and then awaiting approval.  If there are any issues with requesting access, the developer can provide their own API key, but it is *really important* that this is only used for the purposes of testing the project locally, and that 'max_cost' in the 'create' view is kept to zero.
 
 #### Cloning Workspace
 1. Log in to [Github](https://github.com/)
@@ -1005,7 +1015,7 @@ Create an API key with Skywatch will require navigating to the [Request Access](
 
 The repository will now be cloned to your workspace.
 
-5. Create an env.py file(do not commit this file to source control) in the root folder in your project, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values
+5. Create an env.py file (do not commit this file to source control) in the root folder in your project, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values
 
 <code>import os
 
@@ -1028,8 +1038,8 @@ To deploy this application to Heroku, run the following steps.
 1. Create an account at [heroku.com](https://id.heroku.com/)
 2. Create an app, give it a name - for example ms4spaceport - and select a region
 3. Under resources search for postgres, and add a Postgres database to the app
-4. Note the DATABASE_URL, this can be set as an environment variable in Heroku and your local deployment(env.py)
-5. Install the plugins dj-database-url and psycopg2-binary.
+4. Note the DATABASE_URL, this can be set as an environment variable in Heroku and your local deployment (env.py)
+5. Install the plugins dj-database-url and psycopg2-binary
 6. Run pip3 freeze > requirements.txt so both are added to the requirements.txt file
 7. Create a Procfile with the text: web: gunicorn ms4spaceport.wsgi:application for example
 8. In the settings.py ensure the connection is to the Heroku postgres database
