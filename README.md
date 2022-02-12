@@ -47,12 +47,13 @@ Spaceport is a full stack website which allows users to access satellite imagery
     * [Create Pipeline](#create-a-pipeline)
     * [Edit](#edit-pipeline)
     * [Delete](#delete-pipeline)
-    * [Account authentication]()
+    * [Error pages](#error-pages)
 - [Technologies used](#technologies-used)
     * [HTML/CSS](#htmlcss)
     * [Javascript](#javascript)
     * [Python](#python)
     * [Django](#django)
+    * [Other libraries](#other-libraries)
     * [APIs](#apis)
 - [Testing](#testing)
 - [Additional Features](#additional-features)
@@ -751,17 +752,6 @@ An error message will be displayed to the user if:
 ![API not reached](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644653006/errorform500_f4dgea.jpg)
 
 
-
-
-
-Pipeline not found
-![Pipeline not found]()
-
-
-
-## Account Authentication
-(User story 4)
-
 ### Sign Up
 Users can sign up to use Spaceport by choosing a username and password.
 
@@ -832,15 +822,38 @@ The code is derived from a simple example from the ChartJS [documentation](https
 
 
 ## Python
-
+[Python]((https://www.python.org/)) was used for server side coding on the project.
 
 ## Django
 - [Django](https://www.djangoproject.com/) is the framework used in this project
 - The Django templating language was used to render pages
 - The Django [unit test library](https://docs.djangoproject.com/en/3.2/topics/testing/overview/) was used for unit tests
+- The Django allauth library was used for user authentication.
 
 ## APIs
 Two APIs were implemented into the project.
+
+## Other Libraries
+- Bootstrap 5.0 (https://getbootstrap.com/docs/5.0)
+The project uses the bootstrap library for some UI components in the website (Buttons, Card, Carousel, Modal, Pagination, Navbar),
+- Postgres (https://www.postgresql.org/)
+The deployed project on Heroku uses a Postgres database,
+- Gitpod (https://gitpod.io/)
+Gitpod was used as an IDE for the project.
+- Github (https://github.com/)
+GitHub was used to store the project code in a repository
+- Balsamiq (https://balsamiq.com/)
+Balsamiq was used to create the website wireframes.
+- Chrome dev tools (https://developers.google.com/web/tools/chrome-devtools)
+For troubleshooting and debugging of the project code
+- Responsive Design (http://ami.responsivedesign.is/)
+Website for generating the responsive image in this README
+- Python Online Editor (https://www.online-python.com/)
+This software was found useful to perform code without having to, for example, create a new form every time the developer wanted to change something
+- JS Beautifier (https://jsonformatter.org/jsbeautifier)
+This was used frequently to copy in large JSON files from the API to view the contents
+- Font Awesome (https://fontawesome.com/)
+Font awesome was used to provide the relevant fonts/icons for the website
 
 ### Skywatch
 The Skywatch API provides access to satellite data.  The full scope of the API can be found [here](https://api-docs.skywatch.co/). 
