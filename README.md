@@ -974,6 +974,9 @@ During development and testing of the project, several satellite images were del
 
 [Blind spot/discolouration on image](https://s3-us-west-2.amazonaws.com/aoi-processed-images-prod/f1bf1d28-8b6c-11ec-98ed-3a58c107bc02/8b4f58ca-c7fc-4801-a8bf-972bfc4aab8c/preview/SKYWATCH_S2_MS_20210218T0230_TC_Tile_0_0_fqhF_preview.png)
 
+## Mapbox not rendering full size
+In some occasions when the user scrolls back through the Create a Pipeline form, the Mapbox map renders in a size of around 300px x 300px, as opposed to the full size map set by the CSS.  This is a [known bug](https://github.com/mapbox/mapbox-gl-js/issues/3265) of Mapbox, and occurs infrequently.  Users can 'Inspect' the page which will render it full size, although it is still usable in the smaller box.
+
 [Back to top](#spaceport)
 
 # Deployment

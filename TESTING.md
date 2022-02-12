@@ -60,7 +60,6 @@ This document details the testing procedures carried out to ensure expected func
         - [Acceptance Criteria](#acceptance-critera-13)
         - [Testing](#testing-13)
         - [Acceptance Criteria Status](#acceptance-critera-status-13)
-- [Automated Testing]()
 - [Validators](#validators)
     * [HTML](#html)
     * [CSS](#css)
@@ -146,9 +145,12 @@ Each user story is tested for large, medium and small screen sizes to ensure the
 
 
 ## Overview of automated testing
-Basic automated testing was undertaken for the some of the main CRUD functions of the website.  The Skywatch API requests added complexity to this.  Some research into the Mock/Patch function was undertaken, but the developer felt it was beyond their technical level to implement these functions at this point in the diploma. 
+Basic automated testing was undertaken for the some of the main CRUD functions of the website, using Django unittest.
 
-Functions which did not make a request to the API were tested.
+The Skywatch API requests added complexity to automated testing.  Some research into the Mock/Patch function was undertaken, but the developer felt it was beyond their technical level to implement these functions at this point in the diploma. Functions which did not make a request to the API were tested.
+
+For testing, the Heroku database in Settings was commented out for the user to use the local Django database.
+The [views.py](spaceport/test_views.py) and [models.py](spaceport/test_models.py) files were tested with automated testing.  Testing coverage is not 100%, but thorough manual testing was undertaken to ensure website functionality. 
 
 # Manual Testing
 ## User Story 1
@@ -533,8 +535,6 @@ As a **Site User** I can **delete my pipeline** so that **I can remove pipelines
 - [x] User is aware that pipeline has been deleted
 
 [Back to top](#testing)
-
-# Automated Testing
 
 # Validators
 All files were checked for format validation.
