@@ -138,6 +138,7 @@ The website was designed to be simple, clear and uncluttered, basic in structure
 Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 
 ### Database
+The database includes:
 
 - Spaceport App
 - templates
@@ -149,7 +150,7 @@ Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 
 #### Database Model
 
-*Database schema*
+*Database schema with custom models*
 ![Schema](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643821929/Spaceport/SCHEMA_j2yy7r.jpg)
 
 #### Models
@@ -158,7 +159,7 @@ There are three models in this project.  As the project uses an API for a lot of
 *Note: during development and testing, many pipelines were created under testing accounts.  Many of these no longer have a respective API model.*
 
 ##### User
-- The User model contains information about the user, as part of the Django allauth library
+- The User model contains information about the user, as part of the [Django allauth library](https://django-allauth.readthedocs.io/en/latest/installation.html)
 - No additional features are added to this model, as a basic username and password satisfy the requirements of the project
 - The 'email address' field was deemed not necessary for this project and was thus removed from the Sign Up form. See [Unfixed Bugs](#unfixed-bugs).
 
