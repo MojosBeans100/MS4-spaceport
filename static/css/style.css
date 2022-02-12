@@ -326,6 +326,7 @@ body {
 
 #form_error {
     color: red;
+    margin-bottom: 50px;
 }
 
 #form_error h2 {

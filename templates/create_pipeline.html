@@ -601,8 +601,10 @@
 
         <!-- ensure only authenticated users can access this page -->
         {% else %}
-        <p id="form-not-signed-in">You are not permitted to create a pipeline without being logged in.</p><br>
-        <a href="{% url 'account_login' %}">Sign up here</a>
+        <div class="user-error">
+            <h1 id="form-not-signed-in">You are not permitted to create a pipeline without being logged in.</h1><br>
+            <a href="{% url 'account_login' %}">Sign up here</a>
+        </div>
 
         {% endif %}
     </div>

@@ -727,6 +727,38 @@ Users can see confirmation that their pipeline has been deleted.
 
 ![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644618247/deletedupdated_mr2tfk.jpg)
 
+## Error Pages
+An error message will be displayed to the user if:
+
+1. the user attempts to view pages requiring user authentication when not logged in
+2. the user attempts to navigate to a pipeline which is not theirs
+3. a pipeline cannot be found in the database
+
+![Not logged in detail view](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644653330/notloggedindetail_lyblzr.jpg)
+
+![Pipeline not found](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644653434/pipelinenotfound_mletph.jpg)
+
+![Pipeline not users](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644653007/deleteerror_cvasi5.jpg)
+
+4. the submitted form was not valid (although strenuous form validation should not allow invalid forms to be submitted)
+
+![Form invalid](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644653640/forminvalid_fj9o04.jpg)
+
+5. the API could not be reached
+
+![API not reached](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644653006/errorform400_acbf2q.jpg)
+
+![API not reached](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644653006/errorform500_f4dgea.jpg)
+
+
+
+
+
+Pipeline not found
+![Pipeline not found]()
+
+
+
 ## Account Authentication
 (User story 4)
 
