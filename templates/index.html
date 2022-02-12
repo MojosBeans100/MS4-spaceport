@@ -4,20 +4,21 @@
 
 {% block content %}
 <div class="container-fluid" id="index-container">
-    
-    {% if error %}
-    <div id="api_error">
-        <h2>{{error}} <br>
-            Your pipeline was not created.</h2>
-    </div>
-    {% else %}
-    {% endif %}
 
     <!-- banner image and text -->
     <div id="banner-section">
         <div class="row align-items-center">
             <div class="col-md order-last order-md-first">
                 <div id="index-banner-text" class="p-5">
+
+                    {% if error %}
+                    <div id="api_error">
+                        <h2>{{error}} <br>
+                            Your pipeline was not created.</h2>
+                    </div>
+                    {% else %}
+                    {% endif %}
+
                     <h1>Access satellite imagery in minutes</h1>
                     <br>
                     <p>It only takes 5 minutes to fill in our simple 'Create a Pipeline' form, and can be done as many
@@ -109,18 +110,18 @@
                 <div class="row py-5">
                     <div class="col-md py-2">
                         <button onClick="location.href='{% url 'discover' %}'" class="btn btn-dark btn-lg"><i
-                                    class="fas fa-search"></i>Discover
-                                More</button>
+                                class="fas fa-search"></i>Discover
+                            More</button>
                     </div>
                     {% if user.is_authenticated %}
-                    <div class="col-md py-2"><button onClick="location.href='{% url 'create' %}'" class="btn btn-dark btn-lg"><i
-                                    class="far fa-images"></i>Create
-                                a
-                                Pipeline</button></div>
+                    <div class="col-md py-2"><button onClick="location.href='{% url 'create' %}'"
+                            class="btn btn-dark btn-lg"><i class="far fa-images"></i>Create
+                            a
+                            Pipeline</button></div>
                     {% else %}
-                    <div class="col-md py-2"><button onClick="location.href='{% url 'account_login' %}'" class="btn btn-dark btn-lg"><i
-                                    class="fa fa-sign-in"></i>Sign
-                                Up</button></div>
+                    <div class="col-md py-2"><button onClick="location.href='{% url 'account_login' %}'"
+                            class="btn btn-dark btn-lg"><i class="fa fa-sign-in"></i>Sign
+                            Up</button></div>
                     {% endif %}
                 </div>
             </div>

@@ -10,6 +10,12 @@
 <div id="detail-view-container" class="container-fluid">
 
     {% if user.is_authenticated %}
+    {% if error %}
+    <div id="detail-not-found-error">
+        <h1>{{error}}</h1>
+    </div>
+    {% else %}
+
     {% if pipeline in users_pipelines %}
 
     <!-- detail view sub navigation -->
@@ -35,7 +41,7 @@
                             class="fas fa-sync"></i>Update</button></a>
                 {% endif %}
                 {% if error %}
-                <p>Your pipeline could not be updated</p>
+                <p>Your pipeline could not be updated at this time</p>
                 {{error}}
                 {% else %}
                 {% if pipeline.results_updated is None %}
@@ -370,8 +376,12 @@
 
                         <!-- but if the interval is complete -->
                         {% else %}
-                        {% if result.status == 'complete' %}
+                        {% if result.status == 'complete' %} 
+                        {% if result.message|lower == 'output formatting - started' %}
+                        <td><em>pending</em></td>
+                        {% else %}
                         <td><em>no image found</em></td>
+                        {% endif %}
                         {% else %}
                         <td><em>pending</em></td>
                         {% endif %}
@@ -471,15 +481,15 @@
 
     {% else %}
     <div class="user-error">
-        <h2>Ooops.. you have been directed to the wrong page.</h2><br><br>
+        <h1>Ooops.. you have been directed to the wrong page.</h1><br><br>
         <a href="{% url 'homepage' %}">Return to home</a>
     </div>
     {% endif %}
-
+    {% endif %}
     <!-- if user is not authenticated but navigates to this page -->
     {% else %}
     <div class="user-error">
-        <h2>Ooops.. you have been directed to the wrong page.</h2><br><br>
+        <h1>Ooops.. you have been directed to the wrong page.</h1><br><br>
         <a href="{% url 'homepage' %}">Return to home</a>
     </div>
     {% endif %}
@@ -487,6 +497,7 @@
     <!-- back to top button -->
     <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i
             class="fas fa-arrow-up"></i>Top</button>
+              
 </div>
 
 <!-- get information from view -->
@@ -790,5 +801,4 @@
     detailMap();
     timelineChart();
 </script>
-
 {% endblock content %}

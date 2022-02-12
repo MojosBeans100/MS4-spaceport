@@ -10,8 +10,9 @@
 <div id="my_pipelines_container" class="container-fluid">
     {% if user.is_authenticated %}
     <div id="my_pipelines_blurb">
+
         <h3>MY PIPELINES</h3>
-        
+
         <!-- if the user has no pipelines, direct them to create pipeline form -->
         {% if active.count == 0 and complete.count == 0 and pending.count == 0 %}
         <div id="pipelines-no-pipelines">
@@ -44,7 +45,7 @@
                         ({{pending.count}})</a></div>
                 <p><small>recently created pipelines still gathering information</small></p>
             </div>
-        </div>  
+        </div>
     </div>
 
     <!-- main pipeline list section -->
@@ -64,8 +65,7 @@
                         <!-- if an image has been found, display this in the card -->
                         {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
-                            <img class="card-img-top" id="pipeline-card-img"
-                            src="{{pipeline.featured_image}}"
+                            <img class="card-img-top" id="pipeline-card-img" src="{{pipeline.featured_image}}"
                                 alt="pipeline image"></a>
 
                         <!-- if no images have been found, display a placeholder image -->
@@ -84,11 +84,11 @@
                                 {% if pipeline.num_images is None %}
                                 {% else %}
                                 <i class="far fa-images"></i>{{pipeline.num_images}}</p>
-                                {% endif %}
+                            {% endif %}
                             <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
                         </div>
                     </div>
-                </div>  
+                </div>
                 {% endfor %}
             </div>
         </div>
@@ -101,7 +101,7 @@
                 {% for pipeline in complete %}
                 <div class="col-sm-6 col-md-4 col-xxl-3">
                     <div class="card my-3" id="pipeline_card">
-                       
+
                         {% if pipeline.featured_image %}
                         <a href="{% url 'detail_view' pipeline.id %}">
                             <img class="card-img-top" id="pipeline-card-img" src="{{pipeline.featured_image}}"
@@ -119,7 +119,7 @@
                                 {% if pipeline.num_images is None %}
                                 {% else %}
                                 <i class="far fa-images"></i>{{pipeline.num_images}}</p>
-                                {% endif %}
+                            {% endif %}
                             <a href="{% url 'detail_view' pipeline.id %}">View <span>>></span></a>
                         </div>
                     </div>
@@ -156,11 +156,15 @@
 
     <!-- direct unauthenticated users back to homepage -->
     {% else %}
-    <p id="pipelines-not-signed-in">Ooops you have been redirected to the wrong. Please return home.</p>
+    <div class="user-error">
+        <h1>Ooops.. you have been directed to the wrong page.</h1><br><br>
+        <a href="{% url 'homepage' %}">Return to home</a>
+    </div>
     {% endif %}
 
     <!-- back to top button -->
-    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i>Top</button>
+    <button class="btn btn-dark" onclick="topFunction()" id="myBtn" title="Go to top"><i
+            class="fas fa-arrow-up"></i>Top</button>
 </div>
 
 <script>
@@ -185,7 +189,7 @@
         document.documentElement.scrollTop = 0;
     }
     // external library ends
-    
+
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('nav-active-page')) {
             document.getElementById('nav-active-page').removeAttribute('nav-active-page');

@@ -152,7 +152,9 @@ Bootstrap was used to aid responsiveness, as well as media queries in CSS.
 ![Schema](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1643821929/Spaceport/SCHEMA_j2yy7r.jpg)
 
 #### Models
-There are three models in this project.  As the project uses an API for a lot of the information stored in the databases, see the associated tables to understand how the data is created (whether by the User, the Spaceport app, or from the API)
+There are three models in this project.  As the project uses an API for a lot of the information stored in the databases, see the associated tables to understand how the data is created (whether by the User, the Spaceport app, or from the API).
+
+*Note: during development and testing, many pipelines were created under testing accounts.  Many of these no longer have a respective API model.*
 
 ##### User
 - The User model contains information about the user, as part of the Django allauth library
@@ -723,7 +725,7 @@ Users can also delete their pipelines via the 'Delete' button in the detail view
 
 Users can see confirmation that their pipeline has been deleted.
 
-![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644438205/pipelinedeleted_dn6r1f.jpg)
+![Delete confirmation](https://res.cloudinary.com/code-institute-mojos-beans/image/upload/v1644618247/deletedupdated_mr2tfk.jpg)
 
 ## Account Authentication
 (User story 4)

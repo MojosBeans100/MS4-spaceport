@@ -72,8 +72,6 @@ def edit(request, id):
 
             form.save()
 
-        # else
-
         return redirect(reverse('detail_view', args=[id]))
 
     context = {
@@ -167,7 +165,8 @@ def create(request):
                     context = {
                         'form': form,
                         'error': "Response 400:"
-                        " there was an error when submitting the form"
+                        " there was an error when submitting the form."
+                        " Please try again later."
                     }
 
                 else:
@@ -259,61 +258,69 @@ def detail_view(request, id):
     image_dates = []
     today = datetime.date.today()
 
-    for result in Result.objects.filter(pipeline_id=id):
+    if List.objects.filter(id=id).exists():
 
-        s_date = result.interval_start_date
-        start_date = s_date.strftime("%d-%m-%Y")
+        for result in Result.objects.filter(pipeline_id=id):
 
-        e_date = result.interval_end_date
-        end_date = e_date.strftime("%d-%m-%Y")
+            s_date = result.interval_start_date
+            start_date = s_date.strftime("%d-%m-%Y")
 
-        if s_date < today and e_date < today:
-            complete_intervals.append(start_date)
-            complete_intervals.append(end_date)
-            result.status = "complete"
-            result.save()
+            e_date = result.interval_end_date
+            end_date = e_date.strftime("%d-%m-%Y")
 
-        if s_date <= today and today <= e_date:
-            current_interval.append(start_date)
-            current_interval.append(end_date)
-            result.status = "current"
-            result.save()
+            if s_date < today and e_date < today:
+                complete_intervals.append(start_date)
+                complete_intervals.append(end_date)
+                result.status = "complete"
+                result.save()
 
+            if s_date <= today and today <= e_date:
+                current_interval.append(start_date)
+                current_interval.append(end_date)
+                result.status = "current"
+                result.save()
+
+            else:
+                all_dates.append(start_date)
+                all_dates.append(end_date)
+
+            if s_date > today and e_date > today:
+                future_intervals.append(start_date)
+                future_intervals.append(end_date)
+                result.status = "future"
+                result.save()
+
+            if result.image_created_at is not None:
+                image_taken = result.image_created_at.strftime("%d-%m-%Y")
+                image_dates.append(image_taken)
+
+        pipeline_s_date = List.objects.get(id=id).start_date
+        if pipeline_s_date > today:
+            message = "not started"
         else:
-            all_dates.append(start_date)
-            all_dates.append(end_date)
+            message = ""
 
-        if s_date > today and e_date > today:
-            future_intervals.append(start_date)
-            future_intervals.append(end_date)
-            result.status = "future"
-            result.save()
+        results = Result.objects.filter(pipeline_id=id)
+        result = results.order_by('interval_start_date')
 
-        if result.image_created_at is not None:
-            image_taken = result.image_created_at.strftime("%d-%m-%Y")
-            image_dates.append(image_taken)
+        context = {
+            'pipeline': List.objects.get(id=id),
+            'results': result,
+            'mapbox_key': mapbox_key,
+            'current': current_interval,
+            'complete': complete_intervals,
+            'future': future_intervals,
+            'images': image_dates,
+            'all_dates': all_dates,
+            'message': message,
+            'users_pipelines': users_pipelines,
+        }
 
-    pipeline_s_date = List.objects.get(id=id).start_date
-    if pipeline_s_date > today:
-        message = "not started"
     else:
-        message = ""
 
-    results = Result.objects.filter(pipeline_id=id)
-    result = results.order_by('interval_start_date')
-
-    context = {
-        'pipeline': List.objects.get(id=id),
-        'results': result,
-        'mapbox_key': mapbox_key,
-        'current': current_interval,
-        'complete': complete_intervals,
-        'future': future_intervals,
-        'images': image_dates,
-        'all_dates': all_dates,
-        'message': message,
-        'users_pipelines': users_pipelines,
-    }
+        context = {
+            'error': "Sorry, this pipeline could not be found."
+        }
 
     return render(request, 'detail_view.html', context)
 

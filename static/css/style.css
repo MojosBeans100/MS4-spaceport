@@ -119,10 +119,9 @@ body {
 
 /* INDEX/HOMEPAGE STYLING */
 #api_error {
-    margin-top: 100px;
-    width: 50%;
-    margin-left: 25%;
     text-align: center;
+    color: red;
+    margin-bottom: 60px;
 }
 
 #index-container {
@@ -326,10 +325,7 @@ body {
 }
 
 #form_error {
-    padding-top: 100px;
-    border: solid black;
-    width: 50%;
-    margin-left: 25%;
+    color: red;
 }
 
 #form_error h2 {
@@ -1028,6 +1024,11 @@ input.invalid {
 
 #detail-view-container {
     padding: 10px;
+}
+
+#detail-not-found-error {
+    margin-top: 150px;
+    text-align: center;
 }
 
 #pending-section {
